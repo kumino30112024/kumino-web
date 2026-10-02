@@ -570,7 +570,7 @@ a {
 ========================================================= */
 
 .coleccion {
-    background-color: var(--beige);
+    background-color: transparent;
 
     padding: 100px 40px;
 }
