@@ -570,11 +570,10 @@ a {
 ========================================================= */
 
 .coleccion {
-    background-color: transparent;
+    background-color: var(--beige);
 
     padding: 100px 40px;
 }
-
 
 /* ENCABEZADO */
 
