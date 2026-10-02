@@ -3802,7 +3802,7 @@ button {
 @media (max-width: 768px) {
 
     .halloween-banner {
-    height: 430px !important;
+    height: 360px !important;
     margin-top: 50px !important;
 
     overflow: hidden !important;
