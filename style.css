@@ -3802,13 +3802,15 @@ button {
 @media (max-width: 768px) {
 
     .halloween-banner {
-        height: 360px !important;
-        margin-top: 50px !important;
+    height: 430px !important;
+    margin-top: 50px !important;
 
-        overflow: hidden !important;
-        background: #211b25 !important;
-    }
+    overflow: hidden !important;
+    background: #211b25 !important;
 
+    background-size: cover !important;
+    background-position: center !important;
+}
 
     /* IMAGEN EN CELULAR */
 
