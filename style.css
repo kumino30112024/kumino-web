@@ -572,7 +572,11 @@ a {
 .coleccion {
     background-color: var(--beige);
 
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+
     padding: 100px 40px;
+    box-sizing: border-box;
 }
 
 /* ENCABEZADO */
