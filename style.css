@@ -485,8 +485,12 @@ a {
     color: inherit;
 }
 .hero-halloween-link .hero-badge {
-    transform: translateY(-35px);
+    top: -60px !important;
+    bottom: auto !important;
+    right: 20px !important;
+    transform: none !important;
 }
+
 /* VIDEO FUTURO */
 
 .hero-image video {
