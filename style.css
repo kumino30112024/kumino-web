@@ -478,7 +478,12 @@ a {
 .hero-image img:hover {
     transform: scale(1.015);
 }
-
+.hero-halloween-link {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
 
 /* VIDEO FUTURO */
 
