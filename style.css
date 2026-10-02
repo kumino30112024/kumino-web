@@ -570,15 +570,15 @@ a {
 ========================================================= */
 
 .coleccion {
+    .coleccion {
     background-color: var(--beige);
 
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
+    width: 100%;
+    margin-left: 0;
 
     padding: 100px 40px;
     box-sizing: border-box;
 }
-
 /* ENCABEZADO */
 
 .coleccion-header {
@@ -629,6 +629,7 @@ a {
 /* GRID */
 
 .coleccion-grid {
+    width: 100%;
     max-width: 1400px;
 
     margin: 0 auto;
