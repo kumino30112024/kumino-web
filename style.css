@@ -570,8 +570,12 @@ a {
 ========================================================= */
 
 .coleccion {
-    width: 100%;
+    width: 100vw;
     box-sizing: border-box;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 
     background-color: var(--beige);
 
