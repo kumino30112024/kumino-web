@@ -2605,10 +2605,11 @@ a {
     }
 
     .btn-oferta {
-        width: 100%;
-
-        text-align: center;
-    }
+    width: auto;
+    min-width: 220px;
+    text-align: center;
+    align-self: center;
+}
 
 
     /* POR QUÉ */
