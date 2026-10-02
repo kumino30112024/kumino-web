@@ -2555,16 +2555,15 @@ a {
     /* HALLOWEEN */
 
     .halloween-banner {
-        min-height: 430px;
+    min-height: 0;
+    height: 360px !important;
 
-        margin-top: 50px;
+    margin-top: 50px;
 
-        padding: 40px 25px;
+    padding: 0;
 
-        text-align: center;
-
-        justify-content: center;
-    }
+    text-align: center;
+}
 
     .halloween-content {
         max-width: 100%;
