@@ -570,8 +570,11 @@ a {
 ========================================================= */
 
 .coleccion {
-    width: 100%;
-    max-width: none;
+    width: 100vw !important;
+    max-width: 100vw !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
 
     box-sizing: border-box;
 
@@ -579,7 +582,6 @@ a {
 
     padding: 100px 40px;
 }
-
 /* ENCABEZADO */
 
 .coleccion-header {
