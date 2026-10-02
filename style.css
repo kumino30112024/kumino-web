@@ -636,7 +636,21 @@ a {
 
     gap: 22px;
 }
+/* =========================================================
+   COLECCIÓN Y HALLOWEEN A ANCHO COMPLETO
+========================================================= */
 
+.coleccion {
+    grid-column: 1 / -1;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.halloween-banner {
+    grid-column: 1 / -1;
+    width: 100%;
+    box-sizing: border-box;
+}
 
 /* =========================================================
    TARJETAS DE COLECCIÓN
