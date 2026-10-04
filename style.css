@@ -484,7 +484,7 @@ a {
     color: inherit;
 }
 .hero-halloween-link .hero-badge {
-    top: -60px !important;
+    top: 20px !important;
     bottom: auto !important;
     right: 20px !important;
     transform: none !important;
@@ -642,6 +642,7 @@ a {
 
     gap: 22px;
 }
+/* =========================================================
    TARJETAS DE COLECCIÓN
 ========================================================= */
 
