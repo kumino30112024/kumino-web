@@ -3071,9 +3071,11 @@ a {
     display: block !important;
     box-sizing: border-box !important;
 
-    background: #211b25 !important;
+    background-image: url("hallowen-kumino.png") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
 }
-
 
 /* IMAGEN */
 
