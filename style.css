@@ -1194,7 +1194,7 @@ a {
        ENCABEZADO MÓVIL
     ============================== */
 
-    .nav-container {
+    .pagina-inicio .nav-container {
         height: 72px !important;
         padding: 0 16px !important;
 
@@ -1206,7 +1206,7 @@ a {
 
     /* BOTÓN HAMBURGUESA */
 
-    .menu-toggle {
+    .pagina-inicio .menu-toggle {
         display: flex !important;
 
         align-items: center !important;
@@ -1230,7 +1230,7 @@ a {
 
     /* LOGO CENTRADO */
 
-    .logo {
+    .pagina-inicio .logo {
         justify-self: center !important;
 
         gap: 7px !important;
@@ -1239,20 +1239,20 @@ a {
         letter-spacing: 3px !important;
     }
 
-    .logo img {
+    .pagina-inicio .logo img {
         width: 32px !important;
         height: 32px !important;
     }
 
     /* OCULTAR MENÚ HORIZONTAL */
 
-    .navbar {
+    .pagina-inicio .navbar {
         display: none !important;
     }
 
     /* CONTACTO */
 
-    .btn-contacto {
+    .pagina-inicio .btn-contacto {
         padding: 10px 17px !important;
 
         font-size: 12px !important;
