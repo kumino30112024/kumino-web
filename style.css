@@ -227,7 +227,11 @@ a {
     box-shadow:
         0 8px 20px rgba(230, 57, 70, 0.28);
 }
+/* MENÚ HAMBURGUESA - OCULTO EN PC */
 
+.menu-toggle {
+    display: none;
+}
 
 /* =========================================================
    HERO PRINCIPAL
@@ -1186,6 +1190,75 @@ a {
 
     text-align: center !important;
 }
+       /* ==============================
+       ENCABEZADO MÓVIL
+    ============================== */
+
+    .nav-container {
+        height: 72px !important;
+        padding: 0 16px !important;
+
+        display: grid !important;
+        grid-template-columns: 45px 1fr auto !important;
+        align-items: center !important;
+        gap: 8px !important;
+    }
+
+    /* BOTÓN HAMBURGUESA */
+
+    .menu-toggle {
+        display: flex !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 42px !important;
+        height: 42px !important;
+
+        padding: 0 !important;
+
+        border: none !important;
+        background: transparent !important;
+
+        color: var(--carbón) !important;
+
+        font-size: 27px !important;
+        line-height: 1 !important;
+
+        cursor: pointer !important;
+    }
+
+    /* LOGO CENTRADO */
+
+    .logo {
+        justify-self: center !important;
+
+        gap: 7px !important;
+
+        font-size: 25px !important;
+        letter-spacing: 3px !important;
+    }
+
+    .logo img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+
+    /* OCULTAR MENÚ HORIZONTAL */
+
+    .navbar {
+        display: none !important;
+    }
+
+    /* CONTACTO */
+
+    .btn-contacto {
+        padding: 10px 17px !important;
+
+        font-size: 12px !important;
+
+        white-space: nowrap !important;
+    }
 }
 /* =========================================================
    POR QUÉ KÚMINO
