@@ -713,7 +713,29 @@
 
 
     </footer>
+<script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.querySelector('.pagina-inicio .navbar');
 
+    if (menuToggle && navbar) {
+
+        menuToggle.addEventListener('click', function () {
+
+            navbar.classList.toggle('menu-abierto');
+
+        });
+
+        navbar.querySelectorAll('a').forEach(function (enlace) {
+
+            enlace.addEventListener('click', function () {
+
+                navbar.classList.remove('menu-abierto');
+
+            });
+
+        });
+    }
+</script>
 
 </body>
 
