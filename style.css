@@ -3517,4 +3517,28 @@ a {
     margin: 0 !important;
 }
 
+/* AJUSTE FINAL: ETIQUETAS DE PROMOCIÓN EN MACHOS */
+body.pagina-machos .catalogo-foto {
+    position: relative;
+}
+
+body.pagina-machos .catalogo-foto .promo-etiqueta {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    z-index: 10 !important;
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 8px 12px !important;
+    margin: 0 !important;
+    background-color: #E06D3E !important;
+    color: #FFFFFF !important;
+    border-radius: 5px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    line-height: 1.4 !important;
+}
+
 
