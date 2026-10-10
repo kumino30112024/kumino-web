@@ -3443,43 +3443,7 @@ a {
     }
 
 
-   
-/* =========================================
-   KÚMINO - PROMOCIONES COLECCIÓN MACHOS
-   ========================================= */
 
-.pagina-machos .producto-catalogo .promo-etiqueta {
-    display: inline-block;
-    background: #E06D3E;
-    color: #FFFFFF;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 8px;
-}
-
-.pagina-machos .producto-catalogo .precio-regular {
-    color: #888888;
-    text-decoration: line-through;
-    font-size: 13px;
-    margin-right: 6px;
-}
-
-.pagina-machos .producto-catalogo .precio-promocional {
-    color: #E06D3E;
-    font-size: 17px;
-    font-weight: 700;
-    margin: 5px 0;
-}
-
-.pagina-machos .producto-catalogo .promo-ahorro {
-    display: block;
-    color: #526B58;
-    font-size: 12px;
-    margin-top: 4px;
-}
 
 /* =========================================
    KÚMINO - MEJORA VISUAL DE PROMOCIONES
@@ -3490,7 +3454,7 @@ a {
 .pagina-machos .producto-catalogo .promo-etiqueta {
     display: inline-block;
     background-color: #E06D3E !important;
-   color: #FFFFFF !important;
+    color: #FFFFFF !important;
     padding: 7px 12px;
     border-radius: 5px;
     font-size: 11px;
