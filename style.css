@@ -3489,8 +3489,8 @@ a {
 /* Etiqueta PROMOCIÓN */
 .pagina-machos .producto-catalogo .promo-etiqueta {
     display: inline-block;
-    background: #E06D3E !important;
-    color: #FFFFFF !important;
+    background-color: #E06D3E !important;
+   color: #FFFFFF !important;
     padding: 7px 12px;
     border-radius: 5px;
     font-size: 11px;
