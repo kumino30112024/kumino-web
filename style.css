@@ -3652,3 +3652,30 @@ body.pagina-machos .categorias-catalogo {
     }
 
 }
+
+/* Adaptación de los filtros a celulares */
+@media (max-width: 600px) {
+
+    body.pagina-machos .categorias-catalogo {
+        width: calc(100% - 32px);
+        max-width: 850px;
+        box-sizing: border-box;
+        margin: 0 auto 35px;
+        padding: 8px;
+        justify-content: flex-start;
+        gap: 4px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        flex-wrap: nowrap;
+        border-radius: 24px;
+    }
+
+    body.pagina-machos .categorias-catalogo button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+}
+
