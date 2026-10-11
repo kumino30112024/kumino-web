@@ -3443,27 +3443,29 @@ a {
     }
 
 /* KÚMINO: ETIQUETAS DE PROMOCIÓN EN MACHOS */
+
 body.pagina-machos .catalogo-foto {
-    position: relative;
+    position: relative !important;
 }
 
 body.pagina-machos .catalogo-foto .promo-etiqueta {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    z-index: 20;
-    display: inline-block;
-    width: auto;
-    height: auto;
-    margin: 0;
-    padding: 8px 12px;
-    background-color: #E06D3E;
-    color: #FFFFFF;
-    border-radius: 5px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.8px;
-    line-height: 1.4;
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    z-index: 20 !important;
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    background-color: #E06D3E !important;
+    color: #FFFFFF !important;
+    border-radius: 5px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    line-height: 1.4 !important;
 }
+```
 
 
