@@ -2052,6 +2052,196 @@ a {
 
 }
 
+/* =========================================================
+   FILTROS DE HEMBRAS - DISEÑO PARA PC
+========================================================= */
+
+body.pagina-hembras .categorias-catalogo {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 55px;
+    padding: 7px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    background-color: var(--beige);
+    border: 1px solid rgba(43, 43, 43, 0.08);
+    border-radius: 40px;
+    box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
+}
+
+body.pagina-hembras .categorias-catalogo .filtro-categoria,
+body.pagina-hembras .categorias-catalogo .filtro-talla {
+    position: relative;
+}
+
+body.pagina-hembras .categorias-catalogo .btn-filtro-categoria,
+body.pagina-hembras .categorias-catalogo .btn-filtro-talla {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    padding: 10px 17px;
+    border: none;
+    border-radius: 25px;
+    background: transparent;
+
+    font-family: var(--fuente-principal);
+    font-size: 11px;
+    font-weight: 500;
+    color: #666;
+
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+body.pagina-hembras .categorias-catalogo .btn-filtro-categoria:hover,
+body.pagina-hembras .categorias-catalogo .btn-filtro-talla:hover {
+    color: var(--carbón);
+    background-color: var(--crema);
+}
+
+body.pagina-hembras .categorias-catalogo .flecha-categoria,
+body.pagina-hembras .categorias-catalogo .flecha-talla {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+body.pagina-hembras .categorias-catalogo .filtro-categoria.abierto .flecha-categoria,
+body.pagina-hembras .categorias-catalogo .filtro-talla.abierto .flecha-talla {
+    transform: rotate(180deg);
+}
+
+/* Menús desplegables */
+body.pagina-hembras .categorias-catalogo .opciones-categoria,
+body.pagina-hembras .categorias-catalogo .opciones-talla {
+    display: none;
+
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 160px;
+    max-height: 280px;
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    padding: 8px;
+    background: #fff;
+    border: 1px solid rgba(43, 43, 43, 0.10);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(43, 43, 43, 0.10);
+
+    z-index: 1000;
+}
+
+body.pagina-hembras .categorias-catalogo .filtro-categoria.abierto .opciones-categoria,
+body.pagina-hembras .categorias-catalogo .filtro-talla.abierto .opciones-talla {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+body.pagina-hembras .categorias-catalogo .opciones-categoria button,
+body.pagina-hembras .categorias-catalogo .opciones-talla button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 10px;
+
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+
+    font-family: var(--fuente-principal);
+    font-size: 12px;
+    font-weight: 500;
+    color: #666;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Opciones seleccionadas */
+body.pagina-hembras .categorias-catalogo .opciones-categoria .categoria-activa,
+body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
+    background: var(--carbón);
+    color: var(--blanco);
+}
+
+/* =========================================================
+   HEMBRAS - PRESENTACIÓN EN CELULARES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body.pagina-hembras .categorias-catalogo {
+        width: calc(100% - 40px);
+        max-width: 420px;
+        margin: 0 auto 32px;
+        padding: 0;
+
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 0;
+
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 28px;
+        box-shadow: none;
+    }
+
+    body.pagina-hembras .categorias-catalogo .filtro-categoria,
+    body.pagina-hembras .categorias-catalogo .filtro-talla {
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
+    }
+
+    body.pagina-hembras .categorias-catalogo .btn-filtro-categoria,
+    body.pagina-hembras .categorias-catalogo .btn-filtro-talla {
+        width: 100%;
+        height: 54px;
+        padding: 0 12px;
+        box-sizing: border-box;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
+
+        font-size: 11px;
+        color: var(--carbón);
+        text-align: left;
+    }
+
+    body.pagina-hembras .categorias-catalogo .filtro-talla {
+        border-left: 1px solid #e5e5e5;
+    }
+
+    body.pagina-hembras .categorias-catalogo .btn-filtro-categoria span:first-child,
+    body.pagina-hembras .categorias-catalogo .btn-filtro-talla span:first-child {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    body.pagina-hembras .categorias-catalogo .opciones-categoria,
+    body.pagina-hembras .categorias-catalogo .opciones-talla {
+        top: calc(100% + 6px);
+        min-width: 150px;
+    }
+}
+
 
 /* =========================================================
    GRID DEL CATÁLOGO
