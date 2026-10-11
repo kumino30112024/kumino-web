@@ -2394,63 +2394,133 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
 }
 
 
-
 /* =========================================================
-   HEMBRAS - PRESENTACIÓN EN CELULARES
+   HEMBRAS - FILTROS EN CELULARES
+   DISEÑO IGUAL A MACHOS
 ========================================================= */
 
 @media (max-width: 600px) {
+
+    /* Barra contenedora */
     body.pagina-hembras .categorias-catalogo {
         width: calc(100% - 32px);
-        max-width: 440px;
-        margin: 0 auto 40px;
+        max-width: 420px;
+        min-width: 0;
+        box-sizing: border-box;
+        margin: 0 auto 35px;
         padding: 0;
 
         display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: center;
-        align-items: stretch;
-        gap: 14px;
+        align-items: flex-start;
+        gap: 10px;
 
+        overflow: visible;
         background: transparent;
         border: none;
         border-radius: 0;
         box-shadow: none;
-        box-sizing: border-box;
     }
 
+    /* Contenedores de categoría y talla */
     body.pagina-hembras .categorias-catalogo .filtro-categoria,
     body.pagina-hembras .categorias-catalogo .filtro-talla {
+        position: relative;
         flex: 1 1 0;
         width: 0;
         min-width: 0;
     }
 
+    /* Botones principales */
     body.pagina-hembras .categorias-catalogo .btn-filtro-categoria,
     body.pagina-hembras .categorias-catalogo .btn-filtro-talla {
         width: 100%;
         min-width: 0;
-        min-height: 68px;
-        padding: 0 13px;
+        min-height: 46px;
+        box-sizing: border-box;
+        padding: 12px 10px;
 
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        gap: 8px;
+        justify-content: space-between;
+        gap: 5px;
 
-        background: #fff;
-        border: 1px solid #e5dfd8;
-        border-radius: 32px;
-        box-shadow: none;
+        background: var(--blanco);
+        border: 1px solid rgba(43, 43, 43, 0.12);
+        border-radius: 24px;
 
-        font-size: 14px;
+        font-family: var(--fuente-principal);
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--carbón);
+        text-align: left;
+        cursor: pointer;
     }
 
+    /* Menús desplegables */
     body.pagina-hembras .categorias-catalogo .opciones-categoria,
     body.pagina-hembras .categorias-catalogo .opciones-talla {
-        min-width: 145px;
-        max-width: 220px;
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: auto;
+
+        width: 100%;
+        min-width: 150px;
+        max-width: min(220px, calc(100vw - 32px));
+        max-height: 280px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding: 8px;
+
+        background: var(--blanco);
+        border: 1px solid rgba(43, 43, 43, 0.10);
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+        z-index: 1000;
+    }
+
+    /* Mostrar los menús al abrirlos */
+    body.pagina-hembras .categorias-catalogo .filtro-categoria.abierto .opciones-categoria,
+    body.pagina-hembras .categorias-catalogo .filtro-talla.abierto .opciones-talla {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Opciones individuales */
+    body.pagina-hembras .categorias-catalogo .opciones-categoria button,
+    body.pagina-hembras .categorias-catalogo .opciones-talla button {
+        flex: 0 0 auto;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 11px 10px;
+
+        border: none;
+        border-radius: 10px;
+        background: transparent;
+
+        font-family: var(--fuente-principal);
+        font-size: 12px;
+        font-weight: 500;
+        color: #666;
+        text-align: left;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    /* Categoría o talla seleccionada */
+    body.pagina-hembras .categorias-catalogo .opciones-categoria .categoria-activa,
+    body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
+        background: var(--carbón);
+        color: var(--blanco);
     }
 }
+
 
 /* =========================================================
    GRID DEL CATÁLOGO
