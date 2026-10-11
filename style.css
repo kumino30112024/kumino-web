@@ -4532,6 +4532,16 @@ body.pagina-machos .categorias-catalogo {
     color: inherit;
     text-decoration: none;
 }
+
+/* Colores de las prendas */
 .color-verde-limon {
     background-color: #A8D900;
+}
+
+.color-rosa-pastel {
+    background-color: #F4C2C2;
+}
+
+.color-amarillo {
+    background-color: #FFD54F;
 }
