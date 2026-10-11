@@ -84,44 +84,70 @@
 
     </div>
 
+    
+<!-- =========================
+     FILTROS DE CATEGORÍA Y TALLA
+========================== -->
 
-    <!-- =========================
-         CATEGORÍAS
-    ========================= -->
+<div class="categorias-catalogo">
 
-    <div class="categorias-catalogo">
+    <!-- FILTRO DE CATEGORÍA -->
+    <div class="filtro-categoria">
 
-        <button class="categoria-activa" data-filtro="todos">
-            Todos
+        <button
+            type="button"
+            class="btn-filtro-categoria"
+            aria-expanded="false">
+            <span>Filtrar por categoría</span>
+            <span class="flecha-categoria">⌄</span>
         </button>
 
-        <button data-filtro="abrigos">
-            Abrigos
-        </button>
+        <div class="opciones-categoria">
 
-        <button data-filtro="casacas">
-            Casacas
-        </button>
+            <button type="button" data-filtro="todos" class="categoria-activa">
+                Todos
+            </button>
 
-        <button data-filtro="chompas">
-            Chompas
-        </button>
+            <button type="button" data-filtro="abrigos">Abrigos</button>
+            <button type="button" data-filtro="casacas">Casacas</button>
+            <button type="button" data-filtro="chompas">Chompas</button>
+            <button type="button" data-filtro="vestidos">Vestidos</button>
+            <button type="button" data-filtro="blusas">Blusas</button>
+            <button type="button" data-filtro="otros">Otros</button>
 
-        <button data-filtro="vestidos">
-            Vestidos
-        </button>
-
-        <button data-filtro="blusas">
-            Blusas
-        </button>
-
-        <button data-filtro="otros">
-            Otros
-        </button>
-
+        </div>
     </div>
 
+    <!-- FILTRO DE TALLA -->
+    <div class="filtro-talla">
 
+        <button
+            type="button"
+            class="btn-filtro-talla"
+            aria-expanded="false">
+            <span>Filtrar por talla</span>
+            <span class="flecha-talla">⌄</span>
+        </button>
+
+        <div class="opciones-talla">
+
+            <button type="button" data-talla="todas">Todas las tallas</button>
+            <button type="button" data-talla="1">Talla 1</button>
+            <button type="button" data-talla="2">Talla 2</button>
+            <button type="button" data-talla="3">Talla 3</button>
+            <button type="button" data-talla="4">Talla 4</button>
+            <button type="button" data-talla="5">Talla 5</button>
+            <button type="button" data-talla="6">Talla 6</button>
+            <button type="button" data-talla="7">Talla 7</button>
+            <button type="button" data-talla="8">Talla 8</button>
+            <button type="button" data-talla="9">Talla 9</button>
+
+        </div>
+    </div>
+
+</div>
+
+   
     <!-- =========================
          PRODUCTOS
     ========================= -->
@@ -132,7 +158,8 @@
         <!-- 01 -->
         <a href="encaje-coquette.html"
            class="producto-catalogo"
-           data-categoria="blusas">
+           data-categoria="blusas"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -151,7 +178,8 @@
         <!-- 02 -->
         <a href="abrigo-duquesa.html"
            class="producto-catalogo"
-           data-categoria="abrigos">
+           data-categoria="abrigos"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -170,7 +198,8 @@
         <!-- 03 -->
         <a href="puffer-nube.html"
            class="producto-catalogo"
-           data-categoria="abrigos">
+           data-categoria="abrigos"
+           data-tallas="1 2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -189,7 +218,8 @@
         <!-- 04 -->
         <a href="casaca-brisa.html"
            class="producto-catalogo"
-           data-categoria="casacas">
+           data-categoria="casacas"
+           data-tallas="1 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -208,7 +238,8 @@
         <!-- 05 -->
         <a href="casaca-latidos.html"
            class="producto-catalogo"
-           data-categoria="casacas">
+           data-categoria="casacas"
+           data-tallas="3 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -227,7 +258,8 @@
         <!-- 06 -->
         <a href="chompa-hilo.html"
            class="producto-catalogo"
-           data-categoria="chompas">
+           data-categoria="chompas"
+           data-tallas="1 2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -246,7 +278,8 @@
         <!-- 07 -->
         <a href="pijama-sueno-oso.html"
            class="producto-catalogo"
-           data-categoria="otros">
+           data-categoria="otros"
+           data-tallas="2">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -265,7 +298,8 @@
         <!-- 08 -->
         <a href="blusa-baby-bear.html"
            class="producto-catalogo"
-           data-categoria="blusas">
+           data-categoria="blusas"
+           data-tallas="2 3 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -284,7 +318,8 @@
         <!-- 09 -->
         <a href="hilado-fantasia-corazones.html"
            class="producto-catalogo"
-           data-categoria="chompas">
+           data-categoria="chompas"
+           data-tallas="0 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -303,7 +338,8 @@
         <!-- 10 -->
         <a href="vestido-fresa-encantada.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -322,7 +358,8 @@
         <!-- 11 -->
         <a href="vestido-hacienda-real.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -341,7 +378,8 @@
         <!-- 12 -->
         <a href="vestido-pink-blossom.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="1 2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -360,7 +398,8 @@
         <!-- 13 -->
         <a href="vestido-coquette-blossom.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -379,7 +418,8 @@
         <!-- 14 -->
         <a href="vestido-dulce-primavera.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -398,7 +438,8 @@
         <!-- 15 -->
         <a href="vestido-novia-elegante.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -417,7 +458,8 @@
         <!-- 16 -->
         <a href="vestido-de-boda.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -436,7 +478,8 @@
         <!-- 17 -->
         <a href="gala-floral-pink.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="0 1 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -455,7 +498,8 @@
         <!-- 18 -->
         <a href="ruffle-dress.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -474,7 +518,8 @@
         <!-- 19 -->
         <a href="vestido-lazo-cereza.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -493,7 +538,8 @@
         <!-- 20 -->
         <a href="cortavientos-pink-pocket.html"
            class="producto-catalogo"
-           data-categoria="otros">
+           data-categoria="otros"
+           data-tallas="2 3 4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -512,7 +558,8 @@
         <!-- 21 -->
         <a href="cortavientos-pink-purpple.html"
            class="producto-catalogo"
-           data-categoria="otros">
+           data-categoria="otros"
+           data-tallas="1 2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -531,7 +578,8 @@
         <!-- 22 -->
         <a href="vestido-de-princesa.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3-4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -550,7 +598,8 @@
         <!-- 23 -->
         <a href="vestido-princesa-de-hielo.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3-4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -569,7 +618,8 @@
         <!-- 24 -->
         <a href="vestido-suspiro-de-corazones.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2 3-4">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -588,7 +638,8 @@
         <!-- 25 -->
         <a href="vestido-princess-blue.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -607,7 +658,8 @@
         <!-- 26 -->
         <a href="vestido-lazo-noir.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -626,7 +678,8 @@
         <!-- 27 -->
         <a href="vestido-margarita.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -645,7 +698,8 @@
         <!-- 28 -->
         <a href="vestido-elegancia-real.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -664,7 +718,8 @@
         <!-- 29 -->
         <a href="vestido-noche-de-diamantes.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="3 5 6">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -683,7 +738,8 @@
         <!-- 30 -->
         <a href="cafarena-encaje-de-angel.html"
            class="producto-catalogo"
-           data-categoria="otros">
+           data-categoria="otros"
+           data-tallas="1 2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -702,7 +758,8 @@
         <!-- 31 -->
         <a href="gala-ejecutiva.html"
            class="producto-catalogo"
-           data-categoria="otros">
+           data-categoria="otros"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -721,7 +778,8 @@
         <!-- 32 -->
         <a href="vestido-rous.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -740,7 +798,8 @@
         <!-- 33 -->
         <a href="vestido-porrista-tejido.html"
            class="producto-catalogo"
-           data-categoria="vestidos">
+           data-categoria="vestidos"
+           data-tallas="2 3">
 
             <div class="catalogo-foto">
                 <span></span>
@@ -758,6 +817,8 @@
     </div>
 
 </section>
+
+
 
 
 <!-- =========================
@@ -845,59 +906,154 @@
 ========================= -->
 
 <script>
+const filtroCategoria = document.querySelector(
+    ".filtro-categoria"
+);
 
-const botones = document.querySelectorAll(
-    ".categorias-catalogo button"
+const botonCategoria = document.querySelector(
+    ".btn-filtro-categoria"
+);
+
+const opcionesCategoria = document.querySelectorAll(
+    ".opciones-categoria button[data-filtro]"
+);
+
+const filtroTalla = document.querySelector(
+    ".filtro-talla"
+);
+
+const botonTalla = document.querySelector(
+    ".btn-filtro-talla"
+);
+
+const opcionesTalla = document.querySelectorAll(
+    ".opciones-talla button[data-talla]"
 );
 
 const productos = document.querySelectorAll(
     ".producto-catalogo"
 );
 
-botones.forEach(boton => {
+let categoriaSeleccionada = "todos";
+let tallaSeleccionada = "todas";
 
-    boton.addEventListener("click", () => {
+/* Abrir y cerrar el menú de categorías */
+if (filtroCategoria && botonCategoria) {
+    botonCategoria.addEventListener("click", () => {
+        const abierto = filtroCategoria.classList.toggle("abierto");
 
-        const filtro = boton.dataset.filtro;
-
-        botones.forEach(b => {
-
-            b.classList.remove(
-                "categoria-activa"
-            );
-
-        });
-
-        boton.classList.add(
-            "categoria-activa"
+        botonCategoria.setAttribute(
+            "aria-expanded",
+            abierto ? "true" : "false"
         );
 
-        productos.forEach(producto => {
+        filtroTalla?.classList.remove("abierto");
+        botonTalla?.setAttribute("aria-expanded", "false");
+    });
+}
 
-            const categoria =
-                producto.dataset.categoria;
+/* Abrir y cerrar el menú de tallas */
+if (filtroTalla && botonTalla) {
+    botonTalla.addEventListener("click", () => {
+        const abierto = filtroTalla.classList.toggle("abierto");
 
-            if (
-                filtro === "todos" ||
-                categoria === filtro
-            ) {
+        botonTalla.setAttribute(
+            "aria-expanded",
+            abierto ? "true" : "false"
+        );
 
-                producto.style.display = "block";
+        filtroCategoria?.classList.remove("abierto");
+        botonCategoria?.setAttribute("aria-expanded", "false");
+    });
+}
 
-            } else {
+/* Aplicar los dos filtros simultáneamente */
+function actualizarProductos() {
+    productos.forEach(producto => {
+        const categoria = (
+            producto.dataset.categoria || ""
+        ).trim().toLowerCase();
 
-                producto.style.display = "none";
+        const tallasTexto = [
+            producto.dataset.tallas || "",
+            producto.dataset.talla || ""
+        ].join(" ").trim().toLowerCase();
 
-            }
+        // Conserva "3-4" como una talla independiente
+        const tallasProducto = tallasTexto
+            .split(/[\s,;|]+/)
+            .filter(Boolean);
 
+        const coincideCategoria =
+            categoriaSeleccionada === "todos" ||
+            categoria === categoriaSeleccionada;
+
+        const coincideTalla =
+            tallaSeleccionada === "todas" ||
+            tallasProducto.includes(tallaSeleccionada);
+
+        producto.style.display =
+            coincideCategoria && coincideTalla ? "" : "none";
+    });
+}
+
+/* Seleccionar categoría */
+opcionesCategoria.forEach(boton => {
+    boton.addEventListener("click", () => {
+        categoriaSeleccionada = boton.dataset.filtro;
+
+        opcionesCategoria.forEach(opcion => {
+            opcion.classList.toggle(
+                "categoria-activa",
+                opcion === boton
+            );
         });
 
-    });
+        const texto = botonCategoria?.querySelector(
+            "span:first-child"
+        );
 
+        if (texto) {
+            texto.textContent = boton.textContent.trim();
+        }
+
+        filtroCategoria?.classList.remove("abierto");
+        botonCategoria?.setAttribute("aria-expanded", "false");
+
+        actualizarProductos();
+    });
 });
 
+/* Seleccionar talla */
+opcionesTalla.forEach(boton => {
+    boton.addEventListener("click", () => {
+        tallaSeleccionada = boton.dataset.talla;
+
+        opcionesTalla.forEach(opcion => {
+            opcion.classList.toggle(
+                "talla-activa",
+                opcion === boton
+            );
+        });
+
+        const texto = botonTalla?.querySelector(
+            "span:first-child"
+        );
+
+        if (texto) {
+            texto.textContent =
+                tallaSeleccionada === "todas"
+                    ? "Filtrar por talla"
+                    : "Talla " + tallaSeleccionada;
+        }
+
+        filtroTalla?.classList.remove("abierto");
+        botonTalla?.setAttribute("aria-expanded", "false");
+
+        actualizarProductos();
+    });
+});
+
+/* Mostrar los productos al cargar la página */
+actualizarProductos();
 </script>
-
-
-</body>
-</html>
