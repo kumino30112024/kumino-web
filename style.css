@@ -3685,4 +3685,28 @@ body.pagina-machos .categorias-catalogo {
 
 }
 
+@media screen and (max-width: 600px) {
+    body.pagina-machos .categorias-catalogo {
+        display: grid !important;
+        grid-template-columns: max-content max-content !important;
+        justify-content: start !important;
+        width: calc(100% - 32px) !important;
+        max-width: none !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+        gap: 6px !important;
+        padding: 10px !important;
+    }
+
+    body.pagina-machos .categorias-catalogo > button {
+        width: auto !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+    }
+
+    body.pagina-machos .categorias-catalogo .filtro-talla {
+        grid-column: 1 / -1;
+    }
+}
+
 
