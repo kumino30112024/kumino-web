@@ -4562,3 +4562,42 @@ body.pagina-machos .categorias-catalogo {
 .color-rosa {
     background-color: #E88BAA;
 }
+
+/* =========================================================
+   CORRECCIÓN DE CUADRÍCULA DE HEMBRAS EN MÓVILES
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .productos-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        align-content: start;
+        gap: 28px 14px;
+    }
+
+    .productos-grid > .producto-catalogo,
+    .productos-grid > .producto-enlace {
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+        align-self: start;
+    }
+
+    .productos-grid .producto-liquidacion {
+        width: 100%;
+        margin: 0;
+    }
+
+    .productos-grid .catalogo-foto {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+
+    .productos-grid .catalogo-foto img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
