@@ -691,42 +691,30 @@
         </span>
 </div>
 </footer>
-<!-- =========================
-     FILTROS
-========================= -->
+
 <script>
-const filtroCategoria = document.querySelector(
-    ".filtro-categoria"
-);
-
-const botonCategoria = document.querySelector(
-    ".btn-filtro-categoria"
-);
-
+const filtroCategoria = document.querySelector(".filtro-categoria");
+const botonCategoria = document.querySelector(".btn-filtro-categoria");
 const opcionesCategoria = document.querySelectorAll(
     ".opciones-categoria button[data-filtro]"
 );
 
-const filtroTalla = document.querySelector(
-    ".filtro-talla"
-);
-
-const botonTalla = document.querySelector(
-    ".btn-filtro-talla"
-);
-
+const filtroTalla = document.querySelector(".filtro-talla");
+const botonTalla = document.querySelector(".btn-filtro-talla");
 const opcionesTalla = document.querySelectorAll(
     ".opciones-talla button[data-talla]"
 );
 
+/* Cada producto se selecciona una sola vez desde la cuadrícula */
 const productos = document.querySelectorAll(
-    ".producto-catalogo"
+    ".productos-grid > .producto-catalogo, " +
+    ".productos-grid > .producto-enlace"
 );
 
 let categoriaSeleccionada = "todos";
 let tallaSeleccionada = "todas";
 
-/* Abrir y cerrar el menú de categorías */
+/* Abrir y cerrar categorías */
 if (filtroCategoria && botonCategoria) {
     botonCategoria.addEventListener("click", () => {
         const abierto = filtroCategoria.classList.toggle("abierto");
@@ -741,7 +729,7 @@ if (filtroCategoria && botonCategoria) {
     });
 }
 
-/* Abrir y cerrar el menú de tallas */
+/* Abrir y cerrar tallas */
 if (filtroTalla && botonTalla) {
     botonTalla.addEventListener("click", () => {
         const abierto = filtroTalla.classList.toggle("abierto");
@@ -756,19 +744,29 @@ if (filtroTalla && botonTalla) {
     });
 }
 
-/* Aplicar los dos filtros simultáneamente */
+/* Aplicar filtros a cada tarjeta completa */
 function actualizarProductos() {
     productos.forEach(producto => {
+        /* Los productos normales tienen los datos en el enlace.
+           Las promociones los tienen en la tarjeta interior. */
+        const tarjeta = producto.classList.contains("producto-enlace")
+            ? producto.querySelector(".producto-liquidacion")
+            : producto;
+
+        if (!tarjeta) {
+            producto.hidden = true;
+            return;
+        }
+
         const categoria = (
-            producto.dataset.categoria || ""
+            tarjeta.dataset.categoria || ""
         ).trim().toLowerCase();
 
         const tallasTexto = [
-            producto.dataset.tallas || "",
-            producto.dataset.talla || ""
-        ].join(" ").trim().toLowerCase();
+            tarjeta.dataset.tallas || "",
+            tarjeta.dataset.talla || ""
+        ].join(" ");
 
-        // Conserva "3-4" como una talla independiente
         const tallasProducto = tallasTexto
             .split(/[\s,;|]+/)
             .filter(Boolean);
@@ -781,8 +779,9 @@ function actualizarProductos() {
             tallaSeleccionada === "todas" ||
             tallasProducto.includes(tallaSeleccionada);
 
-        producto.style.display =
-            coincideCategoria && coincideTalla ? "" : "none";
+        producto.hidden = !(
+            coincideCategoria && coincideTalla
+        );
     });
 }
 
@@ -798,9 +797,7 @@ opcionesCategoria.forEach(boton => {
             );
         });
 
-        const texto = botonCategoria?.querySelector(
-            "span:first-child"
-        );
+        const texto = botonCategoria?.querySelector("span:first-child");
 
         if (texto) {
             texto.textContent = boton.textContent.trim();
@@ -825,9 +822,7 @@ opcionesTalla.forEach(boton => {
             );
         });
 
-        const texto = botonTalla?.querySelector(
-            "span:first-child"
-        );
+        const texto = botonTalla?.querySelector("span:first-child");
 
         if (texto) {
             texto.textContent =
@@ -842,7 +837,4 @@ opcionesTalla.forEach(boton => {
         actualizarProductos();
     });
 });
-
-/* Mostrar los productos al cargar la página */
-actualizarProductos();
-</script></body></html>
+</script>
