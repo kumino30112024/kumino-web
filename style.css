@@ -2201,13 +2201,14 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
     color: var(--blanco);
 }
 
+
 /* =========================================================
    HEMBRAS - DISEÑO DE FILTROS PARA PC
 ========================================================= */
 
 @media (min-width: 601px) {
 
-    /* Barra horizontal */
+    /* Barra blanca centrada, como MACHOS */
     body.pagina-hembras .categorias-catalogo {
         width: calc(100% - 48px);
         max-width: 1060px;
@@ -2227,26 +2228,27 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         box-sizing: border-box;
     }
 
-    /* Ocultar el botón desplegable de categoría en PC */
+    /* Ocultar el botón desplegable de categorías en PC */
     body.pagina-hembras .categorias-catalogo .btn-filtro-categoria {
         display: none;
     }
 
-    /* Mostrar las categorías en una fila */
+    /* Espacio destinado a las categorías */
     body.pagina-hembras .categorias-catalogo .filtro-categoria {
         position: static;
         flex: 1 1 auto;
         min-width: 0;
     }
 
+    /* Categorías distribuidas horizontalmente */
     body.pagina-hembras .categorias-catalogo .opciones-categoria {
         position: static;
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        flex-wrap: wrap;
-        gap: 4px;
+        flex-wrap: nowrap;
+        gap: 5px;
 
         width: 100%;
         min-width: 0;
@@ -2260,18 +2262,19 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         box-shadow: none;
     }
 
-    /* Estilo de los botones de categoría */
+    /* Botones de categorías */
     body.pagina-hembras .categorias-catalogo .opciones-categoria button {
         width: auto;
-        padding: 10px 12px;
+        flex: 0 0 auto;
+        padding: 14px 17px;
         border: none;
-        border-radius: 25px;
+        border-radius: 28px;
 
         background: transparent;
         font-family: var(--fuente-principal);
-        font-size: 11px;
+        font-size: 13px;
         font-weight: 500;
-        color: #666;
+        color: #444;
         text-align: center;
         white-space: nowrap;
         cursor: pointer;
@@ -2298,15 +2301,15 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
     /* Filtro de talla a la derecha */
     body.pagina-hembras .categorias-catalogo .filtro-talla {
         position: relative;
-        flex: 0 0 180px;
+        flex: 0 0 190px;
     }
 
-    /* Botón del filtro de talla */
+    /* Botón de talla */
     body.pagina-hembras .categorias-catalogo .btn-filtro-talla {
         width: 100%;
         min-width: 0;
-        min-height: 40px;
-        padding: 10px 14px;
+        min-height: 48px;
+        padding: 10px 15px;
 
         display: flex;
         align-items: center;
@@ -2320,16 +2323,10 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         box-shadow: none;
 
         font-family: var(--fuente-principal);
-        font-size: 11px;
+        font-size: 13px;
         font-weight: 500;
         color: var(--carbón);
         cursor: pointer;
-        transition: background-color 0.25s ease, border-color 0.25s ease;
-    }
-
-    body.pagina-hembras .categorias-catalogo .btn-filtro-talla:hover {
-        background: var(--crema);
-        border-color: #d8d0c7;
     }
 
     /* Menú desplegable de tallas */
