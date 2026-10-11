@@ -3685,12 +3685,11 @@ body.pagina-machos .categorias-catalogo {
 
 }
 
-
-/* FIX DEFINITIVO: filtros MACHOS en móviles */
+/* FIX: filtros MACHOS en móviles */
 @media (max-width: 600px) {
 
     body.pagina-machos .categorias-catalogo {
-        width: 200px !important;
+        width: 100% !important;
         max-width: 850px;
         min-width: 0;
         box-sizing: border-box;
@@ -3718,6 +3717,3 @@ body.pagina-machos .categorias-catalogo {
     }
 
 }
-
-
-
