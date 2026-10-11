@@ -3746,41 +3746,105 @@ body.pagina-machos .categorias-catalogo {
     }
 }
 
+
 /* Filtros MACHOS en celulares */
 @media (max-width: 600px) {
 
     body.pagina-machos .categorias-catalogo {
-        width: calc(100% - 32px) !important;
-        max-width: none !important;
+        width: calc(100% - 32px);
+        max-width: 420px;
         min-width: 0;
         box-sizing: border-box;
         margin: 0 auto 35px;
-        padding: 8px;
+        padding: 0;
         display: flex;
+        flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 4px;
-        overflow-x: auto;
-        overflow-y: hidden;
-        border-radius: 24px;
-        -webkit-overflow-scrolling: touch;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        overflow: visible;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
     }
 
+    body.pagina-machos .categorias-catalogo .filtro-categoria,
     body.pagina-machos .categorias-catalogo .filtro-talla {
-        flex: 0 0 auto;
-        min-width: 0;
         position: relative;
+        flex: 1 1 0;
+        width: 0;
+        min-width: 0;
     }
 
-    body.pagina-machos .categorias-catalogo > button {
+    body.pagina-machos .categorias-catalogo .btn-filtro-categoria,
+    body.pagina-machos .categorias-catalogo .btn-filtro-talla {
+        width: 100%;
+        min-height: 46px;
+        box-sizing: border-box;
+        padding: 12px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+        background: var(--blanco);
+        border: 1px solid rgba(43, 43, 43, 0.12);
+        border-radius: 24px;
+        font-family: var(--fuente-principal);
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--carbón);
+        text-align: left;
+    }
+
+    body.pagina-machos .categorias-catalogo .opciones-categoria,
+    body.pagina-machos .categorias-catalogo .opciones-talla {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        width: 100%;
+        min-width: 150px;
+        max-height: 280px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        padding: 8px;
+        background: var(--blanco);
+        border: 1px solid rgba(43, 43, 43, 0.10);
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
+        z-index: 1000;
+    }
+
+    body.pagina-machos .categorias-catalogo .filtro-categoria.abierto .opciones-categoria,
+    body.pagina-machos .categorias-catalogo .filtro-talla.abierto .opciones-talla {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    body.pagina-machos .categorias-catalogo .opciones-categoria button,
+    body.pagina-machos .categorias-catalogo .opciones-talla button {
         flex: 0 0 auto;
-        white-space: nowrap;
-        width: auto;
-        min-width: max-content;
-        padding: 10px 12px;
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        padding: 11px 10px;
+        border: none;
+        border-radius: 10px;
+        background: transparent;
+        font-family: var(--fuente-principal);
         font-size: 12px;
+        font-weight: 500;
+        color: #666;
+        text-align: left;
+        white-space: nowrap;
     }
 
+    body.pagina-machos .categorias-catalogo .opciones-categoria .categoria-activa,
+    body.pagina-machos .categorias-catalogo .opciones-talla .talla-activa {
+        background: var(--carbón);
+        color: var(--blanco);
+    }
 }
-
