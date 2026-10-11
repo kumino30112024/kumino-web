@@ -3877,16 +3877,17 @@ body.pagina-machos .categorias-catalogo {
 }
 
 
+
 /* =========================================================
    MACHOS - CORRECCIÓN DE FILTROS EN PC
 ========================================================= */
 
 @media (min-width: 601px) {
 
-    /* Barra blanca principal */
+    /* Barra blanca ajustada al contenido */
     body.pagina-machos .categorias-catalogo {
-        width: 100%;
-        max-width: 1060px;
+        width: fit-content;
+        max-width: calc(100% - 48px);
         margin: 0 auto 55px;
         padding: 14px 24px;
         box-sizing: border-box;
@@ -3908,7 +3909,7 @@ body.pagina-machos .categorias-catalogo {
     /* Contenedor de categorías */
     body.pagina-machos .categorias-catalogo .filtro-categoria {
         position: relative;
-        flex: 0 1 auto;
+        flex: 0 0 auto;
         min-width: 0;
 
         display: flex;
@@ -3917,12 +3918,12 @@ body.pagina-machos .categorias-catalogo {
         gap: 6px;
     }
 
-    /* Ocultar el botón principal de categoría en PC */
+    /* Ocultar botón principal de categoría en PC */
     body.pagina-machos .categorias-catalogo .btn-filtro-categoria {
         display: none;
     }
 
-    /* Categorías visibles en una fila */
+    /* Categorías en una sola fila */
     body.pagina-machos .categorias-catalogo .opciones-categoria {
         position: static;
         display: flex;
@@ -3967,7 +3968,7 @@ body.pagina-machos .categorias-catalogo {
         color: var(--blanco);
     }
 
-    /* Filtro de talla cerca de las categorías */
+    /* Filtro de talla junto a las categorías */
     body.pagina-machos .categorias-catalogo .filtro-talla {
         position: relative;
         flex: 0 0 150px;
@@ -3975,11 +3976,11 @@ body.pagina-machos .categorias-catalogo {
         margin-left: 4px;
     }
 
-    /* Botón de tallas */
+    /* Botón principal de tallas */
     body.pagina-machos .categorias-catalogo .btn-filtro-talla {
         width: 100%;
         min-height: 44px;
-        padding: 12px 12px;
+        padding: 12px;
         box-sizing: border-box;
 
         display: flex;
@@ -3998,13 +3999,14 @@ body.pagina-machos .categorias-catalogo {
         cursor: pointer;
     }
 
-    /* Menú de tallas oculto inicialmente */
+    /* Menú de tallas */
     body.pagina-machos .categorias-catalogo .opciones-talla {
         display: none;
         position: absolute;
         top: calc(100% + 8px);
         right: 0;
         left: auto;
+
         width: 150px;
         max-height: 280px;
         overflow-y: auto;
@@ -4019,7 +4021,7 @@ body.pagina-machos .categorias-catalogo {
         z-index: 1000;
     }
 
-    /* Mostrar tallas al abrir el menú */
+    /* Mostrar el menú al abrirlo */
     body.pagina-machos .categorias-catalogo .filtro-talla.abierto .opciones-talla {
         display: flex;
         flex-direction: column;
@@ -4049,4 +4051,3 @@ body.pagina-machos .categorias-catalogo {
         color: var(--blanco);
     }
 }
-
