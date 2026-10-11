@@ -3604,7 +3604,7 @@ body.pagina-machos .catalogo-datos .promo-ahorro {
     background: #F5EADD;
     color: #E06D3E;
 }
-```css
+
 /* =====================================
    CONTENEDOR DE FILTROS - KÚMINO
 ===================================== */
@@ -3644,4 +3644,16 @@ body.pagina-machos .catalogo-datos .promo-ahorro {
         border-radius: 20px;
     }
 }
-```
+
+/* Marco destacado para los filtros de MACHOS */
+body.pagina-machos .categorias-catalogo {
+    background: #F9F9F8;
+    border: 2px solid #E6D9CD;
+    border-radius: 22px;
+    box-shadow: 0 5px 18px rgba(44, 53, 49, 0.08);
+    padding: 20px 26px;
+    max-width: 1100px;
+    margin: 30px auto 40px;
+    box-sizing: border-box;
+}
+
