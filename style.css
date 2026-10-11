@@ -3629,3 +3629,26 @@ body.pagina-machos .categorias-catalogo {
         border-radius: 20px;
     }
 }
+
+/* Ajustes para celulares: página MACHOS */
+@media (max-width: 600px) {
+
+    body.pagina-machos .categorias-catalogo {
+        box-sizing: border-box;
+        width: calc(100% - 24px);
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow-x: auto;
+        overflow-y: visible;
+        justify-content: flex-start;
+        gap: 10px;
+        padding: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    body.pagina-machos .categorias-catalogo > * {
+        flex-shrink: 0;
+    }
+
+}
