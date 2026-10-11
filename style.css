@@ -3690,7 +3690,7 @@ body.pagina-machos .categorias-catalogo {
 @media (max-width: 600px) {
 
     body.pagina-machos .categorias-catalogo {
-        width: calc(100% - 32px) !important;
+        width: 200px !important;
         max-width: 850px;
         min-width: 0;
         box-sizing: border-box;
