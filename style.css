@@ -2220,7 +2220,7 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         align-items: center;
         gap: 8px;
 
-        background-color: var(--beige);
+        background-color: #ffffff;
         border: 1px solid rgba(43, 43, 43, 0.08);
         border-radius: 40px;
         box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
@@ -2275,8 +2275,10 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         text-align: center;
         white-space: nowrap;
         cursor: pointer;
+        transition: all 0.25s ease;
     }
 
+    /* Efecto al pasar el cursor */
     body.pagina-hembras .categorias-catalogo .opciones-categoria button:hover {
         background: var(--crema);
         color: var(--carbón);
@@ -2288,12 +2290,18 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         color: var(--blanco);
     }
 
+    body.pagina-hembras .categorias-catalogo .opciones-categoria .categoria-activa:hover {
+        background: var(--carbón);
+        color: var(--blanco);
+    }
+
     /* Filtro de talla a la derecha */
     body.pagina-hembras .categorias-catalogo .filtro-talla {
         position: relative;
         flex: 0 0 180px;
     }
 
+    /* Botón del filtro de talla */
     body.pagina-hembras .categorias-catalogo .btn-filtro-talla {
         width: 100%;
         min-width: 0;
@@ -2303,16 +2311,28 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 8px;
+        box-sizing: border-box;
 
-        background: transparent;
-        border: none;
-        border-radius: 25px;
+        background: #ffffff;
+        border: 1px solid #e5e5e5;
+        border-radius: 28px;
         box-shadow: none;
 
+        font-family: var(--fuente-principal);
         font-size: 11px;
+        font-weight: 500;
+        color: var(--carbón);
+        cursor: pointer;
+        transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
-    /* El menú de tallas aparece al desplegarlo */
+    body.pagina-hembras .categorias-catalogo .btn-filtro-talla:hover {
+        background: var(--crema);
+        border-color: #d8d0c7;
+    }
+
+    /* Menú desplegable de tallas */
     body.pagina-hembras .categorias-catalogo .opciones-talla {
         position: absolute;
         top: calc(100% + 8px);
@@ -2323,7 +2343,7 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         overflow-y: auto;
         padding: 8px;
 
-        background: #fff;
+        background: #ffffff;
         border: 1px solid rgba(43, 43, 43, 0.10);
         border-radius: 16px;
         box-shadow: 0 8px 24px rgba(43, 43, 43, 0.10);
