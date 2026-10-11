@@ -7,6 +7,22 @@
     <title>KÚMINO | Colección Hembras</title>
 
     <link rel="stylesheet" href="../style.css">
+    <style>
+        .producto-liquidacion .catalogo-foto { position: relative; }
+        .producto-liquidacion .etiqueta-liquidacion {
+            position: absolute; top: 10px; left: 10px; z-index: 2;
+            display: inline-block; padding: 6px 10px; border-radius: 4px;
+            background: #E06D3E; color: #fff; font-size: 11px;
+            font-weight: 600; letter-spacing: .5px;
+        }
+        .producto-liquidacion .colores-producto { margin: 4px 0 8px; }
+        .producto-liquidacion .precios-por-talla { display: flex; flex-direction: column; gap: 3px; }
+        .producto-liquidacion .precio-talla { font-size: .85rem; }
+        .producto-liquidacion .precio-talla strong { color: #E06D3E; }
+        .producto-liquidacion .precio-talla del { margin-left: 5px; opacity: .65; }
+        .producto-liquidacion .imagen-no-disponible { min-height: 180px; display: flex; align-items: center; justify-content: center; background: #F5EADD; }
+        .producto-liquidacion .imagen-no-disponible::after { content: "Imagen pendiente de vincular"; color: #2C3531; font-size: 12px; text-align: center; padding: 12px; }
+    </style>
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -156,6 +172,315 @@
     ========================= -->
 
     <div class="productos-grid">
+
+
+        <!-- PRODUCTOS DE LIQUIDACIÓN: mismo estilo de promociones de MACHOS; filtros por categoría y talla -->
+
+        <!-- Liquidación 01: Chaqueta Paris Premium -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="casacas"
+             data-tallas="2 3"
+             data-colores="blanco">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Chaqueta Paris Premium.jpeg" alt="Chaqueta Paris Premium" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Chaqueta Paris Premium</h2>
+                <p class="colores-producto">Color: Blanco</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 2</p>
+                    <p><span class="precio-regular">S/ 37.50</span></p>
+                    <p class="precio-promocional">S/ 25.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 12.50</span>
+                </div>
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 3</p>
+                    <p><span class="precio-regular">S/ 39.00</span></p>
+                    <p class="precio-promocional">S/ 26.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 13.00</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 02: Puffer Dulce Conejito -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="abrigos"
+             data-tallas="3"
+             data-colores="blanco">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Puffer Dulce Conejito.jpeg" alt="Puffer Dulce Conejito" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Puffer Dulce Conejito</h2>
+                <p class="colores-producto">Color: Blanco</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 3</p>
+                    <p><span class="precio-regular">S/ 39.00</span></p>
+                    <p class="precio-promocional">S/ 26.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 13.00</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 03: Vestido Pastelito de Invierno -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="vestidos"
+             data-tallas="3"
+             data-colores="rosa pastel">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Vestido Pastelito de Invierno.jpeg" alt="Vestido Pastelito de Invierno" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Vestido Pastelito de Invierno</h2>
+                <p class="colores-producto">Color: Rosa pastel</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 3</p>
+                    <p><span class="precio-regular">S/ 37.50</span></p>
+                    <p class="precio-promocional">S/ 25.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 12.50</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 04: Sudadera Mantita Dulce Sueño -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="chompas"
+             data-tallas="2"
+             data-colores="amarillo">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Sudadera Mantita Dulce Sueño.jpeg" alt="Sudadera Mantita Dulce Sueño" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Sudadera Mantita Dulce Sueño</h2>
+                <p class="colores-producto">Color: Amarillo</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 2</p>
+                    <p><span class="precio-regular">S/ 34.50</span></p>
+                    <p class="precio-promocional">S/ 23.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 11.50</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 05: Duo Invernal -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="abrigos"
+             data-tallas="3"
+             data-colores="azul">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Duo Invernal.jpeg" alt="Duo Invernal" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Duo Invernal</h2>
+                <p class="colores-producto">Color: Azul</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 3</p>
+                    <p><span class="precio-regular">S/ 37.50</span></p>
+                    <p class="precio-promocional">S/ 25.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 12.50</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 06: Cafarena Básica -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="otros"
+             data-tallas="1 2 4"
+             data-colores="rosa pastel / azul">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Cafarena Básica.jpeg" alt="Cafarena Básica" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Cafarena Básica</h2>
+                <p class="colores-producto">Color: Rosa pastel / Azul</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 1</p>
+                    <p><span class="precio-regular">S/ 27.00</span></p>
+                    <p class="precio-promocional">S/ 18.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 9.00</span>
+                </div>
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 2</p>
+                    <p><span class="precio-regular">S/ 30.00</span></p>
+                    <p class="precio-promocional">S/ 20.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 10.00</span>
+                </div>
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 4</p>
+                    <p><span class="precio-regular">S/ 33.00</span></p>
+                    <p class="precio-promocional">S/ 22.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 11.00</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 07: Vestido Bosque de Otoño -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="vestidos"
+             data-tallas="1"
+             data-colores="marrón">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Vestido Bosque de Otoño.jpeg" alt="Vestido Bosque de Otoño" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Vestido Bosque de Otoño</h2>
+                <p class="colores-producto">Color: Marrón</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 1</p>
+                    <p><span class="precio-regular">S/ 30.00</span></p>
+                    <p class="precio-promocional">S/ 20.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 10.00</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 08: Polo Jardín de Fresas -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="blusas"
+             data-tallas="2 3"
+             data-colores="blanco / rosa">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Polo Jardín de Fresas.jpeg" alt="Polo Jardín de Fresas" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Polo Jardín de Fresas</h2>
+                <p class="colores-producto">Color: Blanco / Rosa</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 2</p>
+                    <p><span class="precio-regular">S/ 18.00</span></p>
+                    <p class="precio-promocional">S/ 12.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 6.00</span>
+                </div>
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 3</p>
+                    <p><span class="precio-regular">S/ 22.50</span></p>
+                    <p class="precio-promocional">S/ 15.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 7.50</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 09: Vestido Lunares -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="vestidos"
+             data-tallas="0"
+             data-colores="crema">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Vestido Lunares.jpeg" alt="Vestido Lunares" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Vestido Lunares</h2>
+                <p class="colores-producto">Color: Crema</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 0</p>
+                    <p><span class="precio-regular">S/ 22.50</span></p>
+                    <p class="precio-promocional">S/ 15.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 7.50</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 10: Chaleco Lima Verde -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="abrigos"
+             data-tallas="2 4 5"
+             data-colores="verde limón">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Chaleco Lima Verde.jpeg" alt="Chaleco Lima Verde" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Chaleco Lima Verde</h2>
+                <p class="colores-producto">Color: Verde limón</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 2</p>
+                    <p><span class="precio-regular">S/ 21.00</span></p>
+                    <p class="precio-promocional">S/ 14.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 7.00</span>
+                </div>
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 4</p>
+                    <p><span class="precio-regular">S/ 22.50</span></p>
+                    <p class="precio-promocional">S/ 15.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 7.50</span>
+                </div>
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 5</p>
+                    <p><span class="precio-regular">S/ 24.00</span></p>
+                    <p class="precio-promocional">S/ 16.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 8.00</span>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Liquidación 11: Bruma de Amor -->
+        <div class="producto-catalogo producto-liquidacion"
+             data-categoria="vestidos"
+             data-tallas="3 4"
+             data-colores="crema">
+            <div class="catalogo-foto">
+                <span class="promo-etiqueta">PROMOCIÓN</span>
+                <img src="../IMAGENES/Bruma de Amor.jpeg" alt="Bruma de Amor" loading="lazy"
+                     onerror="this.style.display='none'; this.parentElement.classList.add('imagen-no-disponible');">
+            </div>
+            <div class="catalogo-datos">
+                <h2>Bruma de Amor</h2>
+                <p class="colores-producto">Color: Crema</p>
+                <div class="precios-por-talla">
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 3</p>
+                    <p><span class="precio-regular">S/ 25.50</span></p>
+                    <p class="precio-promocional">S/ 17.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 8.50</span>
+                </div>
+                <div class="precio-talla-promocion">
+                    <p class="talla-promocion">Talla 4</p>
+                    <p><span class="precio-regular">S/ 30.00</span></p>
+                    <p class="precio-promocional">S/ 20.00</p>
+                    <span class="promo-ahorro">Ahorras S/ 10.00</span>
+                </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- 01 -->
