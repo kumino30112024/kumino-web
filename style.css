@@ -2208,12 +2208,12 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
 
 @media (min-width: 601px) {
 
-    /* Barra blanca centrada, como MACHOS */
+    /* Barra blanca centrada, similar a MACHOS */
     body.pagina-hembras .categorias-catalogo {
         width: calc(100% - 48px);
         max-width: 1060px;
         margin: 0 auto 55px;
-        padding: 7px;
+        padding: 7px 20px;
 
         display: flex;
         flex-direction: row;
@@ -2245,10 +2245,10 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         position: static;
         display: flex;
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: flex-start;
         align-items: center;
         flex-wrap: nowrap;
-        gap: 5px;
+        gap: 8px;
 
         width: 100%;
         min-width: 0;
@@ -2266,7 +2266,7 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
     body.pagina-hembras .categorias-catalogo .opciones-categoria button {
         width: auto;
         flex: 0 0 auto;
-        padding: 14px 17px;
+        padding: 14px 18px;
         border: none;
         border-radius: 28px;
 
@@ -2347,6 +2347,7 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
         z-index: 1000;
     }
 }
+
 
 /* =========================================================
    HEMBRAS - PRESENTACIÓN EN CELULARES
