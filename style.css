@@ -3473,3 +3473,29 @@ body.pagina-machos .catalogo-foto > .promo-etiqueta {
     line-height: 1.4 !important;
     text-align: center !important;
 }
+/* KÚMINO - PROMOCIONES EN MACHOS */
+body.pagina-machos .catalogo-foto {
+    position: relative !important;
+}
+
+body.pagina-machos .catalogo-foto > .promo-etiqueta {
+    position: absolute !important;
+    top: 12px !important;
+    left: 12px !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    z-index: 20 !important;
+    display: block !important;
+    width: max-content !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 8px 12px !important;
+    background: #E06D3E !important;
+    color: #FFFFFF !important;
+    border-radius: 5px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    line-height: 1.4 !important;
+}
