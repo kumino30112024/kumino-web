@@ -4520,3 +4520,15 @@ body.pagina-machos .categorias-catalogo {
         color: var(--blanco);
     }
 }
+
+/* Enlaces de los productos del catálogo */
+.producto-enlace {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.producto-enlace:hover {
+    color: inherit;
+    text-decoration: none;
+}
