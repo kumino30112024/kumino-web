@@ -3685,28 +3685,39 @@ body.pagina-machos .categorias-catalogo {
 
 }
 
-@media screen and (max-width: 600px) {
-    body.pagina-machos .categorias-catalogo {
-        display: grid !important;
-        grid-template-columns: max-content max-content !important;
-        justify-content: start !important;
-        width: calc(100% - 32px) !important;
-        max-width: none !important;
-        box-sizing: border-box !important;
-        overflow-x: auto !important;
-        gap: 6px !important;
-        padding: 10px !important;
-    }
 
-    body.pagina-machos .categorias-catalogo > button {
-        width: auto !important;
-        max-width: none !important;
-        white-space: nowrap !important;
+/* FIX DEFINITIVO: filtros MACHOS en móviles */
+@media (max-width: 600px) {
+
+    body.pagina-machos .categorias-catalogo {
+        width: calc(100% - 32px) !important;
+        max-width: 850px;
+        min-width: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 4px;
+        padding: 8px;
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
     }
 
     body.pagina-machos .categorias-catalogo .filtro-talla {
-        grid-column: 1 / -1;
+        flex: 0 0 auto;
+        position: relative;
     }
+
+    body.pagina-machos .categorias-catalogo > button {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        width: auto;
+        min-width: max-content;
+        padding: 10px 12px;
+    }
+
 }
+
 
 
