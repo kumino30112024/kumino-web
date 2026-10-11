@@ -3630,81 +3630,30 @@ body.pagina-machos .categorias-catalogo {
     }
 }
 
-/* Ajustes para celulares: página MACHOS */
+/* Filtros MACHOS en celulares */
 @media (max-width: 600px) {
 
     body.pagina-machos .categorias-catalogo {
-        box-sizing: border-box;
-        width: calc(100% - 24px);
-        max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        overflow-x: auto;
-        overflow-y: visible;
-        justify-content: flex-start;
-        gap: 10px;
-        padding: 12px;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    body.pagina-machos .categorias-catalogo > * {
-        flex-shrink: 0;
-    }
-
-}
-
-
-/* Adaptación de filtros a celulares */
-@media (max-width: 600px) {
-
-    body.pagina-machos .categorias-catalogo {
-        width: calc(100% - 32px);
-        max-width: none;
+        width: calc(100% - 32px) !important;
+        max-width: none !important;
         min-width: 0;
         box-sizing: border-box;
         margin: 0 auto 35px;
         padding: 8px;
         display: flex;
+        flex-wrap: nowrap;
         justify-content: flex-start;
         align-items: center;
-        flex-wrap: nowrap;
         gap: 4px;
         overflow-x: auto;
         overflow-y: hidden;
         border-radius: 24px;
-        overscroll-behavior-x: contain;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    body.pagina-machos .categorias-catalogo button {
-        flex: 0 0 auto;
-        white-space: nowrap;
-        padding: 10px 12px;
-        font-size: 12px;
-    }
-
-}
-
-/* FIX: filtros MACHOS en móviles */
-@media (max-width: 600px) {
-
-    body.pagina-machos .categorias-catalogo {
-        width: 100% !important;
-        max-width: 850px;
-        min-width: 0;
-        box-sizing: border-box;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        gap: 4px;
-        padding: 8px;
-        overflow-x: auto;
-        overflow-y: visible;
         -webkit-overflow-scrolling: touch;
     }
 
     body.pagina-machos .categorias-catalogo .filtro-talla {
         flex: 0 0 auto;
+        min-width: 0;
         position: relative;
     }
 
@@ -3714,6 +3663,8 @@ body.pagina-machos .categorias-catalogo {
         width: auto;
         min-width: max-content;
         padding: 10px 12px;
+        font-size: 12px;
     }
 
 }
+
