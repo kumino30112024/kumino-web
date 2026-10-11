@@ -3499,34 +3499,31 @@ body.pagina-machos .catalogo-foto > .promo-etiqueta {
     letter-spacing: 0.8px !important;
     line-height: 1.4 !important;
 }
-/* =========================================
-   KÚMINO - PRECIOS DE PRODUCTOS EN PROMOCIÓN
-========================================= */
-
-/* Precio original tachado */
-body.pagina-machos .catalogo-datos .precio-regular {
-    color: #8A8179 !important;
-    text-decoration: line-through !important;
-    text-decoration-thickness: 1.5px !important;
-    font-size: 14px !important;
-}
-
-/* Precio de oferta en azul */
+/* Precio promocional en azul, tamaño uniforme */
 body.pagina-machos .catalogo-datos .precio-promocional {
     color: #2474D2 !important;
-    font-size: 19px !important;
-    font-weight: 700 !important;
-    margin: 5px 0 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin: 4px 0 !important;
+    line-height: 1.4 !important;
 }
 
-/* Ahorro con fondo verde claro */
+/* Precio anterior tachado */
+body.pagina-machos .catalogo-datos .precio-regular {
+    color: #8A8179 !important;
+    font-size: 14px !important;
+    text-decoration: line-through !important;
+    text-decoration-thickness: 1.5px !important;
+}
+
+/* Ahorro en verde claro */
 body.pagina-machos .catalogo-datos .promo-ahorro {
     display: inline-block !important;
     background-color: #DDF1D8 !important;
     color: #287A3D !important;
-    padding: 5px 9px !important;
+    padding: 4px 8px !important;
     border-radius: 6px !important;
-    font-size: 13px !important;
+    font-size: 12px !important;
     font-weight: 600 !important;
-    margin-top: 5px !important;
+    margin-top: 4px !important;
 }
