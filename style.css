@@ -2527,83 +2527,93 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
 ========================================================= */
 
 .productos-grid {
+    width: 100%;
     max-width: 950px;
-
     margin: 0 auto;
 
     display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
     gap: 42px 25px;
 }
 
+/* =========================================================
+   PRODUCTOS NORMALES Y PROMOCIONES
+========================================================= */
 
-/* PRODUCTO */
-
-.producto-catalogo {
+.productos-grid > .producto-catalogo,
+.productos-grid > .producto-enlace {
     display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    align-self: start;
 
     text-decoration: none;
-
     color: inherit;
-
     background: transparent;
 }
 
+/* Las tarjetas promocionales ocupan el ancho de su columna */
 
-/* FOTO */
+.productos-grid .producto-liquidacion {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+}
+
+/* =========================================================
+   FOTO DEL PRODUCTO
+========================================================= */
 
 .catalogo-foto {
+    position: relative;
     width: 100%;
-
     aspect-ratio: 1 / 1.08;
 
     background-color: #EDE2D6;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     overflow: hidden;
-
     transition: transform 0.3s ease;
 }
 
 .catalogo-foto img {
+    display: block;
     width: 100%;
-
     height: 100%;
 
     object-fit: cover;
-
-    display: block;
-
     transition: transform 0.4s ease;
 }
 
-.producto-catalogo:hover .catalogo-foto {
+/* Efecto al pasar el cursor */
+
+.producto-catalogo:hover .catalogo-foto,
+.producto-enlace:hover .catalogo-foto {
     transform: scale(1.015);
 }
 
-.producto-catalogo:hover .catalogo-foto img {
+.producto-catalogo:hover .catalogo-foto img,
+.producto-enlace:hover .catalogo-foto img {
     transform: scale(1.04);
 }
 
+/* Texto opcional dentro de la foto */
+
 .catalogo-foto span {
     font-size: 10px;
-
     letter-spacing: 2px;
-
     font-weight: 500;
-
     color: var(--verde-salvia);
 }
 
-
-/* INFORMACIÓN */
+/* =========================================================
+   INFORMACIÓN DEL PRODUCTO
+========================================================= */
 
 .catalogo-datos {
     padding: 14px 2px 0;
@@ -2611,11 +2621,8 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
 
 .catalogo-datos h2 {
     font-family: var(--fuente-principal);
-
     font-size: 13px;
-
     font-weight: 500;
-
     color: var(--carbón);
 
     margin: 0 0 5px;
@@ -2623,11 +2630,18 @@ body.pagina-hembras .categorias-catalogo .opciones-talla .talla-activa {
 
 .catalogo-datos p {
     font-size: 12px;
-
     color: #777;
-
     margin: 0;
 }
+
+/* =========================================================
+   FILTROS: ESTADO DE LOS PRODUCTOS
+========================================================= */
+
+.productos-grid > [hidden] {
+    display: none !important;
+}
+
 
 
 /* =========================================================
