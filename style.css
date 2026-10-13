@@ -4622,3 +4622,42 @@ body.pagina-machos .categorias-catalogo {
     text-decoration: none;
     margin-top: 8px;
 }
+
+/* =====================================
+   PRODUCTO AGOTADO - KÚMINO
+===================================== */
+
+.producto-catalogo .agotado-foto {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Sombreado de la fotografía */
+.producto-catalogo .agotado-foto img {
+    filter: brightness(0.60);
+}
+
+/* Etiqueta AGOTADO */
+.producto-catalogo .etiqueta-agotado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+
+    display: block;
+    width: max-content;
+    padding: 10px 22px;
+
+    background-color: rgba(44, 53, 49, 0.90);
+    color: #FFFFFF;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-align: center;
+
+    border: 1px solid #E06D3E;
+    pointer-events: none;
+}
