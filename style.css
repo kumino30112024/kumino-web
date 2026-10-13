@@ -4601,3 +4601,24 @@ body.pagina-machos .categorias-catalogo {
         object-fit: cover;
     }
 }
+
+/* TALLAS AGOTADAS - KÚMINO */
+
+.tallas-precios > div.talla-agotada {
+    background-color: #F5EADD;
+    opacity: 0.85;
+}
+
+.tallas-precios .talla-agotada > span:first-child,
+.tallas-precios .talla-agotada > strong {
+    color: #E88989;
+    text-decoration: line-through;
+}
+
+.tallas-precios .talla-agotada .texto-agotado {
+    display: block;
+    color: #E88989;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: 8px;
+}
