@@ -1,889 +1,614 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>K&Uacute;MINO | Colecci&oacute;n Halloween</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 
-
-<title>KÚMINO | Colección Halloween</title>
-
-<link rel="stylesheet" href="../style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-
-</head>
-
+<style>
+/* Estilos aislados para los filtros de HALLOWEEN; no modifican otras colecciones */
+.halloween-controles{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:24px 0 12px;width:100%}
+.halloween-controles .categorias-catalogo{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0;flex:1}
+.halloween-controles .categorias-catalogo button{cursor:pointer}
+.filtros-movil{display:none}
+.filtro-talla-desktop{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.filtro-talla-desktop label{font-family:'Poppins',sans-serif;font-size:14px;color:#333}
+.filtro-talla-desktop select{font-family:'Poppins',sans-serif;border:1px solid #d5c5b4;border-radius:8px;background:#fff;color:#333;padding:10px 12px;min-width:145px;cursor:pointer}
+.halloween-contador{font-family:'Poppins',sans-serif;font-size:13px;color:#666;margin:0 0 16px}
+.producto-catalogo[hidden]{display:none!important}
+.filtro-desplegable{position:relative;min-width:0;flex:1}
+.btn-filtro{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 12px;border:1px solid #d5c5b4;border-radius:8px;background:#fff;color:#333;font:500 13px 'Poppins',sans-serif;cursor:pointer;white-space:nowrap}
+.opciones-filtro{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:#fff;border:1px solid #e4d8ca;border-radius:9px;box-shadow:0 8px 22px rgba(44,53,49,.14);padding:5px;max-height:280px;overflow-y:auto}
+.opciones-filtro[hidden]{display:none!important}
+.opciones-filtro button{display:block;width:100%;text-align:left;border:0;border-radius:6px;background:#fff;padding:9px 10px;color:#333;font:400 12px 'Poppins',sans-serif;cursor:pointer}
+.opciones-filtro button:hover,.opciones-filtro button:focus{background:#F5EADD;outline:none}
+.halloween-sin-resultados{font-family:'Poppins',sans-serif;text-align:center;padding:28px 12px;color:#555}
+@media(max-width:700px){
+ .halloween-controles{display:block;margin:18px 0 12px}
+ .halloween-controles>.categorias-catalogo{display:none}
+ .filtros-movil{display:flex;align-items:flex-start;gap:10px;width:100%}
+ .filtro-talla-desktop{display:none}
+ .halloween-contador{margin-top:10px}
+}
+</style>
+<style>.opciones-filtro button.opcion-seleccionada{background:#F5EADD;font-weight:600}</style></head>
 <body>
-
 <header class="header">
-    <div class="nav-container">
-
-
-    <a href="../index.html" class="logo">KÚMINO</a>
-
-    <nav class="navbar">
-
-        <a href="../index.html">Inicio</a>
-
-        <a href="../index.html#coleccion">Colección</a>
-
-        <a href="hallowen.html" class="activo">Halloween</a>
-
-        <a href="../HEMBRAS/hembras.html">Hembras</a>
-
-        <a href="../MACHOS/machos.html">Machos</a>
-
-        <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
-
-        <a href="../CASITAS/casitas.html">Casitas</a>
-
-    </nav>
-
-    <a href="https://wa.me/51940151463"
-       class="btn-contacto"
-       target="_blank">
+<div class="nav-container">
+<a class="logo" href="../index.html">K&Uacute;MINO</a>
+<nav class="navbar">
+<a href="../index.html">Inicio</a>
+<a href="../index.html#coleccion">Colecci&oacute;n</a>
+<a class="activo" href="hallowen.html">Halloween</a>
+<a href="../HEMBRAS/hembras.html">Hembras</a>
+<a href="../MACHOS/machos.html">Machos</a>
+<a href="../ACCESORIOS/accesorios.html">Accesorios</a>
+<a href="../CASITAS/casitas.html">Casitas</a>
+</nav>
+<a class="btn-contacto" href="https://wa.me/51940151463" target="_blank">
         Contacto
     </a>
-
 </div>
-
-
 </header>
-
 <section class="catalogo-hembras">
-
-
 <div class="catalogo-header">
-
-    <span>COLECCIÓN KÚMINO</span>
-
-    <h1>Halloween</h1>
-
-    <p>
-        Descubre nuestra colección especial de Halloween,
+<span>COLECCI&Oacute;N K&Uacute;MINO</span>
+<h1>Halloween</h1>
+<p>
+        Descubre nuestra colecci&oacute;n especial de Halloween,
         con disfraces y accesorios para que tu mascota
         celebre con estilo y personalidad.
     </p>
-
 </div>
-
-
-<div class="categorias-catalogo">
-
-    <button class="categoria-activa" data-filtro="todos">
-        Todos
-    </button>
-
-    <button data-filtro="disfraces">
-        Disfraces
-    </button>
-
-    <button data-filtro="capas">
-        Capas
-    </button>
-
-    <button data-filtro="alas">
-        Alas
-    </button>
-
-    <button data-filtro="vestidos">
-        Vestidos
-    </button>
-
-    <button data-filtro="accesorios">
-        Accesorios
-    </button>
-
-    <button data-filtro="otros">
-        Otros
-    </button>
-
+<div aria-label="Filtros de productos Halloween" class="halloween-controles">
+<div aria-label="Filtrar por categor&iacute;a" class="categorias-catalogo">
+<button aria-pressed="true" class="categoria-activa" data-filtro="todos" type="button">Todos</button>
+<button aria-pressed="false" data-filtro="disfraces" type="button">Disfraces</button>
+<button aria-pressed="false" data-filtro="capas" type="button">Capas</button>
+<button aria-pressed="false" data-filtro="alas" type="button">Alas</button>
+<button aria-pressed="false" data-filtro="vestidos" type="button">Vestidos</button>
+<button aria-pressed="false" data-filtro="accesorios" type="button">Accesorios</button>
+<button aria-pressed="false" data-filtro="otros" type="button">Otros</button>
 </div>
-
-
+<div class="filtros-movil">
+<div class="filtro-desplegable">
+<button aria-controls="opcionesCategoria" aria-expanded="false" class="btn-filtro" id="btnCategoria" type="button">Categor&iacute;a <span aria-hidden="true">⌄</span></button>
+<div class="opciones-filtro" hidden="" id="opcionesCategoria">
+<button data-filtro="todos" type="button">Todas las categor&iacute;as</button>
+<button data-filtro="disfraces" type="button">Disfraces</button>
+<button data-filtro="capas" type="button">Capas</button>
+<button data-filtro="alas" type="button">Alas</button>
+<button data-filtro="vestidos" type="button">Vestidos</button>
+<button data-filtro="accesorios" type="button">Accesorios</button>
+<button data-filtro="otros" type="button">Otros</button>
+</div>
+</div>
+<div class="filtro-desplegable">
+<button aria-controls="opcionesTalla" aria-expanded="false" class="btn-filtro" id="btnTalla" type="button">Talla <span aria-hidden="true">⌄</span></button>
+<div class="opciones-filtro" hidden="" id="opcionesTalla">
+<button data-talla="todas" type="button">Todas las tallas</button>
+<button data-talla="0" type="button">Talla 0</button><button data-talla="1" type="button">Talla 1</button>
+<button data-talla="2" type="button">Talla 2</button><button data-talla="3" type="button">Talla 3</button>
+<button data-talla="4" type="button">Talla 4</button><button data-talla="5" type="button">Talla 5</button>
+<button data-talla="6" type="button">Talla 6</button><button data-talla="7" type="button">Talla 7</button>
+</div>
+</div>
+</div>
+<div class="filtro-talla-desktop">
+<label for="selectTalla">Filtrar por talla</label>
+<select id="selectTalla">
+<option value="todas">Todas las tallas</option>
+<option value="0">Talla 0</option><option value="1">Talla 1</option><option value="2">Talla 2</option>
+<option value="3">Talla 3</option><option value="4">Talla 4</option><option value="5">Talla 5</option>
+<option value="6">Talla 6</option><option value="7">Talla 7</option>
+</select>
+</div>
+</div>
 <div class="productos-grid">
-
-
-    <!-- 1 -->
-    <a href="masterchef-canino.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/masterchef-canino.jpg"
-                 alt="Disfraz MasterChef Canino">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz MasterChef Canino</h2>
-            <p>Desde S/ 25.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 2 -->
-    <a href="hechizo-de-calabaza.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/hechizo-de-calabaza.jpg"
-                 alt="Disfraz Hechizo de Calabaza">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Hechizo de Calabaza</h2>
-            <p>Desde S/ 20.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 3 -->
-    <a href="conde-dracula.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/conde-dracula.jpg"
-                 alt="Disfraz Conde Drácula">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Conde Drácula</h2>
-            <p>Desde S/ 25.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 4 producto agotado -->
-    <div class="producto-catalogo producto-agotado"
-     data-categoria="capas">
-
-    <div class="catalogo-foto agotado-foto">
-
-        <span class="etiqueta-agotado">
-            AGOTADO
-        </span>
-        
-            <img src="../IMAGENES/monjita-bendecida.jpg"
-                 alt="Disfraz Monjita Bendecida">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Monjita Bendecida</h2>
-            <p>S/ 29.00</p>
-        </div>
-
-    </div>
-
-
-    <!-- 5 -->
-    <a href="pirata-de-los-siete-mares.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/pirata-de-los-siete-mares.jpg"
-                 alt="Pirata de los Siete Mares">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Pirata de los Siete Mares</h2>
-            <p>Desde S/ 30.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 6 -->
-    <a href="oficial-k9.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/oficial-k9.jpg"
-                 alt="Disfraz Oficial K-9">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Oficial K-9</h2>
-            <p>Desde S/ 30.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 7 -->
-    <a href="the-barking-boss.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/the-barking-boss.jpg"
-                 alt="The Barking Boss">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>The Barking Boss</h2>
-            <p>Desde S/ 29.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 8 -->
-    <a href="alas-murcielago-dark.html"
-       class="producto-catalogo"
-       data-categoria="alas">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/alas-murcielago-dark.jpg"
-                 alt="Alas de Murciélago Dark">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Alas de Murciélago Dark</h2>
-            <p>Desde S/ 21.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 9 -->
-    <a href="jinete-de-rodeo.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/jinete-de-rodeo.jpg"
-                 alt="Disfraz Jinete de Rodeo">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Jinete de Rodeo</h2>
-            <p>Desde S/ 35.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 10 -->
-    <a href="bicho-travieso.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/bicho-travieso.jpg"
-                 alt="Disfraz Bicho Travieso">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Bicho Travieso</h2>
-            <p>Desde S/ 28.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 11 -->
-    <a href="mascotas-murcielago.html"
-       class="producto-catalogo"
-       data-categoria="alas">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/alas-bat-mascota.jpg"
-                 alt="Alas Bat-Mascota">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Alas "Bat-Mascota"</h2>
-            <p>Desde S/ 20.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 12 -->
-    <a href="mini-capa-dulce-calabaza.html"
-       class="producto-catalogo"
-       data-categoria="capas">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/mini-capa-dulce-calabaza.jpg"
-                 alt="Mini Capa Dulce Calabaza">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Mini Capa "Dulce Calabaza"</h2>
-            <p>S/ 20.00</p>
-        </div>
-
-    </a>
-
-
-    
-<!-- 13: PRODUCTO AGOTADO -->
-<div class="producto-catalogo producto-agotado"
-     data-categoria="capas">
-
-    <div class="catalogo-foto agotado-foto">
-
-        <span class="etiqueta-agotado">
-            AGOTADO
-        </span>
-
-        <img src="../IMAGENES/capa-magica-pequeno-hechicero.jpg"
-             alt="Capa Mágica Pequeño Hechicero - Agotado">
-
-    </div>
-
-    <div class="catalogo-datos">
-        <h2>Capa Mágica "Pequeño Hechicero"</h2>
-        <p>S/ 25.00</p>
-    </div>
-
+<!-- 1 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="1,2,3,4" href="masterchef-canino.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz MasterChef Canino" src="../IMAGENES/masterchef-canino.jpg"/>
 </div>
-
-
-    <!-- 14 -->
-    <a href="diadema-triceratops-peludo.html"
-       class="producto-catalogo"
-       data-categoria="accesorios">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/diadema-triceratops-peludo.jpg"
-                 alt="Diadema Triceratops Peludo">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Diadema Triceratops Peludo</h2>
-            <p>S/ 16.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 15 -->
-    <a href="doctora-patitas.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/dr-patitas.jpg"
-                 alt="Disfraz Dr. Patitas">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz "Dr. Patitas"</h2>
-            <p>S/ 30.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 16 -->
-    
-
-    <!-- 17 -->
-
-
-    <!-- 18 -->
-    <a href="vestido-fantasmita-denim.html"
-       class="producto-catalogo"
-       data-categoria="vestidos">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/vestido-fantasmita-denim.jpg"
-                 alt="Vestido Fantasmita Denim Pet">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Vestido Fantasmita Denim Pet</h2>
-            <p>S/ 30.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 19 -->
-    <a href="ilusion-payaso-terrorifico.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/ilusion-payaso-terrorifico.jpg"
-                 alt="Disfraz Ilusión Payaso Terrorífico">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Ilusión "Payaso Terrorífico"</h2>
-            <p>S/ 38.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 20 -->
-    <a href="vestido-catrina-multicolor.html"
-       class="producto-catalogo"
-       data-categoria="vestidos">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/vestido-catrina-multicolor.jpg"
-                 alt="Vestido Catrina Multicolor">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Vestido Catrina Multicolor</h2>
-            <p>S/ 30.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 21 -->
-    <a href="chef-panadero.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/chef-panadero.jpg"
-                 alt="Disfraz Chef Panadero">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz "Chef Panadero"</h2>
-            <p>S/ 52.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 22 -->
-    <a href="vestido-princesa-calabaza.html"
-       class="producto-catalogo"
-       data-categoria="vestidos">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/vestido-princesa-calabaza.jpg"
-                 alt="Vestido Fiesta Princesa Calabaza">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Vestido Fiesta "Princesa Calabaza"</h2>
-            <p>Desde S/ 20.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 23 -->
-    <a href="mr-fantasma.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/mr-fantasma.jpg"
-                 alt="Mr. Fantasma">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Mr. Fantasma</h2>
-            <p>Desde S/ 29.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 24 -->
-    <a href="hoodie-pumpkin-boo.html"
-       class="producto-catalogo"
-       data-categoria="otros">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/hoodie-pumpkin-boo.jpg"
-                 alt="Hoodie Pumpkin Boo">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Hoodie Pumpkin Boo</h2>
-            <p>S/ 29.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 25 -->
-    <a href="hot-doggy.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/hot-doggy.jpg"
-                 alt="Hot-Doggy">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Hot-Doggy</h2>
-            <p>Desde S/ 55.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 26 -->
-    <a href="sr-calabaza-de-peluche.html"
-       class="producto-catalogo"
-       data-categoria="otros">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/sr-calabaza-de-peluche.jpg"
-                 alt="Sr. Calabaza de Peluche">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Sr. Calabaza de Peluche</h2>
-            <p>S/ 28.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 27 -->
-    <a href="pequeno-extraterrestre.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/pequeno-extraterrestre.jpg"
-                 alt="Pequeño Extraterrestre">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Pequeño Extraterrestre</h2>
-            <p>Desde S/ 30.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 28 -->
-    <a href="jinete-brujita.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/jinete-brujita.jpg"
-                 alt="Disfraz Jinete Brujita">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Disfraz Jinete Brujita</h2>
-            <p>Desde S/ 38.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 29 -->
-    <a href="vestido-romance-vintage.html"
-       class="producto-catalogo"
-       data-categoria="vestidos">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/vestido-romance-vintage.jpg"
-                 alt="Vestido Romance Vintage">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Vestido Romance Vintage</h2>
-            <p>S/ 38.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 30 -->
-    <a href="arnes-jinete-michi-calabaza.html"
-       class="producto-catalogo"
-       data-categoria="accesorios">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/arnes-jinete-michi-calabaza.jpg"
-                 alt="Arnés Jinete Michi Calabaza">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Arnés Jinete Michi Calabaza</h2>
-            <p>S/ 38.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 31 -->
-   <a href="too-cute-to-spook.html"
-       class="producto-catalogo"
-       data-categoria="vestidos">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/too-cute-to-spook.jpg"
-                 alt="Vestido Too Cute to Spook">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Too Cute to Spook</h2>
-            <p>Desde S/ 22.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 32 -->
-    <a href="noche-de-gala-de-halloween.html"
-       class="producto-catalogo"
-       data-categoria="vestidos">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/noche-de-gala-de-halloween.jpg"
-                 alt="Noche de Gala de Halloween">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>Noche de Gala de Halloween</h2>
-            <p>S/ 35.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 33 -->
-   
-
-    <!-- 34 -->
-    <a href="el-pequeno-cowboy.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/el-pequeno-cowboy.jpg"
-                 alt="El Pequeño Cowboy">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>El Pequeño Cowboy</h2>
-            <p>Desde S/ 18.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 35 -->
-    <a href="el-alguacil-peludo.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-            <img src="../IMAGENES/el-alguacil-peludo.jpg"
-                 alt="El Alguacil Peludo">
-        </div>
-
-        <div class="catalogo-datos">
-            <h2>El Alguacil Peludo</h2>
-            <p>Desde S/ 30.00</p>
-        </div>
-
-    </a>
-
-
-    <!-- 36 -->
-    <a href="poncho-mini-monstruos.html"
-       class="producto-catalogo"
-       data-categoria="disfraces">
-
-        <div class="catalogo-foto">
-            <span></span>
-
-            <img src="../IMAGENES/poncho-mini-monstruos.jpg"
-                 alt="Poncho Mini Monstruos para mascotas">
-        </div>
-
-        <div class="catalogo-datos">
-
-            <h2>
+<div class="catalogo-datos">
+<h2>Disfraz MasterChef Canino</h2>
+<p>Desde S/ 25.00</p>
+</div>
+</a>
+<!-- 2 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="0,1,2" href="hechizo-de-calabaza.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Hechizo de Calabaza" src="../IMAGENES/hechizo-de-calabaza.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Hechizo de Calabaza</h2>
+<p>Desde S/ 20.00</p>
+</div>
+</a>
+<!-- 3 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="2" href="conde-dracula.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Conde Dr&aacute;cula" src="../IMAGENES/conde-dracula.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Conde Dr&aacute;cula</h2>
+<p>Desde S/ 25.00</p>
+</div>
+</a>
+<!-- 4 producto agotado -->
+<div aria-label="Disfraz Monjita Bendecida - agotado" class="producto-catalogo producto-agotado" data-categoria="capas" data-tallas="">
+<div class="catalogo-foto agotado-foto">
+<span class="etiqueta-agotado">
+            AGOTADO
+        </span>
+<img alt="Disfraz Monjita Bendecida" src="../IMAGENES/monjita-bendecida.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Monjita Bendecida</h2>
+<p>S/ 29.00</p>
+</div>
+</div>
+<!-- 5 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="1,2" href="pirata-de-los-siete-mares.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Pirata de los Siete Mares" src="../IMAGENES/pirata-de-los-siete-mares.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Pirata de los Siete Mares</h2>
+<p>Desde S/ 30.00</p>
+</div>
+</a>
+<!-- 6 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="0,1,2,3" href="oficial-k9.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Oficial K-9" src="../IMAGENES/oficial-k9.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Oficial K-9</h2>
+<p>Desde S/ 30.00</p>
+</div>
+</a>
+<!-- 7 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3,4" href="the-barking-boss.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="The Barking Boss" src="../IMAGENES/the-barking-boss.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>The Barking Boss</h2>
+<p>Desde S/ 29.00</p>
+</div>
+</a>
+<!-- 8 -->
+<a class="producto-catalogo" data-categoria="alas" data-tallas="2,3,4,5" href="alas-murcielago-dark.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Alas de Murci&eacute;lago Dark" src="../IMAGENES/alas-murcielago-dark.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Alas de Murci&eacute;lago Dark</h2>
+<p>Desde S/ 21.00</p>
+</div>
+</a>
+<!-- 9 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="2,3,4,5" href="jinete-de-rodeo.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Jinete de Rodeo" src="../IMAGENES/jinete-de-rodeo.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Jinete de Rodeo</h2>
+<p>Desde S/ 35.00</p>
+</div>
+</a>
+<!-- 10 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3" href="bicho-travieso.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Bicho Travieso" src="../IMAGENES/bicho-travieso.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Bicho Travieso</h2>
+<p>Desde S/ 28.00</p>
+</div>
+</a>
+<!-- 11 -->
+<a class="producto-catalogo" data-categoria="alas" data-tallas="0,2,3,4,6,7" href="mascotas-murcielago.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Alas Bat-Mascota" src="../IMAGENES/alas-bat-mascota.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Alas "Bat-Mascota"</h2>
+<p>Desde S/ 20.00</p>
+</div>
+</a>
+<!-- 12 -->
+<a class="producto-catalogo" data-categoria="capas" data-tallas="1,2" href="mini-capa-dulce-calabaza.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Mini Capa Dulce Calabaza" src="../IMAGENES/mini-capa-dulce-calabaza.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Mini Capa "Dulce Calabaza"</h2>
+<p>S/ 20.00</p>
+</div>
+</a>
+<!-- 13: PRODUCTO AGOTADO -->
+<div aria-label='Capa M&aacute;gica "Peque&ntilde;o Hechicero" - agotado' class="producto-catalogo producto-agotado" data-categoria="capas" data-tallas="">
+<div class="catalogo-foto agotado-foto">
+<span class="etiqueta-agotado">
+            AGOTADO
+        </span>
+<img alt="Capa M&aacute;gica Peque&ntilde;o Hechicero - Agotado" src="../IMAGENES/capa-magica-pequeno-hechicero.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Capa M&aacute;gica "Peque&ntilde;o Hechicero"</h2>
+<p>S/ 25.00</p>
+</div>
+</div>
+<!-- 14 -->
+<a class="producto-catalogo" data-categoria="accesorios" data-tallas="3" href="diadema-triceratops-peludo.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Diadema Triceratops Peludo" src="../IMAGENES/diadema-triceratops-peludo.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Diadema Triceratops Peludo</h2>
+<p>S/ 16.00</p>
+</div>
+</a>
+<!-- 15 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3" href="doctora-patitas.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Dr. Patitas" src="../IMAGENES/dr-patitas.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz "Dr. Patitas"</h2>
+<p>S/ 30.00</p>
+</div>
+</a>
+<!-- 16 -->
+<!-- 17 -->
+<!-- 18 -->
+<a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="vestido-fantasmita-denim.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Vestido Fantasmita Denim Pet" src="../IMAGENES/vestido-fantasmita-denim.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Vestido Fantasmita Denim Pet</h2>
+<p>S/ 30.00</p>
+</div>
+</a>
+<!-- 19 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3" href="ilusion-payaso-terrorifico.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Ilusi&oacute;n Payaso Terror&iacute;fico" src="../IMAGENES/ilusion-payaso-terrorifico.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Ilusi&oacute;n "Payaso Terror&iacute;fico"</h2>
+<p>S/ 38.00</p>
+</div>
+</a>
+<!-- 20 -->
+<a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="vestido-catrina-multicolor.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Vestido Catrina Multicolor" src="../IMAGENES/vestido-catrina-multicolor.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Vestido Catrina Multicolor</h2>
+<p>S/ 30.00</p>
+</div>
+</a>
+<!-- 21 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="5" href="chef-panadero.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Chef Panadero" src="../IMAGENES/chef-panadero.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz "Chef Panadero"</h2>
+<p>S/ 52.00</p>
+</div>
+</a>
+<!-- 22 -->
+<a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="vestido-princesa-calabaza.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Vestido Fiesta Princesa Calabaza" src="../IMAGENES/vestido-princesa-calabaza.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Vestido Fiesta "Princesa Calabaza"</h2>
+<p>Desde S/ 20.00</p>
+</div>
+</a>
+<!-- 23 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="4,5" href="mr-fantasma.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Mr. Fantasma" src="../IMAGENES/mr-fantasma.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Mr. Fantasma</h2>
+<p>Desde S/ 29.00</p>
+</div>
+</a>
+<!-- 24 -->
+<a class="producto-catalogo" data-categoria="otros" data-tallas="3" href="hoodie-pumpkin-boo.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Hoodie Pumpkin Boo" src="../IMAGENES/hoodie-pumpkin-boo.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Hoodie Pumpkin Boo</h2>
+<p>S/ 29.00</p>
+</div>
+</a>
+<!-- 25 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="4,5" href="hot-doggy.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Hot-Doggy" src="../IMAGENES/hot-doggy.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Hot-Doggy</h2>
+<p>Desde S/ 55.00</p>
+</div>
+</a>
+<!-- 26 -->
+<a class="producto-catalogo" data-categoria="otros" data-tallas="3" href="sr-calabaza-de-peluche.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Sr. Calabaza de Peluche" src="../IMAGENES/sr-calabaza-de-peluche.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Sr. Calabaza de Peluche</h2>
+<p>S/ 28.00</p>
+</div>
+</a>
+<!-- 27 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="2,3" href="pequeno-extraterrestre.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Peque&ntilde;o Extraterrestre" src="../IMAGENES/pequeno-extraterrestre.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Peque&ntilde;o Extraterrestre</h2>
+<p>Desde S/ 30.00</p>
+</div>
+</a>
+<!-- 28 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3,4,5" href="jinete-brujita.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Disfraz Jinete Brujita" src="../IMAGENES/jinete-brujita.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz Jinete Brujita</h2>
+<p>Desde S/ 38.00</p>
+</div>
+</a>
+<!-- 29 -->
+<a class="producto-catalogo" data-categoria="vestidos" data-tallas="3,4" href="vestido-romance-vintage.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Vestido Romance Vintage" src="../IMAGENES/vestido-romance-vintage.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Vestido Romance Vintage</h2>
+<p>S/ 38.00</p>
+</div>
+</a>
+<!-- 30 -->
+<a class="producto-catalogo" data-categoria="accesorios" data-tallas="3,4" href="arnes-jinete-michi-calabaza.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Arn&eacute;s Jinete Michi Calabaza" src="../IMAGENES/arnes-jinete-michi-calabaza.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Arn&eacute;s Jinete Michi Calabaza</h2>
+<p>S/ 38.00</p>
+</div>
+</a>
+<!-- 31 -->
+<a class="producto-catalogo" data-categoria="vestidos" data-tallas="2,3" href="too-cute-to-spook.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Vestido Too Cute to Spook" src="../IMAGENES/too-cute-to-spook.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Too Cute to Spook</h2>
+<p>Desde S/ 22.00</p>
+</div>
+</a>
+<!-- 32 -->
+<a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="noche-de-gala-de-halloween.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Noche de Gala de Halloween" src="../IMAGENES/noche-de-gala-de-halloween.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>Noche de Gala de Halloween</h2>
+<p>S/ 35.00</p>
+</div>
+</a>
+<!-- 33 -->
+<!-- 34 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="0,1,4,5" href="el-pequeno-cowboy.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="El Peque&ntilde;o Cowboy" src="../IMAGENES/el-pequeno-cowboy.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>El Peque&ntilde;o Cowboy</h2>
+<p>Desde S/ 18.00</p>
+</div>
+</a>
+<!-- 35 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="1,2" href="el-alguacil-peludo.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="El Alguacil Peludo" src="../IMAGENES/el-alguacil-peludo.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>El Alguacil Peludo</h2>
+<p>Desde S/ 30.00</p>
+</div>
+</a>
+<!-- 36 -->
+<a class="producto-catalogo" data-categoria="disfraces" data-tallas="2,3" href="poncho-mini-monstruos.html">
+<div class="catalogo-foto">
+<span></span>
+<img alt="Poncho Mini Monstruos para mascotas" src="../IMAGENES/poncho-mini-monstruos.jpg"/>
+</div>
+<div class="catalogo-datos">
+<h2>
                 Poncho Mini Monstruos
             </h2>
-
-            <p>
+<p>
                 S/ 26.00
             </p>
-
-        </div>
-
-    </a>
-
 </div>
-
-
+</a>
+</div><p class="halloween-sin-resultados" hidden="" id="sinResultados">No hay productos disponibles con esos filtros.</p>
 </section>
-
 <footer class="footer-kumino">
-
-
 <div class="footer-container">
-
-    <div class="footer-marca">
-
-        <h2>KÚMINO</h2>
-
-        <p>
+<div class="footer-marca">
+<h2>K&Uacute;MINO</h2>
+<p>
             Moda con amor para tu mascota.
         </p>
-
-    </div>
-
-
-    <div class="footer-enlaces">
-
-        <h3>Navegación</h3>
-
-        <a href="../index.html">Inicio</a>
-        <a href="hallowen.html">Halloween</a>
-        <a href="../HEMBRAS/hembras.html">Hembras</a>
-        <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
-        <a href="../CASITAS/casitas.html">Casitas</a>
-
-    </div>
-
-
-    <div class="footer-contacto">
-
-        <h3>Contáctanos</h3>
-
-        <a href="https://wa.me/51940151463"
-           target="_blank">
+</div>
+<div class="footer-enlaces">
+<h3>Navegaci&oacute;n</h3>
+<a href="../index.html">Inicio</a>
+<a href="hallowen.html">Halloween</a>
+<a href="../HEMBRAS/hembras.html">Hembras</a>
+<a href="../ACCESORIOS/accesorios.html">Accesorios</a>
+<a href="../CASITAS/casitas.html">Casitas</a>
+</div>
+<div class="footer-contacto">
+<h3>Cont&aacute;ctanos</h3>
+<a href="https://wa.me/51940151463" target="_blank">
 
             WhatsApp
 
         </a>
-
-        <span>
-            Envíos a todo el Perú
+<span>
+            Env&iacute;os a todo el Per&uacute;
         </span>
-
-    </div>
-
 </div>
-
-
+</div>
 <div class="footer-bottom">
-
-    <p>
-        © 2026 KÚMINO. Todos los derechos reservados.
+<p>
+        &copy; 2026 K&Uacute;MINO. Todos los derechos reservados.
     </p>
-
-    <span>
+<span>
         Moda con amor para tu mascota
     </span>
-
 </div>
-
-
 </footer>
-
 <script>
+(() => {
+  const productos = Array.from(document.querySelectorAll('.productos-grid .producto-catalogo'));
+  const categoriasDesktop = Array.from(document.querySelectorAll('.categorias-catalogo [data-filtro]'));
+  const categoriasMovil = Array.from(document.querySelectorAll('#opcionesCategoria [data-filtro]'));
+  const tallasMovil = Array.from(document.querySelectorAll('#opcionesTalla [data-talla]'));
+  const selectTalla = document.getElementById('selectTalla');
+  const btnCategoria = document.getElementById('btnCategoria');
+  const btnTalla = document.getElementById('btnTalla');
+  const opcionesCategoria = document.getElementById('opcionesCategoria');
+  const opcionesTalla = document.getElementById('opcionesTalla');
+  const contador = document.getElementById('contadorProductos');
+  const sinResultados = document.getElementById('sinResultados');
+  let categoriaActiva = 'todos';
+  let tallaActiva = 'todas';
 
-const botones = document.querySelectorAll(
-    ".categorias-catalogo button"
-);
-
-const productos = document.querySelectorAll(
-    ".producto-catalogo"
-);
-
-
-botones.forEach(boton => {
-
-    boton.addEventListener("click", () => {
-
-        const filtro = boton.dataset.filtro;
-
-
-        botones.forEach(b => {
-
-            b.classList.remove(
-                "categoria-activa"
-            );
-
-        });
-
-
-        boton.classList.add(
-            "categoria-activa"
-        );
-
-
-        productos.forEach(producto => {
-
-            const categoria =
-                producto.dataset.categoria;
-
-
-            if (
-                filtro === "todos" ||
-                categoria === filtro
-            ) {
-
-                producto.style.display = "block";
-
-            } else {
-
-                producto.style.display = "none";
-
-            }
-
-        });
-
+  function cerrarDesplegables(excepto = null) {
+    [[btnCategoria, opcionesCategoria], [btnTalla, opcionesTalla]].forEach(([boton, menu]) => {
+      if (menu !== excepto) {
+        menu.hidden = true;
+        boton.setAttribute('aria-expanded', 'false');
+      }
     });
+  }
+  function alternarDesplegable(boton, menu) {
+    const abrir = menu.hidden;
+    cerrarDesplegables(menu);
+    menu.hidden = !abrir;
+    boton.setAttribute('aria-expanded', String(abrir));
+  }
+  btnCategoria.addEventListener('click', () => alternarDesplegable(btnCategoria, opcionesCategoria));
+  btnTalla.addEventListener('click', () => alternarDesplegable(btnTalla, opcionesTalla));
 
-});
+  function actualizarFiltros() {
+    let cantidadVisible = 0;
+    productos.forEach(producto => {
+      const categoria = producto.dataset.categoria || '';
+      const tallas = (producto.dataset.tallas || '').split(',').map(t => t.trim()).filter(Boolean);
+      const coincideCategoria = categoriaActiva === 'todos' || categoria === categoriaActiva;
+      const coincideTalla = tallaActiva === 'todas' || tallas.includes(tallaActiva);
+      const mostrar = coincideCategoria && coincideTalla;
+      producto.hidden = !mostrar;
+      if (mostrar) cantidadVisible++;
+    });
+    contador.textContent = `${cantidadVisible} ${cantidadVisible === 1 ? 'producto encontrado' : 'productos encontrados'}`;
+    sinResultados.hidden = cantidadVisible !== 0;
 
+    categoriasDesktop.forEach(boton => {
+      const activo = boton.dataset.filtro === categoriaActiva;
+      boton.classList.toggle('categoria-activa', activo);
+      boton.setAttribute('aria-pressed', String(activo));
+    });
+    const nombreCategoria = {
+      todos: 'Categoría', disfraces: 'Disfraces', capas: 'Capas', alas: 'Alas',
+      vestidos: 'Vestidos', accesorios: 'Accesorios', otros: 'Otros'
+    }[categoriaActiva];
+    btnCategoria.innerHTML = `${nombreCategoria} <span aria-hidden="true">⌄</span>`;
+    const nombreTalla = tallaActiva === 'todas' ? 'Talla' : `Talla ${tallaActiva}`;
+    btnTalla.innerHTML = `${nombreTalla} <span aria-hidden="true">⌄</span>`;
+    selectTalla.value = tallaActiva;
+    categoriasMovil.forEach(b => b.classList.toggle('opcion-seleccionada', b.dataset.filtro === categoriaActiva));
+    tallasMovil.forEach(b => b.classList.toggle('opcion-seleccionada', b.dataset.talla === tallaActiva));
+  }
+
+  function seleccionarCategoria(valor) {
+    categoriaActiva = valor;
+    actualizarFiltros();
+    cerrarDesplegables();
+  }
+  function seleccionarTalla(valor) {
+    tallaActiva = valor;
+    actualizarFiltros();
+    cerrarDesplegables();
+  }
+
+  categoriasDesktop.forEach(boton => boton.addEventListener('click', () => seleccionarCategoria(boton.dataset.filtro)));
+  categoriasMovil.forEach(boton => boton.addEventListener('click', () => seleccionarCategoria(boton.dataset.filtro)));
+  tallasMovil.forEach(boton => boton.addEventListener('click', () => seleccionarTalla(boton.dataset.talla)));
+  selectTalla.addEventListener('change', event => seleccionarTalla(event.target.value));
+
+  document.addEventListener('click', event => {
+    if (!event.target.closest('.filtro-desplegable')) cerrarDesplegables();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') cerrarDesplegables();
+  });
+
+  actualizarFiltros();
+})();
 </script>
-
 </body>
 </html>
