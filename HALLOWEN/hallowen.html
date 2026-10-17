@@ -589,11 +589,21 @@
     actualizarFiltros();
     cerrarDesplegables();
   }
-  function seleccionarTalla(valor) {
-    tallaActiva = valor;
-    actualizarFiltros();
-    cerrarDesplegables();
-  }
+  
+function seleccionarTalla(valor) {
+  tallaActiva = valor;
+
+  // Cerrar inmediatamente el panel de tallas
+  opcionesTalla.hidden = true;
+  btnTalla.setAttribute('aria-expanded', 'false');
+
+  // Cerrar también el panel de categorías
+  opcionesCategoria.hidden = true;
+  btnCategoria.setAttribute('aria-expanded', 'false');
+
+  // Actualizar los productos y conservar el filtro seleccionado
+  actualizarFiltros();
+}
 
   categoriasDesktop.forEach(boton => boton.addEventListener('click', () => seleccionarCategoria(boton.dataset.filtro)));
   categoriasMovil.forEach(boton => boton.addEventListener('click', () => seleccionarCategoria(boton.dataset.filtro)));
