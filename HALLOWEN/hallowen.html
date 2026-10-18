@@ -11,16 +11,15 @@
 <style>
 
 
-/* =========================================================
-   FILTROS DE CATEGORÍA Y TALLA - HALLOWEEN
-   DISEÑO DE ESCRITORIO BASADO EN MACHOS
-========================================================= */
 
+/* Barra de filtros HALLOWEEN */
 .halloween-controles {
     width: calc(100% - 80px);
     max-width: 914px;
+    min-height: 85px;
     margin: 0 auto 55px;
-    padding: 7px 20px;
+    padding: 7px 26px;
+    box-sizing: border-box;
 
     display: flex;
     flex-direction: row;
@@ -29,17 +28,15 @@
     align-items: center;
     gap: 8px;
 
-    box-sizing: border-box;
     background-color: #FFFFFF;
     border: 1px solid rgba(43, 43, 43, 0.08);
     border-radius: 40px;
     box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
 }
 
-/* Categorías */
-
+/* Categorías más agrupadas y alineadas a la izquierda */
 .halloween-controles > .categorias-catalogo {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     min-width: 0;
     margin: 0;
     padding: 0;
@@ -59,7 +56,6 @@
 .halloween-controles > .categorias-catalogo button {
     flex: 0 0 auto;
     padding: 10px 12px;
-
     border: none;
     border-radius: 25px;
     background: transparent;
@@ -67,16 +63,14 @@
     font-family: var(--fuente-principal);
     font-size: 11px;
     font-weight: 500;
-    color: #666;
-
+    color: #666666;
     white-space: nowrap;
     cursor: pointer;
-    transition: all 0.25s ease;
 }
 
 .halloween-controles > .categorias-catalogo button:hover {
-    color: var(--carbón);
     background-color: var(--crema);
+    color: var(--carbón);
 }
 
 .halloween-controles > .categorias-catalogo .categoria-activa,
@@ -85,8 +79,7 @@
     color: var(--blanco);
 }
 
-/* Selector de talla */
-
+/* Selector de talla a la derecha */
 .halloween-controles > .filtro-talla-desktop {
     display: flex;
     flex: 0 0 auto;
@@ -106,7 +99,6 @@
 .halloween-controles > .filtro-talla-desktop select {
     min-width: 145px;
     padding: 10px 12px;
-
     border: 1px solid rgba(43, 43, 43, 0.12);
     border-radius: 25px;
     background-color: #FFFFFF;
@@ -116,8 +108,6 @@
     color: var(--carbón);
     cursor: pointer;
 }
-
-/* Desplegables ocultos en escritorio */
 
 .halloween-controles > .filtros-movil {
     display: none;
