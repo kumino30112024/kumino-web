@@ -248,7 +248,7 @@ a {
             rgba(245, 234, 221, 0.20) 75%,
             rgba(245, 234, 221, 0.05) 100%
         ),
-        url("mascotas verano kumino.png");
+        url("mascotas%20verano%20kumino.png");
 
     background-size: cover;
 
