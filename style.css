@@ -345,29 +345,25 @@ a {
 }
 
 
+
 /* =========================================================
-   HERO KÚMINO — ADAPTACIÓN PARA CELULARES
+   HERO KÚMINO — AJUSTE PARA CELULARES
 ========================================================= */
 
 @media (max-width: 768px) {
 
     .hero {
         width: 100%;
-        height: auto;
 
-        /* Proporción horizontal de la fotografía */
-        aspect-ratio: 3 / 2;
-
+        /* Portada más alta en móvil */
+        aspect-ratio: auto;
+        height: 420px;
         min-height: 0;
         max-height: none;
 
+        /* Mostrar la fotografía sin deformarla */
         background-size: cover;
-
-        /*
-         * Ajustamos el encuadre para priorizar
-         * las caras de las dos mascotas.
-         */
-        background-position: center 38%;
+        background-position: center center;
         background-repeat: no-repeat;
 
         padding: 0;
@@ -381,12 +377,9 @@ a {
         bottom: 12px;
 
         padding: 11px 15px;
-
         gap: 8px;
 
         font-size: 11px;
-
-        box-shadow: 0 5px 15px rgba(230, 57, 70, 0.22);
     }
 
     .hero-coleccion-flecha {
@@ -395,39 +388,34 @@ a {
 }
 
 /* =========================================================
-   CELULARES ESTRECHOS
+   CELULARES PEQUEÑOS
 ========================================================= */
 
 @media (max-width: 480px) {
 
     .hero {
-        /*
-         * Se mantiene la fotografía horizontal.
-         * El encuadre se centra en ambas mascotas.
-         */
-        aspect-ratio: 3 / 2;
-
-        height: auto;
+        height: 420px;
 
         background-size: cover;
-        background-position: center 38%;
+
+        /*
+         * Ajustaremos este valor según el resultado
+         * para centrar correctamente a ambas mascotas.
+         */
+        background-position: center center;
     }
 
     .hero-coleccion {
         right: 10px;
-        bottom: 10px;
+        bottom: 12px;
 
         padding: 10px 13px;
+        gap: 7px;
 
         font-size: 10px;
-
-        gap: 7px;
-    }
-
-    .hero-coleccion-flecha {
-        font-size: 15px;
     }
 }
+
 
 /* =========================================================
    COLECCIÓN PRINCIPAL
