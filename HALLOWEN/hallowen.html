@@ -7,22 +7,18 @@
 <link href="../style.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 
+
 <style>
-
-
 /* =========================================================
    FILTROS DE CATEGORÍA Y TALLA - HALLOWEEN
-   DISEÑO DE ESCRITORIO INSPIRADO EN MACHOS
 ========================================================= */
 
-
-/* BARRA DE FILTROS HALLOWEEN - ESCRITORIO */
-
+/* BARRA DE FILTROS PARA PC */
 .halloween-controles {
   width: calc(100% - 40px);
   max-width: 1100px;
   margin: 0 auto 40px;
-  padding: 7px;
+  padding: 12px 22px;
   box-sizing: border-box;
 
   display: flex;
@@ -32,13 +28,13 @@
   justify-content: space-between;
   gap: 8px;
 
-  background-color: var(--beige);
-  border: 1px solid rgba(43, 43, 43, 0.08);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(43, 43, 43, 0.06);
   border-radius: 40px;
   box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
 }
 
-/* CATEGORÍAS */
+/* CATEGORÍAS PARA PC */
 .halloween-controles > .categorias-catalogo {
   display: flex;
   flex: 1 1 auto;
@@ -80,7 +76,7 @@
   color: var(--blanco);
 }
 
-/* SELECTOR DE TALLA DENTRO DE LA BARRA */
+/* SELECTOR DE TALLA PARA PC */
 .halloween-controles > .filtro-talla-desktop {
   display: flex;
   flex: 0 0 auto;
@@ -109,12 +105,10 @@
   cursor: pointer;
 }
 
-/* OCULTAR FILTROS MÓVILES EN ESCRITORIO */
+/* FILTROS MÓVILES OCULTOS EN PC */
 .filtros-movil {
   display: none;
 }
-
-
 
 /* CONTADOR DE PRODUCTOS */
 .halloween-contador {
@@ -129,7 +123,7 @@
   display: none !important;
 }
 
-/* BOTONES DESPLEGABLES MÓVILES */
+/* BOTONES DESPLEGABLES */
 .filtro-desplegable {
   position: relative;
   min-width: 0;
@@ -211,7 +205,7 @@
 }
 
 /* =========================================================
-   DISEÑO MÓVIL: DOS FILTROS BLANCOS INDEPENDIENTES
+   MÓVIL: DOS FILTROS BLANCOS INDEPENDIENTES
 ========================================================= */
 
 @media (max-width: 600px) {
@@ -238,7 +232,7 @@
     display: none !important;
   }
 
-  /* Contenedor transparente de los dos filtros */
+  /* Contenedor de los dos filtros móviles */
   .halloween-controles .filtros-movil {
     display: flex !important;
     flex-direction: row !important;
@@ -257,7 +251,6 @@
     overflow: visible !important;
   }
 
-  /* Repartir el espacio entre ambos filtros */
   .halloween-controles .filtros-movil .filtro-desplegable {
     position: relative !important;
     flex: 1 1 0 !important;
@@ -266,7 +259,7 @@
     border: none !important;
   }
 
-  /* Botones blancos con bordes redondeados */
+  /* Botones blancos independientes */
   .halloween-controles .filtros-movil .btn-filtro {
     width: 100% !important;
     height: 54px !important;
@@ -274,17 +267,14 @@
     max-height: 54px !important;
     padding: 0 10px !important;
     box-sizing: border-box !important;
-
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 5px !important;
-
     background: #FFFFFF !important;
     border: 1px solid #E5E5E5 !important;
     border-radius: 28px !important;
     box-shadow: none !important;
-
     font-family: 'Poppins', sans-serif !important;
     font-size: 11px !important;
     font-weight: 500 !important;
@@ -293,7 +283,7 @@
     line-height: normal !important;
   }
 
-  /* Texto del botón */
+  /* Texto de los botones */
   .halloween-controles .filtros-movil .btn-filtro span:first-child {
     display: block !important;
     flex: 1 1 auto !important;
@@ -311,7 +301,7 @@
     margin-left: 2px !important;
   }
 
-  /* Menús desplegables en móvil */
+  /* Menús desplegables móviles */
   .halloween-controles .filtros-movil .opciones-filtro {
     position: absolute !important;
     top: calc(100% + 6px) !important;
@@ -358,6 +348,7 @@
   }
 }
 </style>
+
 
 
 <style>.opciones-filtro button.opcion-seleccionada{background:#F5EADD;font-weight:600}</style></head>
