@@ -22,6 +22,10 @@
 .btn-filtro{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 12px;border:1px solid #d5c5b4;border-radius:8px;background:#fff;color:#333;font:500 13px 'Poppins',sans-serif;cursor:pointer;white-space:nowrap}
 .opciones-filtro{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:#fff;border:1px solid #e4d8ca;border-radius:9px;box-shadow:0 8px 22px rgba(44,53,49,.14);padding:5px;max-height:280px;overflow-y:auto}
 .opciones-filtro[hidden]{display:none!important}
+ #opcionesCategoria[hidden],
+#opcionesTalla[hidden] {
+    display: none !important;
+}
 .opciones-filtro button{display:block;width:100%;text-align:left;border:0;border-radius:6px;background:#fff;padding:9px 10px;color:#333;font:400 12px 'Poppins',sans-serif;cursor:pointer}
 .opciones-filtro button:hover,.opciones-filtro button:focus{background:#F5EADD;outline:none}
 .halloween-sin-resultados{font-family:'Poppins',sans-serif;text-align:center;padding:28px 12px;color:#555}
@@ -520,12 +524,25 @@
     </span>
 </div>
 </footer>
+
 <script>
 (() => {
-  const productos = Array.from(document.querySelectorAll('.productos-grid .producto-catalogo'));
-  const categoriasDesktop = Array.from(document.querySelectorAll('.categorias-catalogo [data-filtro]'));
-  const categoriasMovil = Array.from(document.querySelectorAll('#opcionesCategoria [data-filtro]'));
-  const tallasMovil = Array.from(document.querySelectorAll('#opcionesTalla [data-talla]'));
+  const productos = Array.from(
+    document.querySelectorAll('.productos-grid .producto-catalogo')
+  );
+
+  const categoriasDesktop = Array.from(
+    document.querySelectorAll('.categorias-catalogo [data-filtro]')
+  );
+
+  const categoriasMovil = Array.from(
+    document.querySelectorAll('#opcionesCategoria [data-filtro]')
+  );
+
+  const tallasMovil = Array.from(
+    document.querySelectorAll('#opcionesTalla [data-talla]')
+  );
+
   const selectTalla = document.getElementById('selectTalla');
   const btnCategoria = document.getElementById('btnCategoria');
   const btnTalla = document.getElementById('btnTalla');
@@ -533,88 +550,175 @@
   const opcionesTalla = document.getElementById('opcionesTalla');
   const contador = document.getElementById('contadorProductos');
   const sinResultados = document.getElementById('sinResultados');
+
   let categoriaActiva = 'todos';
   let tallaActiva = 'todas';
 
-  function cerrarDesplegables(excepto = null) {
-    [[btnCategoria, opcionesCategoria], [btnTalla, opcionesTalla]].forEach(([boton, menu]) => {
-      if (menu !== excepto) {
-        menu.hidden = true;
-        boton.setAttribute('aria-expanded', 'false');
-      }
-    });
+  function cerrarDesplegables() {
+    opcionesCategoria.hidden = true;
+    opcionesTalla.hidden = true;
+
+    btnCategoria.setAttribute('aria-expanded', 'false');
+    btnTalla.setAttribute('aria-expanded', 'false');
   }
+
   function alternarDesplegable(boton, menu) {
     const abrir = menu.hidden;
-    cerrarDesplegables(menu);
-    menu.hidden = !abrir;
-    boton.setAttribute('aria-expanded', String(abrir));
+
+    cerrarDesplegables();
+
+    if (abrir) {
+      menu.hidden = false;
+      boton.setAttribute('aria-expanded', 'true');
+    }
   }
-  btnCategoria.addEventListener('click', () => alternarDesplegable(btnCategoria, opcionesCategoria));
-  btnTalla.addEventListener('click', () => alternarDesplegable(btnTalla, opcionesTalla));
+
+  btnCategoria.addEventListener('click', () => {
+    alternarDesplegable(btnCategoria, opcionesCategoria);
+  });
+
+  btnTalla.addEventListener('click', () => {
+    alternarDesplegable(btnTalla, opcionesTalla);
+  });
 
   function actualizarFiltros() {
     let cantidadVisible = 0;
+
     productos.forEach(producto => {
       const categoria = producto.dataset.categoria || '';
-      const tallas = (producto.dataset.tallas || '').split(',').map(t => t.trim()).filter(Boolean);
-      const coincideCategoria = categoriaActiva === 'todos' || categoria === categoriaActiva;
-      const coincideTalla = tallaActiva === 'todas' || tallas.includes(tallaActiva);
+
+      const tallas = (producto.dataset.tallas || '')
+        .split(',')
+        .map(t => t.trim())
+        .filter(Boolean);
+
+      const coincideCategoria =
+        categoriaActiva === 'todos' ||
+        categoria === categoriaActiva;
+
+      const coincideTalla =
+        tallaActiva === 'todas' ||
+        tallas.includes(tallaActiva);
+
       const mostrar = coincideCategoria && coincideTalla;
+
       producto.hidden = !mostrar;
+
       if (mostrar) cantidadVisible++;
     });
-    contador.textContent = `${cantidadVisible} ${cantidadVisible === 1 ? 'producto encontrado' : 'productos encontrados'}`;
+
+    contador.textContent =
+      `${cantidadVisible} ${
+        cantidadVisible === 1
+          ? 'producto encontrado'
+          : 'productos encontrados'
+      }`;
+
     sinResultados.hidden = cantidadVisible !== 0;
 
     categoriasDesktop.forEach(boton => {
       const activo = boton.dataset.filtro === categoriaActiva;
+
       boton.classList.toggle('categoria-activa', activo);
       boton.setAttribute('aria-pressed', String(activo));
     });
-    const nombreCategoria = {
-      todos: 'Categoría', disfraces: 'Disfraces', capas: 'Capas', alas: 'Alas',
-      vestidos: 'Vestidos', accesorios: 'Accesorios', otros: 'Otros'
-    }[categoriaActiva];
-    btnCategoria.innerHTML = `${nombreCategoria} <span aria-hidden="true">⌄</span>`;
-    const nombreTalla = tallaActiva === 'todas' ? 'Talla' : `Talla ${tallaActiva}`;
-    btnTalla.innerHTML = `${nombreTalla} <span aria-hidden="true">⌄</span>`;
-    selectTalla.value = tallaActiva;
-    categoriasMovil.forEach(b => b.classList.toggle('opcion-seleccionada', b.dataset.filtro === categoriaActiva));
-    tallasMovil.forEach(b => b.classList.toggle('opcion-seleccionada', b.dataset.talla === tallaActiva));
+
+    const nombresCategoria = {
+      todos: 'Categoría',
+      disfraces: 'Disfraces',
+      capas: 'Capas',
+      alas: 'Alas',
+      vestidos: 'Vestidos',
+      accesorios: 'Accesorios',
+      otros: 'Otros'
+    };
+
+    const nombreCategoria = nombresCategoria[categoriaActiva];
+
+    btnCategoria.innerHTML =
+      `${nombreCategoria} <span aria-hidden="true">⌄</span>`;
+
+    const nombreTalla =
+      tallaActiva === 'todas'
+        ? 'Tallas'
+        : `Talla ${tallaActiva}`;
+
+    btnTalla.innerHTML =
+      `${nombreTalla} <span aria-hidden="true">⌄</span>`;
+
+    if (selectTalla) {
+      selectTalla.value = tallaActiva;
+    }
+
+    categoriasMovil.forEach(boton => {
+      boton.classList.toggle(
+        'opcion-seleccionada',
+        boton.dataset.filtro === categoriaActiva
+      );
+    });
+
+    tallasMovil.forEach(boton => {
+      boton.classList.toggle(
+        'opcion-seleccionada',
+        boton.dataset.talla === tallaActiva
+      );
+    });
   }
 
   function seleccionarCategoria(valor) {
     categoriaActiva = valor;
-    actualizarFiltros();
+
+    // Cerrar ambos menús al seleccionar una categoría.
     cerrarDesplegables();
+
+    // Actualizar productos y nombre del botón.
+    actualizarFiltros();
   }
-  
-function seleccionarTalla(valor) {
-  tallaActiva = valor;
 
-  // Cerrar inmediatamente el panel de tallas
-  opcionesTalla.hidden = true;
-  btnTalla.setAttribute('aria-expanded', 'false');
+  function seleccionarTalla(valor) {
+    tallaActiva = valor;
 
-  // Cerrar también el panel de categorías
-  opcionesCategoria.hidden = true;
-  btnCategoria.setAttribute('aria-expanded', 'false');
+    // Cerrar ambos menús al seleccionar una talla.
+    cerrarDesplegables();
 
-  // Actualizar los productos y conservar el filtro seleccionado
-  actualizarFiltros();
-}
+    // Actualizar productos y nombre del botón.
+    actualizarFiltros();
+  }
 
-  categoriasDesktop.forEach(boton => boton.addEventListener('click', () => seleccionarCategoria(boton.dataset.filtro)));
-  categoriasMovil.forEach(boton => boton.addEventListener('click', () => seleccionarCategoria(boton.dataset.filtro)));
-  tallasMovil.forEach(boton => boton.addEventListener('click', () => seleccionarTalla(boton.dataset.talla)));
-  selectTalla.addEventListener('change', event => seleccionarTalla(event.target.value));
+  categoriasDesktop.forEach(boton => {
+    boton.addEventListener('click', () => {
+      seleccionarCategoria(boton.dataset.filtro);
+    });
+  });
+
+  categoriasMovil.forEach(boton => {
+    boton.addEventListener('click', () => {
+      seleccionarCategoria(boton.dataset.filtro);
+    });
+  });
+
+  tallasMovil.forEach(boton => {
+    boton.addEventListener('click', () => {
+      seleccionarTalla(boton.dataset.talla);
+    });
+  });
+
+  if (selectTalla) {
+    selectTalla.addEventListener('change', event => {
+      seleccionarTalla(event.target.value);
+    });
+  }
 
   document.addEventListener('click', event => {
-    if (!event.target.closest('.filtro-desplegable')) cerrarDesplegables();
+    if (!event.target.closest('.filtro-desplegable')) {
+      cerrarDesplegables();
+    }
   });
+
   document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') cerrarDesplegables();
+    if (event.key === 'Escape') {
+      cerrarDesplegables();
+    }
   });
 
   actualizarFiltros();
