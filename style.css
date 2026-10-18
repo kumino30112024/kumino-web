@@ -233,338 +233,134 @@ a {
     display: none;
 }
 
+
 /* =========================================================
-   HERO PRINCIPAL
+   HERO PRINCIPAL KÚMINO
 ========================================================= */
 
 .hero {
-    min-height: 100vh;
+    position: relative;
 
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(245, 234, 221, 0.92) 0%,
-            rgba(245, 234, 221, 0.72) 38%,
-            rgba(245, 234, 221, 0.20) 75%,
-            rgba(245, 234, 221, 0.05) 100%
-        ),
-        url("mascotas%20verano%20kumino.png");
+    width: 100%;
+    min-height: 0;
+    height: clamp(480px, 48vw, 800px);
+
+    background-image: url("mascotas%20verano%20kumino.png");
 
     background-size: cover;
-
-    background-position: center;
-
+    background-position: center center;
     background-repeat: no-repeat;
 
-    padding: 125px 40px 60px;
-
-    display: flex;
-    align-items: center;
+    padding: 0;
+    margin: 0;
 
     overflow: hidden;
 }
 
-.hero-container {
-    width: 100%;
+/* =========================================================
+   BOTÓN VER COLECCIÓN
+========================================================= */
 
-    max-width: 1250px;
+.hero-coleccion {
+    position: absolute;
 
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: 0.9fr 1.1fr;
-
-    align-items: center;
-
-    gap: 30px;
-}
-
-
-/* CONTENIDO */
-
-.hero-content {
-    position: relative;
+    right: clamp(20px, 4.5vw, 75px);
+    bottom: clamp(24px, 4vw, 55px);
 
     z-index: 5;
 
-    max-width: 560px;
-}
-
-
-/* ETIQUETA */
-
-.hero-tag {
-    display: flex;
-    align-items: center;
-
-    color: var(--verde-salvia);
-
-    font-size: 12px;
-    font-weight: 600;
-
-    letter-spacing: 2.5px;
-
-    margin-bottom: 22px;
-}
-
-.hero-tag::before {
-    content: "";
-
-    width: 38px;
-    height: 1px;
-
-    background-color: var(--dorado);
-
-    margin-right: 14px;
-}
-
-
-/* TÍTULO */
-
-.hero h1 {
-    font-family: var(--fuente-elegante);
-
-    font-size: clamp(3.2rem, 5vw, 5rem);
-
-    line-height: 1.02;
-
-    font-weight: 700;
-
-    letter-spacing: -1.5px;
-
-    color: var(--carbón);
-
-    margin-bottom: 28px;
-}
-
-.hero h1 span {
-    display: block;
-
-    color: var(--coral);
-
-    font-style: italic;
-}
-
-
-/* DESCRIPCIÓN */
-
-.hero-content p {
-    max-width: 500px;
-
-    color: var(--carbón);
-
-    opacity: 0.72;
-
-    font-size: 16px;
-
-    line-height: 1.8;
-
-    margin-bottom: 35px;
-}
-
-
-/* BOTONES */
-
-.hero-buttons {
-    display: flex;
-    align-items: center;
-
-    gap: 20px;
-
-    flex-wrap: wrap;
-}
-
-.btn-primary {
     display: inline-flex;
     align-items: center;
-
-    gap: 12px;
-
-    padding: 14px 27px;
-
-    background-color: var(--coral);
-
-    color: var(--blanco);
-
-    border-radius: 30px;
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    box-shadow:
-        0 8px 20px rgba(230, 57, 70, 0.20);
-
-    transition: 0.3s ease;
-}
-
-.btn-primary span {
-    font-size: 18px;
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 28px rgba(230, 57, 70, 0.28);
-}
-
-
-.btn-secondary {
-    padding: 13px 25px;
-
-    border: 1px solid var(--verde-salvia);
-
-    border-radius: 30px;
-
-    color: var(--verde-salvia);
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 500;
-
-    transition: 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background-color: var(--verde-salvia);
-
-    color: var(--blanco);
-}
-
-
-/* =========================================================
-   IMAGEN / VIDEO HERO
-========================================================= */
-
-.hero-image {
-    position: relative;
-
-    height: 610px;
-
-    display: flex;
-    align-items: center;
     justify-content: center;
-}
+    gap: 16px;
 
+    padding: 19px 30px;
 
-/* IMAGEN ACTUAL */
-/* IMAGEN ACTUAL */
+    background-color: #E63946;
+    color: #FFFFFF;
 
-.hero-image img {
-    position: relative;
-
-    z-index: 1;
-
-    width: 650px;
-
-    max-width: 100%;
-
-    height: auto;
-
-    object-fit: contain;
-
-    border-radius: 24px;
-
-    filter:
-        drop-shadow(
-            0 20px 30px rgba(43, 43, 43, 0.12)
-        );
-
-    transition: 0.4s ease;
-}
-
-
-.hero-image img:hover {
-    transform: scale(1.015);
-}
-.hero-halloween-link {
-    position: relative;
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-.hero-halloween-link .hero-badge {
-    top: -60px !important;
-    bottom: auto !important;
-    right: 20px !important;
-    transform: none !important;
-}
-
-/* VIDEO FUTURO */
-
-.hero-image video {
-    position: relative;
-
-    z-index: 1;
-
-    width: 650px;
-
-    max-width: 100%;
-
-    height: auto;
-
-    max-height: 100%;
-
-    object-fit: cover;
-
-    border-radius: 24px;
-
-    filter:
-        drop-shadow(
-            0 20px 30px rgba(43, 43, 43, 0.12)
-        );
-}
-
-/* BADGE */
-
-.hero-badge {
-    position: absolute;
-
-    right: 5px;
-    bottom: 80px;
-
-    z-index: 3;
-
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 13px 20px;
-
-    background-color: var(--verde-salvia);
-
-    color: var(--blanco);
-
+    border: none;
     border-radius: 50px;
 
-    box-shadow:
-        0 10px 25px rgba(43, 43, 43, 0.15);
-}
-
-.hero-badge > span {
-    color: var(--dorado);
-
-    font-size: 20px;
-}
-
-.hero-badge strong {
-    display: block;
-
-    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     font-weight: 600;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    box-shadow: 0 8px 22px rgba(230, 57, 70, 0.20);
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 }
 
-.hero-badge small {
-    display: block;
+.hero-coleccion-flecha {
+    font-size: 21px;
+    line-height: 1;
+    transition: transform 0.3s ease;
+}
 
-    font-size: 10px;
+.hero-coleccion:hover {
+    background-color: #D92F3D;
+    transform: translateY(-3px);
 
-    opacity: 0.8;
+    box-shadow: 0 12px 26px rgba(230, 57, 70, 0.28);
+}
+
+.hero-coleccion:hover .hero-coleccion-flecha {
+    transform: translateX(4px);
+}
+
+/* =========================================================
+   ADAPTACIÓN A CELULARES
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        height: 68vh;
+        min-height: 400px;
+        max-height: 620px;
+
+        background-position: center center;
+    }
+
+    .hero-coleccion {
+        right: 18px;
+        bottom: 20px;
+
+        padding: 14px 21px;
+        gap: 10px;
+
+        font-size: 12px;
+    }
+
+    .hero-coleccion-flecha {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .hero {
+        height: 65vh;
+        min-height: 360px;
+        max-height: 500px;
+
+        background-position: center center;
+    }
+
+    .hero-coleccion {
+        right: 14px;
+        bottom: 16px;
+
+        padding: 12px 17px;
+
+        font-size: 11px;
+    }
 }
 
 
