@@ -866,31 +866,71 @@
 </footer>
 
 
+
 <script>
 (() => {
   const productos = Array.from(
-    document.querySelectorAll('.productos-grid .producto-catalogo')
+    document.querySelectorAll(
+      '.productos-grid .producto-catalogo'
+    )
   );
 
   const categoriasDesktop = Array.from(
-    document.querySelectorAll('.categorias-catalogo [data-filtro]')
+    document.querySelectorAll(
+      '.categorias-catalogo [data-filtro]'
+    )
   );
 
   const categoriasMovil = Array.from(
-    document.querySelectorAll('#opcionesCategoria [data-filtro]')
+    document.querySelectorAll(
+      '#opcionesCategoria [data-filtro]'
+    )
   );
 
   const tallasMovil = Array.from(
-    document.querySelectorAll('#opcionesTalla [data-talla]')
+    document.querySelectorAll(
+      '#opcionesTalla [data-talla]'
+    )
   );
 
-  const selectTalla = document.getElementById('selectTalla');
+  // Filtro de categoría móvil
   const btnCategoria = document.getElementById('btnCategoria');
+  const opcionesCategoria = document.getElementById(
+    'opcionesCategoria'
+  );
+
+  // Filtro de talla móvil
   const btnTalla = document.getElementById('btnTalla');
-  const opcionesCategoria = document.getElementById('opcionesCategoria');
-  const opcionesTalla = document.getElementById('opcionesTalla');
-  const contador = document.getElementById('contadorProductos');
-  const sinResultados = document.getElementById('sinResultados');
+  const opcionesTalla = document.getElementById(
+    'opcionesTalla'
+  );
+
+  // Filtro de talla personalizado para escritorio
+  const btnTallaDesktop = document.getElementById(
+    'btnTallaDesktop'
+  );
+
+  const opcionesTallaDesktop = document.getElementById(
+    'opcionesTallaDesktop'
+  );
+
+  const textoTallaDesktop = document.getElementById(
+    'textoTallaDesktop'
+  );
+
+  const tallasDesktop = Array.from(
+    document.querySelectorAll(
+      '#opcionesTallaDesktop [data-talla]'
+    )
+  );
+
+  const contador = document.getElementById(
+    'contadorProductos'
+  );
+
+  const sinResultados = document.getElementById(
+    'sinResultados'
+  );
 
   // Estado de los filtros
   let categoriaActiva = 'todos';
@@ -906,21 +946,43 @@
     otros: 'Otros'
   };
 
-  // Cerrar los dos menús
+  // Todos los menús disponibles
   function cerrarDesplegables() {
-    if (opcionesCategoria) opcionesCategoria.hidden = true;
-    if (opcionesTalla) opcionesTalla.hidden = true;
+    if (opcionesCategoria) {
+      opcionesCategoria.hidden = true;
+    }
+
+    if (opcionesTalla) {
+      opcionesTalla.hidden = true;
+    }
+
+    if (opcionesTallaDesktop) {
+      opcionesTallaDesktop.hidden = true;
+    }
 
     if (btnCategoria) {
-      btnCategoria.setAttribute('aria-expanded', 'false');
+      btnCategoria.setAttribute(
+        'aria-expanded',
+        'false'
+      );
     }
 
     if (btnTalla) {
-      btnTalla.setAttribute('aria-expanded', 'false');
+      btnTalla.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+    }
+
+    if (btnTallaDesktop) {
+      btnTallaDesktop.setAttribute(
+        'aria-expanded',
+        'false'
+      );
     }
   }
 
-  // Abrir un menú y cerrar el otro
+  // Abrir un menú y cerrar los demás
   function alternarDesplegable(boton, menu) {
     if (!boton || !menu) return;
 
@@ -930,31 +992,63 @@
 
     if (abrir) {
       menu.hidden = false;
-      boton.setAttribute('aria-expanded', 'true');
+
+      boton.setAttribute(
+        'aria-expanded',
+        'true'
+      );
     }
   }
 
+  // Abrir categorías en móvil
   if (btnCategoria && opcionesCategoria) {
-    btnCategoria.addEventListener('click', () => {
-      alternarDesplegable(btnCategoria, opcionesCategoria);
+    btnCategoria.addEventListener('click', evento => {
+      evento.stopPropagation();
+
+      alternarDesplegable(
+        btnCategoria,
+        opcionesCategoria
+      );
     });
   }
 
+  // Abrir tallas en móvil
   if (btnTalla && opcionesTalla) {
-    btnTalla.addEventListener('click', () => {
-      alternarDesplegable(btnTalla, opcionesTalla);
+    btnTalla.addEventListener('click', evento => {
+      evento.stopPropagation();
+
+      alternarDesplegable(
+        btnTalla,
+        opcionesTalla
+      );
     });
   }
 
-  // Actualizar los productos según ambos filtros
+  // Abrir tallas en escritorio
+  if (btnTallaDesktop && opcionesTallaDesktop) {
+    btnTallaDesktop.addEventListener('click', evento => {
+      evento.stopPropagation();
+
+      alternarDesplegable(
+        btnTallaDesktop,
+        opcionesTallaDesktop
+      );
+    });
+  }
+
+  // Aplicar simultáneamente categoría y talla
   function actualizarFiltros() {
     let cantidadVisible = 0;
 
     productos.forEach(producto => {
-      const categoria = (producto.dataset.categoria || '').trim();
+      const categoria = (
+        producto.dataset.categoria || ''
+      ).trim().toLowerCase();
 
-      const tallas = (producto.dataset.tallas || '')
-        .split(',')
+      const tallas = (
+        producto.dataset.tallas || ''
+      )
+        .split(/[\s,;|]+/)
         .map(talla => talla.trim())
         .filter(Boolean);
 
@@ -966,14 +1060,17 @@
         tallaActiva === 'todas' ||
         tallas.includes(tallaActiva);
 
-      const mostrar = coincideCategoria && coincideTalla;
+      const mostrar =
+        coincideCategoria && coincideTalla;
 
       producto.hidden = !mostrar;
 
-      if (mostrar) cantidadVisible++;
+      if (mostrar) {
+        cantidadVisible++;
+      }
     });
 
-    // Actualizar el contador
+    // Actualizar contador de productos
     if (contador) {
       contador.textContent =
         `${cantidadVisible} ${
@@ -983,60 +1080,103 @@
         }`;
     }
 
-    // Mostrar aviso si no hay resultados
+    // Aviso cuando no existen resultados
     if (sinResultados) {
       sinResultados.hidden = cantidadVisible !== 0;
     }
 
-    // Actualizar las categorías de escritorio
+    // Actualizar botones de categorías de escritorio
     categoriasDesktop.forEach(boton => {
-      const activo = boton.dataset.filtro === categoriaActiva;
+      const activo =
+        boton.dataset.filtro === categoriaActiva;
 
-      boton.classList.toggle('categoria-activa', activo);
-      boton.setAttribute('aria-pressed', String(activo));
+      boton.classList.toggle(
+        'categoria-activa',
+        activo
+      );
+
+      boton.setAttribute(
+        'aria-pressed',
+        String(activo)
+      );
     });
 
-    // Actualizar el texto del filtro de categoría
+    // Nombre de categoría seleccionada
     const nombreCategoria =
-      nombresCategoria[categoriaActiva] || 'Filtrar por categoría';
+      nombresCategoria[categoriaActiva] ||
+      'Filtrar por categoría';
 
-    // Actualizar el texto del filtro de talla
+    // Nombre de talla seleccionada
     const nombreTalla =
       tallaActiva === 'todas'
         ? 'Filtrar por talla'
         : `Talla ${tallaActiva}`;
 
+    // Actualizar botón de categoría móvil
     if (btnCategoria) {
       btnCategoria.innerHTML =
         `<span>${nombreCategoria}</span>` +
-        `<span aria-hidden="true">⌄</span>`;
+        '<span aria-hidden="true">⌄</span>';
     }
 
+    // Actualizar botón de talla móvil
     if (btnTalla) {
       btnTalla.innerHTML =
         `<span>${nombreTalla}</span>` +
-        `<span aria-hidden="true">⌄</span>`;
+        '<span aria-hidden="true">⌄</span>';
     }
 
-    // Sincronizar el selector de tallas de escritorio
-    if (selectTalla) {
-      selectTalla.value = tallaActiva;
+    // Actualizar botón de talla de escritorio
+    if (textoTallaDesktop) {
+      textoTallaDesktop.textContent = nombreTalla;
     }
 
-    // Resaltar la categoría seleccionada
+    // Resaltar categoría seleccionada en móvil
     categoriasMovil.forEach(boton => {
-      const activo = boton.dataset.filtro === categoriaActiva;
+      const activo =
+        boton.dataset.filtro === categoriaActiva;
 
-      boton.classList.toggle('opcion-seleccionada', activo);
-      boton.setAttribute('aria-pressed', String(activo));
+      boton.classList.toggle(
+        'opcion-seleccionada',
+        activo
+      );
+
+      boton.setAttribute(
+        'aria-pressed',
+        String(activo)
+      );
     });
 
-    // Resaltar la talla seleccionada
+    // Resaltar talla seleccionada en móvil
     tallasMovil.forEach(boton => {
-      const activo = boton.dataset.talla === tallaActiva;
+      const activo =
+        boton.dataset.talla === tallaActiva;
 
-      boton.classList.toggle('opcion-seleccionada', activo);
-      boton.setAttribute('aria-pressed', String(activo));
+      boton.classList.toggle(
+        'opcion-seleccionada',
+        activo
+      );
+
+      boton.setAttribute(
+        'aria-pressed',
+        String(activo)
+      );
+    });
+
+    // Resaltar talla seleccionada en escritorio
+    tallasDesktop.forEach(boton => {
+      const activo =
+        boton.dataset.talla === tallaActiva;
+
+      boton.classList.toggle(
+        'opcion-seleccionada',
+        activo
+      );
+
+      boton.setAttribute(
+        'aria-pressed',
+        String(activo)
+      );
     });
   }
 
@@ -1080,16 +1220,18 @@
     });
   });
 
-  // Selector de talla de escritorio
-  if (selectTalla) {
-    selectTalla.addEventListener('change', evento => {
-      seleccionarTalla(evento.target.value);
+  // Eventos de tallas de escritorio
+  tallasDesktop.forEach(boton => {
+    boton.addEventListener('click', () => {
+      seleccionarTalla(boton.dataset.talla);
     });
-  }
+  });
 
-  // Cerrar menús al pulsar fuera
+  // Cerrar menús al hacer clic fuera
   document.addEventListener('click', evento => {
-    if (!evento.target.closest('.filtro-desplegable')) {
+    if (!evento.target.closest(
+      '.filtro-desplegable, .filtro-talla-personalizado'
+    )) {
       cerrarDesplegables();
     }
   });
@@ -1105,6 +1247,7 @@
   actualizarFiltros();
 })();
 </script>
+
 
 </body>
 </html>
