@@ -346,32 +346,28 @@ a {
 
 
 
-
 /* =========================================================
-   HERO KÚMINO — AJUSTE PARA CELULARES
+   HERO KÚMINO — CORRECCIÓN MÓVIL
 ========================================================= */
 
 @media (max-width: 768px) {
 
     .hero {
         width: 100%;
+        height: auto;
 
-        /* Más altura para apreciar mejor las mascotas */
-        height: 520px;
+        /* La sección sigue la proporción de la foto */
+        aspect-ratio: 3 / 2;
+
         min-height: 0;
         max-height: none;
-        aspect-ratio: auto;
 
-        /* Mantener la imagen completa y sin deformarla */
-        background-size: contain;
-        background-position: center center;
+        background-size: 100% 100%;
+        background-position: center;
         background-repeat: no-repeat;
-
-        background-color: #F5EADD;
 
         padding: 0;
         margin: 0;
-
         overflow: hidden;
     }
 
@@ -397,15 +393,16 @@ a {
 @media (max-width: 480px) {
 
     .hero {
-        height: 520px;
+        aspect-ratio: 3 / 2;
+        height: auto;
 
-        background-size: contain;
-        background-position: center center;
+        background-size: 100% 100%;
+        background-position: center;
     }
 
     .hero-coleccion {
         right: 10px;
-        bottom: 12px;
+        bottom: 10px;
 
         padding: 10px 13px;
         gap: 7px;
