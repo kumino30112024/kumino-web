@@ -9,6 +9,7 @@
 
 <style>
 
+
 <style>
 /* ESTILOS DE FILTROS - HALLOWEEN */
 
@@ -151,7 +152,8 @@
   color: #555;
 }
 
-/* DISEÑO MÓVIL IGUAL A MACHOS */
+/* DISEÑO MÓVIL: DOS FILTROS COMO EN MACHOS */
+
 @media (max-width: 600px) {
   .halloween-controles {
     display: block;
@@ -166,40 +168,35 @@
     display: none !important;
   }
 
-  /* Fondo blanco compartido */
+  /* Contenedor transparente: ya no existe una barra compartida */
   .halloween-controles .filtros-movil {
     display: flex !important;
     flex-direction: row !important;
     align-items: stretch !important;
     justify-content: center !important;
-    gap: 0 !important;
+    gap: 18px !important;
     width: calc(100% - 40px) !important;
     max-width: 420px !important;
     margin: 0 auto 32px !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    background: #FFFFFF !important;
-    border: 1px solid #E5E5E5 !important;
-    border-radius: 28px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
     overflow: visible !important;
   }
 
-  /* Mitad para cada filtro */
+  /* Cada filtro ocupa la mitad del espacio disponible */
   .halloween-controles .filtros-movil .filtro-desplegable {
     position: relative !important;
     flex: 1 1 0 !important;
     width: 0 !important;
     min-width: 0 !important;
-    border-left: none !important;
+    border: none !important;
   }
 
-  /* Separador vertical */
-  .halloween-controles .filtros-movil .filtro-desplegable + .filtro-desplegable {
-    border-left: 1px solid #E5E5E5 !important;
-  }
-
-  /* Botones transparentes dentro de la barra */
+  /* Dos botones blancos independientes */
   .halloween-controles .filtros-movil .btn-filtro {
     width: 100% !important;
     height: 54px !important;
@@ -211,9 +208,9 @@
     align-items: center !important;
     justify-content: space-between !important;
     gap: 5px !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 28px !important;
     box-shadow: none !important;
     font-family: 'Poppins', sans-serif !important;
     font-size: 11px !important;
@@ -223,31 +220,21 @@
     line-height: normal !important;
   }
 
-  /* Esquinas exteriores */
-  .halloween-controles .filtros-movil .filtro-desplegable:first-child .btn-filtro {
-    border-radius: 27px 0 0 27px !important;
-  }
-
-  .halloween-controles .filtros-movil .filtro-desplegable:last-child .btn-filtro {
-    border-radius: 0 27px 27px 0 !important;
-  }
-
   /* Texto y flecha */
   .halloween-controles .filtros-movil .btn-filtro span:first-child {
-    min-width: 0;
+    min-width: 0 !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
   }
 
   .halloween-controles .filtros-movil .btn-filtro span:last-child {
-    flex-shrink: 0;
-    margin-left: 4px;
+    flex-shrink: 0 !important;
+    margin-left: 4px !important;
   }
 
   /* Menús desplegables */
   .halloween-controles .filtros-movil .opciones-filtro {
-    display: block;
     position: absolute !important;
     top: calc(100% + 6px) !important;
     left: 0 !important;
@@ -270,19 +257,26 @@
   }
 
   .halloween-controles .filtros-movil .opciones-filtro button {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
     padding: 11px 10px !important;
-    border: none;
+    border: none !important;
     border-radius: 10px !important;
-    background: transparent;
+    background: transparent !important;
     font-family: 'Poppins', sans-serif !important;
     font-size: 12px !important;
     font-weight: 500 !important;
-    color: #666;
-    text-align: left;
+    color: #666 !important;
+    text-align: left !important;
     white-space: nowrap !important;
+  }
+
+  .halloween-controles .filtros-movil .opciones-filtro button:hover,
+  .halloween-controles .filtros-movil .opciones-filtro button:focus,
+  .halloween-controles .filtros-movil .opciones-filtro button.opcion-seleccionada {
+    background: #F5EADD !important;
+    outline: none !important;
   }
 }
 </style>
