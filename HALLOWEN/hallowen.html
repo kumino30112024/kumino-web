@@ -213,6 +213,123 @@
 }
 
 /* =========================================================
+   HALLOWEEN — DESPLEGABLE PERSONALIZADO DE TALLAS
+========================================================= */
+
+/* Contenedor del filtro de escritorio */
+.halloween-controles .filtro-talla-desktop {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    margin: 0;
+}
+
+.halloween-controles .filtro-talla-personalizado {
+    position: relative;
+    width: 170px;
+}
+
+/* Botón que abre el menú */
+.halloween-controles .btn-talla-desktop {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 15px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    border: 1px solid #E5E5E5;
+    border-radius: 28px;
+    background: #FFFFFF;
+
+    font-family: var(--fuente-principal);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--carbón);
+    text-align: left;
+
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+}
+
+.halloween-controles .btn-talla-desktop:hover {
+    border-color: rgba(43, 43, 43, 0.25);
+}
+
+/* Menú desplegable */
+.halloween-controles .opciones-talla-desktop {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+
+    width: 100%;
+    max-height: 280px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 8px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(43, 43, 43, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(43, 43, 43, 0.12);
+
+    z-index: 1000;
+}
+
+/* Ocultar el menú cuando está cerrado */
+.halloween-controles
+.opciones-talla-desktop[hidden] {
+    display: none !important;
+}
+
+/* Opciones individuales */
+.halloween-controles
+.opciones-talla-desktop button {
+    display: block;
+    width: 100%;
+    padding: 12px 10px;
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+
+    font-family: var(--fuente-principal);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--carbón);
+    text-align: left;
+    white-space: nowrap;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+/* Resaltar opción al pasar el cursor o seleccionarla */
+.halloween-controles
+.opciones-talla-desktop button:hover,
+.halloween-controles
+.opciones-talla-desktop button.opcion-seleccionada {
+    background: var(--crema);
+}
+
+/* Mantener el menú por encima de las tarjetas */
+.halloween-controles {
+    position: relative;
+    z-index: 5;
+}
+
+/* En móvil se mantienen los dos filtros desplegables */
+@media (max-width: 600px) {
+    .halloween-controles .filtro-talla-desktop {
+        display: none !important;
+    }
+}
+
+/* =========================================================
    MÓVIL: DOS FILTROS BLANCOS INDEPENDIENTES
 ========================================================= */
 
