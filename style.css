@@ -346,6 +346,7 @@ a {
 
 
 
+
 /* =========================================================
    HERO KÚMINO — AJUSTE PARA CELULARES
 ========================================================= */
@@ -355,16 +356,18 @@ a {
     .hero {
         width: 100%;
 
-        /* Portada más alta en móvil */
-        aspect-ratio: auto;
-        height: 420px;
+        /* Más altura para apreciar mejor las mascotas */
+        height: 520px;
         min-height: 0;
         max-height: none;
+        aspect-ratio: auto;
 
-        /* Mostrar la fotografía sin deformarla */
-        background-size: cover;
+        /* Mantener la imagen completa y sin deformarla */
+        background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
+
+        background-color: #F5EADD;
 
         padding: 0;
         margin: 0;
@@ -394,14 +397,9 @@ a {
 @media (max-width: 480px) {
 
     .hero {
-        height: 420px;
+        height: 520px;
 
-        background-size: cover;
-
-        /*
-         * Ajustaremos este valor según el resultado
-         * para centrar correctamente a ambas mascotas.
-         */
+        background-size: contain;
         background-position: center center;
     }
 
