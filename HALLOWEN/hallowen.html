@@ -12,13 +12,14 @@
 
 
 
-/* Barra de filtros HALLOWEEN */
+
+/* Barra de filtros Halloween */
 .halloween-controles {
     width: calc(100% - 80px);
     max-width: 914px;
-    min-height: 85px;
+    min-height: 78px;
     margin: 0 auto 55px;
-    padding: 7px 26px;
+    padding: 6px 24px;
     box-sizing: border-box;
 
     display: flex;
@@ -26,7 +27,7 @@
     flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
 
     background-color: #FFFFFF;
     border: 1px solid rgba(43, 43, 43, 0.08);
@@ -34,38 +35,40 @@
     box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
 }
 
-/* Categorías más agrupadas y alineadas a la izquierda */
+/* Categorías distribuidas en el espacio disponible */
 .halloween-controles > .categorias-catalogo {
-    flex: 0 1 auto;
+    display: flex;
+    flex: 1 1 auto;
     min-width: 0;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+
     margin: 0;
     padding: 0;
-
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2px;
-
     background: transparent;
     border: none;
     border-radius: 0;
     box-shadow: none;
 }
 
+/* Texto ligeramente más grande */
 .halloween-controles > .categorias-catalogo button {
-    flex: 0 0 auto;
-    padding: 10px 12px;
+    flex: 0 1 auto;
+    padding: 10px 9px;
     border: none;
     border-radius: 25px;
     background: transparent;
 
     font-family: var(--fuente-principal);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     color: #666666;
+
     white-space: nowrap;
     cursor: pointer;
+    transition: all 0.25s ease;
 }
 
 .halloween-controles > .categorias-catalogo button:hover {
@@ -79,7 +82,7 @@
     color: var(--blanco);
 }
 
-/* Selector de talla a la derecha */
+/* Selector de tallas */
 .halloween-controles > .filtro-talla-desktop {
     display: flex;
     flex: 0 0 auto;
@@ -90,7 +93,7 @@
 
 .halloween-controles > .filtro-talla-desktop label {
     font-family: var(--fuente-principal);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 500;
     color: var(--carbón);
     white-space: nowrap;
@@ -104,7 +107,7 @@
     background-color: #FFFFFF;
 
     font-family: var(--fuente-principal);
-    font-size: 11px;
+    font-size: 12px;
     color: var(--carbón);
     cursor: pointer;
 }
