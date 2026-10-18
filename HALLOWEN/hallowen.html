@@ -36,60 +36,73 @@
  .filtro-talla-desktop{display:none}
  .halloween-contador{margin-top:10px}
 }
- 
 
 
-
-/* HALLOWEEN: filtros móviles al estilo de MACHOS */
+/* HALLOWEEN: mismos filtros móviles que MACHOS */
 @media (max-width: 700px) {
   .halloween-controles .filtros-movil {
     display: flex !important;
-    align-items: center !important;
+    flex-direction: row !important;
+    align-items: stretch !important;
     justify-content: center !important;
-    gap: 14px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 26px !important;
+    gap: 0 !important;
+
+    width: calc(100% - 40px) !important;
+    max-width: 420px !important;
+    margin: 0 auto 32px !important;
+    padding: 0 !important;
     box-sizing: border-box !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
+
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 28px !important;
+    box-shadow: none !important;
     overflow: visible !important;
   }
 
   .halloween-controles .filtros-movil .filtro-desplegable {
     position: relative !important;
     flex: 1 1 0 !important;
-    width: auto !important;
+    width: 0 !important;
     min-width: 0 !important;
   }
 
   .halloween-controles .filtros-movil .filtro-desplegable + .filtro-desplegable {
-    border-left: none !important;
+    border-left: 1px solid #E5E5E5 !important;
   }
 
   .halloween-controles .filtros-movil .btn-filtro {
     width: 100% !important;
-    height: 67px !important;
-    min-height: 67px !important;
-    max-height: 67px !important;
-    padding: 0 13px !important;
+    min-height: 54px !important;
+    height: 54px !important;
+    max-height: 54px !important;
+    padding: 0 12px !important;
     box-sizing: border-box !important;
+
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    gap: 6px !important;
-    background: #FFFFFF !important;
-    border: 1px solid #E5E5E5 !important;
-    border-radius: 999px !important;
+    gap: 5px !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
-    color: #111111 !important;
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 13px !important;
-    font-weight: 400 !important;
-    line-height: 1.2 !important;
+
+    font-family: var(--fuente-principal) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: var(--carbón) !important;
     text-align: left !important;
+    line-height: normal !important;
+  }
+
+  .halloween-controles .filtros-movil .filtro-desplegable:first-child .btn-filtro {
+    border-radius: 27px 0 0 27px !important;
+  }
+
+  .halloween-controles .filtros-movil .filtro-desplegable:last-child .btn-filtro {
+    border-radius: 0 27px 27px 0 !important;
   }
 
   .halloween-controles .filtros-movil .btn-filtro span:first-child {
@@ -100,11 +113,17 @@
   }
 
   .halloween-controles .filtros-movil .opciones-filtro {
+    display: none;
+    position: absolute !important;
     top: calc(100% + 6px) !important;
     left: 0 !important;
     right: auto !important;
     width: 100% !important;
     min-width: 150px !important;
+    max-height: 280px !important;
+    box-sizing: border-box !important;
+    overflow-y: auto !important;
+
     padding: 8px !important;
     background: #FFFFFF !important;
     border: 1px solid rgba(43, 43, 43, 0.10) !important;
@@ -113,14 +132,30 @@
     z-index: 1000 !important;
   }
 
+  .halloween-controles .filtros-movil .filtro-desplegable.abierto .opciones-filtro {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
   .halloween-controles .filtros-movil .opciones-filtro button {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     padding: 11px 10px !important;
+    border: none;
     border-radius: 10px !important;
+    background: transparent;
+
+    font-family: var(--fuente-principal);
     font-size: 12px !important;
     font-weight: 500 !important;
-    white-space: nowrap !important;
+    color: #666;
+    text-align: left;
+    white-space: nowrap;
   }
 }
+
 
 
 </style>
