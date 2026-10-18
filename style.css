@@ -250,7 +250,7 @@ a {
     aspect-ratio: 1536 / 1024;
 
     /* Imagen de fondo sin degradados ni filtros */
-    background-image: url("mascotas-verano-kumino-gift.gif");
+    background-image: url("mascotas%20verano%20kumino.png");
 
     background-size: 100% 100%;
     background-position: center center;
