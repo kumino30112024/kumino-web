@@ -38,37 +38,94 @@
 }
  
 
-/* Ajuste definitivo: filtros HALLOWEEN del tamaño de MACHOS */
+
+/* HALLOWEEN: filtros móviles con el diseño de MACHOS */
 @media (max-width: 700px) {
-  .halloween-controles .filtros-movil .filtro-desplegable .btn-filtro {
-    height: 67px !important;
-    min-height: 67px !important;
-    max-height: 67px !important;
-    padding: 0 12px !important;
-    box-sizing: border-box !important;
-
-    font-size: 14px !important;
-    line-height: 1.2 !important;
-    font-weight: 400 !important;
-
-    border-radius: 999px !important;
-    border: 1px solid #E5E5E5 !important;
-    background: #FFFFFF !important;
-    color: #111111 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-  }
-
   .halloween-controles .filtros-movil {
-    align-items: center !important;
-    gap: 14px !important;
+    display: flex !important;
+    align-items: stretch !important;
+    gap: 0 !important;
+    width: 100% !important;
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 !important;
+    box-sizing: border-box;
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 28px !important;
+    box-shadow: none !important;
+    overflow: visible !important;
   }
 
   .halloween-controles .filtros-movil .filtro-desplegable {
+    position: relative !important;
     flex: 1 1 0 !important;
+    width: 0 !important;
     min-width: 0 !important;
+  }
+
+  .halloween-controles .filtros-movil .filtro-desplegable + .filtro-desplegable {
+    border-left: 1px solid #E5E5E5 !important;
+  }
+
+  .halloween-controles .filtros-movil .btn-filtro {
+    width: 100% !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    max-height: 54px !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 5px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    color: #2B2B2B !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    line-height: normal !important;
+    text-align: left !important;
+  }
+
+  .halloween-controles .filtros-movil .filtro-desplegable:first-child .btn-filtro {
+    border-radius: 27px 0 0 27px !important;
+  }
+
+  .halloween-controles .filtros-movil .filtro-desplegable:last-child .btn-filtro {
+    border-radius: 0 27px 27px 0 !important;
+  }
+
+  .halloween-controles .filtros-movil .btn-filtro span:first-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .halloween-controles .filtros-movil .opciones-filtro {
+    top: calc(100% + 6px) !important;
+    left: 0 !important;
+    right: auto !important;
+    width: 100% !important;
+    min-width: 150px !important;
+    padding: 8px !important;
+    background: #FFFFFF !important;
+    border: 1px solid rgba(43, 43, 43, 0.10) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(43, 43, 43, 0.10) !important;
+    z-index: 1000 !important;
+  }
+
+  .halloween-controles .filtros-movil .opciones-filtro button {
+    padding: 11px 10px !important;
+    border-radius: 10px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
   }
 }
 
