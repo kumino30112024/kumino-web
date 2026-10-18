@@ -346,8 +346,10 @@ a {
 
 
 
+
+
 /* =========================================================
-   HERO KÚMINO — CORRECCIÓN MÓVIL
+   HERO KÚMINO — IMAGEN VERTICAL PARA CELULARES
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -355,15 +357,14 @@ a {
     .hero {
         width: 100%;
         height: auto;
-
-        /* La sección sigue la proporción de la foto */
-        aspect-ratio: 3 / 2;
+        aspect-ratio: 9 / 16;
 
         min-height: 0;
         max-height: none;
 
-        background-size: 100% 100%;
-        background-position: center;
+        background-image: url("mascotas-verano-kumino-mobile.png");
+        background-size: cover;
+        background-position: center 45%;
         background-repeat: no-repeat;
 
         padding: 0;
@@ -372,8 +373,8 @@ a {
     }
 
     .hero-coleccion {
-        right: 12px;
-        bottom: 12px;
+        right: 14px;
+        bottom: 16px;
 
         padding: 11px 15px;
         gap: 8px;
@@ -385,32 +386,6 @@ a {
         font-size: 16px;
     }
 }
-
-/* =========================================================
-   CELULARES PEQUEÑOS
-========================================================= */
-
-@media (max-width: 480px) {
-
-    .hero {
-        aspect-ratio: 3 / 2;
-        height: auto;
-
-        background-size: 100% 100%;
-        background-position: center;
-    }
-
-    .hero-coleccion {
-        right: 10px;
-        bottom: 10px;
-
-        padding: 10px 13px;
-        gap: 7px;
-
-        font-size: 10px;
-    }
-}
-
 
 /* =========================================================
    COLECCIÓN PRINCIPAL
@@ -490,6 +465,7 @@ a {
 
     gap: 22px;
 }
+
 /* =========================================================
    TARJETAS DE COLECCIÓN
 ========================================================= */
