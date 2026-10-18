@@ -552,21 +552,40 @@
     </div>
   </div>
 
-  <div class="filtro-talla-desktop">
-    <label for="selectTalla">Filtrar por talla</label>
-    <select id="selectTalla">
-      <option value="todas">Todas las tallas</option>
-      <option value="0">Talla 0</option>
-      <option value="1">Talla 1</option>
-      <option value="2">Talla 2</option>
-      <option value="3">Talla 3</option>
-      <option value="4">Talla 4</option>
-      <option value="5">Talla 5</option>
-      <option value="6">Talla 6</option>
-      <option value="7">Talla 7</option>
-    </select>
+
+<div class="filtro-talla-desktop">
+  <div class="filtro-talla-personalizado" id="filtroTallaDesktop">
+
+    <button
+      type="button"
+      class="btn-talla-desktop"
+      id="btnTallaDesktop"
+      aria-expanded="false"
+      aria-controls="opcionesTallaDesktop"
+    >
+      <span id="textoTallaDesktop">Filtrar por talla</span>
+      <span aria-hidden="true">⌄</span>
+    </button>
+
+    <div
+      class="opciones-talla-desktop"
+      id="opcionesTallaDesktop"
+      hidden
+    >
+      <button type="button" data-talla="todas">Todas las tallas</button>
+      <button type="button" data-talla="0">Talla 0</button>
+      <button type="button" data-talla="1">Talla 1</button>
+      <button type="button" data-talla="2">Talla 2</button>
+      <button type="button" data-talla="3">Talla 3</button>
+      <button type="button" data-talla="4">Talla 4</button>
+      <button type="button" data-talla="5">Talla 5</button>
+      <button type="button" data-talla="6">Talla 6</button>
+      <button type="button" data-talla="7">Talla 7</button>
+    </div>
+
   </div>
 </div>
+
 <div class="productos-grid">
 <!-- 1 -->
 <a class="producto-catalogo" data-categoria="disfraces" data-tallas="1,2,3,4" href="masterchef-canino.html">
