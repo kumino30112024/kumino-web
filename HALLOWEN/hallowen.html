@@ -38,44 +38,40 @@
 }
  
 
-/* HALLOWEEN: igualar tamaño de filtros con MACHOS */
+/* Ajuste definitivo: filtros HALLOWEEN del tamaño de MACHOS */
 @media (max-width: 700px) {
+  .halloween-controles .filtros-movil .filtro-desplegable .btn-filtro {
+    height: 67px !important;
+    min-height: 67px !important;
+    max-height: 67px !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    font-weight: 400 !important;
+
+    border-radius: 999px !important;
+    border: 1px solid #E5E5E5 !important;
+    background: #FFFFFF !important;
+    color: #111111 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
   .halloween-controles .filtros-movil {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
+    align-items: center !important;
+    gap: 14px !important;
   }
 
-  .halloween-controles .filtro-desplegable {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .halloween-controles .btn-filtro {
-    width: 100%;
-    height: 67px;
-    min-height: 0;
-    box-sizing: border-box;
-    padding: 0 12px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background: #FFFFFF;
-    color: #111111;
-    border: 1px solid #E5E5E5;
-    border-radius: 999px;
-
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.2;
-    text-align: left;
-    white-space: nowrap;
+  .halloween-controles .filtros-movil .filtro-desplegable {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
   }
 }
+
 
 
 </style>
