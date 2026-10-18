@@ -40,23 +40,24 @@
 
 
 
-/* HALLOWEEN: diseño móvil igual a MACHOS */
+/* HALLOWEEN: filtros móviles con apariencia de MACHOS */
 @media (max-width: 700px) {
   .halloween-controles .filtros-movil {
     display: flex !important;
     flex-direction: row !important;
-    align-items: stretch !important;
+    align-items: center !important;
     justify-content: center !important;
-    gap: 0 !important;
-    width: calc(100% - 40px) !important;
-    max-width: 420px !important;
+    gap: 14px !important;
+
+    width: calc(100% - 76px) !important;
+    max-width: 500px !important;
     margin: 0 auto 32px !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    background: #FFFFFF !important;
-    border: 1px solid #E5E5E5 !important;
-    border-radius: 28px !important;
-    box-shadow: none !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
     overflow: visible !important;
   }
 
@@ -65,41 +66,33 @@
     flex: 1 1 0 !important;
     width: 0 !important;
     min-width: 0 !important;
-  }
-
-  .halloween-controles .filtros-movil .filtro-desplegable + .filtro-desplegable {
-    border-left: 1px solid #E5E5E5 !important;
+    border-left: none !important;
   }
 
   .halloween-controles .filtros-movil .btn-filtro {
     width: 100% !important;
-    height: 54px !important;
-    min-height: 54px !important;
-    max-height: 54px !important;
+    height: 67px !important;
+    min-height: 67px !important;
+    max-height: 67px !important;
     padding: 0 12px !important;
     box-sizing: border-box !important;
+
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 5px !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
+
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 999px !important;
     box-shadow: none !important;
+
     font-family: var(--fuente-principal) !important;
-    font-size: 11px !important;
-    font-weight: 500 !important;
-    color: var(--carbón) !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: #111111 !important;
     text-align: left !important;
     line-height: normal !important;
-  }
-
-  .halloween-controles .filtros-movil .filtro-desplegable:first-child .btn-filtro {
-    border-radius: 27px 0 0 27px !important;
-  }
-
-  .halloween-controles .filtros-movil .filtro-desplegable:last-child .btn-filtro {
-    border-radius: 0 27px 27px 0 !important;
   }
 
   .halloween-controles .filtros-movil .btn-filtro span:first-child {
@@ -121,6 +114,7 @@
     box-sizing: border-box !important;
     overflow-y: auto !important;
     padding: 8px !important;
+
     background: #FFFFFF !important;
     border: 1px solid rgba(43, 43, 43, 0.10) !important;
     border-radius: 16px !important;
