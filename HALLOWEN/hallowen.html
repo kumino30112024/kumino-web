@@ -11,21 +11,24 @@
 
 
 <style>
+
 /* =========================================================
    FILTROS DE CATEGORÍA Y TALLA - HALLOWEEN
+   DISEÑO DE ESCRITORIO INSPIRADO EN MACHOS
 ========================================================= */
 
-/* CONTENEDOR PRINCIPAL PARA PC */
 .halloween-controles {
-  max-width: 850px;
   width: calc(100% - 40px);
-  margin: 0 auto 55px;
+  max-width: 1100px;
+  margin: 0 auto 40px;
   padding: 7px;
   box-sizing: border-box;
 
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: center;
+  justify-content: space-between;
   gap: 8px;
 
   background-color: var(--beige);
@@ -34,23 +37,24 @@
   box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
 }
 
-/* CATEGORÍAS PARA PC */
-.halloween-controles .categorias-catalogo {
+/* CATEGORÍAS */
+.halloween-controles > .categorias-catalogo {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: nowrap;
-  gap: 4px;
-  margin: 0;
-  padding: 0;
   flex: 1 1 auto;
   min-width: 0;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+
   background: transparent;
   border: none;
   box-shadow: none;
 }
 
-.halloween-controles .categorias-catalogo button {
+.halloween-controles > .categorias-catalogo button {
   flex: 0 0 auto;
   border: none;
   background: transparent;
@@ -67,33 +71,34 @@
   transition: all 0.25s ease;
 }
 
-.halloween-controles .categorias-catalogo button:hover {
+.halloween-controles > .categorias-catalogo button:hover {
   color: var(--carbón);
   background-color: var(--crema);
 }
 
-.halloween-controles .categorias-catalogo .categoria-activa,
-.halloween-controles .categorias-catalogo .categoria-activa:hover {
+.halloween-controles > .categorias-catalogo .categoria-activa,
+.halloween-controles > .categorias-catalogo .categoria-activa:hover {
   background-color: var(--carbón);
   color: var(--blanco);
 }
 
-/* SELECTOR DE TALLA PARA PC */
-.filtro-talla-desktop {
+/* SELECTOR DE TALLA */
+.halloween-controles > .filtro-talla-desktop {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 6px;
-  flex: 0 0 auto;
+  margin: 0;
 }
 
-.filtro-talla-desktop label {
+.halloween-controles > .filtro-talla-desktop label {
   font-family: var(--fuente-principal);
   font-size: 11px;
   color: var(--carbón);
   white-space: nowrap;
 }
 
-.filtro-talla-desktop select {
+.halloween-controles > .filtro-talla-desktop select {
   font-family: var(--fuente-principal);
   font-size: 11px;
   border: 1px solid rgba(43, 43, 43, 0.12);
@@ -104,6 +109,11 @@
   min-width: 125px;
   max-width: 145px;
   cursor: pointer;
+}
+
+/* OCULTAR FILTROS MÓVILES EN ESCRITORIO */
+.filtros-movil {
+  display: none;
 }
 
 /* FILTROS MÓVILES OCULTOS POR DEFECTO */
