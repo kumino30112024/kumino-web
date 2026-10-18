@@ -10,7 +10,8 @@
 <style>
 
 <style>
-/* Estilos aislados para los filtros de HALLOWEEN */
+/* ESTILOS DE FILTROS - HALLOWEEN */
+
 .halloween-controles {
   display: flex;
   align-items: center;
@@ -83,7 +84,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 5px;
   padding: 11px 12px;
   border: 1px solid #d5c5b4;
   border-radius: 999px;
@@ -122,7 +123,7 @@
   width: 100%;
   box-sizing: border-box;
   text-align: left;
-  border: 0;
+  border: none;
   border-radius: 10px;
   background: transparent;
   padding: 11px 10px;
@@ -150,38 +151,41 @@
   color: #555;
 }
 
-@media (max-width: 700px) {
+/* DISEÑO MÓVIL IGUAL A MACHOS */
+@media (max-width: 600px) {
   .halloween-controles {
     display: block;
     margin: 18px 0 12px;
   }
 
   .halloween-controles > .categorias-catalogo {
-    display: none;
+    display: none !important;
   }
 
-  .filtro-talla-desktop {
-    display: none;
+  .halloween-controles .filtro-talla-desktop {
+    display: none !important;
   }
 
-  /* Dos cápsulas separadas, como en MACHOS */
+  /* Fondo blanco compartido */
   .halloween-controles .filtros-movil {
     display: flex !important;
     flex-direction: row !important;
-    align-items: center !important;
+    align-items: stretch !important;
     justify-content: center !important;
-    gap: 20px !important;
-    width: calc(100% - 60px) !important;
-    max-width: 500px !important;
+    gap: 0 !important;
+    width: calc(100% - 40px) !important;
+    max-width: 420px !important;
     margin: 0 auto 32px !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0 !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E5E5E5 !important;
+    border-radius: 28px !important;
+    box-shadow: none !important;
     overflow: visible !important;
   }
 
+  /* Mitad para cada filtro */
   .halloween-controles .filtros-movil .filtro-desplegable {
     position: relative !important;
     flex: 1 1 0 !important;
@@ -190,7 +194,12 @@
     border-left: none !important;
   }
 
-  /* Tamaño y apariencia de cada filtro */
+  /* Separador vertical */
+  .halloween-controles .filtros-movil .filtro-desplegable + .filtro-desplegable {
+    border-left: 1px solid #E5E5E5 !important;
+  }
+
+  /* Botones transparentes dentro de la barra */
   .halloween-controles .filtros-movil .btn-filtro {
     width: 100% !important;
     height: 54px !important;
@@ -202,9 +211,9 @@
     align-items: center !important;
     justify-content: space-between !important;
     gap: 5px !important;
-    background: #FFFFFF !important;
-    border: 1px solid #E5E5E5 !important;
-    border-radius: 999px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
     box-shadow: none !important;
     font-family: 'Poppins', sans-serif !important;
     font-size: 11px !important;
@@ -214,10 +223,17 @@
     line-height: normal !important;
   }
 
-  /* El texto se adapta al espacio sin invadir la flecha */
+  /* Esquinas exteriores */
+  .halloween-controles .filtros-movil .filtro-desplegable:first-child .btn-filtro {
+    border-radius: 27px 0 0 27px !important;
+  }
+
+  .halloween-controles .filtros-movil .filtro-desplegable:last-child .btn-filtro {
+    border-radius: 0 27px 27px 0 !important;
+  }
+
+  /* Texto y flecha */
   .halloween-controles .filtros-movil .btn-filtro span:first-child {
-    display: block;
-    flex: 1 1 auto;
     min-width: 0;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
@@ -225,12 +241,14 @@
   }
 
   .halloween-controles .filtros-movil .btn-filtro span:last-child {
-    flex: 0 0 auto;
+    flex-shrink: 0;
     margin-left: 4px;
   }
 
   /* Menús desplegables */
   .halloween-controles .filtros-movil .opciones-filtro {
+    display: block;
+    position: absolute !important;
     top: calc(100% + 6px) !important;
     left: 0 !important;
     right: auto !important;
@@ -245,6 +263,10 @@
     border-radius: 16px !important;
     box-shadow: 0 8px 24px rgba(43, 43, 43, 0.10) !important;
     z-index: 1000 !important;
+  }
+
+  .halloween-controles .filtros-movil .opciones-filtro[hidden] {
+    display: none !important;
   }
 
   .halloween-controles .filtros-movil .opciones-filtro button {
