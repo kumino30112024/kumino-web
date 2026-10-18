@@ -8,53 +8,158 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 
 <style>
-/* Estilos aislados para los filtros de HALLOWEEN; no modifican otras colecciones */
-.halloween-controles{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:24px 0 12px;width:100%}
-.halloween-controles .categorias-catalogo{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0;flex:1}
-.halloween-controles .categorias-catalogo button{cursor:pointer}
-.filtros-movil{display:none}
-.filtro-talla-desktop{display:flex;align-items:center;gap:10px;flex-shrink:0}
-.filtro-talla-desktop label{font-family:'Poppins',sans-serif;font-size:14px;color:#333}
-.filtro-talla-desktop select{font-family:'Poppins',sans-serif;border:1px solid #d5c5b4;border-radius:8px;background:#fff;color:#333;padding:10px 12px;min-width:145px;cursor:pointer}
-.halloween-contador{font-family:'Poppins',sans-serif;font-size:13px;color:#666;margin:0 0 16px}
-.producto-catalogo[hidden]{display:none!important}
-.filtro-desplegable{position:relative;min-width:0;flex:1}
-.btn-filtro{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 12px;border:1px solid #d5c5b4;border-radius:8px;background:#fff;color:#333;font:500 13px 'Poppins',sans-serif;cursor:pointer;white-space:nowrap}
-.opciones-filtro{position:absolute;top:calc(100% + 6px);left:0;right:0;z-index:30;background:#fff;border:1px solid #e4d8ca;border-radius:9px;box-shadow:0 8px 22px rgba(44,53,49,.14);padding:5px;max-height:280px;overflow-y:auto}
-.opciones-filtro[hidden]{display:none!important}
- #opcionesCategoria[hidden],
-#opcionesTalla[hidden] {
-    display: none !important;
-}
-.opciones-filtro button{display:block;width:100%;text-align:left;border:0;border-radius:6px;background:#fff;padding:9px 10px;color:#333;font:400 12px 'Poppins',sans-serif;cursor:pointer}
-.opciones-filtro button:hover,.opciones-filtro button:focus{background:#F5EADD;outline:none}
-.halloween-sin-resultados{font-family:'Poppins',sans-serif;text-align:center;padding:28px 12px;color:#555}
-@media(max-width:700px){
- .halloween-controles{display:block;margin:18px 0 12px}
- .halloween-controles>.categorias-catalogo{display:none}
- .filtros-movil{display:flex;align-items:flex-start;gap:10px;width:100%}
- .filtro-talla-desktop{display:none}
- .halloween-contador{margin-top:10px}
+<style>
+/* Estilos aislados para los filtros de HALLOWEEN */
+.halloween-controles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 24px 0 12px;
+  width: 100%;
 }
 
+.halloween-controles .categorias-catalogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+  flex: 1;
+}
 
+.halloween-controles .categorias-catalogo button { cursor: pointer; }
+.filtros-movil { display: none; }
 
+.filtro-talla-desktop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
 
-/* HALLOWEEN: filtros móviles con apariencia de MACHOS */
+.filtro-talla-desktop label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.filtro-talla-desktop select {
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #d5c5b4;
+  border-radius: 8px;
+  background: #fff;
+  color: #333;
+  padding: 10px 12px;
+  min-width: 145px;
+  cursor: pointer;
+}
+
+.halloween-contador {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 16px;
+}
+
+.producto-catalogo[hidden] { display: none !important; }
+
+.filtro-desplegable {
+  position: relative;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.btn-filtro {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 11px 12px;
+  border: 1px solid #d5c5b4;
+  border-radius: 999px;
+  background: #fff;
+  color: #333;
+  font: 500 11px 'Poppins', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.opciones-filtro {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: auto;
+  width: 100%;
+  min-width: 150px;
+  max-height: 280px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid rgba(43, 43, 43, 0.10);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(43, 43, 43, 0.10);
+  z-index: 1000;
+}
+
+.opciones-filtro[hidden] { display: none !important; }
+
+.opciones-filtro button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  padding: 11px 10px;
+  color: #666;
+  font: 500 12px 'Poppins', sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.opciones-filtro button:hover,
+.opciones-filtro button:focus {
+  background: #F5EADD;
+  outline: none;
+}
+
+.opciones-filtro button.opcion-seleccionada {
+  background: #F5EADD;
+  font-weight: 600;
+}
+
+.halloween-sin-resultados {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 28px 12px;
+  color: #555;
+}
+
 @media (max-width: 700px) {
+  .halloween-controles {
+    display: block;
+    margin: 18px 0 12px;
+  }
+
+  .halloween-controles > .categorias-catalogo { display: none; }
+  .filtro-talla-desktop { display: none; }
+
   .halloween-controles .filtros-movil {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
     gap: 14px !important;
-
-    width: calc(100% - 76px) !important;
+    width: calc(100% - 86px) !important;
     max-width: 500px !important;
     margin: 0 auto 32px !important;
     padding: 0 !important;
     box-sizing: border-box !important;
-
     background: transparent !important;
     border: none !important;
     border-radius: 0 !important;
@@ -76,21 +181,18 @@
     max-height: 67px !important;
     padding: 0 12px !important;
     box-sizing: border-box !important;
-
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 5px !important;
-
     background: #FFFFFF !important;
     border: 1px solid #E5E5E5 !important;
     border-radius: 999px !important;
     box-shadow: none !important;
-
-    font-family: var(--fuente-principal) !important;
-    font-size: 13px !important;
-    font-weight: 400 !important;
-    color: #111111 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    color: #2B2B2B !important;
     text-align: left !important;
     line-height: normal !important;
   }
@@ -103,48 +205,20 @@
   }
 
   .halloween-controles .filtros-movil .opciones-filtro {
-    display: none;
-    position: absolute !important;
     top: calc(100% + 6px) !important;
     left: 0 !important;
     right: auto !important;
     width: 100% !important;
     min-width: 150px !important;
     max-height: 280px !important;
-    box-sizing: border-box !important;
-    overflow-y: auto !important;
     padding: 8px !important;
-
     background: #FFFFFF !important;
     border: 1px solid rgba(43, 43, 43, 0.10) !important;
     border-radius: 16px !important;
     box-shadow: 0 8px 24px rgba(43, 43, 43, 0.10) !important;
     z-index: 1000 !important;
   }
-
-  .halloween-controles .filtros-movil .filtro-desplegable.abierto .opciones-filtro {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-  }
-
-  .halloween-controles .filtros-movil .opciones-filtro button {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 11px 10px !important;
-    border: none;
-    border-radius: 10px !important;
-    background: transparent;
-    font-family: var(--fuente-principal);
-    font-size: 12px !important;
-    font-weight: 500 !important;
-    color: #666;
-    text-align: left;
-    white-space: nowrap !important;
-  }
 }
-
 </style>
 <style>.opciones-filtro button.opcion-seleccionada{background:#F5EADD;font-weight:600}</style></head>
 <body>
@@ -176,53 +250,66 @@
     </p>
 </div>
 <div aria-label="Filtros de productos Halloween" class="halloween-controles">
-<div aria-label="Filtrar por categor&iacute;a" class="categorias-catalogo">
-<button aria-pressed="true" class="categoria-activa" data-filtro="todos" type="button">Todos</button>
-<button aria-pressed="false" data-filtro="disfraces" type="button">Disfraces</button>
-<button aria-pressed="false" data-filtro="capas" type="button">Capas</button>
-<button aria-pressed="false" data-filtro="alas" type="button">Alas</button>
-<button aria-pressed="false" data-filtro="vestidos" type="button">Vestidos</button>
-<button aria-pressed="false" data-filtro="accesorios" type="button">Accesorios</button>
-<button aria-pressed="false" data-filtro="otros" type="button">Otros</button>
-</div>
-<div class="filtros-movil">
-<div class="filtro-desplegable">
-<button aria-controls="opcionesCategoria" aria-expanded="false" class="btn-filtro" id="btnCategoria" type="button">
-  <span>Filtrar por categoría</span>
-  <span aria-hidden="true">⌄</span>
-</button>
-<button data-filtro="todos" type="button">Todas las categor&iacute;as</button>
-<button data-filtro="disfraces" type="button">Disfraces</button>
-<button data-filtro="capas" type="button">Capas</button>
-<button data-filtro="alas" type="button">Alas</button>
-<button data-filtro="vestidos" type="button">Vestidos</button>
-<button data-filtro="accesorios" type="button">Accesorios</button>
-<button data-filtro="otros" type="button">Otros</button>
-</div>
-</div>
-<div class="filtro-desplegable">
-<button aria-controls="opcionesTalla" aria-expanded="false" class="btn-filtro" id="btnTalla" type="button">
-  <span>Filtrar por talla</span>
-  <span aria-hidden="true">⌄</span>
-</button>
-<div class="opciones-filtro" hidden="" id="opcionesTalla">
-<button data-talla="todas" type="button">Todas las tallas</button>
-<button data-talla="0" type="button">Talla 0</button><button data-talla="1" type="button">Talla 1</button>
-<button data-talla="2" type="button">Talla 2</button><button data-talla="3" type="button">Talla 3</button>
-<button data-talla="4" type="button">Talla 4</button><button data-talla="5" type="button">Talla 5</button>
-<button data-talla="6" type="button">Talla 6</button><button data-talla="7" type="button">Talla 7</button>
-</div>
-</div>
-</div>
-<div class="filtro-talla-desktop">
-<label for="selectTalla">Filtrar por talla</label>
-<select id="selectTalla">
-<option value="todas">Todas las tallas</option>
-<option value="0">Talla 0</option><option value="1">Talla 1</option><option value="2">Talla 2</option>
-<option value="3">Talla 3</option><option value="4">Talla 4</option><option value="5">Talla 5</option>
-<option value="6">Talla 6</option><option value="7">Talla 7</option>
-</select>
-</div>
+  <div aria-label="Filtrar por categoría" class="categorias-catalogo">
+    <button aria-pressed="true" class="categoria-activa" data-filtro="todos" type="button">Todos</button>
+    <button aria-pressed="false" data-filtro="disfraces" type="button">Disfraces</button>
+    <button aria-pressed="false" data-filtro="capas" type="button">Capas</button>
+    <button aria-pressed="false" data-filtro="alas" type="button">Alas</button>
+    <button aria-pressed="false" data-filtro="vestidos" type="button">Vestidos</button>
+    <button aria-pressed="false" data-filtro="accesorios" type="button">Accesorios</button>
+    <button aria-pressed="false" data-filtro="otros" type="button">Otros</button>
+  </div>
+
+  <div class="filtros-movil">
+    <div class="filtro-desplegable">
+      <button aria-controls="opcionesCategoria" aria-expanded="false" class="btn-filtro" id="btnCategoria" type="button">
+        <span>Filtrar por categoría</span>
+        <span aria-hidden="true">⌄</span>
+      </button>
+      <div class="opciones-filtro" hidden id="opcionesCategoria">
+        <button data-filtro="todos" type="button">Todas las categorías</button>
+        <button data-filtro="disfraces" type="button">Disfraces</button>
+        <button data-filtro="capas" type="button">Capas</button>
+        <button data-filtro="alas" type="button">Alas</button>
+        <button data-filtro="vestidos" type="button">Vestidos</button>
+        <button data-filtro="accesorios" type="button">Accesorios</button>
+        <button data-filtro="otros" type="button">Otros</button>
+      </div>
+    </div>
+
+    <div class="filtro-desplegable">
+      <button aria-controls="opcionesTalla" aria-expanded="false" class="btn-filtro" id="btnTalla" type="button">
+        <span>Filtrar por talla</span>
+        <span aria-hidden="true">⌄</span>
+      </button>
+      <div class="opciones-filtro" hidden id="opcionesTalla">
+        <button data-talla="todas" type="button">Todas las tallas</button>
+        <button data-talla="0" type="button">Talla 0</button>
+        <button data-talla="1" type="button">Talla 1</button>
+        <button data-talla="2" type="button">Talla 2</button>
+        <button data-talla="3" type="button">Talla 3</button>
+        <button data-talla="4" type="button">Talla 4</button>
+        <button data-talla="5" type="button">Talla 5</button>
+        <button data-talla="6" type="button">Talla 6</button>
+        <button data-talla="7" type="button">Talla 7</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="filtro-talla-desktop">
+    <label for="selectTalla">Filtrar por talla</label>
+    <select id="selectTalla">
+      <option value="todas">Todas las tallas</option>
+      <option value="0">Talla 0</option>
+      <option value="1">Talla 1</option>
+      <option value="2">Talla 2</option>
+      <option value="3">Talla 3</option>
+      <option value="4">Talla 4</option>
+      <option value="5">Talla 5</option>
+      <option value="6">Talla 6</option>
+      <option value="7">Talla 7</option>
+    </select>
+  </div>
 </div>
 <div class="productos-grid">
 <!-- 1 -->
