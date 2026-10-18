@@ -187,8 +187,10 @@
 </div>
 <div class="filtros-movil">
 <div class="filtro-desplegable">
-<button aria-controls="opcionesCategoria" aria-expanded="false" class="btn-filtro" id="btnCategoria" type="button">Categor&iacute;a <span aria-hidden="true">⌄</span></button>
-<div class="opciones-filtro" hidden="" id="opcionesCategoria">
+<button aria-controls="opcionesCategoria" aria-expanded="false" class="btn-filtro" id="btnCategoria" type="button">
+  <span>Filtrar por categoría</span>
+  <span aria-hidden="true">⌄</span>
+</button>
 <button data-filtro="todos" type="button">Todas las categor&iacute;as</button>
 <button data-filtro="disfraces" type="button">Disfraces</button>
 <button data-filtro="capas" type="button">Capas</button>
@@ -199,7 +201,10 @@
 </div>
 </div>
 <div class="filtro-desplegable">
-<button aria-controls="opcionesTalla" aria-expanded="false" class="btn-filtro" id="btnTalla" type="button">Talla <span aria-hidden="true">⌄</span></button>
+<button aria-controls="opcionesTalla" aria-expanded="false" class="btn-filtro" id="btnTalla" type="button">
+  <span>Filtrar por talla</span>
+  <span aria-hidden="true">⌄</span>
+</button>
 <div class="opciones-filtro" hidden="" id="opcionesTalla">
 <button data-talla="todas" type="button">Todas las tallas</button>
 <button data-talla="0" type="button">Talla 0</button><button data-talla="1" type="button">Talla 1</button>
@@ -634,6 +639,7 @@
 </div>
 </footer>
 
+
 <script>
 (() => {
   const productos = Array.from(
@@ -660,12 +666,12 @@
   const contador = document.getElementById('contadorProductos');
   const sinResultados = document.getElementById('sinResultados');
 
-  // Estado de los filtros seleccionados
+  // Estado de los filtros
   let categoriaActiva = 'todos';
   let tallaActiva = 'todas';
 
   const nombresCategoria = {
-    todos: 'Categoría',
+    todos: 'Filtrar por categoría',
     disfraces: 'Disfraces',
     capas: 'Capas',
     alas: 'Alas',
@@ -674,7 +680,7 @@
     otros: 'Otros'
   };
 
-  // Cerrar los dos desplegables
+  // Cerrar los dos menús
   function cerrarDesplegables() {
     if (opcionesCategoria) opcionesCategoria.hidden = true;
     if (opcionesTalla) opcionesTalla.hidden = true;
@@ -688,7 +694,7 @@
     }
   }
 
-  // Abrir un desplegable y cerrar el otro
+  // Abrir un menú y cerrar el otro
   function alternarDesplegable(boton, menu) {
     if (!boton || !menu) return;
 
@@ -714,7 +720,7 @@
     });
   }
 
-  // Aplicar simultáneamente categoría y talla
+  // Actualizar los productos según ambos filtros
   function actualizarFiltros() {
     let cantidadVisible = 0;
 
@@ -741,7 +747,7 @@
       if (mostrar) cantidadVisible++;
     });
 
-    // Actualizar contador
+    // Actualizar el contador
     if (contador) {
       contador.textContent =
         `${cantidadVisible} ${
@@ -751,12 +757,12 @@
         }`;
     }
 
-    // Mostrar aviso cuando no hay coincidencias
+    // Mostrar aviso si no hay resultados
     if (sinResultados) {
       sinResultados.hidden = cantidadVisible !== 0;
     }
 
-    // Actualizar categorías del menú de escritorio
+    // Actualizar las categorías de escritorio
     categoriasDesktop.forEach(boton => {
       const activo = boton.dataset.filtro === categoriaActiva;
 
@@ -764,23 +770,26 @@
       boton.setAttribute('aria-pressed', String(activo));
     });
 
-    // ACTUALIZAR EL TEXTO DE LOS DOS BOTONES
+    // Actualizar el texto del filtro de categoría
     const nombreCategoria =
-      nombresCategoria[categoriaActiva] || 'Categoría';
+      nombresCategoria[categoriaActiva] || 'Filtrar por categoría';
 
+    // Actualizar el texto del filtro de talla
     const nombreTalla =
       tallaActiva === 'todas'
-        ? 'Talla'
+        ? 'Filtrar por talla'
         : `Talla ${tallaActiva}`;
 
     if (btnCategoria) {
       btnCategoria.innerHTML =
-        `${nombreCategoria} <span aria-hidden="true">⌄</span>`;
+        `<span>${nombreCategoria}</span>` +
+        `<span aria-hidden="true">⌄</span>`;
     }
 
     if (btnTalla) {
       btnTalla.innerHTML =
-        `${nombreTalla} <span aria-hidden="true">⌄</span>`;
+        `<span>${nombreTalla}</span>` +
+        `<span aria-hidden="true">⌄</span>`;
     }
 
     // Sincronizar el selector de tallas de escritorio
@@ -788,7 +797,7 @@
       selectTalla.value = tallaActiva;
     }
 
-    // Resaltar las opciones elegidas
+    // Resaltar la categoría seleccionada
     categoriasMovil.forEach(boton => {
       const activo = boton.dataset.filtro === categoriaActiva;
 
@@ -796,6 +805,7 @@
       boton.setAttribute('aria-pressed', String(activo));
     });
 
+    // Resaltar la talla seleccionada
     tallasMovil.forEach(boton => {
       const activo = boton.dataset.talla === tallaActiva;
 
@@ -804,7 +814,7 @@
     });
   }
 
-  // Guardar la categoría elegida
+  // Seleccionar categoría
   function seleccionarCategoria(valor) {
     categoriaActiva = valor;
 
@@ -812,7 +822,7 @@
     cerrarDesplegables();
   }
 
-  // Guardar la talla elegida
+  // Seleccionar talla
   function seleccionarTalla(valor) {
     tallaActiva =
       valor === 'todas' || valor === 'todos'
@@ -823,52 +833,53 @@
     cerrarDesplegables();
   }
 
-  // Eventos de categorías en escritorio
+  // Eventos de categorías de escritorio
   categoriasDesktop.forEach(boton => {
     boton.addEventListener('click', () => {
       seleccionarCategoria(boton.dataset.filtro);
     });
   });
 
-  // Eventos de categorías en móvil
+  // Eventos de categorías móviles
   categoriasMovil.forEach(boton => {
     boton.addEventListener('click', () => {
       seleccionarCategoria(boton.dataset.filtro);
     });
   });
 
-  // Eventos de tallas en móvil
+  // Eventos de tallas móviles
   tallasMovil.forEach(boton => {
     boton.addEventListener('click', () => {
       seleccionarTalla(boton.dataset.talla);
     });
   });
 
-  // Evento del selector de tallas en escritorio
+  // Selector de talla de escritorio
   if (selectTalla) {
     selectTalla.addEventListener('change', evento => {
       seleccionarTalla(evento.target.value);
     });
   }
 
-  // Cerrar los menús al pulsar fuera
+  // Cerrar menús al pulsar fuera
   document.addEventListener('click', evento => {
     if (!evento.target.closest('.filtro-desplegable')) {
       cerrarDesplegables();
     }
   });
 
-  // Cerrar los menús con Escape
+  // Cerrar menús con Escape
   document.addEventListener('keydown', evento => {
     if (evento.key === 'Escape') {
       cerrarDesplegables();
     }
   });
 
-  // Mostrar todos los productos al cargar la página
+  // Mostrar todos los productos al cargar
   actualizarFiltros();
 })();
 </script>
+
 </body>
 </html>
 
