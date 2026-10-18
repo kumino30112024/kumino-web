@@ -9,106 +9,117 @@
 
 
 <style>
-/* =========================================================
-   FILTROS DE CATEGORÍA Y TALLA - HALLOWEEN
-========================================================= */
 
-/* BARRA DE FILTROS PARA PC */
+/* =========================================
+   HALLOWEEN — FILTROS DE ESCRITORIO
+   ========================================= */
+
 .halloween-controles {
-  width: calc(100% - 40px);
-  max-width: 1100px;
-  margin: 0 auto 40px;
-  padding: 12px 22px;
-  box-sizing: border-box;
+    width: calc(100% - 80px);
+    max-width: 1060px;
+    margin: 0 auto 40px;
+    padding: 12px 30px;
+    box-sizing: border-box;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
 
-  background-color: #FFFFFF;
-  border: 1px solid rgba(43, 43, 43, 0.06);
-  border-radius: 40px;
-  box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
+    background: #FFFFFF;
+    border: 1px solid rgba(43, 43, 43, 0.06);
+    border-radius: 40px;
+    box-shadow: 0 8px 25px rgba(43, 43, 43, 0.04);
 }
 
-/* CATEGORÍAS PARA PC */
+/* Categorías alineadas a la izquierda */
+
 .halloween-controles > .categorias-catalogo {
-  display: flex;
-  flex: 1 1 auto;
-  min-width: 0;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: 2px;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border: none;
-  box-shadow: none;
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 }
 
 .halloween-controles > .categorias-catalogo button {
-  flex: 0 0 auto;
-  border: none;
-  background: transparent;
-  padding: 10px 12px;
-  border-radius: 25px;
-  font-family: var(--fuente-principal);
-  font-size: 11px;
-  font-weight: 500;
-  color: #666;
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all 0.25s ease;
+    flex: 0 0 auto;
+    padding: 12px 14px;
+
+    border: none;
+    border-radius: 28px;
+    background: transparent;
+
+    font-family: var(--fuente-principal);
+    font-size: 12px;
+    font-weight: 500;
+    color: #666666;
+    white-space: nowrap;
+
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .halloween-controles > .categorias-catalogo button:hover {
-  color: var(--carbón);
-  background-color: var(--crema);
+    background: var(--crema);
+    color: var(--carbón);
 }
 
-.halloween-controles > .categorias-catalogo .categoria-activa,
-.halloween-controles > .categorias-catalogo .categoria-activa:hover {
-  background-color: var(--carbón);
-  color: var(--blanco);
+.halloween-controles > .categorias-catalogo button.categoria-activa {
+    background: var(--carbón);
+    color: var(--blanco);
 }
 
-/* SELECTOR DE TALLA PARA PC */
+/* Selector de tallas alineado a la derecha */
+
 .halloween-controles > .filtro-talla-desktop {
-  display: flex;
-  flex: 0 0 auto;
-  align-items: center;
-  gap: 6px;
-  margin: 0;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
 }
 
 .halloween-controles > .filtro-talla-desktop label {
-  font-family: var(--fuente-principal);
-  font-size: 11px;
-  color: var(--carbón);
-  white-space: nowrap;
+    margin: 0;
+    font-family: var(--fuente-principal);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--carbón);
+    white-space: nowrap;
 }
 
 .halloween-controles > .filtro-talla-desktop select {
-  font-family: var(--fuente-principal);
-  font-size: 11px;
-  border: 1px solid rgba(43, 43, 43, 0.12);
-  border-radius: 20px;
-  background: #fff;
-  color: var(--carbón);
-  padding: 9px 10px;
-  min-width: 125px;
-  max-width: 145px;
-  cursor: pointer;
+    min-width: 145px;
+    max-width: 155px;
+    padding: 12px 14px;
+
+    border: 1px solid #E5E5E5;
+    border-radius: 28px;
+    background: #FFFFFF;
+
+    font-family: var(--fuente-principal);
+    font-size: 12px;
+    color: var(--carbón);
+    cursor: pointer;
 }
 
-/* FILTROS MÓVILES OCULTOS EN PC */
-.filtros-movil {
-  display: none;
+/* Los filtros desplegables son exclusivos de móvil */
+
+.halloween-controles > .filtros-movil {
+    display: none;
 }
+
 
 /* CONTADOR DE PRODUCTOS */
 .halloween-contador {
