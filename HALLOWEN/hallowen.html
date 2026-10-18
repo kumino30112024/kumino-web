@@ -221,18 +221,22 @@
   }
 
   /* Texto y flecha */
-  .halloween-controles .filtros-movil .btn-filtro span:first-child {
-    min-width: 0 !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-    font-size: 11px !important;
-  }
+ 
+.halloween-controles .filtros-movil .btn-filtro span:first-child {
+  display: block !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+  font-size: 10px !important;
+  letter-spacing: -0.3px !important;
+}
 
-  .halloween-controles .filtros-movil .btn-filtro span:last-child {
-    flex-shrink: 0 !important;
-    margin-left: 4px !important;
-  }
+.halloween-controles .filtros-movil .btn-filtro span:last-child {
+  flex: 0 0 auto !important;
+  margin-left: 2px !important;
+}
 
   /* Menús desplegables */
   .halloween-controles .filtros-movil .opciones-filtro {
