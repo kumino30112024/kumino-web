@@ -344,61 +344,88 @@ a {
     }
 }
 
+
 /* =========================================================
-   CELULARES
+   HERO KÚMINO — ADAPTACIÓN PARA CELULARES
 ========================================================= */
 
 @media (max-width: 768px) {
 
     .hero {
-        /*
-           Se prioriza mostrar la fotografía completa.
-           La altura se adapta a la proporción del contenedor.
-        */
+        width: 100%;
+        height: auto;
+
+        /* Proporción horizontal de la fotografía */
         aspect-ratio: 3 / 2;
 
-        height: auto;
         min-height: 0;
+        max-height: none;
 
-        background-size: 100% 100%;
-        background-position: center center;
+        background-size: cover;
+
+        /*
+         * Ajustamos el encuadre para priorizar
+         * las caras de las dos mascotas.
+         */
+        background-position: center 38%;
+        background-repeat: no-repeat;
+
+        padding: 0;
+        margin: 0;
+
+        overflow: hidden;
     }
 
     .hero-coleccion {
-        right: 14px;
-        bottom: 16px;
-
-        gap: 10px;
-
-        padding: 12px 17px;
-
-        font-size: 11px;
-    }
-
-    .hero-coleccion-flecha {
-        font-size: 18px;
-    }
-}
-
-/* =========================================================
-   CELULARES PEQUEÑOS
-========================================================= */
-
-@media (max-width: 480px) {
-
-    .hero-coleccion {
-        right: 10px;
+        right: 12px;
         bottom: 12px;
 
-        padding: 10px 14px;
+        padding: 11px 15px;
 
         gap: 8px;
 
-        font-size: 10px;
+        font-size: 11px;
+
+        box-shadow: 0 5px 15px rgba(230, 57, 70, 0.22);
     }
 
     .hero-coleccion-flecha {
         font-size: 16px;
+    }
+}
+
+/* =========================================================
+   CELULARES ESTRECHOS
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .hero {
+        /*
+         * Se mantiene la fotografía horizontal.
+         * El encuadre se centra en ambas mascotas.
+         */
+        aspect-ratio: 3 / 2;
+
+        height: auto;
+
+        background-size: cover;
+        background-position: center 38%;
+    }
+
+    .hero-coleccion {
+        right: 10px;
+        bottom: 10px;
+
+        padding: 10px 13px;
+
+        font-size: 10px;
+
+        gap: 7px;
+    }
+
+    .hero-coleccion-flecha {
+        font-size: 15px;
     }
 }
 
