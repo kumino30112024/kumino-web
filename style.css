@@ -65,30 +65,29 @@ a {
 }
 
 
+
 /* =========================================================
    ENCABEZADO
 ========================================================= */
 
 .header {
     position: fixed;
-
     top: 0;
     left: 0;
-
     width: 100%;
 
     background-color: rgba(250, 243, 236, 0.96);
-
     border-bottom: 1px solid rgba(198, 161, 91, 0.20);
 
     z-index: 1000;
-
     backdrop-filter: blur(8px);
 }
 
-.nav-container {
-    max-width: 1200px;
 
+/* CONTENEDOR DE NAVEGACIÓN */
+
+.nav-container {
+    max-width: 1300px;
     height: 82px;
 
     margin: 0 auto;
@@ -100,23 +99,22 @@ a {
 }
 
 
-/* LOGO */
+/* LOGO KÚMINO */
 
-/* LOGO */
-
-.logo {
+.header .nav-container .logo {
     display: flex;
     align-items: center;
     gap: 10px;
 
+    margin-left: -20px;
+    flex-shrink: 0;
+
     font-family: var(--fuente-elegante);
     font-size: 28px;
     font-weight: 700;
-
     letter-spacing: 4px;
 
     color: var(--carbón);
-
     text-decoration: none;
 
     transition: 0.3s ease;
@@ -139,12 +137,11 @@ a {
 }
 
 
-/* MENÚ */
+/* MENÚ DE NAVEGACIÓN */
 
 .navbar {
     display: flex;
     align-items: center;
-
     gap: 38px;
 }
 
@@ -155,7 +152,6 @@ a {
     font-weight: 500;
 
     color: var(--carbón);
-
     text-decoration: none;
 
     transition: 0.3s ease;
@@ -163,7 +159,6 @@ a {
 
 .navbar a::after {
     content: "";
-
     position: absolute;
 
     left: 0;
@@ -173,7 +168,6 @@ a {
     height: 1.5px;
 
     background-color: var(--coral);
-
     transition: 0.3s ease;
 }
 
@@ -203,7 +197,6 @@ a {
     padding: 11px 24px;
 
     background-color: var(--coral);
-
     color: var(--blanco);
 
     border-radius: 30px;
@@ -213,8 +206,7 @@ a {
 
     text-decoration: none;
 
-    box-shadow:
-        0 5px 15px rgba(230, 57, 70, 0.20);
+    box-shadow: 0 5px 15px rgba(230, 57, 70, 0.20);
 
     transition: 0.3s ease;
 }
@@ -224,19 +216,16 @@ a {
 
     background-color: #CF303C;
 
-    box-shadow:
-        0 8px 20px rgba(230, 57, 70, 0.28);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.28);
 }
-/* MENÚ HAMBURGUESA - OCULTO EN PC */
+
+
+/* MENÚ HAMBURGUESA: OCULTO EN PC */
 
 .menu-toggle {
     display: none;
 }
-/* AJUSTAR POSICIÓN DEL LOGO */
-.logo {
-    justify-self: start;
-    margin-left: -30px;
-}
+
 
 
 /* =========================================================
