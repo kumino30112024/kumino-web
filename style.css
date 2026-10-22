@@ -529,6 +529,21 @@ a {
 .producto-overlay p {
     display: none;
 }
+/* NOMBRES DE LAS COLECCIONES */
+
+.producto-overlay h3 {
+    display: block !important;
+
+    margin: 0 0 12px;
+    color: #FFFFFF;
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(25px, 2.1vw, 36px);
+    font-weight: 600;
+
+    line-height: 1.15;
+    letter-spacing: 0.2px;
+}
 
 /* =========================================================
    NOMBRES DE LAS COLECCIONES
