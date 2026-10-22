@@ -66,8 +66,9 @@ a {
 
 
 
+
 /* =========================================================
-   ENCABEZADO
+   ENCABEZADO KÚMINO
 ========================================================= */
 
 .header {
@@ -104,36 +105,49 @@ a {
 .header .nav-container .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 
     margin-left: -20px;
     flex-shrink: 0;
 
-    font-family: var(--fuente-elegante);
-    font-size: 28px;
-    font-weight: 700;
-    letter-spacing: 4px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1;
 
-    color: var(--carbón);
+    color: #2C3531;
     text-decoration: none;
 
-    transition: 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
-.logo img {
-    width: 34px;
-    height: 34px;
+
+/* ISOTIPO */
+
+.header .logo img {
+    width: 36px;
+    height: 36px;
 
     object-fit: contain;
     display: block;
+
+    flex-shrink: 0;
 }
 
-.logo span {
+
+/* NOMBRE Y TILDE EN NEGRO CARBÓN */
+
+.header .logo span {
     display: inline-block;
+    color: #2C3531;
 }
 
-.logo:hover {
-    color: var(--coral);
+
+/* EFECTO DEL LOGO */
+
+.header .logo:hover {
+    opacity: 0.8;
 }
 
 
@@ -148,6 +162,7 @@ a {
 .navbar a {
     position: relative;
 
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-weight: 500;
 
@@ -201,6 +216,7 @@ a {
 
     border-radius: 30px;
 
+    font-family: 'Poppins', sans-serif;
     font-size: 13px;
     font-weight: 500;
 
@@ -225,8 +241,6 @@ a {
 .menu-toggle {
     display: none;
 }
-
-
 
 /* =========================================================
    HERO PRINCIPAL KÚMINO
