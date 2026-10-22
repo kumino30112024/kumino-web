@@ -4688,3 +4688,37 @@ body.pagina-machos .categorias-catalogo {
         padding-right: 12px !important;
     }
 }
+/* =========================================
+   MARGEN LATERAL PARA LOS BANNERS
+========================================= */
+
+.halloween-banner,
+.oferta-wrapper {
+    width: calc(100% - 40px) !important;
+    max-width: none !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    box-sizing: border-box;
+}
+
+/* Mantener el banner de Halloween */
+.halloween-banner {
+    margin-top: 40px;
+    margin-bottom: 48px;
+}
+
+/* Mantener el banner de promoción */
+.oferta-wrapper {
+    margin-top: 48px;
+    margin-bottom: 40px;
+}
+
+/* MÓVIL */
+@media (max-width: 768px) {
+    .halloween-banner,
+    .oferta-wrapper {
+        width: calc(100% - 24px) !important;
+    }
+}
