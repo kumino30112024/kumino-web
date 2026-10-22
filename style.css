@@ -394,86 +394,7 @@ a {
     }
 }
 
-/* =========================================================
-   COLECCIÓN PRINCIPAL
-========================================================= */
-
-.coleccion {
-    width: 100% !important;
-    max-width: 100% !important;
-
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-
-    box-sizing: border-box;
-
-    background-color: var(--beige);
-
-    padding: 100px 40px;
-}
-/* ENCABEZADO */
-
-.coleccion-header {
-    max-width: 650px;
-
-    margin: 0 auto 55px;
-
-    text-align: center;
-}
-
-.coleccion-header > span {
-    color: var(--verde-salvia);
-
-    font-size: 11px;
-    font-weight: 600;
-
-    letter-spacing: 2.5px;
-}
-
-.coleccion-header h2 {
-    font-family: var(--fuente-elegante);
-
-    font-size: 3.2rem;
-
-    color: var(--carbón);
-
-    margin: 15px 0 18px;
-}
-
-.coleccion-header h2 span,
-.coleccion-header h2 strong {
-    color: var(--coral);
-
-    font-style: italic;
-}
-
-.coleccion-header p {
-    font-size: 15px;
-
-    line-height: 1.7;
-
-    color: var(--carbón);
-
-    opacity: 0.7;
-}
-
-
-/* GRID */
-
-.coleccion-grid {
-    width: 100%;
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 22px;
-}
-
-
+```css
 /* =========================================================
    COLECCIÓN KÚMINO — DISEÑO BOUTIQUE
 ========================================================= */
@@ -509,6 +430,7 @@ a {
 }
 
 /* Ocultar título y descripción */
+
 .coleccion-header h2,
 .coleccion-header p {
     display: none;
@@ -545,7 +467,6 @@ a {
     border-radius: 16px;
 
     background-color: var(--blanco);
-
     text-decoration: none;
 
     transition: box-shadow 0.35s ease;
@@ -596,17 +517,38 @@ a {
     background: linear-gradient(
         to top,
         rgba(35, 29, 24, 0.88) 0%,
-        rgba(35, 29, 24, 0.48) 15%,
-        rgba(35, 29, 24, 0.08) 38%,
-        transparent 52%
+        rgba(35, 29, 24, 0.48) 18%,
+        rgba(35, 29, 24, 0.08) 42%,
+        transparent 55%
     );
 }
 
-/* Ocultar números, nombres y descripciones */
+/* OCULTAR NÚMEROS Y DESCRIPCIONES */
+
 .producto-overlay > span,
-.producto-overlay h3,
 .producto-overlay p {
     display: none;
+}
+
+/* =========================================================
+   NOMBRES DE LAS COLECCIONES
+========================================================= */
+
+.producto-overlay h3 {
+    display: block;
+
+    margin: 0 0 12px;
+
+    color: #FFFFFF;
+
+    font-family: var(--fuente-elegante);
+    font-size: clamp(25px, 2.1vw, 36px);
+    font-weight: 600;
+
+    line-height: 1.15;
+    letter-spacing: 0.2px;
+
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
 }
 
 /* =========================================================
@@ -663,6 +605,7 @@ a {
     letter-spacing: 0;
 
     transform: translateY(-50%);
+
     transition:
         background-color 0.3s ease,
         transform 0.3s ease;
@@ -678,6 +621,7 @@ a {
 ========================================================= */
 
 @media (min-width: 769px) and (max-width: 1100px) {
+
     .coleccion {
         padding: 18px 16px 24px;
     }
@@ -693,6 +637,11 @@ a {
 
     .producto-overlay {
         padding: 18px 14px;
+    }
+
+    .producto-overlay h3 {
+        font-size: clamp(22px, 2.5vw, 30px);
+        margin-bottom: 10px;
     }
 
     .producto-overlay strong {
@@ -713,6 +662,7 @@ a {
 ========================================================= */
 
 @media (max-width: 768px) {
+
     .coleccion {
         padding: 20px 12px 24px;
     }
@@ -741,13 +691,20 @@ a {
     }
 
     .producto-overlay {
-        padding: 12px 10px;
+        padding: 14px 12px;
+
         background: linear-gradient(
             to top,
-            rgba(35, 29, 24, 0.88) 0%,
-            rgba(35, 29, 24, 0.30) 28%,
-            transparent 52%
+            rgba(35, 29, 24, 0.90) 0%,
+            rgba(35, 29, 24, 0.38) 32%,
+            transparent 58%
         );
+    }
+
+    .producto-overlay h3 {
+        font-size: clamp(19px, 4.2vw, 27px);
+        line-height: 1.15;
+        margin-bottom: 8px;
     }
 
     .producto-overlay strong {
@@ -765,6 +722,7 @@ a {
         font-size: 17px;
     }
 }
+
 /* =========================================================
    BANNER HALLOWEEN
 ========================================================= */
