@@ -473,145 +473,282 @@ a {
     gap: 22px;
 }
 
+
 /* =========================================================
-   TARJETAS DE COLECCIÓN
+   TARJETAS DE COLECCIÓN — KÚMINO BOUTIQUE
 ========================================================= */
 
-.producto-card {
+.coleccion .producto-card {
     position: relative;
 
+    display: block;
+
+    width: 100%;
     height: 380px;
 
-    border-radius: 20px;
+    min-width: 0;
 
     overflow: hidden;
 
-    background-color: var(--blanco);
+    border: none;
+    border-radius: 14px;
 
-    border: 1px solid rgba(198, 161, 91, 0.18);
+    background-color: var(--beige);
+
+    text-decoration: none;
+
+    isolation: isolate;
 
     transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+        transform 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
-.producto-card img {
+
+/* =========================================================
+   IMAGEN
+========================================================= */
+
+.coleccion .producto-card img {
+    display: block;
+
     width: 100%;
     height: 100%;
 
     object-fit: cover;
+    object-position: center;
 
-    display: block;
-
-    transition: transform 0.5s ease;
-}
-
-.producto-card:hover {
-    transform: translateY(-8px);
-
-    box-shadow:
-        0 15px 35px rgba(43, 43, 43, 0.15);
-}
-
-.producto-card:hover img {
-    transform: scale(1.05);
+    transition: transform 0.6s ease;
 }
 
 
-/* CAPA SOBRE LA IMAGEN */
+/* =========================================================
+   CAPA OSCURA INFERIOR
+========================================================= */
 
-.producto-overlay {
+.coleccion .producto-overlay {
     position: absolute;
 
-    inset: 0;
-
-    padding: 30px;
+    inset: 45% 0 0;
 
     display: flex;
+    flex-direction: row;
 
-    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
 
-    justify-content: flex-end;
+    gap: 10px;
 
-    background:
-        linear-gradient(
-            to top,
-            rgba(20, 20, 20, 0.85),
-            rgba(20, 20, 20, 0.25),
-            transparent
-        );
+    padding: 18px 22px 24px;
 
-    color: var(--blanco);
+    box-sizing: border-box;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(35, 29, 23, 0) 0%,
+        rgba(35, 29, 23, 0.18) 35%,
+        rgba(35, 29, 23, 0.82) 100%
+    );
+
+    color: #FFFFFF;
 }
 
 
-/* NÚMERO */
+/* =========================================================
+   TEXTO: VER COLECCIÓN
+========================================================= */
 
-.producto-overlay > span {
+.coleccion .producto-overlay strong {
+    display: inline-block;
+
+    margin: 0;
+    padding: 0 0 10px;
+
+    color: #FFFFFF;
+
+    font-family: 'Poppins', sans-serif;
     font-size: 11px;
+    font-weight: 500;
 
     letter-spacing: 2px;
-
-    color: var(--dorado);
-
-    font-weight: 600;
-}
-
-
-/* NOMBRE */
-
-.producto-overlay h3 {
-    margin: 8px 0 10px;
-
-    font-family: var(--fuente-elegante);
-
-    font-size: 32px;
-
-    font-weight: 600;
-}
-
-
-/* DESCRIPCIÓN */
-
-.producto-overlay p {
-    max-width: 240px;
-
-    margin-bottom: 18px;
-
-    font-size: 13px;
-
-    line-height: 1.6;
-
-    color: rgba(255, 255, 255, 0.9);
-}
-
-
-/* ENLACE */
-
-.producto-overlay strong,
-.producto-overlay a {
-    font-size: 11px;
-
-    letter-spacing: 1.5px;
+    line-height: 1.5;
 
     text-transform: uppercase;
 
-    color: var(--blanco);
+    white-space: nowrap;
 }
 
-.producto-overlay a {
-    display: inline-block;
 
-    text-decoration: none;
+/* =========================================================
+   FLECHA DENTRO DEL CÍRCULO
+========================================================= */
 
-    margin-top: 10px;
+.coleccion .producto-overlay .coleccion-flecha {
+    display: flex;
 
-    transition: 0.3s ease;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+
+    color: #FFFFFF;
+
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    font-weight: 300;
+
+    line-height: 1;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
-.producto-overlay a:hover {
-    color: var(--coral);
+
+/* =========================================================
+   EFECTOS AL PASAR EL CURSOR
+========================================================= */
+
+@media (hover: hover) {
+
+    .coleccion .producto-card:hover {
+        transform: translateY(-4px);
+
+        box-shadow:
+            0 12px 28px rgba(44, 53, 49, 0.13);
+    }
+
+    .coleccion .producto-card:hover img {
+        transform: scale(1.035);
+    }
+
+    .coleccion .producto-card:hover .coleccion-flecha {
+        background-color: #FFFFFF;
+        border-color: #FFFFFF;
+
+        color: var(--carbón);
+
+        transform: translateX(2px);
+    }
 }
+
+
+/* =========================================================
+   ACCESIBILIDAD
+========================================================= */
+
+.coleccion .producto-card:focus-visible {
+    outline: 3px solid var(--verde-salvia);
+    outline-offset: 4px;
+}
+
+
+/* =========================================================
+   TABLETAS
+========================================================= */
+
+@media (min-width: 600px) and (max-width: 900px) {
+
+    .coleccion .producto-card {
+        height: 340px;
+    }
+
+    .coleccion .producto-overlay {
+        padding: 15px 14px 17px;
+    }
+
+    .coleccion .producto-overlay strong {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    .coleccion .producto-overlay .coleccion-flecha {
+        flex-basis: 34px;
+
+        width: 34px;
+        height: 34px;
+
+        font-size: 19px;
+    }
+}
+
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
+@media (max-width: 599px) {
+
+    .coleccion .producto-card {
+        height: auto;
+
+        aspect-ratio: 3 / 4;
+
+        border-radius: 10px;
+    }
+
+    .coleccion .producto-overlay {
+        inset: 45% 0 0;
+
+        padding: 12px 10px 12px;
+
+        gap: 6px;
+    }
+
+    .coleccion .producto-overlay strong {
+        font-size: 8px;
+        letter-spacing: 0.8px;
+
+        padding-bottom: 7px;
+    }
+
+    .coleccion .producto-overlay .coleccion-flecha {
+        flex-basis: 28px;
+
+        width: 28px;
+        height: 28px;
+
+        font-size: 16px;
+    }
+}
+
+
+/* CELULARES MUY ESTRECHOS */
+
+@media (max-width: 360px) {
+
+    .coleccion .producto-overlay {
+        padding-right: 7px;
+        padding-left: 7px;
+
+        gap: 4px;
+    }
+
+    .coleccion .producto-overlay strong {
+        font-size: 7px;
+        letter-spacing: 0.4px;
+    }
+
+    .coleccion .producto-overlay .coleccion-flecha {
+        flex-basis: 24px;
+
+        width: 24px;
+        height: 24px;
+    }
+}
+
 /* =========================================================
    BANNER HALLOWEEN
 ========================================================= */
