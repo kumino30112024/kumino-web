@@ -4615,48 +4615,51 @@ body.pagina-machos .categorias-catalogo {
     pointer-events: none;
 }
 /* =========================================
-   AJUSTE DE ANCHURA: AMBOS BANNERS
+   BANNERS A TODO EL ANCHO DE LA PANTALLA
 ========================================= */
 
 .halloween-banner,
 .oferta-wrapper {
-    width: calc(100% - 48px);
-    max-width: 1180px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100% !important;
+    max-width: none !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+
     box-sizing: border-box;
 }
 
-/* BANNER HALLOWEEN */
+/* El banner de Halloween */
 .halloween-banner {
-    margin-top: 80px;
+    margin-top: 50px;
     margin-bottom: 48px;
+    border-radius: 0;
 }
 
-/* BANNER OFERTA */
+/* El banner de oferta */
 .oferta-wrapper {
     margin-top: 48px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
-/* =========================================
-   MÓVIL
-========================================= */
+/* El fondo del banner de oferta también ocupa todo el ancho */
+.oferta-especial {
+    width: 100% !important;
+    box-sizing: border-box;
+}
 
+/* MÓVIL */
 @media (max-width: 768px) {
     .halloween-banner,
     .oferta-wrapper {
-        width: calc(100% - 24px);
-        max-width: none;
+        width: 100% !important;
+        max-width: none !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 
     .halloween-banner {
-        margin-top: 40px;
-        margin-bottom: 24px;
-    }
-
-    .oferta-wrapper {
-        margin-top: 24px !important;
-        margin-bottom: 40px;
+        border-radius: 0;
     }
 }
