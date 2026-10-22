@@ -232,7 +232,11 @@ a {
 .menu-toggle {
     display: none;
 }
-
+/* AJUSTAR POSICIÓN DEL LOGO */
+.logo {
+    justify-self: start;
+    margin-left: -30px;
+}
 
 
 /* =========================================================
