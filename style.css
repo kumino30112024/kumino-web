@@ -4755,38 +4755,10 @@ body.pagina-machos .categorias-catalogo {
     font-weight: 400;
     line-height: 1.4;
 }
-
-/* Promociones: quitar el aviso debajo del precio */
-.producto-catalogo.precio-variable:has(.precio-promocional)
-.catalogo-datos > .precio-promocional::after {
-    content: none;
-}
-
-/* Aviso debajo del ahorro: sin fondo verde */
-.producto-catalogo.precio-variable:has(.precio-promocional)
-.catalogo-datos > .promo-ahorro::after {
-    content: "ⓘ Precio varía según la talla";
-    display: table;
-    width: fit-content;
-    max-width: 100%;
-    box-sizing: border-box;
-    margin-top: 10px;
-    padding: 7px 12px;
-    border: 1px solid #7A9B76;
-    border-radius: 30px;
-    background: transparent !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    color: #7A9B76;
-    font-family: inherit;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-/* Mantener el fondo verde claro únicamente en el ahorro */
+/* Ahorro: conservar el fondo verde claro */
 body.pagina-machos .catalogo-datos .promo-ahorro {
-    display: inline-block !important;
+    display: table !important;
+    width: fit-content;
     background-color: #DDF1D8 !important;
     color: #287A3D !important;
     padding: 4px 8px !important;
@@ -4796,15 +4768,27 @@ body.pagina-machos .catalogo-datos .promo-ahorro {
     margin-top: 4px !important;
 }
 
-/* El aviso hereda el diseño transparente */
-body.pagina-machos .catalogo-datos .promo-ahorro::after {
-    background: transparent !important;
-    background-color: transparent !important;
-    box-shadow: none !important;
-    color: #7A9B76 !important;
-    border: 1px solid #7A9B76 !important;
-    border-radius: 30px !important;
-    font-size: 13px !important;
-    font-weight: 400 !important;
+/* Desactivar el aviso antiguo generado por CSS */
+body.pagina-machos .catalogo-datos .promo-ahorro::after,
+body.pagina-machos .catalogo-datos .precio-promocional::after {
+    content: none !important;
+    display: none !important;
 }
 
+/* Aviso independiente: sin fondo verde */
+body.pagina-machos .catalogo-datos .aviso-precio-talla {
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    padding: 7px 12px;
+    border: 1px solid #7A9B76;
+    border-radius: 30px;
+    background: transparent !important;
+    color: #7A9B76 !important;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
