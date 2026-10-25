@@ -6,6 +6,36 @@
 <title>KÚMINO | Colección Machos</title>
 <link rel="stylesheet" href="../style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* KÚMINO MACHOS: aviso de talla independiente del recuadro de ahorro */
+body.pagina-machos .producto-catalogo.precio-variable:has(.precio-promocional) .catalogo-datos > .promo-ahorro::after {
+    content: none !important;
+    display: none !important;
+}
+body.pagina-machos .producto-catalogo.precio-variable:has(.precio-promocional) .catalogo-datos > .precio-promocional::after {
+    content: none !important;
+    display: none !important;
+}
+body.pagina-machos .catalogo-datos > .aviso-precio-talla {
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    padding: 7px 12px;
+    border: 1px solid #7A9B76;
+    border-radius: 30px;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #7A9B76 !important;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+</style>
 </head>
 <body class="pagina-machos">
 <header class="header">
@@ -386,6 +416,7 @@ data-categoria="sudaderas">
 </p>
 <p class="precio-promocional">Desde S/ 19.00</p>
 <span class="promo-ahorro">Ahorras hasta S/ 10.00</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="tejido-toffee.html"
@@ -420,6 +451,7 @@ data-categoria="abrigos">
 </p>
 <p class="precio-promocional">Desde S/ 28.00</p>
 <span class="promo-ahorro">Ahorras hasta S/ 14.50</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="cafarena-avellana-tostada.html"
@@ -488,6 +520,7 @@ data-categoria="abrigos">
 </p>
 <p class="precio-promocional">Desde S/ 23.00</p>
 <span class="promo-ahorro">Ahorras hasta S/ 12.50</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="chaleco-texturizado.html"
@@ -522,6 +555,7 @@ data-categoria="abrigos">
 </p>
 <p class="precio-promocional">Desde S/ 23.00</p>
 <span class="promo-ahorro">Ahorras hasta S/ 12.50</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="cafarena-basica.html"
@@ -539,6 +573,7 @@ data-categoria="sudaderas">
 </p>
 <p class="precio-promocional">Desde S/ 18.00</p>
 <span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="sudadera-dino-pocket.html"
@@ -573,6 +608,7 @@ data-categoria="abrigos">
 </p>
 <p class="precio-promocional">Desde S/ 26.00</p>
 <span class="promo-ahorro">Ahorras hasta S/ 14.00</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="chaleco-linear-confort.html"
@@ -590,6 +626,7 @@ data-categoria="abrigos">
 </p>
 <p class="precio-promocional">Desde S/ 20.00</p>
 <span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="sudadera-consentido-de-mama.html"
@@ -607,6 +644,7 @@ data-categoria="sudaderas">
 </p>
 <p class="precio-promocional">Desde S/ 30.50</p>
 <span class="promo-ahorro">Ahorras hasta S/ 16.50</span>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a href="sudadera-huellita.html"
@@ -796,5 +834,4 @@ document.addEventListener("DOMContentLoaded", () => {
     actualizarProductos();
 });
 </script>
-
 
