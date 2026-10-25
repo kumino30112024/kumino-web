@@ -1,998 +1,790 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>KÚMINO | Colección Machos</title>
-
-    <!-- CSS: subimos un nivel porque estamos dentro de MACHOS -->
-    <link rel="stylesheet" href="../style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KÚMINO | Colección Machos</title>
+<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body class="pagina-machos">
-
-<!-- =========================
-     HEADER
-========================== -->
-
 <header class="header">
-
-    <div class="nav-container">
-
-        <a href="../index.html" class="logo">KÚMINO</a>
-
-        <nav class="navbar">
-
-    <a href="../index.html">Inicio</a>
-
-    <a href="../index.html#coleccion">Colección</a>
-
-    <a href="../HALLOWEN/hallowen.html">Halloween</a>
-
-    <a href="../HEMBRAS/hembras.html">Hembras</a>
-
-    <a href="machos.html" class="activo">Machos</a>
-
-    <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
-
-    <a href="../CASITAS/casitas.html">Casitas</a>
-
+<div class="nav-container">
+<a href="../index.html" class="logo">KÚMINO</a>
+<nav class="navbar">
+<a href="../index.html">Inicio</a>
+<a href="../index.html#coleccion">Colección</a>
+<a href="../HALLOWEN/hallowen.html">Halloween</a>
+<a href="../HEMBRAS/hembras.html">Hembras</a>
+<a href="machos.html" class="activo">Machos</a>
+<a href="../ACCESORIOS/accesorios.html">Accesorios</a>
+<a href="../CASITAS/casitas.html">Casitas</a>
 </nav>
-
-        <a href="https://wa.me/51940151463"
-           class="btn-contacto"
-           target="_blank">
-
-            Contacto
-
-        </a>
-
-    </div>
-
-</header>
-
-
-<!-- =========================
-     CATÁLOGO
-========================== -->
-
-<section class="catalogo-hembras">
-
-    <div class="catalogo-header">
-
-        <span>COLECCIÓN KÚMINO</span>
-
-        <h1>Machos</h1>
-
-        <p>
-            Descubre nuestra selección de prendas para ellos,
-            pensadas para combinar comodidad, estilo y personalidad.
-        </p>
-
-    </div>
-
-
-<!-- =========================
-     FILTROS DE CATEGORÍA Y TALLA
-========================== -->
-<div class="categorias-catalogo">
-
-    <!-- FILTRO DE CATEGORÍA -->
-    <div class="filtro-categoria">
-        <button
-            type="button"
-            class="btn-filtro-categoria"
-            aria-expanded="false">
-            <span>Filtrar por categoría</span>
-            <span class="flecha-categoria">⌄</span>
-        </button>
-
-        <div class="opciones-categoria">
-            <button type="button" data-filtro="todos" class="categoria-activa">
-                Todas las categorías
-            </button>
-            <button type="button" data-filtro="abrigos">Abrigos</button>
-            <button type="button" data-filtro="sudaderas">Sudaderas</button>
-            <button type="button" data-filtro="polos">Polos</button>
-            <button type="button" data-filtro="impermeables">Impermeables</button>
-            <button type="button" data-filtro="especiales">Especiales</button>
-        </div>
-    </div>
-
-    <!-- FILTRO DE TALLA -->
-    <div class="filtro-talla">
-        <button
-            type="button"
-            class="btn-filtro-talla"
-            aria-expanded="false">
-            <span>Filtrar por talla</span>
-            <span class="flecha-talla">⌄</span>
-        </button>
-
-        <div class="opciones-talla">
-            <button type="button" data-talla="todas">Todas las tallas</button>
-            <button type="button" data-talla="1">Talla 1</button>
-            <button type="button" data-talla="2">Talla 2</button>
-            <button type="button" data-talla="3">Talla 3</button>
-            <button type="button" data-talla="4">Talla 4</button>
-            <button type="button" data-talla="5">Talla 5</button>
-            <button type="button" data-talla="6">Talla 6</button>
-            <button type="button" data-talla="7">Talla 7</button>
-            <button type="button" data-talla="8">Talla 8</button>
-            <button type="button" data-talla="9">Talla 9</button>
-        </div>
-    </div>
-
+<a href="https://wa.me/51940151463"
+class="btn-contacto"
+target="_blank">
+Contacto
+</a>
 </div>
-
-    <!-- =========================
-         PRODUCTOS
-    ========================== -->
-
-    <div class="productos-grid">
-
-
-        <!-- 01 -->
-        <a href="puffer-nube.html"
-           class="producto-catalogo"
-           data-tallas="1,2,3"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Puffer Nube de Invierno.jpeg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Puffer Nube de Invierno</h2>
-                <p>Desde S/ 32.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 02 -->
-        <a href="casaca-alpinista.html"
-           class="producto-catalogo"
-           data-tallas="2,3,4"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Casaca Alpinista.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Casaca Alpinista</h2>
-                <p>Desde S/ 40.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 03 -->
-        <a href="duo-otono-urbano.html"
-           class="producto-catalogo"
-           data-tallas="1,2,3"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Duo Otoño Urbano.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Duo Otoño Urbano</h2>
-                <p>Desde S/ 30.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 04 -->
-        <a href="hoodie-huellita-urbana.html"
-           class="producto-catalogo"
-           data-tallas="1,2"
-           data-categoria="sudaderas">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Hoodie Huellita Urbana.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Hoodie Huellita Urbana</h2>
-                <p>Desde S/ 30.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 05 -->
-        <a href="puffer-refugio-alpino.html"
-           class="producto-catalogo"
-           data-tallas="1,2"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Puffer Refugio Alpino.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Puffer Refugio Alpino</h2>
-                <p>Desde S/ 34.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 06 -->
-        <a href="cacao-universitario.html"
-           class="producto-catalogo"
-           data-tallas="2"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Cacao Universitario.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Cacao Universitario</h2>
-                <p>S/ 32.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 07 -->
-        <a href="sudadera-marfil-urbano.html"
-           class="producto-catalogo"
-           data-tallas="2"
-           data-categoria="sudaderas">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Sudadera Marfil Urbano.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Sudadera Marfil Urbano</h2>
-                <p>S/ 28.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 08 -->
-        <a href="parka-amanecer-andino.html"
-           class="producto-catalogo"
-           data-tallas="1"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Parka Amanecer Andino.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Parka Amanecer Andino</h2>
-                <p>S/ 32.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 09 -->
-        <a href="casaca-brisa-de-mar.html"
-           class="producto-catalogo"
-           data-tallas="1,3"
-           data-categoria="impermeables">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Casaca Brisa de Mar.jpeg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Casaca Brisa de Mar</h2>
-                <p>Desde S/ 36.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 10 -->
-        <a href="disfraz-de-baloncesto.html"
-           class="producto-catalogo"
-           data-tallas="3,4"
-           data-categoria="especiales">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Disfraz Baloncesto.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Disfraz de Baloncesto</h2>
-                <p>Desde S/ 35.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 11 -->
-        <a href="polo-vintage-fantasy.html"
-           class="producto-catalogo"
-           data-tallas="2,3,4"
-           data-categoria="polos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Polo Vintage Fantasy.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Polo Vintage Fantasy</h2>
-                <p>Desde S/ 35.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 12 -->
-        <a href="impermeable-osito.html"
-           class="producto-catalogo"
-           data-tallas="2"
-           data-categoria="impermeables">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Impermeable Osito.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Impermeable Osito</h2>
-                <p>S/ 30.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 13 -->
-        <a href="overol-mini-saurio.html"
-           class="producto-catalogo"
-           data-tallas="2,3,4"
-           data-categoria="especiales">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Oberol Mini Saurio.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Overol Mini Saurio</h2>
-                <p>Desde S/ 35.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 14 -->
-        <a href="enterizo-soft-quilt.html"
-           class="producto-catalogo"
-           data-tallas="3"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Enterizo Soft Quilt.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Enterizo Soft Quilt</h2>
-                <p>S/ 40.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 15 -->
-        <a href="sueter-doggiematch.html"
-           class="producto-catalogo"
-           data-tallas="3"
-           data-categoria="abrigos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Sueter Doggie Match.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Suéter DoggieMatch</h2>
-                <p>S/ 33.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 16 -->
-        <a href="polos-rayas-de-verano.html"
-           class="producto-catalogo"
-           data-tallas="3,4"
-           data-categoria="polos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Polo Rayas de Verano.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Polos Rayas de Verano</h2>
-                <p>Desde S/ 36.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 17 -->
-        <a href="gabardina-real.html"
-           class="producto-catalogo"
-           data-tallas="3,4"
-           data-categoria="especiales">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Gabardina Real.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Gabardina Real</h2>
-                <p>Desde S/ 48.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 18 -->
-        <a href="polo-galan-de-verano.html"
-           class="producto-catalogo"
-           data-tallas="3"
-           data-categoria="polos">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Polo Galan de Verano.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Polo Galán de Verano</h2>
-                <p>S/ 34.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 19 -->
-        <a href="sudadera-de-mimos.html"
-           class="producto-catalogo"
-           data-tallas="2,3"
-           data-categoria="sudaderas">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Sudadera de Mimos.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Sudadera de Mimos</h2>
-                <p>Desde S/ 35.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 20 -->
-        <a href="sudadera-urbana.html"
-           class="producto-catalogo"
-           data-categoria="sudaderas">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Sudadera Urbana.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Sudadera Urbana</h2>
-                <p>S/ 36.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- 21 -->
-        <a href="sudadera-deportiva.html"
-           class="producto-catalogo"
-           data-categoria="sudaderas">
-
-            <div class="catalogo-foto">
-                <span></span><img src="../IMAGENES/Sudadera Deportiva.jpg">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Sudadera Deportiva</h2>
-                <p>Desde S/ 36.00</p>
-            </div>
-
-        </a>
-
-
-        <!-- =====================================
-             NUEVOS PRODUCTOS EN PROMOCIÓN
-        ====================================== -->
-
-        <!-- 22. Chompa The Cat Face -->
-        <a href="chompa-the-cat-face.html"
-           class="producto-catalogo"
-           data-tallas="1,2"
-           data-categoria="sudaderas">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/chompa-the-cat-face.jpg" alt="Chompa The Cat Face">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Chompa The Cat Face</h2>
-                <p><span class="precio-regular">S/ 28.50</span></p>
-                <p class="precio-promocional">Desde S/ 19.00</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 10.00</span>
-            </div>
-        </a>
-
-        <!-- 23. Tejido Toffee -->
-        <a href="tejido-toffee.html"
-           class="producto-catalogo"
-           data-tallas="3"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/tejido-toffee.jpg" alt="Tejido Toffee">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Tejido Toffee</h2>
-                <p><span class="precio-regular">S/ 28.50</span></p>
-                <p class="precio-promocional">S/ 19.00</p>
-                <span class="promo-ahorro">Ahorras S/ 9.50</span>
-            </div>
-        </a>
-
-        <!-- 24. Abrigo Orejas de Algodón -->
-        <a href="abrigo-orejas-de-algodon.html"
-           class="producto-catalogo"
-           data-tallas="2,3"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/abrigo-orejas-de-algodon.jpg" alt="Abrigo Orejas de Algodón">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Abrigo Orejas de Algodón</h2>
-                <p><span class="precio-regular">S/ 42.00</span></p>
-                <p class="precio-promocional">Desde S/ 28.00</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 14.50</span>
-            </div>
-        </a>
-
-        <!-- 25. Cafarena Avellana Tostada -->
-        <a href="cafarena-avellana-tostada.html"
-           class="producto-catalogo"
-           data-tallas="3"
-           data-categoria="sudaderas">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/cafarena-avellana-tostada.jpg" alt="Cafarena Avellana Tostada">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Cafarena Avellana Tostada</h2>
-                <p><span class="precio-regular">S/ 33.00</span></p>
-                <p class="precio-promocional">S/ 22.00</p>
-                <span class="promo-ahorro">Ahorras S/ 11.00</span>
-            </div>
-        </a>
-
-        <!-- 26. Pequeño Ejecutivo -->
-        <a href="pequeno-ejecutivo.html"
-           class="producto-catalogo"
-           data-tallas="2"
-           data-categoria="especiales">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/pequeno-ejecutivo.jpg" alt="Pequeño Ejecutivo">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Pequeño Ejecutivo</h2>
-                <p><span class="precio-regular">S/ 27.00</span></p>
-                <p class="precio-promocional">S/ 18.00</p>
-                <span class="promo-ahorro">Ahorras S/ 9.00</span>
-            </div>
-        </a>
-
-        <!-- 27. Chompa Snoopy -->
-        <a href="chompa-snoopy.html"
-           class="producto-catalogo"
-           data-tallas="3"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/chompa-snoopy.jpg" alt="Chompa Snoopy">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Chompa Snoopy</h2>
-                <p><span class="precio-regular">S/ 30.00</span></p>
-                <p class="precio-promocional">S/ 20.00</p>
-                <span class="promo-ahorro">Ahorras S/ 10.00</span>
-            </div>
-        </a>
-
-        <!-- 28. Abrigo Faro del Norte -->
-        <a href="abrigo-faro-del-norte.html"
-           class="producto-catalogo"
-           data-tallas="2,3"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/abrigo-faro-del-norte.jpg" alt="Abrigo Faro del Norte">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Abrigo Faro del Norte</h2>
-                <p><span class="precio-regular">S/ 34.50</span></p>
-                <p class="precio-promocional">Desde S/ 23.00</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 12.50</span>
-            </div>
-        </a>
-
-        <!-- 29. Chaleco Texturizado -->
-        <a href="chaleco-texturizado.html"
-           class="producto-catalogo"
-           data-tallas="2"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/chaleco-texturizado.jpg" alt="Chaleco Texturizado">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Chaleco Texturizado</h2>
-                <p><span class="precio-regular">S/ 30.00</span></p>
-                <p class="precio-promocional">S/ 20.00</p>
-                <span class="promo-ahorro">Ahorras S/ 10.00</span>
-            </div>
-        </a>
-
-        <!-- 30. Sweater Sr Teddy -->
-        <a href="sweater-sr-teddy.html"
-           class="producto-catalogo"
-           data-tallas="3,4"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/sweater-sr-teddy.jpg" alt="Sweater Sr Teddy">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Sweater Sr Teddy</h2>
-                <p><span class="precio-regular">S/ 34.50</span></p>
-                <p class="precio-promocional">Desde S/ 23.00</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 12.50</span>
-            </div>
-        </a>
-
-        <!-- 31. Cafarena Básica -->
-        <a href="cafarena-basica.html"
-           class="producto-catalogo"
-           data-tallas="1,2,4"
-           data-categoria="sudaderas">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/cafarena-basica.jpg" alt="Cafarena Básica">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Cafarena Básica</h2>
-                <p><span class="precio-regular">S/ 27.00</span></p>
-                <p class="precio-promocional">Desde S/ 18.00</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
-            </div>
-        </a>
-
-        <!-- 32. Sudadera Dino-Pocket -->
-        <a href="sudadera-dino-pocket.html"
-           class="producto-catalogo"
-           data-tallas="2"
-           data-categoria="sudaderas">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/sudadera-dino-pocket.jpg" alt="Sudadera Dino-Pocket">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Sudadera Dino-Pocket</h2>
-                <p><span class="precio-regular">S/ 33.00</span></p>
-                <p class="precio-promocional">S/ 22.00</p>
-                <span class="promo-ahorro">Ahorras S/ 11.00</span>
-            </div>
-        </a>
-
-        <!-- 33. Suéter Oxford de Punto -->
-        <a href="sueter-oxford-de-punto.html"
-           class="producto-catalogo"
-           data-tallas="1,4"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/sueter-oxford-de-punto.jpg" alt="Suéter Oxford de Punto">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Suéter Oxford de Punto</h2>
-                <p><span class="precio-regular">S/ 39.00</span></p>
-                <p class="precio-promocional">Desde S/ 26.00</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 14.00</span>
-            </div>
-        </a>
-
-        <!-- 34. Chaleco Linear Confort -->
-        <a href="chaleco-linear-confort.html"
-           class="producto-catalogo"
-           data-tallas="2,3"
-           data-categoria="abrigos">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/chaleco-linear-confort.jpg" alt="Chaleco Linear Confort">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Chaleco Linear Confort</h2>
-                <p><span class="precio-regular">S/ 30.00</span></p>
-                <p class="precio-promocional">Desde S/ 20.00</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
-            </div>
-        </a>
-
-        <!-- 35. Sudadera Consentido de Mamá -->
-        <a href="sudadera-consentido-de-mama.html"
-           class="producto-catalogo"
-           data-tallas="7,8"
-           data-categoria="sudaderas">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/sudadera-consentido-de-mama.jpg" alt="Sudadera Consentido de Mamá">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Sudadera Consentido de Mamá</h2>
-                <p><span class="precio-regular">S/ 45.75</span></p>
-                <p class="precio-promocional">Desde S/ 30.50</p>
-                <span class="promo-ahorro">Ahorras hasta S/ 16.50</span>
-            </div>
-        </a>
-
-        <!-- 36. Sudadera Huellita -->
-        <a href="sudadera-huellita.html"
-           class="producto-catalogo"
-           data-tallas="6"
-           data-categoria="sudaderas">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/sudadera-huellita.jpg" alt="Sudadera Huellita">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Sudadera Huellita</h2>
-                <p><span class="precio-regular">S/ 42.00</span></p>
-                <p class="precio-promocional">S/ 28.00</p>
-                <span class="promo-ahorro">Ahorras S/ 14.00</span>
-            </div>
-        </a>
-
-        <!-- 37. Sudadera I Love My Mom -->
-        <a href="sudadera-i-love-my-mom.html"
-           class="producto-catalogo"
-           data-tallas="7,8"
-           data-categoria="sudaderas">
-            <div class="catalogo-foto">
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-                <img src="../IMAGENES/sudadera-i-love-my-mom.jpg" alt="Sudadera I Love My Mom">
-            </div>
-            <div class="catalogo-datos">
-                <h2>Sudadera I Love My Mom</h2>
-                <p><span class="precio-regular">S/ 42.00</span></p>
-                <p class="precio-promocional">S/ 28.00</p>
-                <span class="promo-ahorro">Ahorras S/ 14.00</span>
-            </div>
-        </a>
-
-    </div>
-
+</header>
+<section class="catalogo-hembras">
+<div class="catalogo-header">
+<span>COLECCIÓN KÚMINO</span>
+<h1>Machos</h1>
+<p>
+Descubre nuestra selección de prendas para ellos,
+pensadas para combinar comodidad, estilo y personalidad.
+</p>
+</div>
+<div class="categorias-catalogo">
+<div class="filtro-categoria">
+<button
+type="button"
+class="btn-filtro-categoria"
+aria-expanded="false">
+<span>Filtrar por categoría</span>
+<span class="flecha-categoria">⌄</span>
+</button>
+<div class="opciones-categoria">
+<button type="button" data-filtro="todos" class="categoria-activa">
+Todas las categorías
+</button>
+<button type="button" data-filtro="abrigos">Abrigos</button>
+<button type="button" data-filtro="sudaderas">Sudaderas</button>
+<button type="button" data-filtro="polos">Polos</button>
+<button type="button" data-filtro="impermeables">Impermeables</button>
+<button type="button" data-filtro="especiales">Especiales</button>
+</div>
+</div>
+<div class="filtro-talla">
+<button
+type="button"
+class="btn-filtro-talla"
+aria-expanded="false">
+<span>Filtrar por talla</span>
+<span class="flecha-talla">⌄</span>
+</button>
+<div class="opciones-talla">
+<button type="button" data-talla="todas">Todas las tallas</button>
+<button type="button" data-talla="1">Talla 1</button>
+<button type="button" data-talla="2">Talla 2</button>
+<button type="button" data-talla="3">Talla 3</button>
+<button type="button" data-talla="4">Talla 4</button>
+<button type="button" data-talla="5">Talla 5</button>
+<button type="button" data-talla="6">Talla 6</button>
+<button type="button" data-talla="7">Talla 7</button>
+<button type="button" data-talla="8">Talla 8</button>
+<button type="button" data-talla="9">Talla 9</button>
+</div>
+</div>
+</div>
+<div class="productos-grid">
+<a href="puffer-nube.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,2,3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Puffer Nube de Invierno.jpeg">
+</div>
+<div class="catalogo-datos">
+<h2>Puffer Nube de Invierno</h2>
+<p>Desde S/ 32.00</p>
+</div>
+</a>
+<a href="casaca-alpinista.html"
+class="producto-catalogo precio-variable"
+data-tallas="2,3,4"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Casaca Alpinista.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Casaca Alpinista</h2>
+<p>Desde S/ 40.00</p>
+</div>
+</a>
+<a href="duo-otono-urbano.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,2,3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Duo Otoño Urbano.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Duo Otoño Urbano</h2>
+<p>Desde S/ 30.00</p>
+</div>
+</a>
+<a href="hoodie-huellita-urbana.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,2"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Hoodie Huellita Urbana.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Hoodie Huellita Urbana</h2>
+<p>Desde S/ 30.00</p>
+</div>
+</a>
+<a href="puffer-refugio-alpino.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,2"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Puffer Refugio Alpino.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Puffer Refugio Alpino</h2>
+<p>Desde S/ 34.00</p>
+</div>
+</a>
+<a href="cacao-universitario.html"
+class="producto-catalogo"
+data-tallas="2"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Cacao Universitario.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Cacao Universitario</h2>
+<p>S/ 32.00</p>
+</div>
+</a>
+<a href="sudadera-marfil-urbano.html"
+class="producto-catalogo"
+data-tallas="2"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Sudadera Marfil Urbano.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera Marfil Urbano</h2>
+<p>S/ 28.00</p>
+</div>
+</a>
+<a href="parka-amanecer-andino.html"
+class="producto-catalogo"
+data-tallas="1"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Parka Amanecer Andino.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Parka Amanecer Andino</h2>
+<p>S/ 32.00</p>
+</div>
+</a>
+<a href="casaca-brisa-de-mar.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,3"
+data-categoria="impermeables">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Casaca Brisa de Mar.jpeg">
+</div>
+<div class="catalogo-datos">
+<h2>Casaca Brisa de Mar</h2>
+<p>Desde S/ 36.00</p>
+</div>
+</a>
+<a href="disfraz-de-baloncesto.html"
+class="producto-catalogo precio-variable"
+data-tallas="3,4"
+data-categoria="especiales">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Disfraz Baloncesto.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Disfraz de Baloncesto</h2>
+<p>Desde S/ 35.00</p>
+</div>
+</a>
+<a href="polo-vintage-fantasy.html"
+class="producto-catalogo precio-variable"
+data-tallas="2,3,4"
+data-categoria="polos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Polo Vintage Fantasy.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Polo Vintage Fantasy</h2>
+<p>Desde S/ 35.00</p>
+</div>
+</a>
+<a href="impermeable-osito.html"
+class="producto-catalogo"
+data-tallas="2"
+data-categoria="impermeables">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Impermeable Osito.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Impermeable Osito</h2>
+<p>S/ 30.00</p>
+</div>
+</a>
+<a href="overol-mini-saurio.html"
+class="producto-catalogo precio-variable"
+data-tallas="2,3,4"
+data-categoria="especiales">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Oberol Mini Saurio.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Overol Mini Saurio</h2>
+<p>Desde S/ 35.00</p>
+</div>
+</a>
+<a href="enterizo-soft-quilt.html"
+class="producto-catalogo"
+data-tallas="3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Enterizo Soft Quilt.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Enterizo Soft Quilt</h2>
+<p>S/ 40.00</p>
+</div>
+</a>
+<a href="sueter-doggiematch.html"
+class="producto-catalogo"
+data-tallas="3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Sueter Doggie Match.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Suéter DoggieMatch</h2>
+<p>S/ 33.00</p>
+</div>
+</a>
+<a href="polos-rayas-de-verano.html"
+class="producto-catalogo precio-variable"
+data-tallas="3,4"
+data-categoria="polos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Polo Rayas de Verano.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Polos Rayas de Verano</h2>
+<p>Desde S/ 36.00</p>
+</div>
+</a>
+<a href="gabardina-real.html"
+class="producto-catalogo precio-variable"
+data-tallas="3,4"
+data-categoria="especiales">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Gabardina Real.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Gabardina Real</h2>
+<p>Desde S/ 48.00</p>
+</div>
+</a>
+<a href="polo-galan-de-verano.html"
+class="producto-catalogo"
+data-tallas="3"
+data-categoria="polos">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Polo Galan de Verano.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Polo Galán de Verano</h2>
+<p>S/ 34.00</p>
+</div>
+</a>
+<a href="sudadera-de-mimos.html"
+class="producto-catalogo precio-variable"
+data-tallas="2,3"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Sudadera de Mimos.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera de Mimos</h2>
+<p>Desde S/ 35.00</p>
+</div>
+</a>
+<a href="sudadera-urbana.html"
+class="producto-catalogo"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Sudadera Urbana.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera Urbana</h2>
+<p>S/ 36.00</p>
+</div>
+</a>
+<a href="sudadera-deportiva.html"
+class="producto-catalogo precio-variable"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span>
+</span>
+<img src="../IMAGENES/Sudadera Deportiva.jpg">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera Deportiva</h2>
+<p>Desde S/ 36.00</p>
+</div>
+</a>
+<a href="chompa-the-cat-face.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,2"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/chompa-the-cat-face.jpg" alt="Chompa The Cat Face">
+</div>
+<div class="catalogo-datos">
+<h2>Chompa The Cat Face</h2>
+<p>
+<span class="precio-regular">S/ 28.50</span>
+</p>
+<p class="precio-promocional">Desde S/ 19.00</p>
+<span class="promo-ahorro">Ahorras hasta S/ 10.00</span>
+</div>
+</a>
+<a href="tejido-toffee.html"
+class="producto-catalogo"
+data-tallas="3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/tejido-toffee.jpg" alt="Tejido Toffee">
+</div>
+<div class="catalogo-datos">
+<h2>Tejido Toffee</h2>
+<p>
+<span class="precio-regular">S/ 28.50</span>
+</p>
+<p class="precio-promocional">S/ 19.00</p>
+<span class="promo-ahorro">Ahorras S/ 9.50</span>
+</div>
+</a>
+<a href="abrigo-orejas-de-algodon.html"
+class="producto-catalogo precio-variable"
+data-tallas="2,3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/abrigo-orejas-de-algodon.jpg" alt="Abrigo Orejas de Algodón">
+</div>
+<div class="catalogo-datos">
+<h2>Abrigo Orejas de Algodón</h2>
+<p>
+<span class="precio-regular">S/ 42.00</span>
+</p>
+<p class="precio-promocional">Desde S/ 28.00</p>
+<span class="promo-ahorro">Ahorras hasta S/ 14.50</span>
+</div>
+</a>
+<a href="cafarena-avellana-tostada.html"
+class="producto-catalogo"
+data-tallas="3"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/cafarena-avellana-tostada.jpg" alt="Cafarena Avellana Tostada">
+</div>
+<div class="catalogo-datos">
+<h2>Cafarena Avellana Tostada</h2>
+<p>
+<span class="precio-regular">S/ 33.00</span>
+</p>
+<p class="precio-promocional">S/ 22.00</p>
+<span class="promo-ahorro">Ahorras S/ 11.00</span>
+</div>
+</a>
+<a href="pequeno-ejecutivo.html"
+class="producto-catalogo"
+data-tallas="2"
+data-categoria="especiales">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/pequeno-ejecutivo.jpg" alt="Pequeño Ejecutivo">
+</div>
+<div class="catalogo-datos">
+<h2>Pequeño Ejecutivo</h2>
+<p>
+<span class="precio-regular">S/ 27.00</span>
+</p>
+<p class="precio-promocional">S/ 18.00</p>
+<span class="promo-ahorro">Ahorras S/ 9.00</span>
+</div>
+</a>
+<a href="chompa-snoopy.html"
+class="producto-catalogo"
+data-tallas="3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/chompa-snoopy.jpg" alt="Chompa Snoopy">
+</div>
+<div class="catalogo-datos">
+<h2>Chompa Snoopy</h2>
+<p>
+<span class="precio-regular">S/ 30.00</span>
+</p>
+<p class="precio-promocional">S/ 20.00</p>
+<span class="promo-ahorro">Ahorras S/ 10.00</span>
+</div>
+</a>
+<a href="abrigo-faro-del-norte.html"
+class="producto-catalogo precio-variable"
+data-tallas="2,3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/abrigo-faro-del-norte.jpg" alt="Abrigo Faro del Norte">
+</div>
+<div class="catalogo-datos">
+<h2>Abrigo Faro del Norte</h2>
+<p>
+<span class="precio-regular">S/ 34.50</span>
+</p>
+<p class="precio-promocional">Desde S/ 23.00</p>
+<span class="promo-ahorro">Ahorras hasta S/ 12.50</span>
+</div>
+</a>
+<a href="chaleco-texturizado.html"
+class="producto-catalogo"
+data-tallas="2"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/chaleco-texturizado.jpg" alt="Chaleco Texturizado">
+</div>
+<div class="catalogo-datos">
+<h2>Chaleco Texturizado</h2>
+<p>
+<span class="precio-regular">S/ 30.00</span>
+</p>
+<p class="precio-promocional">S/ 20.00</p>
+<span class="promo-ahorro">Ahorras S/ 10.00</span>
+</div>
+</a>
+<a href="sweater-sr-teddy.html"
+class="producto-catalogo precio-variable"
+data-tallas="3,4"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/sweater-sr-teddy.jpg" alt="Sweater Sr Teddy">
+</div>
+<div class="catalogo-datos">
+<h2>Sweater Sr Teddy</h2>
+<p>
+<span class="precio-regular">S/ 34.50</span>
+</p>
+<p class="precio-promocional">Desde S/ 23.00</p>
+<span class="promo-ahorro">Ahorras hasta S/ 12.50</span>
+</div>
+</a>
+<a href="cafarena-basica.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,2,4"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/cafarena-basica.jpg" alt="Cafarena Básica">
+</div>
+<div class="catalogo-datos">
+<h2>Cafarena Básica</h2>
+<p>
+<span class="precio-regular">S/ 27.00</span>
+</p>
+<p class="precio-promocional">Desde S/ 18.00</p>
+<span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
+</div>
+</a>
+<a href="sudadera-dino-pocket.html"
+class="producto-catalogo"
+data-tallas="2"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/sudadera-dino-pocket.jpg" alt="Sudadera Dino-Pocket">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera Dino-Pocket</h2>
+<p>
+<span class="precio-regular">S/ 33.00</span>
+</p>
+<p class="precio-promocional">S/ 22.00</p>
+<span class="promo-ahorro">Ahorras S/ 11.00</span>
+</div>
+</a>
+<a href="sueter-oxford-de-punto.html"
+class="producto-catalogo precio-variable"
+data-tallas="1,4"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/sueter-oxford-de-punto.jpg" alt="Suéter Oxford de Punto">
+</div>
+<div class="catalogo-datos">
+<h2>Suéter Oxford de Punto</h2>
+<p>
+<span class="precio-regular">S/ 39.00</span>
+</p>
+<p class="precio-promocional">Desde S/ 26.00</p>
+<span class="promo-ahorro">Ahorras hasta S/ 14.00</span>
+</div>
+</a>
+<a href="chaleco-linear-confort.html"
+class="producto-catalogo precio-variable"
+data-tallas="2,3"
+data-categoria="abrigos">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/chaleco-linear-confort.jpg" alt="Chaleco Linear Confort">
+</div>
+<div class="catalogo-datos">
+<h2>Chaleco Linear Confort</h2>
+<p>
+<span class="precio-regular">S/ 30.00</span>
+</p>
+<p class="precio-promocional">Desde S/ 20.00</p>
+<span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
+</div>
+</a>
+<a href="sudadera-consentido-de-mama.html"
+class="producto-catalogo precio-variable"
+data-tallas="7,8"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/sudadera-consentido-de-mama.jpg" alt="Sudadera Consentido de Mamá">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera Consentido de Mamá</h2>
+<p>
+<span class="precio-regular">S/ 45.75</span>
+</p>
+<p class="precio-promocional">Desde S/ 30.50</p>
+<span class="promo-ahorro">Ahorras hasta S/ 16.50</span>
+</div>
+</a>
+<a href="sudadera-huellita.html"
+class="producto-catalogo"
+data-tallas="6"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/sudadera-huellita.jpg" alt="Sudadera Huellita">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera Huellita</h2>
+<p>
+<span class="precio-regular">S/ 42.00</span>
+</p>
+<p class="precio-promocional">S/ 28.00</p>
+<span class="promo-ahorro">Ahorras S/ 14.00</span>
+</div>
+</a>
+<a href="sudadera-i-love-my-mom.html"
+class="producto-catalogo"
+data-tallas="7,8"
+data-categoria="sudaderas">
+<div class="catalogo-foto">
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<img src="../IMAGENES/sudadera-i-love-my-mom.jpg" alt="Sudadera I Love My Mom">
+</div>
+<div class="catalogo-datos">
+<h2>Sudadera I Love My Mom</h2>
+<p>
+<span class="precio-regular">S/ 42.00</span>
+</p>
+<p class="precio-promocional">S/ 28.00</p>
+<span class="promo-ahorro">Ahorras S/ 14.00</span>
+</div>
+</a>
+</div>
 </section>
-
-
-<!-- =========================
-     FOOTER
-========================== -->
-
 <footer class="footer-kumino">
-
-    <div class="footer-container">
-
-        <div class="footer-marca">
-
-            <h2>KÚMINO</h2>
-
-            <p>
-                Moda con amor para tu mascota.
-            </p>
-
-        </div>
-
-
-        <div class="footer-enlaces">
-
-            <h3>Navegación</h3>
-
-            <a href="../index.html">Inicio</a>
-            <a href="machos.html">Machos</a>
-            <a href="#">Hembras</a>
-            <a href="#">Accesorios</a>
-            <a href="#">Casitas</a>
-
-        </div>
-
-
-        <div class="footer-contacto">
-
-            <h3>Contáctanos</h3>
-
-            <a href="https://wa.me/51940151463"
-               target="_blank">
-
-                WhatsApp
-
-            </a>
-
-            <span>
-                Envíos a todo el Perú
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            © 2026 KÚMINO. Todos los derechos reservados.
-        </p>
-
-        <span>
-            Moda con amor para tu mascota
-        </span>
-
-    </div>
-
+<div class="footer-container">
+<div class="footer-marca">
+<h2>KÚMINO</h2>
+<p>
+Moda con amor para tu mascota.
+</p>
+</div>
+<div class="footer-enlaces">
+<h3>Navegación</h3>
+<a href="../index.html">Inicio</a>
+<a href="machos.html">Machos</a>
+<a href="#">Hembras</a>
+<a href="#">Accesorios</a>
+<a href="#">Casitas</a>
+</div>
+<div class="footer-contacto">
+<h3>Contáctanos</h3>
+<a href="https://wa.me/51940151463"
+target="_blank">
+WhatsApp
+</a>
+<span>
+Envíos a todo el Perú
+</span>
+</div>
+</div>
+<div class="footer-bottom">
+<p>
+© 2026 KÚMINO. Todos los derechos reservados.
+</p>
+<span>
+Moda con amor para tu mascota
+</span>
+</div>
 </footer>
-
-
-<!-- =========================
-     FILTROS DE CATEGORÍA Y TALLA
-========================== -->
-
 <script>
 const filtroCategoria = document.querySelector(".filtro-categoria");
 const botonCategoria = document.querySelector(".btn-filtro-categoria");
 const opcionesCategoria = document.querySelectorAll(
-    ".opciones-categoria button[data-filtro]"
+".opciones-categoria button[data-filtro]"
 );
-
 const filtroTalla = document.querySelector(".filtro-talla");
 const botonTalla = document.querySelector(".btn-filtro-talla");
 const opcionesTalla = document.querySelectorAll(
-    ".opciones-talla button[data-talla]"
+".opciones-talla button[data-talla]"
 );
-
 const productos = document.querySelectorAll(".producto-catalogo");
-
 let categoriaSeleccionada = "todos";
 let tallaSeleccionada = "todas";
-
 /* Abrir y cerrar el menú de categorías */
 if (filtroCategoria && botonCategoria) {
-    botonCategoria.addEventListener("click", () => {
-        const abierto = filtroCategoria.classList.toggle("abierto");
-
-        botonCategoria.setAttribute(
-            "aria-expanded",
-            abierto ? "true" : "false"
-        );
-
-        /* Cerrar el menú de tallas */
-        filtroTalla?.classList.remove("abierto");
-        botonTalla?.setAttribute("aria-expanded", "false");
-    });
+botonCategoria.addEventListener("click", () => {
+const abierto = filtroCategoria.classList.toggle("abierto");
+botonCategoria.setAttribute(
+"aria-expanded",
+abierto ? "true" : "false"
+);
+/* Cerrar el menú de tallas */
+filtroTalla?.classList.remove("abierto");
+botonTalla?.setAttribute("aria-expanded", "false");
+});
 }
-
 /* Abrir y cerrar el menú de tallas */
 if (filtroTalla && botonTalla) {
-    botonTalla.addEventListener("click", () => {
-        const abierto = filtroTalla.classList.toggle("abierto");
-
-        botonTalla.setAttribute(
-            "aria-expanded",
-            abierto ? "true" : "false"
-        );
-
-        /* Cerrar el menú de categorías */
-        filtroCategoria?.classList.remove("abierto");
-        botonCategoria?.setAttribute("aria-expanded", "false");
-    });
+botonTalla.addEventListener("click", () => {
+const abierto = filtroTalla.classList.toggle("abierto");
+botonTalla.setAttribute(
+"aria-expanded",
+abierto ? "true" : "false"
+);
+/* Cerrar el menú de categorías */
+filtroCategoria?.classList.remove("abierto");
+botonCategoria?.setAttribute("aria-expanded", "false");
+});
 }
-
 /* Aplicar ambos filtros simultáneamente */
 function actualizarProductos() {
-    productos.forEach(producto => {
-        const categoria = (
-            producto.dataset.categoria || ""
-        ).trim().toLowerCase();
-
-        const tallasTexto = [
-            producto.dataset.tallas || "",
-            producto.dataset.talla || ""
-        ].join(" ").toLowerCase();
-
-        const coincideCategoria =
-            categoriaSeleccionada === "todos" ||
-            categoria === categoriaSeleccionada;
-
-        const coincideTalla =
-            tallaSeleccionada === "todas" ||
-            tallasTexto
-                .split(/[\s,;|]+/)
-                .includes(tallaSeleccionada);
-
-        producto.style.display =
-            coincideCategoria && coincideTalla ? "" : "none";
-    });
+productos.forEach(producto => {
+const categoria = (
+producto.dataset.categoria || ""
+).trim().toLowerCase();
+const tallasTexto = [
+producto.dataset.tallas || "",
+producto.dataset.talla || ""
+].join(" ").toLowerCase();
+const coincideCategoria =
+categoriaSeleccionada === "todos" ||
+categoria === categoriaSeleccionada;
+const coincideTalla =
+tallaSeleccionada === "todas" ||
+tallasTexto
+.split(/[\s,;|]+/)
+.includes(tallaSeleccionada);
+producto.style.display =
+coincideCategoria && coincideTalla ? "" : "none";
+});
 }
-
 /* Seleccionar categoría */
 opcionesCategoria.forEach(boton => {
-    boton.addEventListener("click", () => {
-        categoriaSeleccionada = boton.dataset.filtro;
-
-        opcionesCategoria.forEach(opcion => {
-            opcion.classList.toggle(
-                "categoria-activa",
-                opcion === boton
-            );
-        });
-
-        const textoBoton = botonCategoria.querySelector("span");
-
-        if (textoBoton) {
-            textoBoton.textContent = boton.textContent.trim();
-        }
-
-        filtroCategoria.classList.remove("abierto");
-        botonCategoria.setAttribute("aria-expanded", "false");
-
-        actualizarProductos();
-    });
+boton.addEventListener("click", () => {
+categoriaSeleccionada = boton.dataset.filtro;
+opcionesCategoria.forEach(opcion => {
+opcion.classList.toggle(
+"categoria-activa",
+opcion === boton
+);
 });
-
+const textoBoton = botonCategoria.querySelector("span");
+if (textoBoton) {
+textoBoton.textContent = boton.textContent.trim();
+}
+filtroCategoria.classList.remove("abierto");
+botonCategoria.setAttribute("aria-expanded", "false");
+actualizarProductos();
+});
+});
 /* Seleccionar talla */
 opcionesTalla.forEach(boton => {
-    boton.addEventListener("click", () => {
-        tallaSeleccionada = boton.dataset.talla;
-
-        opcionesTalla.forEach(opcion => {
-            opcion.classList.toggle(
-                "talla-activa",
-                opcion === boton
-            );
-        });
-
-        const textoBoton = botonTalla.querySelector("span");
-
-        if (textoBoton) {
-            textoBoton.textContent =
-                tallaSeleccionada === "todas"
-                    ? "Filtrar por talla"
-                    : "Talla " + tallaSeleccionada;
-        }
-
-        filtroTalla.classList.remove("abierto");
-        botonTalla.setAttribute("aria-expanded", "false");
-
-        actualizarProductos();
-    });
+boton.addEventListener("click", () => {
+tallaSeleccionada = boton.dataset.talla;
+opcionesTalla.forEach(opcion => {
+opcion.classList.toggle(
+"talla-activa",
+opcion === boton
+);
 });
-
+const textoBoton = botonTalla.querySelector("span");
+if (textoBoton) {
+textoBoton.textContent =
+tallaSeleccionada === "todas"
+? "Filtrar por talla"
+: "Talla " + tallaSeleccionada;
+}
+filtroTalla.classList.remove("abierto");
+botonTalla.setAttribute("aria-expanded", "false");
+actualizarProductos();
+});
+});
 /* Mostrar todos los productos al cargar la página */
 actualizarProductos();
 </script>
+
