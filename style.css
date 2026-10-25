@@ -4781,3 +4781,27 @@ body.pagina-machos .categorias-catalogo {
     font-weight: 400;
     line-height: 1.4;
 }
+
+/* Mantener el ahorro con su fondo verde claro */
+body.pagina-machos .catalogo-datos .promo-ahorro {
+    display: inline-block !important;
+    background-color: #DDF1D8 !important;
+    color: #287A3D !important;
+    padding: 4px 8px !important;
+    border-radius: 6px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    margin-top: 4px !important;
+}
+
+/* Aviso de precio variable: fondo transparente */
+body.pagina-machos .catalogo-datos .promo-ahorro::after {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #7A9B76 !important;
+    border: 1px solid #7A9B76 !important;
+    border-radius: 30px !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+}
