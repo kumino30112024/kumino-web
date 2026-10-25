@@ -4748,6 +4748,7 @@ body.pagina-machos .categorias-catalogo {
     padding: 7px 12px;
     border: 1px solid #7A9B76;
     border-radius: 30px;
+    background: transparent;
     color: #7A9B76;
     font-family: inherit;
     font-size: 13px;
@@ -4755,13 +4756,13 @@ body.pagina-machos .categorias-catalogo {
     line-height: 1.4;
 }
 
-/* Promociones: quitar el aviso debajo del precio promocional */
+/* Promociones: quitar el aviso debajo del precio */
 .producto-catalogo.precio-variable:has(.precio-promocional)
 .catalogo-datos > .precio-promocional::after {
     content: none;
 }
 
-/* Promociones: aviso debajo de "Ahorras" */
+/* Promociones: aviso debajo del ahorro, con fondo transparente */
 .producto-catalogo.precio-variable:has(.precio-promocional)
 .catalogo-datos > .promo-ahorro::after {
     content: "ⓘ Precio varía según la talla";
@@ -4773,6 +4774,7 @@ body.pagina-machos .categorias-catalogo {
     padding: 7px 12px;
     border: 1px solid #7A9B76;
     border-radius: 30px;
+    background: transparent;
     color: #7A9B76;
     font-family: inherit;
     font-size: 13px;
