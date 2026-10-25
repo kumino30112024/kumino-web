@@ -472,6 +472,30 @@
     outline: none !important;
   }
 }
+
+
+/* Aviso de precio: solo productos disponibles con varias tallas y precio "Desde" */
+.producto-catalogo .catalogo-datos p::after {
+    content: none !important;
+    display: none !important;
+}
+.producto-catalogo.precio-variable .catalogo-datos p::after {
+    content: "ⓘ  Precio varía según la talla" !important;
+    display: table !important;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 7px 12px;
+    border: 1px solid #7A9B76;
+    border-radius: 30px;
+    color: #7A9B76;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: normal;
+}
 </style>
 
 
@@ -590,7 +614,7 @@
 
 <div class="productos-grid">
 <!-- 1 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="1,2,3,4" href="masterchef-canino.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="1,2,3,4" href="masterchef-canino.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz MasterChef Canino" src="../IMAGENES/masterchef-canino.jpg"/>
@@ -601,7 +625,7 @@
 </div>
 </a>
 <!-- 2 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="0,1,2" href="hechizo-de-calabaza.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="0,1,2" href="hechizo-de-calabaza.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Hechizo de Calabaza" src="../IMAGENES/hechizo-de-calabaza.jpg"/>
@@ -648,7 +672,7 @@
 </div>
 </div>
 <!-- 5 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="1,2" href="pirata-de-los-siete-mares.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="1,2" href="pirata-de-los-siete-mares.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Pirata de los Siete Mares" src="../IMAGENES/pirata-de-los-siete-mares.jpg"/>
@@ -659,7 +683,7 @@
 </div>
 </a>
 <!-- 6 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="0,1,2,3" href="oficial-k9.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="0,1,2,3" href="oficial-k9.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Oficial K-9" src="../IMAGENES/oficial-k9.jpg"/>
@@ -670,7 +694,7 @@
 </div>
 </a>
 <!-- 7 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3,4" href="the-barking-boss.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="3,4" href="the-barking-boss.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="The Barking Boss" src="../IMAGENES/the-barking-boss.jpg"/>
@@ -681,7 +705,7 @@
 </div>
 </a>
 <!-- 8 -->
-<a class="producto-catalogo" data-categoria="alas" data-tallas="2,3,4,5" href="alas-murcielago-dark.html">
+<a class="producto-catalogo precio-variable" data-categoria="alas" data-tallas="2,3,4,5" href="alas-murcielago-dark.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Alas de Murci&eacute;lago Dark" src="../IMAGENES/alas-murcielago-dark.jpg"/>
@@ -692,7 +716,7 @@
 </div>
 </a>
 <!-- 9 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="2,3,4,5" href="jinete-de-rodeo.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="2,3,4,5" href="jinete-de-rodeo.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Jinete de Rodeo" src="../IMAGENES/jinete-de-rodeo.jpg"/>
@@ -725,7 +749,7 @@
 
 </div>
 <!-- 11 -->
-<a class="producto-catalogo" data-categoria="alas" data-tallas="0,2,3,4,6,7" href="mascotas-murcielago.html">
+<a class="producto-catalogo precio-variable" data-categoria="alas" data-tallas="0,2,3,4,6,7" href="mascotas-murcielago.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Alas Bat-Mascota" src="../IMAGENES/alas-bat-mascota.jpg"/>
@@ -864,7 +888,7 @@
 </div>
 
 <!-- 23 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="4,5" href="mr-fantasma.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="4,5" href="mr-fantasma.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Mr. Fantasma" src="../IMAGENES/mr-fantasma.jpg"/>
@@ -921,7 +945,7 @@
 </div>
 </a>
 <!-- 27 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="2,3" href="pequeno-extraterrestre.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="2,3" href="pequeno-extraterrestre.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Peque&ntilde;o Extraterrestre" src="../IMAGENES/pequeno-extraterrestre.jpg"/>
@@ -932,7 +956,7 @@
 </div>
 </a>
 <!-- 28 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3,4,5" href="jinete-brujita.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="3,4,5" href="jinete-brujita.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Jinete Brujita" src="../IMAGENES/jinete-brujita.jpg"/>
@@ -965,7 +989,7 @@
 </div>
 </a>
 <!-- 31 -->
-<a class="producto-catalogo" data-categoria="vestidos" data-tallas="2,3" href="too-cute-to-spook.html">
+<a class="producto-catalogo precio-variable" data-categoria="vestidos" data-tallas="2,3" href="too-cute-to-spook.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Vestido Too Cute to Spook" src="../IMAGENES/too-cute-to-spook.jpg"/>
@@ -988,7 +1012,7 @@
 </a>
 <!-- 33 -->
 <!-- 34 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="0,1,4,5" href="el-pequeno-cowboy.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="0,1,4,5" href="el-pequeno-cowboy.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="El Peque&ntilde;o Cowboy" src="../IMAGENES/el-pequeno-cowboy.jpg"/>
@@ -999,7 +1023,7 @@
 </div>
 </a>
 <!-- 35 -->
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="1,2" href="el-alguacil-peludo.html">
+<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="1,2" href="el-alguacil-peludo.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="El Alguacil Peludo" src="../IMAGENES/el-alguacil-peludo.jpg"/>
