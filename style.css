@@ -4763,7 +4763,7 @@ body.pagina-machos .categorias-catalogo {
 
 /* Promociones: aviso debajo de "Ahorras" */
 .producto-catalogo.precio-variable:has(.precio-promocional)
-.catalogo-datos .ahorro::after {
+.catalogo-datos > .promo-ahorro::after {
     content: "ⓘ Precio varía según la talla";
     display: table;
     width: fit-content;
