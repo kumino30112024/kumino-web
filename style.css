@@ -4730,8 +4730,10 @@ body.pagina-machos .categorias-catalogo {
 }
 
 
-/* AVISO SOLO EN PRODUCTOS CON PRECIOS POR TALLA */
-.producto-catalogo.precio-variable .catalogo-datos p::after {
+
+/* Aviso de precio variable en productos normales */
+.producto-catalogo.precio-variable
+.catalogo-datos > p:not(.precio-promocional)::after {
     content: "ⓘ Precio varía según la talla";
     display: table;
     width: fit-content;
@@ -4746,5 +4748,24 @@ body.pagina-machos .categorias-catalogo {
     font-size: 13px;
     font-weight: 400;
     line-height: 1.4;
-    white-space: normal;
 }
+
+/* Aviso único debajo del precio promocional */
+.producto-catalogo.precio-variable
+.catalogo-datos > p.precio-promocional::after {
+    content: "ⓘ Precio varía según la talla";
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+    padding: 7px 12px;
+    border: 1px solid #7A9B76;
+    border-radius: 30px;
+    color: #7A9B76;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
