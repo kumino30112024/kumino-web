@@ -4729,20 +4729,18 @@ body.pagina-machos .categorias-catalogo {
     }
 }
 
-/* AVISO: PRECIO SEGÚN LA TALLA */
-.producto-catalogo .catalogo-datos p::after {
-    content: "ⓘ  Precio varía según la talla";
+
+/* AVISO SOLO EN PRODUCTOS CON PRECIOS POR TALLA */
+.producto-catalogo.precio-variable .catalogo-datos p::after {
+    content: "ⓘ Precio varía según la talla";
     display: table;
     width: fit-content;
     max-width: 100%;
     box-sizing: border-box;
-
     margin-top: 10px;
     padding: 7px 12px;
-
     border: 1px solid #7A9B76;
     border-radius: 30px;
-
     color: #7A9B76;
     font-family: inherit;
     font-size: 13px;
