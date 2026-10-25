@@ -81,6 +81,33 @@
         font-weight: 600;
         line-height: 1.2;
     }
+
+
+    /* Aviso independiente para prendas con precio variable */
+    .producto-liquidacion .aviso-precio-talla {
+        display: table;
+        width: fit-content;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-top: 6px;
+        padding: 7px 12px;
+        border: 1px solid #7A9B76;
+        border-radius: 30px;
+        background: transparent !important;
+        color: #7A9B76 !important;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.4;
+    }
+
+    /* Evitar avisos antiguos generados por pseudo-elementos */
+    .producto-liquidacion .promo-ahorro::after,
+    .producto-liquidacion .precio-promocional::after {
+        content: none !important;
+        display: none !important;
+    }
+
 </style>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -489,6 +516,7 @@
             <p><span class="precio-regular">S/ 37.50</span></p>
             <p class="precio-promocional">Desde S/ 25.00</p>
             <span class="promo-ahorro">Ahorras hasta S/ 13.00</span>
+            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
         </div>
     </div>
 </a>
@@ -564,6 +592,7 @@
             <p><span class="precio-regular">Desde S/ 27.00</span></p>
             <p class="precio-promocional">Desde S/ 18.00</p>
             <span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
+            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
         </div>
     </div>
 </a>
@@ -594,6 +623,7 @@
             <p><span class="precio-regular">S/ 18.00</span></p>
             <p class="precio-promocional">Desde S/ 12.00</p>
             <span class="promo-ahorro">Ahorras hasta S/ 7.50</span>
+            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
         </div>
     </div>
 </a>
@@ -624,6 +654,7 @@
             <p><span class="precio-regular">Desde S/ 21.00</span></p>
             <p class="precio-promocional">Desde S/ 14.00</p>
             <span class="promo-ahorro">Ahorras hasta S/ 8.00</span>
+            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
         </div>
     </div>
 </a>
@@ -639,6 +670,7 @@
             <p><span class="precio-regular">Desde S/ 25.50</span></p>
             <p class="precio-promocional">Desde S/ 17.00</p>
             <span class="promo-ahorro">Ahorras hasta S/ 10.00</span>
+            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
         </div>
 </a>
 </div>
