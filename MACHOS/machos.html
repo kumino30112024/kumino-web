@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -682,109 +682,118 @@ Moda con amor para tu mascota
 </div>
 </footer>
 <script>
-const filtroCategoria = document.querySelector(".filtro-categoria");
-const botonCategoria = document.querySelector(".btn-filtro-categoria");
-const opcionesCategoria = document.querySelectorAll(
-".opciones-categoria button[data-filtro]"
-);
-const filtroTalla = document.querySelector(".filtro-talla");
-const botonTalla = document.querySelector(".btn-filtro-talla");
-const opcionesTalla = document.querySelectorAll(
-".opciones-talla button[data-talla]"
-);
-const productos = document.querySelectorAll(".producto-catalogo");
-let categoriaSeleccionada = "todos";
-let tallaSeleccionada = "todas";
-/* Abrir y cerrar el menú de categorías */
-if (filtroCategoria && botonCategoria) {
-botonCategoria.addEventListener("click", () => {
-const abierto = filtroCategoria.classList.toggle("abierto");
-botonCategoria.setAttribute(
-"aria-expanded",
-abierto ? "true" : "false"
-);
-/* Cerrar el menú de tallas */
-filtroTalla?.classList.remove("abierto");
-botonTalla?.setAttribute("aria-expanded", "false");
+document.addEventListener("DOMContentLoaded", () => {
+    const filtroCategoria = document.querySelector(".filtro-categoria");
+    const botonCategoria = document.querySelector(".btn-filtro-categoria");
+    const opcionesCategoria = document.querySelectorAll(".opciones-categoria button[data-filtro]");
+    const filtroTalla = document.querySelector(".filtro-talla");
+    const botonTalla = document.querySelector(".btn-filtro-talla");
+    const opcionesTalla = document.querySelectorAll(".opciones-talla button[data-talla]");
+    const productos = document.querySelectorAll(".productos-grid .producto-catalogo");
+
+    if (!filtroCategoria || !botonCategoria || !filtroTalla || !botonTalla) return;
+
+    let categoriaSeleccionada = "todos";
+    let tallaSeleccionada = "todas";
+
+    const normalizar = (valor) => (valor || "").toString().trim().toLowerCase();
+
+    function cerrarMenus() {
+        filtroCategoria.classList.remove("abierto");
+        filtroTalla.classList.remove("abierto");
+        botonCategoria.setAttribute("aria-expanded", "false");
+        botonTalla.setAttribute("aria-expanded", "false");
+    }
+
+    function alternarMenu(filtro, boton, otroFiltro, otroBoton) {
+        const abrir = !filtro.classList.contains("abierto");
+        otroFiltro.classList.remove("abierto");
+        otroBoton.setAttribute("aria-expanded", "false");
+        filtro.classList.toggle("abierto", abrir);
+        boton.setAttribute("aria-expanded", String(abrir));
+    }
+
+    botonCategoria.addEventListener("click", (evento) => {
+        evento.stopPropagation();
+        alternarMenu(filtroCategoria, botonCategoria, filtroTalla, botonTalla);
+    });
+
+    botonTalla.addEventListener("click", (evento) => {
+        evento.stopPropagation();
+        alternarMenu(filtroTalla, botonTalla, filtroCategoria, botonCategoria);
+    });
+
+    function actualizarProductos() {
+        productos.forEach((producto) => {
+            const categoriaProducto = normalizar(producto.dataset.categoria);
+            const tallasProducto = (producto.dataset.tallas || producto.dataset.talla || "")
+                .split(/[\s,;|]+/)
+                .map(normalizar)
+                .filter(Boolean);
+
+            const coincideCategoria = categoriaSeleccionada === "todos" || categoriaProducto === categoriaSeleccionada;
+            const coincideTalla = tallaSeleccionada === "todas" || tallasProducto.includes(tallaSeleccionada);
+            const mostrar = coincideCategoria && coincideTalla;
+
+            producto.hidden = !mostrar;
+            producto.style.display = mostrar ? "" : "none";
+        });
+    }
+
+    opcionesCategoria.forEach((opcion) => {
+        opcion.addEventListener("click", (evento) => {
+            evento.stopPropagation();
+            categoriaSeleccionada = normalizar(opcion.dataset.filtro) || "todos";
+
+            opcionesCategoria.forEach((item) => {
+                item.classList.toggle("categoria-activa", item === opcion);
+                item.setAttribute("aria-pressed", String(item === opcion));
+            });
+
+            const texto = botonCategoria.querySelector("span:first-child");
+            if (texto) texto.textContent = opcion.textContent.trim();
+            cerrarMenus();
+            actualizarProductos();
+        });
+    });
+
+    opcionesTalla.forEach((opcion) => {
+        opcion.addEventListener("click", (evento) => {
+            evento.stopPropagation();
+            tallaSeleccionada = normalizar(opcion.dataset.talla) || "todas";
+
+            opcionesTalla.forEach((item) => {
+                item.classList.toggle("talla-activa", item === opcion);
+                item.setAttribute("aria-pressed", String(item === opcion));
+            });
+
+            const texto = botonTalla.querySelector("span:first-child");
+            if (texto) {
+                texto.textContent = tallaSeleccionada === "todas"
+                    ? "Todas las tallas"
+                    : `Talla ${tallaSeleccionada}`;
+            }
+            cerrarMenus();
+            actualizarProductos();
+        });
+    });
+
+    document.addEventListener("click", (evento) => {
+        if (!evento.target.closest(".filtro-categoria") && !evento.target.closest(".filtro-talla")) {
+            cerrarMenus();
+        }
+    });
+
+    document.addEventListener("keydown", (evento) => {
+        if (evento.key === "Escape") cerrarMenus();
+    });
+
+    // Estado inicial coherente de los botones y los productos.
+    const textoCategoria = botonCategoria.querySelector("span:first-child");
+    const textoTalla = botonTalla.querySelector("span:first-child");
+    if (textoCategoria) textoCategoria.textContent = "Todas las categorías";
+    if (textoTalla) textoTalla.textContent = "Todas las tallas";
+    actualizarProductos();
 });
-}
-/* Abrir y cerrar el menú de tallas */
-if (filtroTalla && botonTalla) {
-botonTalla.addEventListener("click", () => {
-const abierto = filtroTalla.classList.toggle("abierto");
-botonTalla.setAttribute(
-"aria-expanded",
-abierto ? "true" : "false"
-);
-/* Cerrar el menú de categorías */
-filtroCategoria?.classList.remove("abierto");
-botonCategoria?.setAttribute("aria-expanded", "false");
-});
-}
-/* Aplicar ambos filtros simultáneamente */
-function actualizarProductos() {
-productos.forEach(producto => {
-const categoria = (
-producto.dataset.categoria || ""
-).trim().toLowerCase();
-const tallasTexto = [
-producto.dataset.tallas || "",
-producto.dataset.talla || ""
-].join(" ").toLowerCase();
-const coincideCategoria =
-categoriaSeleccionada === "todos" ||
-categoria === categoriaSeleccionada;
-const coincideTalla =
-tallaSeleccionada === "todas" ||
-tallasTexto
-.split(/[\s,;|]+/)
-.includes(tallaSeleccionada);
-producto.style.display =
-coincideCategoria && coincideTalla ? "" : "none";
-});
-}
-/* Seleccionar categoría */
-opcionesCategoria.forEach(boton => {
-boton.addEventListener("click", () => {
-categoriaSeleccionada = boton.dataset.filtro;
-opcionesCategoria.forEach(opcion => {
-opcion.classList.toggle(
-"categoria-activa",
-opcion === boton
-);
-});
-const textoBoton = botonCategoria.querySelector("span");
-if (textoBoton) {
-textoBoton.textContent = boton.textContent.trim();
-}
-filtroCategoria.classList.remove("abierto");
-botonCategoria.setAttribute("aria-expanded", "false");
-actualizarProductos();
-});
-});
-/* Seleccionar talla */
-opcionesTalla.forEach(boton => {
-boton.addEventListener("click", () => {
-tallaSeleccionada = boton.dataset.talla;
-opcionesTalla.forEach(opcion => {
-opcion.classList.toggle(
-"talla-activa",
-opcion === boton
-);
-});
-const textoBoton = botonTalla.querySelector("span");
-if (textoBoton) {
-textoBoton.textContent =
-tallaSeleccionada === "todas"
-? "Filtrar por talla"
-: "Talla " + tallaSeleccionada;
-}
-filtroTalla.classList.remove("abierto");
-botonTalla.setAttribute("aria-expanded", "false");
-actualizarProductos();
-});
-});
-/* Mostrar todos los productos al cargar la página */
-actualizarProductos();
 </script>
 
