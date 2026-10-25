@@ -4762,7 +4762,7 @@ body.pagina-machos .categorias-catalogo {
     content: none;
 }
 
-/* Promociones: aviso debajo del ahorro, con fondo transparente */
+/* Aviso debajo del ahorro: sin fondo verde */
 .producto-catalogo.precio-variable:has(.precio-promocional)
 .catalogo-datos > .promo-ahorro::after {
     content: "ⓘ Precio varía según la talla";
@@ -4774,7 +4774,9 @@ body.pagina-machos .categorias-catalogo {
     padding: 7px 12px;
     border: 1px solid #7A9B76;
     border-radius: 30px;
-    background: transparent;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
     color: #7A9B76;
     font-family: inherit;
     font-size: 13px;
@@ -4782,7 +4784,7 @@ body.pagina-machos .categorias-catalogo {
     line-height: 1.4;
 }
 
-/* Mantener el ahorro con su fondo verde claro */
+/* Mantener el fondo verde claro únicamente en el ahorro */
 body.pagina-machos .catalogo-datos .promo-ahorro {
     display: inline-block !important;
     background-color: #DDF1D8 !important;
@@ -4794,7 +4796,7 @@ body.pagina-machos .catalogo-datos .promo-ahorro {
     margin-top: 4px !important;
 }
 
-/* Aviso de precio variable: fondo transparente */
+/* El aviso hereda el diseño transparente */
 body.pagina-machos .catalogo-datos .promo-ahorro::after {
     background: transparent !important;
     background-color: transparent !important;
@@ -4805,3 +4807,4 @@ body.pagina-machos .catalogo-datos .promo-ahorro::after {
     font-size: 13px !important;
     font-weight: 400 !important;
 }
+
