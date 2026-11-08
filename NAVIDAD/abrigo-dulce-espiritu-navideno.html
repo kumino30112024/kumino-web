@@ -52,10 +52,11 @@
             object-fit: contain;
             mix-blend-mode: normal;
             opacity: 1;
-            filter: drop-shadow(0 15px 22px rgba(65,43,28,.13));
+            filter: drop-shadow(0 10px 16px rgba(65,43,28,.18));
         }
 
         .navidad-producto-info {
+            min-width: 0;
             color: #333333;
         }
 
@@ -90,7 +91,7 @@
 
         .navidad-producto-descripcion {
             margin: 0 0 25px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 14px;
             line-height: 1.85;
         }
@@ -107,65 +108,123 @@
             font-weight: 600;
         }
 
-        .navidad-precios {
+        /* COLORES */
+
+        .navidad-colores-lista {
             display: flex;
-            align-items: center;
-            gap: 15px;
             flex-wrap: wrap;
-            padding: 17px;
+            gap: 18px;
+        }
+
+        .navidad-color {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #514b44;
+            font-size: 13px;
+        }
+
+        .navidad-color-muestra {
+            width: 17px;
+            height: 17px;
+            display: inline-block;
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px rgba(80,65,50,.35);
+        }
+
+        .navidad-color-rojo {
+            background: #e63946;
+        }
+
+        .navidad-color-marron {
+            background: #9a6038;
+        }
+
+        /* TALLAS Y PRECIOS */
+
+        .navidad-tallas-grid {
+            display: grid;
+            grid-template-columns: repeat(3,minmax(0,1fr));
+            gap: 10px;
+        }
+
+        .navidad-talla-card {
+            min-width: 0;
+            padding: 13px 9px;
             border: 1px solid rgba(157,122,76,.28);
             border-radius: 12px;
             background: rgba(255,250,242,.65);
+            text-align: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .navidad-talla-card strong {
+            display: block;
+            margin-bottom: 9px;
+            color: #4c5145;
+            font-size: 13px;
+        }
+
+        .navidad-talla-color {
+            display: block;
+            margin-bottom: 7px;
+            color: #62584e;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .navidad-talla-equivalencia {
+            display: block;
+            margin-top: -5px;
+            margin-bottom: 8px;
+            color: #81776c;
+            font-size: 11px;
         }
 
         .navidad-precio-regular {
-            color: #91877d;
-            font-size: 14px;
+            display: block;
+            color: #81766d;
+            font-size: 12px;
             text-decoration: line-through;
         }
 
         .navidad-precio-promo {
+            display: block;
+            margin-top: 3px;
             color: #963b42;
-            font-size: 25px;
+            font-size: 19px;
             font-weight: 700;
+        }
+
+        .navidad-ahorro {
+            display: block;
+            margin-top: 5px;
+            color: #526B50;
+            font-size: 11px;
+            font-weight: 600;
         }
 
         .navidad-aviso-precio {
             display: block;
             margin-top: 9px;
-            color: #81776c;
+            color: #62584e;
             font-size: 11px;
             line-height: 1.6;
         }
 
-        .navidad-estado {
-            padding: 18px;
-            border: 1px solid rgba(157,122,76,.28);
-            border-radius: 12px;
-            background: rgba(255,250,242,.65);
-        }
-
-        .navidad-estado strong {
-            display: block;
-            margin-bottom: 7px;
-            color: #963b42;
-            font-size: 15px;
-        }
-
-        .navidad-estado p {
-            margin: 0;
-            color: #81776c;
-            font-size: 13px;
-            line-height: 1.7;
-        }
+        /* CARACTERÍSTICAS */
 
         .navidad-caracteristicas {
             margin: 0;
             padding-left: 19px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 13px;
             line-height: 1.9;
         }
+
+        /* WHATSAPP */
 
         .navidad-btn-whatsapp {
             display: flex;
@@ -182,7 +241,7 @@
             letter-spacing: .3px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 7px 17px rgba(129,54,61,.18);
+            box-shadow: 0 5px 14px rgba(91,35,40,.15);
             transition: background .2s ease,transform .2s ease;
         }
 
@@ -194,8 +253,9 @@
         .navidad-volver {
             display: inline-block;
             margin-top: 17px;
-            color: #65785e;
+            color: #526b50;
             font-size: 13px;
+            font-weight: 600;
             text-decoration: none;
         }
 
@@ -203,9 +263,13 @@
             text-decoration: underline;
         }
 
+        /* RESPONSIVE */
+
         @media (max-width:760px) {
             body {
                 background-attachment: scroll;
+                background-position: center top;
+                background-size: cover;
             }
 
             .navidad-producto-main {
@@ -215,26 +279,113 @@
             .navidad-producto-container {
                 grid-template-columns: 1fr;
                 gap: 22px;
-                padding: 0;
+                padding: 0 !important;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
             }
 
             .navidad-producto-imagen {
                 width: 100%;
+                height: auto;
                 max-height: none;
                 aspect-ratio: 4 / 5;
+                border-radius: 15px;
+                overflow: hidden;
+                background: transparent;
+                border: none;
+                box-shadow: 0 10px 28px rgba(73,43,28,.18);
             }
 
             .navidad-producto-imagen img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
                 mix-blend-mode: multiply;
                 filter: drop-shadow(0 10px 16px rgba(65,43,28,.12));
             }
 
-            .navidad-producto-info h1 {
-                font-size: 32px;
+            .navidad-producto-categoria {
+                margin-bottom: 9px;
+                font-size: 10px;
+                letter-spacing: 1.5px;
             }
 
-            .navidad-precios {
-                padding: 15px;
+            .navidad-producto-info h1 {
+                font-size: clamp(27px,7vw,34px);
+                line-height: 1.15;
+                margin-bottom: 13px;
+            }
+
+            .navidad-promo-etiqueta {
+                margin-bottom: 13px;
+                font-size: 10px;
+            }
+
+            .navidad-producto-descripcion {
+                font-size: 14px;
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
+
+            .navidad-producto-seccion {
+                margin-top: 19px;
+            }
+
+            .navidad-producto-seccion h2 {
+                font-size: 20px;
+                margin-bottom: 11px;
+            }
+
+            .navidad-tallas-grid {
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 7px;
+            }
+
+            .navidad-talla-card {
+                padding: 11px 5px;
+                border-radius: 10px;
+            }
+
+            .navidad-talla-card strong {
+                font-size: 12px;
+                margin-bottom: 7px;
+            }
+
+            .navidad-talla-color {
+                font-size: 10px;
+            }
+
+            .navidad-talla-equivalencia {
+                font-size: 10px;
+            }
+
+            .navidad-precio-regular {
+                font-size: 10px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 17px;
+            }
+
+            .navidad-ahorro {
+                font-size: 10px;
+            }
+
+            .navidad-aviso-precio {
+                font-size: 10px;
+            }
+
+            .navidad-caracteristicas {
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            .navidad-btn-whatsapp {
+                margin-top: 22px;
+                padding: 14px;
+                font-size: 13px;
             }
         }
 
@@ -243,13 +394,24 @@
                 padding: 25px 13px 40px !important;
             }
 
-            .navidad-precios {
-                gap: 10px;
-                padding: 13px;
+            .navidad-tallas-grid {
+                gap: 5px;
+            }
+
+            .navidad-talla-card {
+                padding: 10px 3px;
             }
 
             .navidad-precio-promo {
-                font-size: 23px;
+                font-size: 15px;
+            }
+
+            .navidad-ahorro {
+                font-size: 9px;
+            }
+
+            .navidad-producto-info h1 {
+                font-size: 28px;
             }
         }
     </style>
@@ -257,27 +419,33 @@
 
 <body>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="nav-container">
             <a href="../index.html" class="logo">KÚMINO</a>
+
             <nav class="navbar">
                 <a href="../index.html">Inicio</a>
                 <a href="navidad.html" class="activo">Navidad</a>
             </nav>
+
             <a href="#contacto" class="btn-contacto">Contacto</a>
         </div>
     </header>
 
+    <!-- PRODUCTO -->
     <main class="navidad-producto-main">
         <div class="navidad-producto-container">
 
+            <!-- IMAGEN -->
             <div class="navidad-producto-imagen">
                 <img
                     src="../IMAGENES/abrigodulceespiritunavideno.jpg"
-                    alt="Abrigo Dulce Espíritu Navideño para mascotas"
+                    alt="Abrigo Dulce Espíritu Navideño en diseños de Papá Noel y Galletita de Jengibre"
                 >
             </div>
 
+            <!-- INFORMACIÓN -->
             <div class="navidad-producto-info">
 
                 <span class="navidad-producto-categoria">
@@ -298,45 +466,102 @@
                     celebraciones.
                 </p>
 
+                <!-- COLOR -->
                 <section class="navidad-producto-seccion">
-                    <h2>Precio</h2>
+                    <h2>Color</h2>
 
-                    <div class="navidad-precios">
-                        <span class="navidad-precio-regular">S/ 56.00</span>
-                        <span class="navidad-precio-promo">Desde S/ 40.00</span>
+                    <div class="navidad-colores-lista">
+                        <div class="navidad-color">
+                            <span class="navidad-color-muestra navidad-color-rojo"></span>
+                            <span>Rojo</span>
+                        </div>
+
+                        <div class="navidad-color">
+                            <span class="navidad-color-muestra navidad-color-marron"></span>
+                            <span>Marrón</span>
+                        </div>
                     </div>
-
-                    <span class="navidad-aviso-precio">
-                        ⓘ El precio promocional varía según la talla.
-                        Consulta el importe final antes de realizar tu pedido.
-                    </span>
                 </section>
 
+                <!-- TALLAS Y PRECIOS -->
                 <section class="navidad-producto-seccion">
                     <h2>Tallas y precios</h2>
 
-                    <div class="navidad-estado">
-                        <strong>Tallas por confirmar</strong>
-                        <p>
-                            Consulta por WhatsApp las tallas disponibles
-                            y el precio correspondiente a cada una.
-                        </p>
+                    <div class="navidad-tallas-grid">
+
+                        <!-- PAPÁ NOEL - ROJO -->
+                        <div class="navidad-talla-card">
+                            <strong>Talla 4</strong>
+
+                            <span class="navidad-talla-equivalencia">
+                                XL
+                            </span>
+
+                            <span class="navidad-talla-color">
+                                Papá Noel · Rojo
+                            </span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 56.00
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                S/ 40.00
+                            </span>
+
+                            <span class="navidad-ahorro">
+                                Ahorras S/ 16.00
+                            </span>
+                        </div>
+
+                        <!-- GALLETITA DE JENGIBRE - MARRÓN -->
+                        <div class="navidad-talla-card">
+                            <strong>Talla 4</strong>
+
+                            <span class="navidad-talla-equivalencia">
+                                XL
+                            </span>
+
+                            <span class="navidad-talla-color">
+                                Galletita de Jengibre · Marrón
+                            </span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 56.00
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                S/ 40.00
+                            </span>
+
+                            <span class="navidad-ahorro">
+                                Ahorras S/ 16.00
+                            </span>
+                        </div>
+
                     </div>
+
+                    <span class="navidad-aviso-precio">
+                        Consulta por WhatsApp la disponibilidad de tu diseño
+                        antes de realizar tu pedido.
+                    </span>
                 </section>
 
+                <!-- CARACTERÍSTICAS -->
                 <section class="navidad-producto-seccion">
                     <h2>Características</h2>
 
                     <ul class="navidad-caracteristicas">
-                        <li>Prenda tipo abrigo.</li>
-                        <li>Diseño de inspiración navideña.</li>
-                        <li>Parte de la colección especial de Navidad KÚMINO.</li>
+                        <li>Diseño de acabado afelpado.</li>
+                        <li>Capucha integrada con detalles decorativos.</li>
+                        <li>Disponible en dos diseños: Papá Noel y Galletita de Jengibre.</li>
                     </ul>
                 </section>
 
+                <!-- WHATSAPP -->
                 <a
                     class="navidad-btn-whatsapp"
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Abrigo%20Dulce%20Esp%C3%ADritu%20Navide%C3%B1o%2C%20sus%20tallas%20y%20precios."
+                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Abrigo%20Dulce%20Esp%C3%ADritu%20Navide%C3%B1o%20en%20talla%204%20(XL)."
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -351,8 +576,10 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer-kumino">
         <div class="footer-container">
+
             <div class="footer-marca">
                 <h2>KÚMINO</h2>
                 <p>Moda con amor para tu mascota.</p>
@@ -370,6 +597,7 @@
                    target="_blank" rel="noopener noreferrer">WhatsApp</a>
                 <span>Envíos a todo el Perú</span>
             </div>
+
         </div>
 
         <div class="footer-bottom">
@@ -380,4 +608,5 @@
 
 </body>
 </html>
+
 
