@@ -4954,25 +4954,28 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 }
 
 
+
 /* =========================================================
-   BANNER NAVIDEÑO KÚMINO - AJUSTE DE ESPACIADO
+   BANNER NAVIDEÑO KÚMINO
 ========================================================= */
 
 .banner-navidad {
     position: relative;
 
-    width: calc(100% - 64px);
-    max-width: 1600px;
+    /* DIMENSIONES */
+    width: calc(100% - 46px);
+    max-width: 1700px;
+    min-height: 350px;
 
-    min-height: 300px;
+    margin: 30px auto;
+    padding: 40px 8%;
 
-    margin: 28px auto;
-    padding: 35px 8%;
-
+    /* DISTRIBUCIÓN */
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
+    /* IMAGEN DE FONDO */
     background-image:
         linear-gradient(
             90deg,
@@ -4986,24 +4989,30 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     background-position: center 42%;
     background-repeat: no-repeat;
 
+    /* ACABADO VISUAL */
     border-radius: 20px;
     overflow: hidden;
 
     box-shadow: 0 8px 25px rgba(44, 53, 49, 0.10);
 }
 
-/* CONTENIDO */
+
+/* =========================================================
+   CONTENIDO DEL BANNER
+========================================================= */
 
 .banner-navidad-contenido {
     width: 48%;
     max-width: 620px;
+
     text-align: center;
 
     position: relative;
     z-index: 2;
 }
 
-/* TÍTULO */
+
+/* TÍTULO PRINCIPAL */
 
 .banner-navidad-contenido h2 {
     margin: 0;
@@ -5020,7 +5029,8 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     color: #B52F32;
 }
 
-/* DESCRIPCIÓN */
+
+/* TEXTO SECUNDARIO */
 
 .banner-navidad-contenido p {
     margin: 15px 0 25px;
@@ -5032,10 +5042,14 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     color: #333333;
 }
 
-/* BOTÓN */
+
+/* =========================================================
+   BOTÓN VER COLECCIÓN
+========================================================= */
 
 .btn-navidad {
     display: inline-block;
+
     padding: 13px 32px;
 
     background-color: #E63946;
@@ -5048,24 +5062,31 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     font-weight: 600;
 
     text-decoration: none;
+
     transition: all 0.3s ease;
 }
 
 .btn-navidad:hover {
     background-color: #C92F3B;
+
     transform: translateY(-3px);
+
     box-shadow: 0 7px 18px rgba(198, 47, 59, 0.20);
 }
 
-/* TABLETS Y CELULARES */
+
+/* =========================================================
+   TABLETS
+========================================================= */
 
 @media (max-width: 768px) {
 
     .banner-navidad {
         width: calc(100% - 32px);
-        min-height: 230px;
 
-        margin: 20px auto;
+        min-height: 260px;
+
+        margin: 22px auto;
         padding: 25px 12px;
 
         border-radius: 16px;
@@ -5093,16 +5114,23 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     }
 }
 
+
+/* =========================================================
+   CELULARES
+========================================================= */
+
 @media (max-width: 480px) {
 
     .banner-navidad {
         width: calc(100% - 24px);
-        min-height: 200px;
 
-        margin: 16px auto;
+        min-height: 220px;
+
+        margin: 18px auto;
         padding: 18px 8px;
 
         border-radius: 14px;
+
         background-position: 35% center;
     }
 
@@ -5116,6 +5144,7 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
     .banner-navidad-contenido p {
         font-size: 10px;
+        margin: 9px 0 14px;
     }
 
     .btn-navidad {
