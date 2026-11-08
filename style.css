@@ -5267,6 +5267,7 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 }
 
+
 /* =========================================
    CELULARES PEQUEÑOS
 ========================================= */
@@ -5280,51 +5281,92 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 }
 
 /* =========================================
-   AJUSTE FINAL DEL ENCABEZADO Y ESPACIADO
-   SOLO CELULARES
+   ENCABEZADO NAVIDEÑO - MÓVIL
 ========================================= */
 
 @media (max-width: 760px) {
 
-    /* ENCABEZADO: EVITAR QUE SE CORTE KÚMINO */
-
-    .header {
-        width: 100% !important;
-        overflow: visible !important;
+    .header-navidad {
+        width: 100%;
+        overflow: visible;
     }
 
-    .header .nav-container {
+    .header-navidad .nav-container {
+        display: grid !important;
+        grid-template-columns: 1fr auto 1fr !important;
+        align-items: center !important;
+
         width: 100% !important;
         max-width: 100% !important;
         min-width: 0 !important;
-        margin: 0 auto !important;
-        padding: 0 20px !important;
-        box-sizing: border-box !important;
 
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        gap: 12px;
+        margin: 0 auto !important;
+        padding: 12px 16px !important;
+        box-sizing: border-box !important;
+        gap: 8px;
     }
 
-    .header .logo {
+    /* MENÚ HAMBURGUESA */
+
+    .header-navidad .menu-toggle {
+        grid-column: 1;
+        justify-self: start;
+        margin: 0 !important;
+    }
+
+    /* ISOTIPO + KÚMINO */
+
+    .header-navidad .logo {
+        grid-column: 2;
+        justify-self: center;
+
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        position: static !important;
+        transform: none !important;
+
+        width: max-content;
+        margin: 0 !important;
+        padding: 0 !important;
+        gap: 7px;
+
+        white-space: nowrap;
+        text-decoration: none;
+    }
+
+    .header-navidad .logo img {
         display: block !important;
-        position: relative !important;
-        left: 0 !important;
+        width: 32px !important;
+        height: 32px !important;
+        object-fit: contain;
+        margin: 0 !important;
+    }
+
+    .header-navidad .logo span {
+        display: block !important;
         margin: 0 !important;
         padding: 0 !important;
 
-        flex-shrink: 0 !important;
-        white-space: nowrap !important;
-        font-size: clamp(23px, 6vw, 30px) !important;
+        font-size: 24px !important;
+        line-height: 1 !important;
+        letter-spacing: 1.5px;
     }
 
-    .header .btn-contacto {
-        flex-shrink: 0 !important;
+    /* CONTACTO */
+
+    .header-navidad .btn-contacto {
+        grid-column: 3;
+        justify-self: end;
+        flex-shrink: 0;
         margin: 0 !important;
+        white-space: nowrap;
     }
 
-    /* SEPARACIÓN ENTRE MENÚ Y FOTOGRAFÍA */
+    /* ESPACIO ENTRE MENÚ Y FOTOGRAFÍA
+       EN LAS FICHAS DE PRODUCTOS */
 
     .navidad-producto-container {
         margin-top: 28px !important;
@@ -5336,3 +5378,29 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 }
 
+/* =========================================
+   PANTALLAS MUY PEQUEÑAS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .header-navidad .nav-container {
+        padding: 10px 12px !important;
+        gap: 5px;
+    }
+
+    .header-navidad .logo img {
+        width: 29px !important;
+        height: 29px !important;
+    }
+
+    .header-navidad .logo span {
+        font-size: 21px !important;
+    }
+
+    .header-navidad .btn-contacto {
+        font-size: 12px;
+        padding: 10px 12px;
+    }
+
+}
