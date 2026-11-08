@@ -5216,3 +5216,12 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         margin-bottom: 22px;
     }
 }
+.enlace-producto-navidad {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.enlace-producto-navidad .producto-catalogo {
+    cursor: pointer;
+}
