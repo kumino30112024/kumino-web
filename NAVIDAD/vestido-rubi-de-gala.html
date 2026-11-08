@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,341 +10,461 @@
 
     <link rel="stylesheet" href="../style.css">
 
-    
-<style>
-    /* =========================================
-       FONDO NAVIDEÑO
-    ========================================= */
-
-    body {
-        background-image:
-            linear-gradient(
-                rgba(255, 250, 242, .08),
-                rgba(255, 250, 242, .08)
-            ),
-            url("../fondo_productosnav.jpg");
-
-        background-position: center top;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-
-    .navidad-producto-main {
-        padding: 58px 20px 76px;
-    }
-
-    /* =========================================
-       CONTENEDOR PRINCIPAL
-    ========================================= */
-
-    .navidad-producto-container {
-        width: min(1250px, 100%);
-        margin: 0 auto;
-
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
-
-        gap: clamp(35px, 5vw, 65px);
-        align-items: center;
-
-        padding: 35px 25px;
-
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        box-shadow: none;
-        backdrop-filter: none;
-    }
-
-    /* =========================================
-       IMAGEN DEL PRODUCTO
-    ========================================= */
-
-    .navidad-producto-imagen {
-        min-width: 0;
-        background: rgba(255, 250, 242, .78);
-        border: 1px solid rgba(255, 255, 255, .8);
-        border-radius: 20px;
-        overflow: hidden;
-        aspect-ratio: 4 / 5;
-        box-shadow: 0 12px 35px rgba(80, 45, 25, .12);
-    }
-
-    .navidad-producto-imagen img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        mix-blend-mode: multiply;
-    }
-
-    /* =========================================
-       INFORMACIÓN DEL PRODUCTO
-    ========================================= */
-
-    .navidad-producto-info {
-        color: #333333;
-    }
-
-    .navidad-producto-categoria {
-        display: inline-block;
-        margin-bottom: 12px;
-        color: #7A6A51;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 2px;
-    }
-
-    .navidad-producto-info h1 {
-        margin: 0 0 17px;
-        color: #71343a;
-        font-family: "Playfair Display", Georgia, serif;
-        font-size: clamp(30px, 4vw, 43px);
-        line-height: 1.12;
-    }
-
-    .navidad-promo-etiqueta {
-        display: inline-block;
-        margin-bottom: 17px;
-        padding: 7px 13px;
-        border-radius: 4px;
-        background: #8b343b;
-        color: #ffffff;
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 1.2px;
-    }
-
-    .navidad-producto-descripcion {
-        margin: 0 0 25px;
-        color: #4d443d;
-        font-size: 14px;
-        line-height: 1.85;
-    }
-
-    /* =========================================
-       SECCIONES
-    ========================================= */
-
-    .navidad-producto-seccion {
-        margin-top: 23px;
-    }
-
-    .navidad-producto-seccion h2 {
-        margin: 0 0 13px;
-        color: #71343a;
-        font-family: "Playfair Display", Georgia, serif;
-        font-size: 21px;
-        font-weight: 600;
-    }
-
-    /* =========================================
-       COLOR
-    ========================================= */
-
-    .navidad-color {
-        display: inline-flex;
-        align-items: center;
-        gap: 9px;
-        color: #514b44;
-        font-size: 13px;
-    }
-
-    .navidad-color-muestra {
-        width: 17px;
-        height: 17px;
-        border: 2px solid #ffffff;
-        border-radius: 50%;
-        background: #a71925;
-        box-shadow: 0 0 0 1px #b8a99a;
-    }
-
-    /* =========================================
-       TALLAS Y PRECIOS
-    ========================================= */
-
-    .navidad-tallas-precios {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-    }
-
-    .navidad-talla-card {
-        padding: 13px 9px;
-        border: 1px solid rgba(157, 122, 76, .28);
-        border-radius: 12px;
-        background: rgba(255, 250, 242, .65);
-        text-align: center;
-        backdrop-filter: blur(3px);
-    }
-
-    .navidad-talla-card strong {
-        display: block;
-        margin-bottom: 9px;
-        color: #4c5145;
-        font-size: 13px;
-    }
-
-    .navidad-precio-regular {
-        display: block;
-        color: #81766d;
-        font-size: 12px;
-        text-decoration: line-through;
-    }
-
-    .navidad-precio-promo {
-        display: block;
-        margin-top: 3px;
-        color: #963b42;
-        font-size: 19px;
-        font-weight: 700;
-    }
-
-    .navidad-ahorro {
-        display: block;
-        margin-top: 5px;
-        color: #526b50;
-        font-size: 11px;
-    }
-
-    .navidad-aviso-precio {
-        display: block;
-        margin-top: 9px;
-        color: #62584e;
-        font-size: 11px;
-    }
-
-    /* =========================================
-       CARACTERÍSTICAS
-    ========================================= */
-
-    .navidad-caracteristicas {
-        margin: 0;
-        padding-left: 19px;
-        color: #4d443d;
-        font-size: 13px;
-        line-height: 1.9;
-    }
-
-    .navidad-caracteristicas li {
-        padding-left: 2px;
-    }
-
-    /* =========================================
-       BOTÓN WHATSAPP
-    ========================================= */
-
-    .navidad-btn-whatsapp {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin-top: 27px;
-        padding: 15px 20px;
-        border-radius: 30px;
-        background: #81363d;
-        color: #ffffff;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: .3px;
-        text-align: center;
-        text-decoration: none;
-        box-shadow: 0 5px 14px rgba(91, 35, 40, .15);
-        transition: background .2s ease, transform .2s ease;
-    }
-
-    .navidad-btn-whatsapp:hover {
-        background: #672a31;
-        transform: translateY(-2px);
-    }
-
-    /* =========================================
-       VOLVER A COLECCIÓN
-    ========================================= */
-
-    .navidad-volver {
-        display: inline-block;
-        margin-top: 17px;
-        color: #526b50;
-        font-size: 13px;
-        font-weight: 600;
-        text-decoration: none;
-    }
-
-    .navidad-volver:hover {
-        text-decoration: underline;
-    }
-
-    /* =========================================
-       RESPONSIVE - TABLETS Y CELULARES
-    ========================================= */
-
-    @media (max-width: 760px) {
+    <style>
+        /* =========================================
+           FONDO NAVIDEÑO
+        ========================================= */
 
         body {
-            background-attachment: scroll;
+            background-image:
+                linear-gradient(
+                    rgba(255, 250, 242, .08),
+                    rgba(255, 250, 242, .08)
+                ),
+                url("../fondo_productosnav.jpg");
+
             background-position: center top;
-            background-size: auto 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
 
         .navidad-producto-main {
-            padding: 28px 13px 45px;
+            padding: 58px 20px 76px;
         }
 
+        /* =========================================
+           CONTENEDOR PRINCIPAL
+        ========================================= */
+
         .navidad-producto-container {
-            grid-template-columns: 1fr;
-            gap: 25px;
-            padding: 16px 5px;
+            width: min(1250px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+            gap: clamp(35px, 5vw, 65px);
+            align-items: center;
+            padding: 35px 25px;
+
             background: transparent;
             border: none;
             border-radius: 0;
             box-shadow: none;
+            backdrop-filter: none;
         }
 
+        /* =========================================
+           IMAGEN DEL PRODUCTO
+        ========================================= */
+
         .navidad-producto-imagen {
-            width: 100%;
-            max-height: 440px;
+            min-width: 0;
+            background: rgba(255, 250, 242, .78);
+            border: 1px solid rgba(255, 255, 255, .8);
+            border-radius: 20px;
+            overflow: hidden;
             aspect-ratio: 4 / 5;
+            box-shadow: 0 12px 35px rgba(80, 45, 25, .12);
+        }
+
+        .navidad-producto-imagen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        /* =========================================
+           INFORMACIÓN DEL PRODUCTO
+        ========================================= */
+
+        .navidad-producto-info {
+            min-width: 0;
+            color: #333333;
+        }
+
+        .navidad-producto-categoria {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #7A6A51;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         .navidad-producto-info h1 {
-            font-size: 32px;
+            margin: 0 0 17px;
+            color: #71343a;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.12;
+        }
+
+        .navidad-promo-etiqueta {
+            display: inline-block;
+            margin-bottom: 17px;
+            padding: 7px 13px;
+            border-radius: 4px;
+            background: #8b343b;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
         }
 
         .navidad-producto-descripcion {
+            margin: 0 0 25px;
+            color: #4d443d;
             font-size: 14px;
+            line-height: 1.85;
         }
+
+        /* =========================================
+           SECCIONES
+        ========================================= */
 
         .navidad-producto-seccion {
-            margin-top: 21px;
+            margin-top: 23px;
         }
-    }
 
-    /* =========================================
-       CELULARES PEQUEÑOS
-    ========================================= */
+        .navidad-producto-seccion h2 {
+            margin: 0 0 13px;
+            color: #71343a;
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: 21px;
+            font-weight: 600;
+        }
 
-    @media (max-width: 380px) {
+        /* =========================================
+           COLOR
+        ========================================= */
+
+        .navidad-color {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #514b44;
+            font-size: 13px;
+        }
+
+        .navidad-color-muestra {
+            width: 17px;
+            height: 17px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            background: #a71925;
+            box-shadow: 0 0 0 1px #b8a99a;
+        }
+
+        /* =========================================
+           TALLAS Y PRECIOS
+        ========================================= */
 
         .navidad-tallas-precios {
-            gap: 6px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
         }
 
         .navidad-talla-card {
-            padding: 11px 5px;
+            min-width: 0;
+            padding: 13px 9px;
+            border: 1px solid rgba(157, 122, 76, .28);
+            border-radius: 12px;
+            background: rgba(255, 250, 242, .65);
+            text-align: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .navidad-talla-card strong {
+            display: block;
+            margin-bottom: 9px;
+            color: #4c5145;
+            font-size: 13px;
+        }
+
+        .navidad-precio-regular {
+            display: block;
+            color: #81766d;
+            font-size: 12px;
+            text-decoration: line-through;
         }
 
         .navidad-precio-promo {
-            font-size: 17px;
+            display: block;
+            margin-top: 3px;
+            color: #963b42;
+            font-size: 19px;
+            font-weight: 700;
         }
 
-        .navidad-producto-info h1 {
-            font-size: 28px;
-        }
-    }
-</style>
+        /* AHORRO EN VERDE SALVIA */
 
+        .navidad-ahorro {
+            display: block;
+            margin-top: 5px;
+            color: #526B50 !important;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .navidad-aviso-precio {
+            display: block;
+            margin-top: 9px;
+            color: #62584e;
+            font-size: 11px;
+        }
+
+        /* =========================================
+           CARACTERÍSTICAS
+        ========================================= */
+
+        .navidad-caracteristicas {
+            margin: 0;
+            padding-left: 19px;
+            color: #4d443d;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .navidad-caracteristicas li {
+            padding-left: 2px;
+        }
+
+        /* =========================================
+           BOTÓN WHATSAPP
+        ========================================= */
+
+        .navidad-btn-whatsapp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 27px;
+            padding: 15px 20px;
+            border-radius: 30px;
+            background: #81363d;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 5px 14px rgba(91, 35, 40, .15);
+            transition: background .2s ease, transform .2s ease;
+        }
+
+        .navidad-btn-whatsapp:hover {
+            background: #672a31;
+            transform: translateY(-2px);
+        }
+
+        /* =========================================
+           VOLVER A COLECCIÓN
+        ========================================= */
+
+        .navidad-volver {
+            display: inline-block;
+            margin-top: 17px;
+            color: #526b50;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navidad-volver:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================================
+           RESPONSIVE - TABLETS Y CELULARES
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            body {
+                background-attachment: scroll;
+                background-position: center top;
+                background-size: cover;
+            }
+
+            /* ENCABEZADO MÓVIL */
+
+            .header {
+                width: 100%;
+            }
+
+            .header .nav-container {
+                width: 100%;
+                box-sizing: border-box;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .header .logo {
+                font-size: clamp(23px, 6vw, 30px);
+                white-space: nowrap;
+            }
+
+            .header .btn-contacto {
+                white-space: nowrap;
+            }
+
+            /* CONTENIDO */
+
+            .navidad-producto-main {
+                padding: 20px 14px 42px;
+            }
+
+            .navidad-producto-container {
+                grid-template-columns: 1fr;
+                gap: 19px;
+                padding: 8px 3px;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            /* FOTOGRAFÍA MÁS COMPACTA */
+
+            .navidad-producto-imagen {
+                width: 100%;
+                height: 350px;
+                max-height: 350px;
+                aspect-ratio: auto;
+                border-radius: 17px;
+            }
+
+            .navidad-producto-imagen img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            /* INFORMACIÓN */
+
+            .navidad-producto-categoria {
+                margin-bottom: 9px;
+                font-size: 10px;
+                letter-spacing: 1.5px;
+            }
+
+            .navidad-producto-info h1 {
+                font-size: clamp(27px, 7vw, 34px);
+                line-height: 1.15;
+                margin-bottom: 13px;
+            }
+
+            .navidad-promo-etiqueta {
+                margin-bottom: 13px;
+                font-size: 10px;
+            }
+
+            .navidad-producto-descripcion {
+                font-size: 14px;
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
+
+            /* SECCIONES */
+
+            .navidad-producto-seccion {
+                margin-top: 19px;
+            }
+
+            .navidad-producto-seccion h2 {
+                font-size: 20px;
+                margin-bottom: 11px;
+            }
+
+            /* PRECIOS */
+
+            .navidad-tallas-precios {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 7px;
+            }
+
+            .navidad-talla-card {
+                padding: 11px 5px;
+                border-radius: 10px;
+            }
+
+            .navidad-talla-card strong {
+                font-size: 12px;
+                margin-bottom: 7px;
+            }
+
+            .navidad-precio-regular {
+                font-size: 10px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 17px;
+            }
+
+            .navidad-ahorro {
+                font-size: 10px;
+            }
+
+            .navidad-aviso-precio {
+                font-size: 10px;
+            }
+
+            /* CARACTERÍSTICAS */
+
+            .navidad-caracteristicas {
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            /* WHATSAPP */
+
+            .navidad-btn-whatsapp {
+                margin-top: 22px;
+                padding: 14px;
+                font-size: 13px;
+            }
+        }
+
+        /* =========================================
+           CELULARES PEQUEÑOS
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .navidad-producto-main {
+                padding-left: 11px;
+                padding-right: 11px;
+            }
+
+            .navidad-producto-imagen {
+                height: 310px;
+                max-height: 310px;
+            }
+
+            .navidad-tallas-precios {
+                gap: 5px;
+            }
+
+            .navidad-talla-card {
+                padding: 10px 3px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 15px;
+            }
+
+            .navidad-ahorro {
+                font-size: 9px;
+            }
+
+            .navidad-producto-info h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -383,7 +504,7 @@
             <div class="navidad-producto-info">
 
                 <span class="navidad-producto-categoria">
-                    COLECCIÓN NAVIDEÑA · MODELO 248
+                    COLECCIÓN NAVIDEÑA
                 </span>
 
                 <h1>Vestido Rubí de Gala</h1>
@@ -556,3 +677,4 @@
 
 </body>
 </html>
+
