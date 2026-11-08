@@ -52,7 +52,7 @@
             object-fit: contain;
             mix-blend-mode: normal;
             opacity: 1;
-            filter: drop-shadow(0 12px 18px rgba(45,35,25,.13));
+            filter: drop-shadow(0 15px 22px rgba(65,43,28,.13));
         }
 
         .navidad-producto-info {
@@ -107,57 +107,89 @@
             font-weight: 600;
         }
 
-        .navidad-precios {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 17px;
+        /* TALLAS Y PRECIOS */
+
+        .navidad-tallas-grid {
+            display: grid;
+            grid-template-columns: repeat(3,minmax(0,1fr));
+            gap: 10px;
+        }
+
+        .navidad-talla-card {
+            min-width: 0;
+            padding: 13px 9px;
             border: 1px solid rgba(157,122,76,.28);
             border-radius: 12px;
             background: rgba(255,250,242,.65);
+            text-align: center;
         }
 
-        .navidad-precio-regular {
-            color: #91877d;
+        .navidad-talla-numero {
+            display: block;
+            margin-bottom: 8px;
+            color: #71343a;
             font-size: 14px;
-            text-decoration: line-through;
-        }
-
-        .navidad-precio-promo {
-            color: #963b42;
-            font-size: 25px;
             font-weight: 700;
         }
 
-        .navidad-aviso-precio {
+        .navidad-talla-equivalencia {
             display: block;
-            margin-top: 9px;
+            margin-top: -4px;
+            margin-bottom: 9px;
             color: #81776c;
             font-size: 11px;
-            line-height: 1.6;
         }
 
-        .navidad-estado {
-            padding: 18px;
-            border: 1px solid rgba(157,122,76,.28);
-            border-radius: 12px;
-            background: rgba(255,250,242,.65);
+        .navidad-color {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            margin-bottom: 10px;
+            color: #5b554e;
+            font-size: 11px;
+            font-weight: 600;
         }
 
-        .navidad-estado strong {
+        .navidad-color-circulo {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .navidad-color-rojo {
+            background: #e63946;
+        }
+
+        .navidad-color-verde {
+            background: #47734b;
+        }
+
+        .navidad-talla-card .navidad-precio-regular {
             display: block;
-            margin-bottom: 7px;
-            color: #963b42;
-            font-size: 15px;
+            margin-bottom: 5px;
+            color: #91877d;
+            font-size: 12px;
+            text-decoration: line-through;
         }
 
-        .navidad-estado p {
-            margin: 0;
-            color: #81776c;
-            font-size: 13px;
-            line-height: 1.7;
+        .navidad-talla-card .navidad-precio-promo {
+            display: block;
+            color: #963b42;
+            font-size: 19px;
+            font-weight: 700;
         }
+
+        .navidad-ahorro {
+            display: block;
+            margin-top: 7px;
+            color: #526B50;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        /* CARACTERÍSTICAS */
 
         .navidad-caracteristicas {
             margin: 0;
@@ -166,6 +198,8 @@
             font-size: 13px;
             line-height: 1.9;
         }
+
+        /* WHATSAPP */
 
         .navidad-btn-whatsapp {
             display: flex;
@@ -182,7 +216,7 @@
             letter-spacing: .3px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 7px 18px rgba(129,54,61,.18);
+            box-shadow: 0 7px 17px rgba(129,54,61,.18);
             transition: background .2s ease,transform .2s ease;
         }
 
@@ -202,6 +236,8 @@
         .navidad-volver:hover {
             text-decoration: underline;
         }
+
+        /* RESPONSIVE */
 
         @media (max-width:760px) {
             body {
@@ -226,26 +262,46 @@
 
             .navidad-producto-imagen img {
                 mix-blend-mode: multiply;
-                filter: drop-shadow(0 10px 14px rgba(45,35,25,.10));
+                filter: drop-shadow(0 10px 16px rgba(65,43,28,.12));
             }
 
             .navidad-producto-info h1 {
                 font-size: 32px;
             }
 
-            .navidad-precios {
-                gap: 12px;
-                padding: 15px;
+            .navidad-tallas-grid {
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 8px;
             }
 
-            .navidad-precio-promo {
-                font-size: 22px;
+            .navidad-talla-card {
+                padding: 12px 6px;
+            }
+
+            .navidad-talla-card .navidad-precio-promo {
+                font-size: 17px;
             }
         }
 
         @media (max-width:380px) {
             .navidad-producto-main {
                 padding: 25px 13px 40px !important;
+            }
+
+            .navidad-tallas-grid {
+                gap: 6px;
+            }
+
+            .navidad-talla-card {
+                padding: 11px 5px;
+            }
+
+            .navidad-talla-card .navidad-precio-promo {
+                font-size: 16px;
+            }
+
+            .navidad-ahorro {
+                font-size: 10px;
             }
         }
     </style>
@@ -272,7 +328,7 @@
             <div class="navidad-producto-imagen">
                 <img
                     src="../IMAGENES/abrigofantasianavidena.jpg"
-                    alt="Abrigo Fantasía Navideña para mascotas"
+                    alt="Abrigo Fantasía Navideña en diseños de Papá Noel y Árbol de Navidad"
                 >
             </div>
 
@@ -289,52 +345,96 @@
                 </span>
 
                 <p class="navidad-producto-descripcion">
-                    ¡Una fantasía navideña para tu engreído! El Abrigo
-                    Fantasía Navideña forma parte de nuestra colección
-                    especial de temporada, una propuesta para darle un
-                    estilo festivo y encantador a tu mascota durante
-                    las celebraciones.
+                    ¡Un encantador abrigo afelpado que combina comodidad
+                    y espíritu festivo, disponible en dos diseños llenos
+                    de color para que tu engreído luzca adorable durante
+                    las fiestas!
                 </p>
-
-                <section class="navidad-producto-seccion">
-                    <h2>Precio</h2>
-
-                    <div class="navidad-precios">
-                        <span class="navidad-precio-regular">S/ 53.20</span>
-                        <span class="navidad-precio-promo">Desde S/ 38.00</span>
-                    </div>
-
-                    <span class="navidad-aviso-precio">
-                        ⓘ El precio promocional varía según la talla.
-                        Consulta el importe final antes de realizar tu pedido.
-                    </span>
-                </section>
 
                 <section class="navidad-producto-seccion">
                     <h2>Tallas y precios</h2>
 
-                    <div class="navidad-estado">
-                        <strong>Tallas por confirmar</strong>
-                        <p>
-                            Consulta por WhatsApp las tallas disponibles
-                            y el precio correspondiente a cada una.
-                        </p>
+                    <div class="navidad-tallas-grid">
+
+                        <!-- PAPÁ NOEL - ROJO -->
+                        <div class="navidad-talla-card">
+                            <span class="navidad-talla-numero">
+                                Talla 3
+                            </span>
+
+                            <span class="navidad-talla-equivalencia">
+                                L
+                            </span>
+
+                            <span class="navidad-color">
+                                <span class="navidad-color-circulo navidad-color-rojo"></span>
+                                Rojo
+                            </span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 53.20
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                S/ 38.00
+                            </span>
+
+                            <span class="navidad-ahorro">
+                                Ahorras S/ 15.20
+                            </span>
+                        </div>
+
+                        <!-- ÁRBOL DE NAVIDAD - VERDE -->
+                        <div class="navidad-talla-card">
+                            <span class="navidad-talla-numero">
+                                Talla 3
+                            </span>
+
+                            <span class="navidad-talla-equivalencia">
+                                L
+                            </span>
+
+                            <span class="navidad-color">
+                                <span class="navidad-color-circulo navidad-color-verde"></span>
+                                Verde
+                            </span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 53.20
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                S/ 38.00
+                            </span>
+
+                            <span class="navidad-ahorro">
+                                Ahorras S/ 15.20
+                            </span>
+                        </div>
+
                     </div>
+
+                    <span class="navidad-aviso-precio">
+                        ⓘ Precio correspondiente a la talla 3.
+                        Consulta por WhatsApp la disponibilidad de tu diseño
+                        antes de realizar tu pedido.
+                    </span>
                 </section>
 
                 <section class="navidad-producto-seccion">
                     <h2>Características</h2>
 
                     <ul class="navidad-caracteristicas">
-                        <li>Prenda tipo abrigo.</li>
-                        <li>Diseño de inspiración navideña.</li>
-                        <li>Parte de la colección especial de Navidad KÚMINO.</li>
+                        <li>Diseño de acabado afelpado.</li>
+                        <li>Capucha decorativa con personajes navideños.</li>
+                        <li>Disponible en dos diseños: Papá Noel y Árbol de Navidad.</li>
+                        <li>Lazo satinado verde en el diseño de Papá Noel.</li>
                     </ul>
                 </section>
 
                 <a
                     class="navidad-btn-whatsapp"
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Abrigo%20Fantas%C3%ADa%20Navide%C3%B1a%2C%20sus%20tallas%20y%20precios."
+                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Abrigo%20Fantas%C3%ADa%20Navide%C3%B1a%2C%20sus%20dise%C3%B1os%20y%20disponibilidad%20en%20talla%203."
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -380,5 +480,4 @@
 
 </body>
 </html>
-
 
