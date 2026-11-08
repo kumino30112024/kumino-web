@@ -1,1 +1,340 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vestido Encanto de Nochebuena de la colección navideña KÚMINO.">
+    <title>Vestido Encanto de Nochebuena | KÚMINO</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        body {
+            background-image: linear-gradient(rgba(255,250,242,.22), rgba(255,250,242,.22)),
+                              url("../fondo_productosnav.jpg");
+            background-position: center top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .navidad-producto-main { padding: 58px 20px 76px; }
+
+        .navidad-producto-container {
+            width: min(1120px,100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0,1fr) minmax(0,.95fr);
+            gap: clamp(28px,5vw,64px);
+            align-items: center;
+            padding: clamp(22px,4vw,48px);
+            background: rgba(255,252,247,.94);
+            border: 1px solid rgba(157,122,76,.22);
+            border-radius: 22px;
+            box-shadow: 0 18px 55px rgba(65,43,28,.13);
+            backdrop-filter: blur(5px);
+        }
+
+        .navidad-producto-imagen {
+            min-width: 0;
+            background: #f5eee5;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4 / 5;
+        }
+
+        .navidad-producto-imagen img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .navidad-producto-info { color: #333333; }
+
+        .navidad-producto-categoria {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #7A6A51;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .navidad-producto-info h1 {
+            margin: 0 0 17px;
+            color: #71343a;
+            font-family: "Playfair Display",Georgia,serif;
+            font-size: clamp(30px,4vw,43px);
+            line-height: 1.12;
+        }
+
+        .navidad-promo-etiqueta {
+            display: inline-block;
+            margin-bottom: 17px;
+            padding: 7px 13px;
+            border-radius: 4px;
+            background: #8b343b;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+        }
+
+        .navidad-producto-descripcion {
+            margin: 0 0 25px;
+            color: #5b554e;
+            font-size: 14px;
+            line-height: 1.85;
+        }
+
+        .navidad-producto-seccion { margin-top: 23px; }
+
+        .navidad-producto-seccion h2 {
+            margin: 0 0 13px;
+            color: #71343a;
+            font-family: "Playfair Display",Georgia,serif;
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        .navidad-tallas-precios {
+            display: grid;
+            grid-template-columns: repeat(2,minmax(0,1fr));
+            gap: 10px;
+        }
+
+        .navidad-talla-card {
+            padding: 13px 9px;
+            border: 1px solid #e5d8c9;
+            border-radius: 10px;
+            background: #fffaf4;
+            text-align: center;
+        }
+
+        .navidad-talla-card strong {
+            display: block;
+            margin-bottom: 9px;
+            color: #4c5145;
+            font-size: 13px;
+        }
+
+        .navidad-precio-regular {
+            display: block;
+            color: #91877d;
+            font-size: 12px;
+            text-decoration: line-through;
+        }
+
+        .navidad-precio-promo {
+            display: block;
+            margin-top: 3px;
+            color: #963b42;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        .navidad-aviso-precio {
+            display: block;
+            margin-top: 9px;
+            color: #81776c;
+            font-size: 11px;
+        }
+
+        .navidad-caracteristicas {
+            margin: 0;
+            padding-left: 19px;
+            color: #5b554e;
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .navidad-btn-whatsapp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 27px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            background: #81363d;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .3px;
+            text-align: center;
+            text-decoration: none;
+            transition: background .2s ease,transform .2s ease;
+        }
+
+        .navidad-btn-whatsapp:hover {
+            background: #672a31;
+            transform: translateY(-2px);
+        }
+
+        .navidad-volver {
+            display: inline-block;
+            margin-top: 17px;
+            color: #65785e;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        .navidad-volver:hover { text-decoration: underline; }
+
+        @media (max-width:760px) {
+            body { background-attachment: scroll; }
+
+            .navidad-producto-main { padding: 28px 13px 45px; }
+
+            .navidad-producto-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                padding: 16px;
+                border-radius: 16px;
+            }
+
+            .navidad-producto-imagen { max-height: 440px; }
+
+            .navidad-producto-info h1 { font-size: 32px; }
+        }
+
+        @media (max-width:380px) {
+            .navidad-tallas-precios { gap: 6px; }
+            .navidad-talla-card { padding: 11px 5px; }
+            .navidad-precio-promo { font-size: 17px; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">KÚMINO</a>
+
+            <nav class="navbar">
+                <a href="../index.html">Inicio</a>
+                <a href="navidad.html" class="activo">Navidad</a>
+            </nav>
+
+            <a href="#contacto" class="btn-contacto">Contacto</a>
+        </div>
+    </header>
+
+    <main class="navidad-producto-main">
+        <div class="navidad-producto-container">
+
+            <div class="navidad-producto-imagen">
+                <img
+                    src="../IMAGENES/vestidoencantodenochebuena.jpg"
+                    alt="Vestido Encanto de Nochebuena para mascotas"
+                >
+            </div>
+
+            <div class="navidad-producto-info">
+
+                <span class="navidad-producto-categoria">
+                    COLECCIÓN NAVIDEÑA
+                </span>
+
+                <h1>Vestido Encanto de Nochebuena</h1>
+
+                <span class="navidad-promo-etiqueta">
+                    PRECIO PROMOCIONAL
+                </span>
+
+                <p class="navidad-producto-descripcion">
+                    ¡Celebra la noche más especial del año con mucho encanto! Un vestido de inspiración navideña para que tu engreída luzca adorable y especial en las reuniones, fotografías y celebraciones de Nochebuena.
+                </p>
+
+                <section class="navidad-producto-seccion">
+                    <h2>Tallas disponibles</h2>
+
+                    <div class="navidad-tallas-precios">
+
+                        <div class="navidad-talla-card">
+                            <strong>Talla 1</strong>
+                            <span class="navidad-precio-regular">S/ 56.00</span>
+                            <span class="navidad-precio-promo">Desde S/ 40.00</span>
+                        </div>
+
+                        <div class="navidad-talla-card">
+                            <strong>Talla 2</strong>
+                            <span class="navidad-precio-regular">S/ 56.00</span>
+                            <span class="navidad-precio-promo">Desde S/ 40.00</span>
+                        </div>
+
+                        <div class="navidad-talla-card">
+                            <strong>Talla 3</strong>
+                            <span class="navidad-precio-regular">S/ 56.00</span>
+                            <span class="navidad-precio-promo">Desde S/ 40.00</span>
+                        </div>
+
+                    </div>
+
+                    <span class="navidad-aviso-precio">
+                        Precio promocional desde S/ 40.00. Consulta el precio correspondiente a tu talla.
+                    </span>
+                </section>
+
+                <section class="navidad-producto-seccion">
+                    <h2>Características</h2>
+
+                    <ul class="navidad-caracteristicas">
+                        <li>Diseño de inspiración navideña.</li>
+                        <li>Estilo de vestido para ocasiones especiales.</li>
+                        <li>Ideal para las celebraciones de Nochebuena.</li>
+                    </ul>
+                </section>
+
+                <a
+                    class="navidad-btn-whatsapp"
+                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Vestido%20Encanto%20de%20Nochebuena."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Consultar por WhatsApp →
+                </a>
+
+                <a href="navidad.html" class="navidad-volver">
+                    ← Volver a colección
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer-kumino">
+        <div class="footer-container">
+
+            <div class="footer-marca">
+                <h2>KÚMINO</h2>
+                <p>Moda con amor para tu mascota.</p>
+            </div>
+
+            <div class="footer-enlaces">
+                <h3>Navegación</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="navidad.html">Navidad</a>
+            </div>
+
+            <div class="footer-contacto" id="contacto">
+                <h3>Contáctanos</h3>
+                <a href="https://wa.me/51940151463"
+                   target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                <span>Envíos a todo el Perú</span>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 KÚMINO. Todos los derechos reservados.</p>
+            <span>Moda con amor para tu mascota</span>
+        </div>
+    </footer>
+
+</body>
+</html>
+
