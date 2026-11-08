@@ -213,9 +213,9 @@
         width: 100%;
         margin: 12px 0 8px;
         padding: 0;
-        background: transparent;
-        border: none;
-        box-shadow: none;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
     }
 
     .navidad-controles > .categorias-catalogo,
@@ -223,6 +223,7 @@
         display: none !important;
     }
 
+    /* ELIMINAR CÁPSULA BLANCA EXTERIOR */
     .navidad-controles .filtros-movil {
         display: flex !important;
         flex-direction: row;
@@ -233,6 +234,12 @@
         width: calc(100% - 64px);
         max-width: 380px;
         margin: 0 auto 22px;
+        padding: 0 !important;
+
+        background: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
     }
 
     .filtro-desplegable {
@@ -241,6 +248,7 @@
         min-width: 0;
     }
 
+    /* BOTONES INDIVIDUALES */
     .btn-filtro {
         box-sizing: border-box;
         width: 100%;
@@ -284,6 +292,7 @@
         background: #F5EADD;
     }
 
+    /* MENÚ DESPLEGABLE */
     .opciones-filtro {
         position: absolute;
         top: calc(100% + 7px);
