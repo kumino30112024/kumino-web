@@ -4952,3 +4952,163 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         right: -7px;
     }
 }
+
+/* =========================================================
+   BANNER NAVIDEÑO KÚMINO
+========================================================= */
+
+.banner-navidad {
+    position: relative;
+
+    width: 100%;
+    min-height: 300px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 35px 8%;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            transparent 35%,
+            rgba(249, 243, 235, 0.12) 52%,
+            rgba(249, 243, 235, 0.35) 100%
+        ),
+        url("banner-navidad.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+/* CONTENIDO DEL BANNER */
+
+.banner-navidad-contenido {
+    width: 48%;
+    max-width: 620px;
+
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* TÍTULO */
+
+.banner-navidad-contenido h2 {
+    margin: 0;
+
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 3.5vw, 54px);
+    font-weight: 600;
+
+    color: #2C3531;
+    line-height: 1.15;
+}
+
+.banner-navidad-contenido h2 span {
+    color: #B52F32;
+}
+
+/* DESCRIPCIÓN */
+
+.banner-navidad-contenido p {
+    margin: 15px 0 25px;
+
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(14px, 1.4vw, 20px);
+    font-weight: 500;
+
+    color: #333333;
+}
+
+/* BOTÓN */
+
+.btn-navidad {
+    display: inline-block;
+
+    padding: 13px 32px;
+
+    background-color: #E63946;
+    color: #FFFFFF;
+
+    border-radius: 30px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.btn-navidad:hover {
+    background-color: #C92F3B;
+    transform: translateY(-3px);
+
+    box-shadow: 0 7px 18px rgba(198, 47, 59, 0.20);
+}
+
+/* ADAPTACIÓN PARA CELULARES */
+
+@media (max-width: 768px) {
+
+    .banner-navidad {
+        min-height: 230px;
+
+        padding: 25px 12px;
+
+        background-position: 38% center;
+    }
+
+    .banner-navidad-contenido {
+        width: 55%;
+        margin-left: auto;
+    }
+
+    .banner-navidad-contenido h2 {
+        font-size: 25px;
+    }
+
+    .banner-navidad-contenido p {
+        font-size: 12px;
+        margin: 10px 0 16px;
+    }
+
+    .btn-navidad {
+        padding: 10px 18px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .banner-navidad {
+        min-height: 200px;
+        background-position: 35% center;
+        padding: 18px 8px;
+    }
+
+    .banner-navidad-contenido {
+        width: 58%;
+    }
+
+    .banner-navidad-contenido h2 {
+        font-size: 21px;
+    }
+
+    .banner-navidad-contenido p {
+        font-size: 10px;
+    }
+
+    .btn-navidad {
+        padding: 9px 13px;
+        font-size: 10px;
+    }
+}
+
