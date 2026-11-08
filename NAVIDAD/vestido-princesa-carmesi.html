@@ -10,7 +10,7 @@
 
     <style>
         body {
-            background-image: linear-gradient(rgba(255,250,242,.22), rgba(255,250,242,.22)),
+            background-image: linear-gradient(rgba(255,250,242,.08), rgba(255,250,242,.08)),
                               url("../fondo_productosnav.jpg");
             background-position: center top;
             background-size: cover;
@@ -18,29 +18,30 @@
             background-attachment: fixed;
         }
 
-        .navidad-producto-main { padding: 58px 20px 76px; }
+        .navidad-producto-main {
+            padding: 58px 20px 76px;
+        }
 
         .navidad-producto-container {
-            width: min(1120px,100%);
+            width: min(1250px,100%);
             margin: 0 auto;
             display: grid;
             grid-template-columns: minmax(0,1fr) minmax(0,.95fr);
-            gap: clamp(28px,5vw,64px);
+            gap: clamp(35px,5vw,65px);
             align-items: center;
-            padding: clamp(22px,4vw,48px);
-            background: rgba(255,252,247,.94);
-            border: 1px solid rgba(157,122,76,.22);
-            border-radius: 22px;
-            box-shadow: 0 18px 55px rgba(65,43,28,.13);
-            backdrop-filter: blur(5px);
+            padding: 35px 25px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: none;
         }
 
         .navidad-producto-imagen {
             min-width: 0;
-            background: #f5eee5;
-            border-radius: 16px;
-            overflow: hidden;
+            background: transparent;
             aspect-ratio: 4 / 5;
+            overflow: visible;
         }
 
         .navidad-producto-imagen img {
@@ -48,10 +49,14 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            mix-blend-mode: multiply;
+            mix-blend-mode: normal;
+            opacity: 1;
+            filter: drop-shadow(0 10px 16px rgba(65,43,28,.18));
         }
 
-        .navidad-producto-info { color: #333333; }
+        .navidad-producto-info {
+            color: #333333;
+        }
 
         .navidad-producto-categoria {
             display: inline-block;
@@ -84,12 +89,14 @@
 
         .navidad-producto-descripcion {
             margin: 0 0 25px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 14px;
             line-height: 1.85;
         }
 
-        .navidad-producto-seccion { margin-top: 23px; }
+        .navidad-producto-seccion {
+            margin-top: 23px;
+        }
 
         .navidad-producto-seccion h2 {
             margin: 0 0 13px;
@@ -101,28 +108,28 @@
 
         .navidad-tallas-precios {
             display: grid;
-            grid-template-columns: repeat(2,minmax(0,1fr));
+            grid-template-columns: repeat(3,minmax(0,1fr));
             gap: 10px;
         }
 
         .navidad-talla-card {
             padding: 13px 9px;
-            border: 1px solid #e5d8c9;
-            border-radius: 10px;
-            background: #fffaf4;
+            border: 1px solid rgba(157,122,76,.28);
+            border-radius: 12px;
+            background: rgba(255,250,242,.65);
             text-align: center;
         }
 
         .navidad-talla-card strong {
             display: block;
             margin-bottom: 9px;
-            color: #4c5145;
+            color: #514b44;
             font-size: 13px;
         }
 
         .navidad-precio-regular {
             display: block;
-            color: #91877d;
+            color: #81766d;
             font-size: 12px;
             text-decoration: line-through;
         }
@@ -135,17 +142,25 @@
             font-weight: 700;
         }
 
+        .navidad-ahorro {
+            display: block;
+            margin-top: 5px;
+            color: #526B50;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
         .navidad-aviso-precio {
             display: block;
             margin-top: 9px;
-            color: #81776c;
+            color: #62584e;
             font-size: 11px;
         }
 
         .navidad-caracteristicas {
             margin: 0;
             padding-left: 19px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 13px;
             line-height: 1.9;
         }
@@ -157,7 +172,7 @@
             width: 100%;
             margin-top: 27px;
             padding: 15px 20px;
-            border-radius: 8px;
+            border-radius: 30px;
             background: #81363d;
             color: #fff;
             font-size: 13px;
@@ -165,6 +180,7 @@
             letter-spacing: .3px;
             text-align: center;
             text-decoration: none;
+            box-shadow: 0 7px 16px rgba(91,39,43,.16);
             transition: background .2s ease,transform .2s ease;
         }
 
@@ -176,34 +192,80 @@
         .navidad-volver {
             display: inline-block;
             margin-top: 17px;
-            color: #65785e;
+            color: #526b50;
             font-size: 13px;
+            font-weight: 700;
             text-decoration: none;
         }
 
-        .navidad-volver:hover { text-decoration: underline; }
+        .navidad-volver:hover {
+            text-decoration: underline;
+        }
 
         @media (max-width:760px) {
-            body { background-attachment: scroll; }
+            body {
+                background-attachment: scroll;
+            }
 
-            .navidad-producto-main { padding: 28px 13px 45px; }
+            .navidad-producto-main {
+                padding: 30px 16px 45px !important;
+            }
 
             .navidad-producto-container {
                 grid-template-columns: 1fr;
-                gap: 25px;
-                padding: 16px;
-                border-radius: 16px;
+                gap: 22px;
+                padding: 0;
             }
 
-            .navidad-producto-imagen { max-height: 440px; }
+            .navidad-producto-imagen {
+                width: 100%;
+                max-height: none;
+                height: auto;
+                aspect-ratio: 4 / 5;
+                background: transparent;
+            }
 
-            .navidad-producto-info h1 { font-size: 32px; }
+            .navidad-producto-imagen img {
+                height: 100%;
+                object-fit: contain;
+                mix-blend-mode: multiply;
+                filter: drop-shadow(0 10px 28px rgba(73,43,28,.18));
+            }
+
+            .navidad-producto-info h1 {
+                font-size: 32px;
+            }
+
+            .navidad-tallas-precios {
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 8px;
+            }
+
+            .navidad-talla-card {
+                padding: 12px 6px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 17px;
+            }
         }
 
         @media (max-width:380px) {
-            .navidad-tallas-precios { gap: 6px; }
-            .navidad-talla-card { padding: 11px 5px; }
-            .navidad-precio-promo { font-size: 17px; }
+            .navidad-producto-main {
+                padding: 25px 13px 40px !important;
+            }
+
+            .navidad-tallas-precios {
+                gap: 6px;
+            }
+
+            .navidad-talla-card {
+                padding: 11px 5px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -250,7 +312,7 @@
                 </p>
 
                 <section class="navidad-producto-seccion">
-                    <h2>Tallas disponibles</h2>
+                    <h2>Tallas y precios</h2>
 
                     <div class="navidad-tallas-precios">
 
@@ -258,18 +320,21 @@
                             <strong>Talla 1</strong>
                             <span class="navidad-precio-regular">S/ 44.80</span>
                             <span class="navidad-precio-promo">Desde S/ 32.00</span>
+                            <span class="navidad-ahorro">Ahorras desde S/ 12.80</span>
                         </div>
 
                         <div class="navidad-talla-card">
                             <strong>Talla 2</strong>
                             <span class="navidad-precio-regular">S/ 44.80</span>
                             <span class="navidad-precio-promo">Desde S/ 32.00</span>
+                            <span class="navidad-ahorro">Ahorras desde S/ 12.80</span>
                         </div>
 
                         <div class="navidad-talla-card">
                             <strong>Talla 3</strong>
                             <span class="navidad-precio-regular">S/ 44.80</span>
                             <span class="navidad-precio-promo">Desde S/ 32.00</span>
+                            <span class="navidad-ahorro">Ahorras desde S/ 12.80</span>
                         </div>
 
                     </div>
@@ -337,4 +402,3 @@
 
 </body>
 </html>
-
