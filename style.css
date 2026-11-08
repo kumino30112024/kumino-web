@@ -4789,7 +4789,7 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
     /* DIMENSIONES */
     width: calc(100% - 46px);
-    max-width: 1700px;
+  max-width: none;
     min-height: 360px;
 
     margin: 30px auto;
