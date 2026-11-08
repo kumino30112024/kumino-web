@@ -336,7 +336,30 @@
     .precio-descuento-navidad { font-size: 11px; padding: 4px 8px; }
     .aviso-precio-talla-navidad { font-size: 9px; padding: 3px 7px; }
 }
+/* FONDO NAVIDEÑO KÚMINO */
+body {
+    background-image: url("../IMAGENES/fondo-navidad-kumino.png");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
+.catalogo-hembras {
+    background: transparent !important;
+}
+
+.catalogo-hembras::before,
+.catalogo-hembras::after {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+        background-size: auto 100vh;
+    }
+}
 </style>
 </head>
 
