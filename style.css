@@ -753,7 +753,7 @@ a {
     position: relative;
 
    width: calc(100% - 46px);
-max-width: 1700px;
+max-width: none;
 height: 400px;
 
     margin: 80px auto;
