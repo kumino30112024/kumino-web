@@ -107,36 +107,23 @@
             font-weight: 600;
         }
 
-        /* PRECIO GENERAL */
-        .navidad-precios {
+        /* COLOR */
+        .navidad-color-opcion {
             display: flex;
             align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            padding: 17px;
-            border: 1px solid rgba(157,122,76,.28);
-            border-radius: 12px;
-            background: rgba(255,250,242,.65);
+            gap: 10px;
+            color: #5b554e;
+            font-size: 13px;
         }
 
-        .navidad-precio-regular {
-            color: #91877d;
-            font-size: 14px;
-            text-decoration: line-through;
-        }
-
-        .navidad-precio-promo {
-            color: #963b42;
-            font-size: 25px;
-            font-weight: 700;
-        }
-
-        .navidad-aviso-precio {
-            display: block;
-            margin-top: 9px;
-            color: #81776c;
-            font-size: 11px;
-            line-height: 1.6;
+        .navidad-color-circulo {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #c51f32;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 1px #71343a;
         }
 
         /* TALLAS Y PRECIOS */
@@ -165,18 +152,30 @@
             font-size: 14px;
         }
 
-        .navidad-talla-card .navidad-precio-regular {
+        .navidad-precio-regular {
+            color: #91877d;
             font-size: 12px;
+            text-decoration: line-through;
         }
 
-        .navidad-talla-card .navidad-precio-promo {
+        .navidad-precio-promo {
+            color: #963b42;
             font-size: 19px;
+            font-weight: 700;
         }
 
         .navidad-ahorro {
             color: #526B50;
             font-size: 11px;
             font-weight: 600;
+        }
+
+        .navidad-aviso-precio {
+            display: block;
+            margin-top: 9px;
+            color: #81776c;
+            font-size: 11px;
+            line-height: 1.6;
         }
 
         /* CARACTERÍSTICAS */
@@ -256,10 +255,6 @@
                 font-size: 32px;
             }
 
-            .navidad-precios {
-                padding: 15px;
-            }
-
             .navidad-tallas-grid {
                 grid-template-columns: repeat(3,minmax(0,1fr));
                 gap: 8px;
@@ -277,15 +272,6 @@
         @media (max-width:380px) {
             .navidad-producto-main {
                 padding: 25px 13px 40px !important;
-            }
-
-            .navidad-precios {
-                gap: 10px;
-                padding: 13px;
-            }
-
-            .navidad-precio-promo {
-                font-size: 23px;
             }
 
             .navidad-tallas-grid {
@@ -351,24 +337,14 @@
                     un toque festivo y encantador durante las celebraciones.
                 </p>
 
-                <!-- PRECIO GENERAL -->
+                <!-- COLOR -->
                 <section class="navidad-producto-seccion">
-                    <h2>Precio</h2>
+                    <h2>Color</h2>
 
-                    <div class="navidad-precios">
-                        <span class="navidad-precio-regular">
-                            Desde S/ 35.00
-                        </span>
-
-                        <span class="navidad-precio-promo">
-                            Desde S/ 25.00
-                        </span>
+                    <div class="navidad-color-opcion">
+                        <span class="navidad-color-circulo"></span>
+                        <span>Rojo</span>
                     </div>
-
-                    <span class="navidad-aviso-precio">
-                        ⓘ El precio promocional varía según la talla.
-                        Consulta el importe final antes de realizar tu pedido.
-                    </span>
                 </section>
 
                 <!-- TALLAS Y PRECIOS -->
@@ -380,55 +356,32 @@
                         <!-- TALLA 1 -->
                         <div class="navidad-talla-card">
                             <strong>Talla 1</strong>
-
-                            <span class="navidad-precio-regular">
-                                S/ 36.40
-                            </span>
-
-                            <span class="navidad-precio-promo">
-                                S/ 26.00
-                            </span>
-
-                            <span class="navidad-ahorro">
-                                Ahorras S/ 10.40
-                            </span>
+                            <span class="navidad-precio-regular">S/ 36.40</span>
+                            <span class="navidad-precio-promo">S/ 26.00</span>
+                            <span class="navidad-ahorro">Ahorras S/ 10.40</span>
                         </div>
 
                         <!-- TALLA 3 -->
                         <div class="navidad-talla-card">
                             <strong>Talla 3</strong>
-
-                            <span class="navidad-precio-regular">
-                                S/ 40.60
-                            </span>
-
-                            <span class="navidad-precio-promo">
-                                S/ 29.00
-                            </span>
-
-                            <span class="navidad-ahorro">
-                                Ahorras S/ 11.60
-                            </span>
+                            <span class="navidad-precio-regular">S/ 40.60</span>
+                            <span class="navidad-precio-promo">S/ 29.00</span>
+                            <span class="navidad-ahorro">Ahorras S/ 11.60</span>
                         </div>
 
                         <!-- TALLA 0 -->
                         <div class="navidad-talla-card">
                             <strong>Talla 0</strong>
-
-                            <span class="navidad-precio-regular">
-                                S/ 35.00
-                            </span>
-
-                            <span class="navidad-precio-promo">
-                                S/ 25.00
-                            </span>
-
-                            <span class="navidad-ahorro">
-                                Ahorras S/ 10.00
-                            </span>
+                            <span class="navidad-precio-regular">S/ 35.00</span>
+                            <span class="navidad-precio-promo">S/ 25.00</span>
+                            <span class="navidad-ahorro">Ahorras S/ 10.00</span>
                         </div>
 
                     </div>
+
+                    <span class="navidad-aviso-precio">
+                        Los precios varían según la talla.
+                    </span>
                 </section>
 
                 <!-- CARACTERÍSTICAS -->
@@ -500,4 +453,3 @@
 
 </body>
 </html>
-
