@@ -5153,4 +5153,38 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     }
 }
 
+/* =========================================================
+   BOTÓN NAVIDAD - MENÚ PRINCIPAL
+========================================================= */
+
+.navbar .btn-navidad-menu {
+    padding: 10px 23px;
+
+    background-color: #526B50;
+    color: #FFFFFF;
+
+    border-radius: 25px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.navbar .btn-navidad-menu::after {
+    display: none;
+}
+
+.navbar .btn-navidad-menu:hover {
+    background-color: #3F593E;
+    color: #FFFFFF;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 14px rgba(63, 89, 62, 0.20);
+}
+
 
