@@ -4953,21 +4953,25 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     }
 }
 
+
 /* =========================================================
-   BANNER NAVIDEÑO KÚMINO
+   BANNER NAVIDEÑO KÚMINO - AJUSTE DE ESPACIADO
 ========================================================= */
 
 .banner-navidad {
     position: relative;
 
-    width: 100%;
+    width: calc(100% - 64px);
+    max-width: 1600px;
+
     min-height: 300px;
+
+    margin: 28px auto;
+    padding: 35px 8%;
 
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    padding: 35px 8%;
 
     background-image:
         linear-gradient(
@@ -4979,18 +4983,20 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         url("banner-navidad.png");
 
     background-size: cover;
-    background-position: center;
+    background-position: center 42%;
     background-repeat: no-repeat;
 
+    border-radius: 20px;
     overflow: hidden;
+
+    box-shadow: 0 8px 25px rgba(44, 53, 49, 0.10);
 }
 
-/* CONTENIDO DEL BANNER */
+/* CONTENIDO */
 
 .banner-navidad-contenido {
     width: 48%;
     max-width: 620px;
-
     text-align: center;
 
     position: relative;
@@ -5030,7 +5036,6 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 .btn-navidad {
     display: inline-block;
-
     padding: 13px 32px;
 
     background-color: #E63946;
@@ -5043,25 +5048,27 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     font-weight: 600;
 
     text-decoration: none;
-
     transition: all 0.3s ease;
 }
 
 .btn-navidad:hover {
     background-color: #C92F3B;
     transform: translateY(-3px);
-
     box-shadow: 0 7px 18px rgba(198, 47, 59, 0.20);
 }
 
-/* ADAPTACIÓN PARA CELULARES */
+/* TABLETS Y CELULARES */
 
 @media (max-width: 768px) {
 
     .banner-navidad {
+        width: calc(100% - 32px);
         min-height: 230px;
 
+        margin: 20px auto;
         padding: 25px 12px;
+
+        border-radius: 16px;
 
         background-position: 38% center;
     }
@@ -5089,9 +5096,14 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 @media (max-width: 480px) {
 
     .banner-navidad {
+        width: calc(100% - 24px);
         min-height: 200px;
-        background-position: 35% center;
+
+        margin: 16px auto;
         padding: 18px 8px;
+
+        border-radius: 14px;
+        background-position: 35% center;
     }
 
     .banner-navidad-contenido {
@@ -5111,4 +5123,5 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         font-size: 10px;
     }
 }
+
 
