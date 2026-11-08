@@ -4792,3 +4792,163 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     font-weight: 400;
     line-height: 1.4;
 }
+
+
+/* =========================================================
+   DECORACIÓN NAVIDEÑA DEL ENCABEZADO KÚMINO
+========================================================= */
+
+.header-navidad {
+    background-color: rgba(250, 243, 236, 0.97);
+
+    background-image:
+        radial-gradient(circle, #F6D88B 1.5px, transparent 2.5px),
+        radial-gradient(circle, #FFF4D6 1px, transparent 2px),
+        linear-gradient(
+            to bottom,
+            rgba(127, 145, 131, 0.15),
+            transparent 18px
+        );
+
+    background-size:
+        85px 13px,
+        125px 13px,
+        100% 100%;
+
+    background-position:
+        15px 5px,
+        55px 9px,
+        center;
+
+    background-repeat: repeat-x;
+
+    overflow: visible;
+}
+
+/* LÍNEA DECORATIVA DE LUCES */
+
+.header-navidad::before {
+    content: "";
+    position: absolute;
+
+    top: 12px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: rgba(198, 161, 91, 0.45);
+
+    pointer-events: none;
+}
+
+/* DECORACIONES DE LOS EXTREMOS */
+
+.nav-decor {
+    position: absolute;
+    top: 0;
+
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+
+    gap: 5px;
+
+    z-index: 2;
+    pointer-events: none;
+
+    font-size: 23px;
+}
+
+.nav-decor-izq {
+    left: 0;
+    padding-left: 12px;
+}
+
+.nav-decor-der {
+    right: 0;
+    padding-right: 12px;
+}
+
+.nav-decor span:nth-child(2) {
+    margin-top: 9px;
+}
+
+.nav-decor span:nth-child(3) {
+    margin-top: 3px;
+    font-size: 17px;
+}
+
+/* GORRITO NAVIDEÑO SOBRE EL LOGO */
+
+.header-navidad .logo span {
+    position: relative;
+}
+
+.header-navidad .logo span::after {
+    content: "";
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    top: -11px;
+    right: -8px;
+
+    border-left: 8px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 15px solid #D93642;
+
+    transform: rotate(24deg);
+}
+
+.header-navidad .logo span::before {
+    content: "";
+    position: absolute;
+
+    width: 13px;
+    height: 4px;
+
+    top: 0;
+    right: -12px;
+
+    background: #FFFDF8;
+    border-radius: 5px;
+
+    transform: rotate(24deg);
+    z-index: 2;
+}
+
+/* BOTÓN CONTACTO */
+
+.header-navidad .btn-contacto {
+    position: relative;
+    z-index: 3;
+}
+
+/* CAPA DE NAVEGACIÓN */
+
+.header-navidad .nav-container {
+    position: relative;
+    z-index: 3;
+}
+
+/* AJUSTES PARA CELULARES */
+
+@media (max-width: 768px) {
+
+    .nav-decor {
+        display: none;
+    }
+
+    .header-navidad {
+        background-size:
+            75px 13px,
+            110px 13px,
+            100% 100%;
+    }
+
+    .header-navidad .logo span::after {
+        right: -7px;
+    }
+}
