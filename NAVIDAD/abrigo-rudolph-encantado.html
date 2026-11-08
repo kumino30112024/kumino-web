@@ -107,7 +107,28 @@
             font-weight: 600;
         }
 
-        /* TARJETAS DE TALLAS Y PRECIOS */
+        /* COLOR */
+
+        .navidad-colores {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: #5b554e;
+            font-size: 13px;
+        }
+
+        .navidad-color-circulo {
+            width: 17px;
+            height: 17px;
+            display: inline-block;
+            flex-shrink: 0;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px rgba(80,65,50,.35);
+            background: #47734b;
+        }
+
+        /* TALLAS Y PRECIOS */
 
         .navidad-tallas-grid {
             display: grid;
@@ -181,7 +202,7 @@
             line-height: 1.9;
         }
 
-        /* BOTÓN WHATSAPP */
+        /* WHATSAPP */
 
         .navidad-btn-whatsapp {
             display: flex;
@@ -219,7 +240,7 @@
             text-decoration: underline;
         }
 
-        /* DISEÑO RESPONSIVE */
+        /* RESPONSIVE */
 
         @media (max-width:760px) {
             body {
@@ -291,6 +312,7 @@
 
 <body>
 
+    <!-- HEADER -->
     <header class="header">
         <div class="nav-container">
             <a href="../index.html" class="logo">KÚMINO</a>
@@ -304,9 +326,11 @@
         </div>
     </header>
 
+    <!-- PRODUCTO -->
     <main class="navidad-producto-main">
         <div class="navidad-producto-container">
 
+            <!-- IMAGEN -->
             <div class="navidad-producto-imagen">
                 <img
                     src="../IMAGENES/abrigorudolphencantado.jpg"
@@ -314,6 +338,7 @@
                 >
             </div>
 
+            <!-- INFORMACIÓN -->
             <div class="navidad-producto-info">
 
                 <span class="navidad-producto-categoria">
@@ -334,6 +359,17 @@
                     y lleno de espíritu navideño.
                 </p>
 
+                <!-- COLOR -->
+                <section class="navidad-producto-seccion">
+                    <h2>Color</h2>
+
+                    <div class="navidad-colores">
+                        <span class="navidad-color-circulo"></span>
+                        <span>Verde</span>
+                    </div>
+                </section>
+
+                <!-- TALLAS Y PRECIOS -->
                 <section class="navidad-producto-seccion">
                     <h2>Tallas y precios</h2>
 
@@ -344,15 +380,19 @@
                             <span class="navidad-talla-numero">
                                 Talla 3
                             </span>
+
                             <span class="navidad-talla-equivalencia">
                                 L
                             </span>
+
                             <span class="navidad-precio-regular">
                                 S/ 49.00
                             </span>
+
                             <span class="navidad-precio-promo">
                                 S/ 35.00
                             </span>
+
                             <span class="navidad-ahorro">
                                 Ahorras S/ 14.00
                             </span>
@@ -363,15 +403,19 @@
                             <span class="navidad-talla-numero">
                                 Talla 4
                             </span>
+
                             <span class="navidad-talla-equivalencia">
                                 XL
                             </span>
+
                             <span class="navidad-precio-regular">
                                 S/ 54.60
                             </span>
+
                             <span class="navidad-precio-promo">
                                 S/ 39.00
                             </span>
+
                             <span class="navidad-ahorro">
                                 Ahorras S/ 15.60
                             </span>
@@ -385,6 +429,7 @@
                     </span>
                 </section>
 
+                <!-- CARACTERÍSTICAS -->
                 <section class="navidad-producto-seccion">
                     <h2>Características</h2>
 
@@ -396,9 +441,10 @@
                     </ul>
                 </section>
 
+                <!-- WHATSAPP -->
                 <a
                     class="navidad-btn-whatsapp"
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Abrigo%20Rudolph%20Encantado%2C%20su%20disponibilidad%20y%20tallas."
+                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Abrigo%20Rudolph%20Encantado%2C%20sus%20tallas%20y%20disponibilidad."
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -413,6 +459,7 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="footer-kumino">
         <div class="footer-container">
 
