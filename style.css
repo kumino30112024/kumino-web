@@ -5336,21 +5336,3 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 }
 
-/* CELULARES MUY PEQUEÑOS */
-
-@media (max-width: 380px) {
-
-    .header .nav-container {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
-    }
-
-    .header .logo {
-        font-size: 23px !important;
-    }
-
-    .navidad-producto-container {
-        margin-top: 24px !important;
-    }
-
-}
