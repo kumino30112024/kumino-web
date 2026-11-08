@@ -5135,37 +5135,45 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 
 /* =========================================================
-   BANNERS CON LAS MISMAS DIMENSIONES DE LAS COLECCIONES
+   AJUSTAR ESPACIOS ENTRE BANNERS Y COLECCIONES - MÓVIL
 ========================================================= */
-
-/* PC */
-
-@media (min-width: 769px) {
-
-    .banner-navidad,
-    .disfraces-banner {
-        width: calc(100% - 46px);
-        height: clamp(480px, 69vh, 720px);
-        min-height: 0;
-
-        border-radius: 16px;
-    }
-
-}
-
-/* CELULARES Y TABLETS */
 
 @media (max-width: 768px) {
 
+    /* BANNER NAVIDEÑO */
+
+    .banner-navidad {
+        margin-top: 18px !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* SECCIÓN DE COLECCIONES */
+
+    .coleccion {
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+    }
+
+    /* CONSERVAR ESPACIO ENTRE TÍTULO Y TARJETAS */
+
+    .coleccion-header {
+        margin-bottom: 16px !important;
+    }
+
+    /* BANNER DE DISFRACES */
+
+    .disfraces-banner {
+        margin-top: 8px !important;
+        margin-bottom: 18px !important;
+    }
+
+    /* CONSERVAR DIMENSIONES DE LOS TRES ELEMENTOS */
+
     .banner-navidad,
     .disfraces-banner {
-        width: calc(100% - 24px) !important;
-
         height: clamp(250px, 52vh, 400px) !important;
         min-height: 0 !important;
-
-        border-radius: 12px !important;
-        box-sizing: border-box;
     }
 
 }
+
