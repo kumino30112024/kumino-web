@@ -5012,4 +5012,41 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     box-shadow: 0 5px 14px rgba(63, 89, 62, 0.20);
 }
 
+/* =========================================================
+   RECUPERAR MENÚ DE ESCRITORIO KÚMINO
+========================================================= */
+
+@media (min-width: 769px) {
+
+    .nav-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .header .nav-container .logo {
+        margin-left: -20px;
+        flex-shrink: 0;
+    }
+
+    .menu-toggle {
+        display: none !important;
+    }
+
+    .navbar {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 38px;
+    }
+
+    .navbar a {
+        display: inline-block;
+    }
+
+    .btn-contacto {
+        display: inline-block;
+    }
+}
+
 
