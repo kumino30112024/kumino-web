@@ -291,7 +291,6 @@
     }
 }
 
-
 /* PRECIOS DE LA COLECCIÓN NAVIDAD */
 .precio-navidad-fila {
     display: flex;
@@ -417,13 +416,6 @@ body {
     line-height: 1.08;
 }
 
-.navidad-arbol {
-    display: inline-block;
-    font-family: sans-serif;
-    font-size: .62em;
-    vertical-align: .08em;
-}
-
 .catalogo-header p {
     max-width: 680px;
     margin: 0 auto;
@@ -431,44 +423,6 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     line-height: 1.8;
-}
-
-.navidad-beneficios {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin: 20px auto 0;
-}
-
-.navidad-beneficio {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 10px 18px;
-    border-radius: 28px;
-    background: rgba(255, 250, 242, .76);
-    color: #2C3531;
-    box-shadow: 0 4px 14px rgba(60, 50, 35, .05);
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-}
-
-.navidad-beneficio > span {
-    color: #526B50;
-    font-size: 18px;
-    line-height: 1;
-}
-
-.navidad-beneficio strong {
-    font-weight: 600;
-}
-
-.navidad-beneficios > i {
-    width: 1px;
-    height: 22px;
-    background: rgba(82, 107, 80, .35);
 }
 
 .navidad-controles {
@@ -499,12 +453,6 @@ body {
 .navidad-controles > .categorias-catalogo .categoria-activa {
     background: #526B50;
     color: #FFFFFF;
-}
-
-.icono-categoria {
-    color: currentColor;
-    font-size: 17px;
-    line-height: 1;
 }
 
 .filtro-talla-desktop {
@@ -621,33 +569,6 @@ body {
     font-size: 12px;
 }
 
-.btn-consultar-navidad {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: max-content;
-    min-width: 132px;
-    margin: 10px auto 14px;
-    padding: 9px 18px;
-    border: 1px solid #71866D;
-    border-radius: 24px;
-    background: rgba(255, 250, 242, .72);
-    color: #2C3531;
-    font-family: 'Poppins', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 3px 8px rgba(50, 50, 35, .08);
-    transition: .2s ease;
-}
-
-.btn-consultar-navidad:hover {
-    background: #526B50;
-    color: #FFFFFF;
-    transform: translateY(-1px);
-}
-
 .navidad-sin-resultados {
     color: #526B50;
     font-weight: 500;
@@ -715,20 +636,6 @@ body {
         font-size: 12px;
         line-height: 1.7;
     }
-    .navidad-beneficios {
-        gap: 8px;
-        margin-top: 15px;
-    }
-    .navidad-beneficios > i {
-        display: none;
-    }
-    .navidad-beneficio {
-        padding: 8px 11px;
-        font-size: 10px;
-    }
-    .navidad-beneficio > span {
-        font-size: 15px;
-    }
     .navidad-controles {
         width: 100%;
         margin: 0 auto 24px;
@@ -776,12 +683,6 @@ body {
         padding: 7px 9px;
         font-size: 8px;
     }
-    .btn-consultar-navidad {
-        min-width: 0;
-        margin: 8px auto 11px;
-        padding: 7px 12px;
-        font-size: 10px;
-    }
     .whatsapp-navidad {
         right: 15px;
         bottom: 15px;
@@ -825,7 +726,6 @@ body {
     </div>
 </header>
 
-
 <!-- =========================================
      CATÁLOGO NAVIDAD
 ========================================= -->
@@ -836,7 +736,7 @@ body {
 
         <span class="navidad-eyebrow">✦ COLECCIÓN NAVIDEÑA ✦</span>
 
-        <h1>Navidad <span class="navidad-arbol" aria-hidden="true">🎄</span></h1>
+        <h1>Navidad</h1>
 
         <p>
             Celebra la temporada más especial del año con nuestra colección navideña.
@@ -844,25 +744,7 @@ body {
             Prendas llenas de encanto para compartir momentos inolvidables con tu engreído.
         </p>
 
-        <div class="navidad-beneficios" aria-label="Beneficios de compra">
-            <div class="navidad-beneficio">
-                <span aria-hidden="true">✉</span>
-                <strong>Envíos a todo el Perú</strong>
-            </div>
-            <i aria-hidden="true"></i>
-            <div class="navidad-beneficio">
-                <span aria-hidden="true">🎁</span>
-                <strong>Regalo por tu compra</strong>
-            </div>
-            <i aria-hidden="true"></i>
-            <div class="navidad-beneficio">
-                <span aria-hidden="true">♧</span>
-                <strong>Pago seguro</strong>
-            </div>
-        </div>
-
     </div>
-
 
     <!-- =====================================
          FILTROS
@@ -882,27 +764,26 @@ body {
             </button>
 
             <button type="button" data-filtro="vestidos">
-                <span class="icono-categoria" aria-hidden="true">♧</span> Vestidos
+                Vestidos
             </button>
 
             <button type="button" data-filtro="abrigos">
-                <span class="icono-categoria" aria-hidden="true">♙</span> Abrigos
+                Abrigos
             </button>
 
             <button type="button" data-filtro="chompas">
-                <span class="icono-categoria" aria-hidden="true">▤</span> Chompas
+                Chompas
             </button>
 
             <button type="button" data-filtro="conjuntos">
-                <span class="icono-categoria" aria-hidden="true">❖</span> Conjuntos
+                Conjuntos
             </button>
 
             <button type="button" data-filtro="capas">
-                <span class="icono-categoria" aria-hidden="true">♧</span> Capas
+                Capas
             </button>
 
         </div>
-
 
         <!-- FILTROS MÓVILES -->
 
@@ -953,7 +834,6 @@ body {
 
             </div>
 
-
             <div class="filtro-desplegable">
 
                 <button type="button"
@@ -985,7 +865,6 @@ body {
             </div>
 
         </div>
-
 
         <!-- TALLAS ESCRITORIO -->
 
@@ -1021,13 +900,11 @@ body {
 
     </div>
 
-
     <!-- =====================================
          PRODUCTOS
     ====================================== -->
 
     <div class="productos-grid">
-
 
         <!-- 01 -->
 
@@ -1052,13 +929,10 @@ body {
                     <span class="precio-regular-navidad">S/ 50.40</span>
                     <span class="precio-descuento-navidad">Desde S/ 36.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Rub%C3%AD%20de%20Gala%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 02 -->
 
@@ -1078,13 +952,10 @@ body {
                     <span class="precio-regular-navidad">S/ 63.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 45.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Abrigo%20Festividad%20Imperial%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 03 -->
 
@@ -1104,13 +975,10 @@ body {
                     <span class="precio-regular-navidad">S/ 49.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 35.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Navidad%20Escocesa%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 04 -->
 
@@ -1130,13 +998,10 @@ body {
                     <span class="precio-regular-navidad">S/ 42.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 30.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Dulce%20Navidad%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
       <!-- 05 -->
 
@@ -1160,10 +1025,7 @@ body {
             <span class="precio-regular-navidad">S/ 39.20</span>
             <span class="precio-descuento-navidad">Desde S/ 28.00</span>
         </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Reno%20de%20Navidad%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-
-        <span class="aviso-precio-talla-navidad">
+<span class="aviso-precio-talla-navidad">
             ⓘ Precio varía según la talla
         </span>
     </div>
@@ -1187,13 +1049,10 @@ body {
                     <span class="precio-regular-navidad">S/ 49.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 35.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Nochebuena%20Encantada%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 07 -->
 
@@ -1213,13 +1072,10 @@ body {
                     <span class="precio-regular-navidad">S/ 36.40</span>
                     <span class="precio-descuento-navidad">Desde S/ 26.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Santa%27s%20Princess%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 08 -->
 
@@ -1239,13 +1095,10 @@ body {
                     <span class="precio-regular-navidad">S/ 36.40</span>
                     <span class="precio-descuento-navidad">Desde S/ 26.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Encanto%20de%20Santa%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 09 -->
 
@@ -1265,13 +1118,10 @@ body {
                     <span class="precio-regular-navidad">S/ 40.60</span>
                     <span class="precio-descuento-navidad">Desde S/ 29.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Galletita%20de%20Navidad%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 10 -->
 
@@ -1291,13 +1141,10 @@ body {
                     <span class="precio-regular-navidad">S/ 56.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 40.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Reina%20del%20Bosque%20Navide%C3%B1o%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 11 -->
 
@@ -1317,13 +1164,10 @@ body {
                     <span class="precio-regular-navidad">S/ 44.80</span>
                     <span class="precio-descuento-navidad">Desde S/ 32.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Princesa%20Carmes%C3%AD%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 12 -->
 
@@ -1343,13 +1187,10 @@ body {
                     <span class="precio-regular-navidad">S/ 56.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 40.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Encanto%20de%20Nochebuena%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 13 -->
 
@@ -1369,13 +1210,10 @@ body {
                     <span class="precio-regular-navidad">S/ 49.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 35.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20%C3%81rbol%20de%20Navidad%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 14 -->
 
@@ -1395,13 +1233,10 @@ body {
                     <span class="precio-regular-navidad">S/ 36.40</span>
                     <span class="precio-descuento-navidad">Desde S/ 26.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Renos%20de%20Nochebuena%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 15 -->
 
@@ -1421,13 +1256,10 @@ body {
                     <span class="precio-regular-navidad">S/ 44.80</span>
                     <span class="precio-descuento-navidad">Desde S/ 32.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Reno%20Nevado%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 16 -->
 
@@ -1447,13 +1279,10 @@ body {
                     <span class="precio-regular-navidad">S/ 39.20</span>
                     <span class="precio-descuento-navidad">Desde S/ 28.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Conjunto%20Copitos%20de%20Navidad%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 17 -->
 
@@ -1473,13 +1302,10 @@ body {
                     <span class="precio-regular-navidad">S/ 50.40</span>
                     <span class="precio-descuento-navidad">Desde S/ 36.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Esp%C3%ADritu%20Navide%C3%B1o%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 18 -->
 
@@ -1499,13 +1325,10 @@ body {
                     <span class="precio-regular-navidad">S/ 53.20</span>
                     <span class="precio-descuento-navidad">Desde S/ 38.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Abrigo%20Magia%20de%20Navidad%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 19 -->
 
@@ -1525,13 +1348,10 @@ body {
                     <span class="precio-regular-navidad">S/ 44.80</span>
                     <span class="precio-descuento-navidad">Desde S/ 32.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Renos%20de%20Invierno%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 20 -->
 
@@ -1549,11 +1369,7 @@ body {
                 <h2>Chompa Copos de Nieve</h2>
                 <span class="aviso-proximamente">Precios próximamente</span>
             </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Copos%20de%20Nieve%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-
-        </div>
-
+</div>
 
         <!-- 21 -->
 
@@ -1571,11 +1387,7 @@ body {
                 <h2>Chompa Christmas Diamond</h2>
                 <span class="aviso-proximamente">Precios próximamente</span>
             </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Christmas%20Diamond%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-
-        </div>
-
+</div>
 
         <!-- 22 -->
 
@@ -1593,11 +1405,7 @@ body {
                 <h2>Vestido Lazos de Navidad</h2>
                 <span class="aviso-proximamente">Precios próximamente</span>
             </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Lazos%20de%20Navidad%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-
-        </div>
-
+</div>
 
         <!-- 23 -->
 
@@ -1615,11 +1423,7 @@ body {
                 <h2>Vestido Pino Encantado</h2>
                 <span class="aviso-proximamente">Precios próximamente</span>
             </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Vestido%20Pino%20Encantado%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-
-        </div>
-
+</div>
 
         <!-- 24 -->
 
@@ -1639,13 +1443,10 @@ body {
                     <span class="precio-regular-navidad">S/ 49.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 35.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Abrigo%20Rudolph%20Encantado%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 25 -->
 
@@ -1665,13 +1466,10 @@ body {
                     <span class="precio-regular-navidad">S/ 53.20</span>
                     <span class="precio-descuento-navidad">Desde S/ 38.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Abrigo%20Fantas%C3%ADa%20Navide%C3%B1a%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 26 -->
 
@@ -1691,13 +1489,10 @@ body {
                     <span class="precio-regular-navidad">S/ 56.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 40.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Abrigo%20Dulce%20Esp%C3%ADritu%20Navide%C3%B1o%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 27 -->
 
@@ -1717,13 +1512,10 @@ body {
                     <span class="precio-regular-navidad">S/ 35.00</span>
                     <span class="precio-descuento-navidad">Desde S/ 25.00</span>
                 </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Capa%20M%C3%A1gica%20de%20Noel%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-                <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
             </div>
 
         </div>
-
 
         <!-- 28 -->
 
@@ -1741,11 +1533,7 @@ body {
                 <h2>Chompa Little Rudolph</h2>
                 <span class="aviso-proximamente">Precios próximamente</span>
             </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Little%20Rudolph%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-
-        </div>
-
+</div>
 
         <!-- 29 -->
 
@@ -1763,10 +1551,7 @@ body {
                 <h2>Chompa Teddy Christmas</h2>
                 <span class="aviso-proximamente">Precios próximamente</span>
             </div>
-            <a class="btn-consultar-navidad" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Chompa%20Teddy%20Christmas%20de%20la%20colecci%C3%B3n%20Navidad%20de%20K%C3%9AMINO." target="_blank" rel="noopener noreferrer">Consultar <span aria-hidden="true">→</span></a>
-        
-
-        </div>
+</div>
 
     </div>
 
@@ -1777,8 +1562,6 @@ body {
     </p>
 
 </section>
-
-
 
 <a class="whatsapp-navidad"
    href="https://wa.me/51940151463"
@@ -1829,7 +1612,6 @@ body {
 
 </footer>
 
-
 <!-- =========================================
      JAVASCRIPT: FILTROS COMBINADOS
 ========================================= -->
@@ -1871,7 +1653,6 @@ body {
     let categoriaActiva = "todos";
     let tallaActiva = "todas";
 
-
     /* CERRAR MENÚS */
 
     function cerrarMenus() {
@@ -1887,7 +1668,6 @@ body {
             });
 
     }
-
 
     /* ABRIR MENÚ */
 
@@ -1906,7 +1686,6 @@ body {
 
     }
 
-
     btnCategoria?.addEventListener("click", () => {
         alternarMenu(btnCategoria, opcionesCategoria);
     });
@@ -1918,7 +1697,6 @@ body {
     btnTallaDesktop?.addEventListener("click", () => {
         alternarMenu(btnTallaDesktop, opcionesTallaDesktop);
     });
-
 
     /* APLICAR AMBOS FILTROS */
 
@@ -1956,7 +1734,6 @@ body {
 
     }
 
-
     /* SELECCIONAR CATEGORÍA */
 
     categorias.forEach(boton => {
@@ -1990,7 +1767,6 @@ body {
         });
 
     });
-
 
     /* SELECCIONAR TALLA */
 
@@ -2026,7 +1802,6 @@ body {
 
     });
 
-
     /* CERRAR AL HACER CLIC FUERA */
 
     document.addEventListener("click", evento => {
@@ -2036,7 +1811,6 @@ body {
         }
 
     });
-
 
     /* ESTADO INICIAL */
 
