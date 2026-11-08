@@ -1,1 +1,1383 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KÚMINO | Colección Navidad</title>
+
+<link rel="stylesheet" href="../style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   FILTROS DE NAVIDAD
+========================================= */
+
+.navidad-controles {
+    width: calc(100% - 80px);
+    max-width: 914px;
+    min-height: 78px;
+    margin: 0 auto 55px;
+    padding: 6px 24px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(43,43,43,.08);
+    border-radius: 40px;
+    box-shadow: 0 8px 25px rgba(43,43,43,.04);
+
+    position: relative;
+    z-index: 5;
+}
+
+/* Categorías escritorio */
+
+.navidad-controles > .categorias-catalogo {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.navidad-controles > .categorias-catalogo button {
+    padding: 10px 9px;
+    border: none;
+    border-radius: 25px;
+    background: transparent;
+
+    font-family: var(--fuente-principal);
+    font-size: 12px;
+    font-weight: 500;
+    color: #666666;
+
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.navidad-controles > .categorias-catalogo button:hover {
+    background: var(--crema);
+    color: var(--carbón);
+}
+
+.navidad-controles > .categorias-catalogo .categoria-activa {
+    background: var(--carbón);
+    color: #FFFFFF;
+}
+
+/* Filtro de talla escritorio */
+
+.filtro-talla-desktop {
+    position: relative;
+    flex: 0 0 165px;
+}
+
+.btn-talla-desktop {
+    width: 100%;
+    min-height: 52px;
+    padding: 0 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 28px;
+
+    font-family: var(--fuente-principal);
+    font-size: 12px;
+    color: var(--carbón);
+    cursor: pointer;
+}
+
+.opciones-talla-desktop {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 100%;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 8px;
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(43,43,43,.08);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(43,43,43,.12);
+    z-index: 1000;
+}
+
+.opciones-talla-desktop[hidden],
+.opciones-filtro[hidden] {
+    display: none !important;
+}
+
+.opciones-talla-desktop button,
+.opciones-filtro button {
+    display: block;
+    width: 100%;
+    padding: 11px 10px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+
+    font-family: var(--fuente-principal);
+    font-size: 12px;
+    color: #666;
+    text-align: left;
+    cursor: pointer;
+}
+
+.opciones-talla-desktop button:hover,
+.opciones-filtro button:hover,
+.opciones-talla-desktop button.opcion-seleccionada,
+.opciones-filtro button.opcion-seleccionada {
+    background: var(--crema);
+}
+
+/* Ocultar filtros móviles en escritorio */
+
+.filtros-movil {
+    display: none;
+}
+
+/* Tarjetas y avisos */
+
+.producto-catalogo[hidden] {
+    display: none !important;
+}
+
+.producto-proximamente {
+    position: relative;
+}
+
+.etiqueta-proximamente {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+
+    padding: 7px 12px;
+    border-radius: 20px;
+
+    background: #F5EADD;
+    color: #7A5C42;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .5px;
+}
+
+.aviso-proximamente {
+    display: inline-block;
+    margin-top: 7px;
+    color: #7A9180;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.navidad-sin-resultados {
+    text-align: center;
+    padding: 30px 12px;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* =========================================
+   FILTROS MÓVILES
+========================================= */
+
+@media (max-width: 600px) {
+
+    .navidad-controles {
+        display: block;
+        width: 100%;
+        max-width: none;
+        min-height: auto;
+        margin: 18px 0 12px;
+        padding: 0;
+
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .navidad-controles > .categorias-catalogo,
+    .navidad-controles .filtro-talla-desktop {
+        display: none !important;
+    }
+
+    .navidad-controles .filtros-movil {
+        display: flex !important;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        gap: 12px;
+
+        width: calc(100% - 40px);
+        max-width: 420px;
+        margin: 0 auto 32px;
+    }
+
+    .filtro-desplegable {
+        position: relative;
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .btn-filtro {
+        width: 100%;
+        height: 54px;
+        padding: 0 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+
+        background: #FFFFFF;
+        border: 1px solid #E5E5E5;
+        border-radius: 28px;
+
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        color: #2B2B2B;
+        cursor: pointer;
+    }
+
+    .btn-filtro span:first-child {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .opciones-filtro {
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        width: 100%;
+        min-width: 150px;
+        max-height: 280px;
+        overflow-y: auto;
+        box-sizing: border-box;
+        padding: 8px;
+
+        background: #FFFFFF;
+        border: 1px solid rgba(43,43,43,.10);
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(43,43,43,.10);
+        z-index: 1000;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================================
+     ENCABEZADO
+========================================= -->
+
+<header class="header">
+    <div class="nav-container">
+
+        <a href="../index.html" class="logo">KÚMINO</a>
+
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="../index.html#coleccion">Colección</a>
+            <a href="../HALLOWEN/hallowen.html">Halloween</a>
+            <a href="../HEMBRAS/hembras.html">Hembras</a>
+            <a href="../MACHOS/machos.html">Machos</a>
+            <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
+            <a href="../CASITAS/casitas.html">Casitas</a>
+        </nav>
+
+        <a href="https://wa.me/51940151463"
+           class="btn-contacto"
+           target="_blank"
+           rel="noopener noreferrer">
+            Contacto
+        </a>
+
+    </div>
+</header>
+
+
+<!-- =========================================
+     CATÁLOGO NAVIDAD
+========================================= -->
+
+<section class="catalogo-hembras">
+
+    <div class="catalogo-header">
+
+        <span>COLECCIÓN KÚMINO</span>
+
+        <h1>Navidad</h1>
+
+        <p>
+            Celebra la temporada más especial del año
+            con nuestra colección navideña.
+            Prendas llenas de encanto para compartir
+            momentos inolvidables con tu engreído.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================
+         FILTROS
+    ====================================== -->
+
+    <div class="navidad-controles"
+         aria-label="Filtros de productos Navidad">
+
+        <!-- CATEGORÍAS ESCRITORIO -->
+
+        <div class="categorias-catalogo">
+
+            <button type="button"
+                    class="categoria-activa"
+                    data-filtro="todos">
+                Todos
+            </button>
+
+            <button type="button" data-filtro="vestidos">
+                Vestidos
+            </button>
+
+            <button type="button" data-filtro="abrigos">
+                Abrigos
+            </button>
+
+            <button type="button" data-filtro="chompas">
+                Chompas
+            </button>
+
+            <button type="button" data-filtro="conjuntos">
+                Conjuntos
+            </button>
+
+            <button type="button" data-filtro="capas">
+                Capas
+            </button>
+
+        </div>
+
+
+        <!-- FILTROS MÓVILES -->
+
+        <div class="filtros-movil">
+
+            <div class="filtro-desplegable">
+
+                <button type="button"
+                        class="btn-filtro"
+                        id="btnCategoria"
+                        aria-expanded="false"
+                        aria-controls="opcionesCategoria">
+
+                    <span>Filtrar por categoría</span>
+                    <span>⌄</span>
+
+                </button>
+
+                <div class="opciones-filtro"
+                     id="opcionesCategoria"
+                     hidden>
+
+                    <button type="button" data-filtro="todos">
+                        Todas las categorías
+                    </button>
+
+                    <button type="button" data-filtro="vestidos">
+                        Vestidos
+                    </button>
+
+                    <button type="button" data-filtro="abrigos">
+                        Abrigos
+                    </button>
+
+                    <button type="button" data-filtro="chompas">
+                        Chompas
+                    </button>
+
+                    <button type="button" data-filtro="conjuntos">
+                        Conjuntos
+                    </button>
+
+                    <button type="button" data-filtro="capas">
+                        Capas
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="filtro-desplegable">
+
+                <button type="button"
+                        class="btn-filtro"
+                        id="btnTalla"
+                        aria-expanded="false"
+                        aria-controls="opcionesTalla">
+
+                    <span>Filtrar por talla</span>
+                    <span>⌄</span>
+
+                </button>
+
+                <div class="opciones-filtro"
+                     id="opcionesTalla"
+                     hidden>
+
+                    <button type="button" data-talla="todas">
+                        Todas las tallas
+                    </button>
+
+                    <button type="button" data-talla="1">Talla 1</button>
+                    <button type="button" data-talla="2">Talla 2</button>
+                    <button type="button" data-talla="3">Talla 3</button>
+                    <button type="button" data-talla="4">Talla 4</button>
+                    <button type="button" data-talla="5">Talla 5</button>
+                    <button type="button" data-talla="6">Talla 6</button>
+                    <button type="button" data-talla="7">Talla 7</button>
+                    <button type="button" data-talla="8">Talla 8</button>
+                    <button type="button" data-talla="9">Talla 9</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TALLAS ESCRITORIO -->
+
+        <div class="filtro-talla-desktop">
+
+            <button type="button"
+                    class="btn-talla-desktop"
+                    id="btnTallaDesktop"
+                    aria-expanded="false"
+                    aria-controls="opcionesTallaDesktop">
+
+                <span id="textoTallaDesktop">Filtrar por talla</span>
+                <span>⌄</span>
+
+            </button>
+
+            <div class="opciones-talla-desktop"
+                 id="opcionesTallaDesktop"
+                 hidden>
+
+                <button type="button" data-talla="todas">
+                    Todas las tallas
+                </button>
+
+                <button type="button" data-talla="1">Talla 1</button>
+                <button type="button" data-talla="2">Talla 2</button>
+                <button type="button" data-talla="3">Talla 3</button>
+                <button type="button" data-talla="4">Talla 4</button>
+                <button type="button" data-talla="5">Talla 5</button>
+                <button type="button" data-talla="6">Talla 6</button>
+                <button type="button" data-talla="7">Talla 7</button>
+                <button type="button" data-talla="8">Talla 8</button>
+                <button type="button" data-talla="9">Talla 9</button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         PRODUCTOS
+    ====================================== -->
+
+    <div class="productos-grid">
+
+
+        <!-- 01 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto agotado-foto">
+
+                <span class="etiqueta-proximamente">
+                    PRÓXIMAMENTE
+                </span>
+
+                <img src="../IMAGENES/vestidorubidegala.jpg"
+                     alt="Vestido Rubí de Gala">
+
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Rubí de Gala</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 02 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="abrigos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/abrigofestividadimpe.jpg"
+                     alt="Abrigo Festividad Imperial">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Abrigo Festividad Imperial</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 03 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidonavidadescocesa.jpg"
+                     alt="Vestido Navidad Escocesa">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Navidad Escocesa</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 04 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidodulcenav.jpg"
+                     alt="Vestido Dulce Navidad">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Dulce Navidad</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidorenodenavidad.jpg"
+                     alt="Vestido Reno de Navidad">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Reno de Navidad</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidonochebuenaencantada.jpg"
+                     alt="Vestido Nochebuena Encantada">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Nochebuena Encantada</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 07 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidosantasprincess.jpg"
+                     alt="Vestido Santa's Princess">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Santa's Princess</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 08 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidoencantodesanta.jpg"
+                     alt="Vestido Encanto de Santa">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Encanto de Santa</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 09 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidogalletitadenavidad.jpg"
+                     alt="Vestido Galletita de Navidad">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Galletita de Navidad</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 10 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidoreinadelbosquenavideno.jpg"
+                     alt="Vestido Reina del Bosque Navideño">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Reina del Bosque Navideño</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 11 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidoprincesacarmesi.jpg"
+                     alt="Vestido Princesa Carmesí">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Princesa Carmesí</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 12 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidoencantodenochebuena.jpg"
+                     alt="Vestido Encanto de Nochebuena">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Encanto de Nochebuena</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 13 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chompaarboldenavidad.jpg"
+                     alt="Chompa Árbol de Navidad">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Árbol de Navidad</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 14 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chomparenosdenochebuena.jpg"
+                     alt="Chompa Renos de Nochebuena">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Renos de Nochebuena</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 15 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chomparenonevado.jpg"
+                     alt="Chompa Reno Nevado">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Reno Nevado</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 16 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="conjuntos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/conjuntocopitosdenavidad.jpg"
+                     alt="Conjunto Copitos de Navidad">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Conjunto Copitos de Navidad</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 17 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chompaespiritunavideno.jpg"
+                     alt="Chompa Espíritu Navideño">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Espíritu Navideño</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 18 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="abrigos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/abrigomagiadenavidad.jpg"
+                     alt="Abrigo Magia de Navidad">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Abrigo Magia de Navidad</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 19 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chomparenosdeinvierno.jpg"
+                     alt="Chompa Renos de Invierno">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Renos de Invierno</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 20 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chompacoposdenieve.jpg"
+                     alt="Chompa Copos de Nieve">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Copos de Nieve</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 21 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chompachristmasdiamond.jpg"
+                     alt="Chompa Christmas Diamond">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Christmas Diamond</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 22 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidolazosdenavidad.jpg"
+                     alt="Vestido Lazos de Navidad">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Lazos de Navidad</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 23 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="vestidos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/vestidopinoencantado.jpg"
+                     alt="Vestido Pino Encantado">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Vestido Pino Encantado</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 24 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="abrigos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/abrigorudolphencantado.jpg"
+                     alt="Abrigo Rudolph Encantado">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Abrigo Rudolph Encantado</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 25 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="abrigos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/abrigofantasianavidena.jpg"
+                     alt="Abrigo Fantasía Navideña">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Abrigo Fantasía Navideña</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 26 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="abrigos"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/abrigodulceespiritunavideno.jpg"
+                     alt="Abrigo Dulce Espíritu Navideño">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Abrigo Dulce Espíritu Navideño</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 27 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="capas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/capamagicadenoel.jpg"
+                     alt="Capa Mágica de Noel">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Capa Mágica de Noel</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 28 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chompalittlerudolph.jpg"
+                     alt="Chompa Little Rudolph">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Little Rudolph</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+
+        <!-- 29 -->
+
+        <div class="producto-catalogo producto-proximamente"
+             data-categoria="chompas"
+             data-tallas="">
+
+            <div class="catalogo-foto">
+                <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+                <img src="../IMAGENES/chompateddychristmas.jpg"
+                     alt="Chompa Teddy Christmas">
+            </div>
+
+            <div class="catalogo-datos">
+                <h2>Chompa Teddy Christmas</h2>
+                <span class="aviso-proximamente">Detalles próximamente</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="navidad-sin-resultados"
+       id="sinResultados"
+       hidden>
+        No hay productos disponibles con esos filtros.
+    </p>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer class="footer-kumino">
+
+    <div class="footer-container">
+
+        <div class="footer-marca">
+            <h2>KÚMINO</h2>
+            <p>Moda con amor para tu mascota.</p>
+        </div>
+
+        <div class="footer-enlaces">
+            <h3>Navegación</h3>
+            <a href="../index.html">Inicio</a>
+            <a href="navidad.html">Navidad</a>
+            <a href="../HALLOWEN/hallowen.html">Halloween</a>
+            <a href="../HEMBRAS/hembras.html">Hembras</a>
+            <a href="../MACHOS/machos.html">Machos</a>
+            <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
+            <a href="../CASITAS/casitas.html">Casitas</a>
+        </div>
+
+        <div class="footer-contacto">
+            <h3>Contáctanos</h3>
+            <a href="https://wa.me/51940151463"
+               target="_blank"
+               rel="noopener noreferrer">
+                WhatsApp
+            </a>
+            <span>Envíos a todo el Perú</span>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 KÚMINO. Todos los derechos reservados.</p>
+        <span>Moda con amor para tu mascota</span>
+    </div>
+
+</footer>
+
+
+<!-- =========================================
+     JAVASCRIPT: FILTROS COMBINADOS
+========================================= -->
+
+<script>
+
+(() => {
+
+    const productos = Array.from(
+        document.querySelectorAll(
+            ".productos-grid .producto-catalogo"
+        )
+    );
+
+    const categorias = Array.from(
+        document.querySelectorAll(
+            ".navidad-controles [data-filtro]"
+        )
+    );
+
+    const tallas = Array.from(
+        document.querySelectorAll(
+            ".navidad-controles [data-talla]"
+        )
+    );
+
+    const btnCategoria = document.getElementById("btnCategoria");
+    const opcionesCategoria = document.getElementById("opcionesCategoria");
+
+    const btnTalla = document.getElementById("btnTalla");
+    const opcionesTalla = document.getElementById("opcionesTalla");
+
+    const btnTallaDesktop = document.getElementById("btnTallaDesktop");
+    const opcionesTallaDesktop = document.getElementById("opcionesTallaDesktop");
+    const textoTallaDesktop = document.getElementById("textoTallaDesktop");
+
+    const sinResultados = document.getElementById("sinResultados");
+
+    let categoriaActiva = "todos";
+    let tallaActiva = "todas";
+
+
+    /* CERRAR MENÚS */
+
+    function cerrarMenus() {
+
+        [opcionesCategoria, opcionesTalla, opcionesTallaDesktop]
+            .forEach(menu => {
+                if (menu) menu.hidden = true;
+            });
+
+        [btnCategoria, btnTalla, btnTallaDesktop]
+            .forEach(boton => {
+                if (boton) boton.setAttribute("aria-expanded", "false");
+            });
+
+    }
+
+
+    /* ABRIR MENÚ */
+
+    function alternarMenu(boton, menu) {
+
+        if (!boton || !menu) return;
+
+        const abrir = menu.hidden;
+
+        cerrarMenus();
+
+        if (abrir) {
+            menu.hidden = false;
+            boton.setAttribute("aria-expanded", "true");
+        }
+
+    }
+
+
+    btnCategoria?.addEventListener("click", () => {
+        alternarMenu(btnCategoria, opcionesCategoria);
+    });
+
+    btnTalla?.addEventListener("click", () => {
+        alternarMenu(btnTalla, opcionesTalla);
+    });
+
+    btnTallaDesktop?.addEventListener("click", () => {
+        alternarMenu(btnTallaDesktop, opcionesTallaDesktop);
+    });
+
+
+    /* APLICAR AMBOS FILTROS */
+
+    function actualizarProductos() {
+
+        let visibles = 0;
+
+        productos.forEach(producto => {
+
+            const categoria = producto.dataset.categoria || "";
+
+            const tallasProducto = (
+                producto.dataset.tallas || ""
+            ).split(/[,\s;|]+/).filter(Boolean);
+
+            const coincideCategoria =
+                categoriaActiva === "todos" ||
+                categoria === categoriaActiva;
+
+            const coincideTalla =
+                tallaActiva === "todas" ||
+                tallasProducto.includes(tallaActiva);
+
+            const mostrar = coincideCategoria && coincideTalla;
+
+            producto.hidden = !mostrar;
+
+            if (mostrar) visibles++;
+
+        });
+
+        if (sinResultados) {
+            sinResultados.hidden = visibles !== 0;
+        }
+
+    }
+
+
+    /* SELECCIONAR CATEGORÍA */
+
+    categorias.forEach(boton => {
+
+        boton.addEventListener("click", () => {
+
+            categoriaActiva = boton.dataset.filtro;
+
+            categorias.forEach(opcion => {
+                opcion.classList.toggle(
+                    "categoria-activa",
+                    opcion.dataset.filtro === categoriaActiva
+                );
+
+                opcion.classList.toggle(
+                    "opcion-seleccionada",
+                    opcion.dataset.filtro === categoriaActiva
+                );
+            });
+
+            if (btnCategoria) {
+                btnCategoria.querySelector("span").textContent =
+                    categoriaActiva === "todos"
+                    ? "Filtrar por categoría"
+                    : boton.textContent.trim();
+            }
+
+            cerrarMenus();
+            actualizarProductos();
+
+        });
+
+    });
+
+
+    /* SELECCIONAR TALLA */
+
+    tallas.forEach(boton => {
+
+        boton.addEventListener("click", () => {
+
+            tallaActiva = boton.dataset.talla;
+
+            tallas.forEach(opcion => {
+                opcion.classList.toggle(
+                    "opcion-seleccionada",
+                    opcion.dataset.talla === tallaActiva
+                );
+            });
+
+            const texto = tallaActiva === "todas"
+                ? "Filtrar por talla"
+                : "Talla " + tallaActiva;
+
+            if (btnTalla) {
+                btnTalla.querySelector("span").textContent = texto;
+            }
+
+            if (textoTallaDesktop) {
+                textoTallaDesktop.textContent = texto;
+            }
+
+            cerrarMenus();
+            actualizarProductos();
+
+        });
+
+    });
+
+
+    /* CERRAR AL HACER CLIC FUERA */
+
+    document.addEventListener("click", evento => {
+
+        if (!evento.target.closest(".navidad-controles")) {
+            cerrarMenus();
+        }
+
+    });
+
+
+    /* ESTADO INICIAL */
+
+    actualizarProductos();
+
+})();
+
+</script>
+
+</body>
+</html>
+
