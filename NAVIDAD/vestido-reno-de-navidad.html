@@ -5,24 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vestido Reno de Navidad de KÚMINO. Moda navideña para tu mascota.">
-
     <title>Vestido Reno de Navidad | KÚMINO</title>
-
     <link rel="stylesheet" href="../style.css">
 
     <style>
-        /* =========================================
-           FONDO NAVIDEÑO
-        ========================================= */
-
         body {
-            background-image:
-                linear-gradient(
-                    rgba(255, 250, 242, .08),
-                    rgba(255, 250, 242, .08)
-                ),
-                url("../fondo_productosnav.jpg");
-
+            background-image: linear-gradient(rgba(255,250,242,.08), rgba(255,250,242,.08)),
+                              url("../fondo_productosnav.jpg");
             background-position: center top;
             background-size: cover;
             background-repeat: no-repeat;
@@ -33,19 +22,14 @@
             padding: 58px 20px 76px;
         }
 
-        /* =========================================
-           CONTENEDOR PRINCIPAL
-        ========================================= */
-
         .navidad-producto-container {
-            width: min(1250px, 100%);
+            width: min(1250px,100%);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
-            gap: clamp(35px, 5vw, 65px);
+            grid-template-columns: minmax(0,1fr) minmax(0,.95fr);
+            gap: clamp(35px,5vw,65px);
             align-items: center;
             padding: 35px 25px;
-
             background: transparent;
             border: none;
             border-radius: 0;
@@ -53,18 +37,11 @@
             backdrop-filter: none;
         }
 
-        /* =========================================
-           IMAGEN DEL PRODUCTO
-        ========================================= */
-
         .navidad-producto-imagen {
             min-width: 0;
             background: transparent;
-            border: none;
-            border-radius: 0;
-            overflow: visible;
             aspect-ratio: 4 / 5;
-            box-shadow: none;
+            overflow: visible;
         }
 
         .navidad-producto-imagen img {
@@ -74,12 +51,8 @@
             object-fit: contain;
             mix-blend-mode: normal;
             opacity: 1;
-            filter: drop-shadow(0 10px 16px rgba(65, 43, 28, .18));
+            filter: drop-shadow(0 10px 16px rgba(65,43,28,.18));
         }
-
-        /* =========================================
-           INFORMACIÓN DEL PRODUCTO
-        ========================================= */
 
         .navidad-producto-info {
             min-width: 0;
@@ -98,8 +71,8 @@
         .navidad-producto-info h1 {
             margin: 0 0 17px;
             color: #71343a;
-            font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(30px, 4vw, 43px);
+            font-family: "Playfair Display",Georgia,serif;
+            font-size: clamp(30px,4vw,43px);
             line-height: 1.12;
         }
 
@@ -109,7 +82,7 @@
             padding: 7px 13px;
             border-radius: 4px;
             background: #8b343b;
-            color: #ffffff;
+            color: #fff;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 1.2px;
@@ -122,10 +95,6 @@
             line-height: 1.85;
         }
 
-        /* =========================================
-           SECCIONES
-        ========================================= */
-
         .navidad-producto-seccion {
             margin-top: 23px;
         }
@@ -133,14 +102,12 @@
         .navidad-producto-seccion h2 {
             margin: 0 0 13px;
             color: #71343a;
-            font-family: "Playfair Display", Georgia, serif;
+            font-family: "Playfair Display",Georgia,serif;
             font-size: 21px;
             font-weight: 600;
         }
 
-        /* =========================================
-           COLOR
-        ========================================= */
+        /* COLOR */
 
         .navidad-color {
             display: inline-flex;
@@ -153,28 +120,26 @@
         .navidad-color-muestra {
             width: 17px;
             height: 17px;
-            border: 2px solid #ffffff;
+            border: 2px solid #fff;
             border-radius: 50%;
             background: #8b542f;
             box-shadow: 0 0 0 1px #b8a99a;
         }
 
-        /* =========================================
-           TALLAS Y PRECIOS
-        ========================================= */
+        /* TALLAS Y PRECIOS */
 
         .navidad-tallas-precios {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(3,minmax(0,1fr));
             gap: 10px;
         }
 
         .navidad-talla-card {
             min-width: 0;
             padding: 13px 9px;
-            border: 1px solid rgba(157, 122, 76, .28);
+            border: 1px solid rgba(157,122,76,.28);
             border-radius: 12px;
-            background: rgba(255, 250, 242, .65);
+            background: rgba(255,250,242,.65);
             text-align: center;
             backdrop-filter: blur(3px);
         }
@@ -201,14 +166,6 @@
             font-weight: 700;
         }
 
-        .navidad-ahorro {
-            display: block;
-            margin-top: 5px;
-            color: #526B50 !important;
-            font-size: 11px;
-            font-weight: 600;
-        }
-
         .navidad-aviso-precio {
             display: block;
             margin-top: 9px;
@@ -216,9 +173,7 @@
             font-size: 11px;
         }
 
-        /* =========================================
-           CARACTERÍSTICAS
-        ========================================= */
+        /* CARACTERÍSTICAS */
 
         .navidad-caracteristicas {
             margin: 0;
@@ -232,9 +187,7 @@
             padding-left: 2px;
         }
 
-        /* =========================================
-           BOTÓN WHATSAPP
-        ========================================= */
+        /* WHATSAPP */
 
         .navidad-btn-whatsapp {
             display: flex;
@@ -245,14 +198,14 @@
             padding: 15px 20px;
             border-radius: 30px;
             background: #81363d;
-            color: #ffffff;
+            color: #fff;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: .3px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 5px 14px rgba(91, 35, 40, .15);
-            transition: background .2s ease, transform .2s ease;
+            box-shadow: 0 7px 16px rgba(91,39,43,.16);
+            transition: background .2s ease,transform .2s ease;
         }
 
         .navidad-btn-whatsapp:hover {
@@ -260,16 +213,14 @@
             transform: translateY(-2px);
         }
 
-        /* =========================================
-           VOLVER A COLECCIÓN
-        ========================================= */
+        /* VOLVER */
 
         .navidad-volver {
             display: inline-block;
             margin-top: 17px;
             color: #526b50;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
         }
 
@@ -277,12 +228,9 @@
             text-decoration: underline;
         }
 
-        /* =========================================
-           RESPONSIVE - TABLETS Y CELULARES
-        ========================================= */
+        /* RESPONSIVE */
 
-        @media (max-width: 760px) {
-
+        @media (max-width:760px) {
             body {
                 background-attachment: scroll;
                 background-position: center top;
@@ -301,7 +249,7 @@
             }
 
             .header .logo {
-                font-size: clamp(23px, 6vw, 30px);
+                font-size: clamp(23px,6vw,30px);
                 white-space: nowrap;
             }
 
@@ -310,31 +258,33 @@
             }
 
             .navidad-producto-main {
-                padding: 20px 14px 42px;
+                padding: 30px 16px 45px !important;
             }
 
             .navidad-producto-container {
                 grid-template-columns: 1fr;
-                gap: 19px;
-                padding: 8px 3px;
-                background: transparent;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
+                gap: 22px;
+                padding: 0 !important;
             }
 
             .navidad-producto-imagen {
                 width: 100%;
-                height: 350px;
-                max-height: 350px;
+                height: auto;
+                max-height: none;
                 aspect-ratio: auto;
-                border-radius: 17px;
+                background: transparent;
+                border: none;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 28px rgba(73,43,28,.18);
             }
 
             .navidad-producto-imagen img {
+                display: block;
                 width: 100%;
-                height: 100%;
+                height: auto;
                 object-fit: contain;
+                mix-blend-mode: multiply;
             }
 
             .navidad-producto-categoria {
@@ -344,7 +294,7 @@
             }
 
             .navidad-producto-info h1 {
-                font-size: clamp(27px, 7vw, 34px);
+                font-size: clamp(27px,7vw,34px);
                 line-height: 1.15;
                 margin-bottom: 13px;
             }
@@ -370,12 +320,12 @@
             }
 
             .navidad-tallas-precios {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 7px;
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 8px;
             }
 
             .navidad-talla-card {
-                padding: 11px 5px;
+                padding: 12px 6px;
                 border-radius: 10px;
             }
 
@@ -390,10 +340,6 @@
 
             .navidad-precio-promo {
                 font-size: 17px;
-            }
-
-            .navidad-ahorro {
-                font-size: 10px;
             }
 
             .navidad-aviso-precio {
@@ -412,98 +358,32 @@
             }
         }
 
-        /* =========================================
-           CELULARES PEQUEÑOS
-        ========================================= */
-
-        @media (max-width: 380px) {
-
+        @media (max-width:380px) {
             .navidad-producto-main {
-                padding-left: 11px;
-                padding-right: 11px;
-            }
-
-            .navidad-producto-imagen {
-                height: 310px;
-                max-height: 310px;
+                padding: 25px 13px 40px !important;
             }
 
             .navidad-tallas-precios {
-                gap: 5px;
+                gap: 6px;
             }
 
             .navidad-talla-card {
-                padding: 10px 3px;
+                padding: 11px 5px;
             }
 
             .navidad-precio-promo {
-                font-size: 15px;
-            }
-
-            .navidad-ahorro {
-                font-size: 9px;
+                font-size: 16px;
             }
 
             .navidad-producto-info h1 {
                 font-size: 28px;
             }
         }
-
-        /* =========================================
-           AJUSTES FINALES PARA CELULARES
-        ========================================= */
-
-        @media (max-width: 760px) {
-
-            .navidad-producto-main {
-                padding: 30px 16px 45px !important;
-            }
-
-            .navidad-producto-container {
-                padding: 0 !important;
-                gap: 22px;
-            }
-
-            .navidad-producto-imagen {
-                width: 100%;
-                height: auto !important;
-                max-height: none !important;
-                aspect-ratio: auto !important;
-
-                background: transparent !important;
-                border: none !important;
-                border-radius: 15px;
-                overflow: hidden;
-
-                box-shadow: 0 10px 28px rgba(73, 43, 28, .18);
-            }
-
-            .navidad-producto-imagen img {
-                display: block;
-                width: 100%;
-                height: auto !important;
-                object-fit: contain;
-                mix-blend-mode: multiply;
-            }
-        }
-
-        /* =========================================
-           CELULARES PEQUEÑOS
-        ========================================= */
-
-        @media (max-width: 380px) {
-
-            .navidad-producto-main {
-                padding: 25px 13px 40px !important;
-            }
-        }
-
     </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
     <header class="header">
         <div class="nav-container">
 
@@ -519,26 +399,21 @@
         </div>
     </header>
 
-    <!-- PRODUCTO -->
     <main class="navidad-producto-main">
 
         <div class="navidad-producto-container">
 
-            <!-- IMAGEN -->
             <div class="navidad-producto-imagen">
-
                 <img
                     src="../IMAGENES/vestidorenodenavidad.jpg"
                     alt="Vestido Reno de Navidad para mascotas"
                 >
-
             </div>
 
-            <!-- INFORMACIÓN -->
             <div class="navidad-producto-info">
 
                 <span class="navidad-producto-categoria">
-                    COLECCIÓN NAVIDEÑA · MODELO 252
+                    COLECCIÓN NAVIDEÑA
                 </span>
 
                 <h1>Vestido Reno de Navidad</h1>
@@ -551,7 +426,6 @@
                     ¡La ternura de la Navidad en un solo vestido! Un diseño inspirado en los adorables renos navideños, con una falda amarilla de tul que aporta volumen y un encantador lazo brillante que hará lucir a tu engreída como toda una estrella festiva.
                 </p>
 
-                <!-- COLOR -->
                 <section class="navidad-producto-seccion">
 
                     <h2>Color</h2>
@@ -563,7 +437,6 @@
 
                 </section>
 
-                <!-- TALLAS Y PRECIOS -->
                 <section class="navidad-producto-seccion">
 
                     <h2>Tallas y precios</h2>
@@ -571,31 +444,15 @@
                     <div class="navidad-tallas-precios">
 
                         <div class="navidad-talla-card">
-
                             <strong>Talla 0</strong>
-
-                            <span class="navidad-precio-regular">
-                                S/ 39.20
-                            </span>
-
-                            <span class="navidad-precio-promo">
-                                Desde S/ 28.00
-                            </span>
-
+                            <span class="navidad-precio-regular">S/ 39.20</span>
+                            <span class="navidad-precio-promo">Desde S/ 28.00</span>
                         </div>
 
                         <div class="navidad-talla-card">
-
                             <strong>Talla 4</strong>
-
-                            <span class="navidad-precio-regular">
-                                S/ 39.20
-                            </span>
-
-                            <span class="navidad-precio-promo">
-                                Desde S/ 28.00
-                            </span>
-
+                            <span class="navidad-precio-regular">S/ 39.20</span>
+                            <span class="navidad-precio-promo">Desde S/ 28.00</span>
                         </div>
 
                     </div>
@@ -606,7 +463,6 @@
 
                 </section>
 
-                <!-- CARACTERÍSTICAS -->
                 <section class="navidad-producto-seccion">
 
                     <h2>Características</h2>
@@ -621,7 +477,6 @@
 
                 </section>
 
-                <!-- WHATSAPP -->
                 <a
                     class="navidad-btn-whatsapp"
                     href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Vestido%20Reno%20de%20Navidad."
@@ -631,7 +486,6 @@
                     Consultar por WhatsApp →
                 </a>
 
-                <!-- VOLVER -->
                 <a href="navidad.html" class="navidad-volver">
                     ← Volver a colección
                 </a>
@@ -642,7 +496,6 @@
 
     </main>
 
-    <!-- FOOTER -->
     <footer class="footer-kumino">
 
         <div class="footer-container">
@@ -660,7 +513,6 @@
 
             <div class="footer-contacto" id="contacto">
                 <h3>Contáctanos</h3>
-
                 <a
                     href="https://wa.me/51940151463"
                     target="_blank"
@@ -668,7 +520,6 @@
                 >
                     WhatsApp
                 </a>
-
                 <span>Envíos a todo el Perú</span>
             </div>
 
@@ -683,5 +534,4 @@
 
 </body>
 </html>
-
 
