@@ -5133,38 +5133,39 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 }
 
+
 /* =========================================================
-   IGUALAR BANNERS A LAS TARJETAS DE COLECCIONES - MÓVIL
+   BANNERS CON LAS MISMAS DIMENSIONES DE LAS COLECCIONES
 ========================================================= */
 
-@media (max-width: 600px) {
+/* PC */
 
-    /* BANNER COLECCIÓN NAVIDEÑA */
+@media (min-width: 769px) {
 
-    .banner-navidad {
-        width: calc(100% - 24px) !important;
+    .banner-navidad,
+    .disfraces-banner {
+        width: calc(100% - 46px);
+        height: clamp(480px, 69vh, 720px);
+        min-height: 0;
 
-        height: clamp(250px, 52vh, 400px) !important;
-        min-height: 0 !important;
-
-        margin: 25px auto !important;
-
-        box-sizing: border-box;
-        border-radius: 12px !important;
+        border-radius: 16px;
     }
 
-    /* BANNER DISFRACES */
+}
 
+/* CELULARES Y TABLETS */
+
+@media (max-width: 768px) {
+
+    .banner-navidad,
     .disfraces-banner {
         width: calc(100% - 24px) !important;
 
         height: clamp(250px, 52vh, 400px) !important;
         min-height: 0 !important;
 
-        margin: 25px auto !important;
-
-        box-sizing: border-box;
         border-radius: 12px !important;
+        box-sizing: border-box;
     }
 
 }
