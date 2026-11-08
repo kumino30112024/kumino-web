@@ -5225,3 +5225,132 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 .enlace-producto-navidad .producto-catalogo {
     cursor: pointer;
 }
+
+/* =========================================
+   AJUSTES FINALES PARA CELULARES
+========================================= */
+
+@media (max-width: 760px) {
+
+    /* Separación entre menú y fotografía */
+    .navidad-producto-main {
+        padding: 30px 16px 45px !important;
+    }
+
+    .navidad-producto-container {
+        padding: 0 !important;
+        gap: 22px;
+    }
+
+    /* Fotografía sin marco ni fondo blanco */
+    .navidad-producto-imagen {
+        width: 100%;
+        height: auto !important;
+        max-height: none !important;
+        aspect-ratio: auto !important;
+
+        background: transparent !important;
+        border: none !important;
+        border-radius: 15px;
+        overflow: hidden;
+
+        box-shadow: 0 10px 28px rgba(73, 43, 28, .18);
+    }
+
+    .navidad-producto-imagen img {
+        display: block;
+        width: 100%;
+        height: auto !important;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+}
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .navidad-producto-main {
+        padding: 25px 13px 40px !important;
+    }
+
+}
+
+/* =========================================
+   AJUSTE FINAL DEL ENCABEZADO Y ESPACIADO
+   SOLO CELULARES
+========================================= */
+
+@media (max-width: 760px) {
+
+    /* ENCABEZADO: EVITAR QUE SE CORTE KÚMINO */
+
+    .header {
+        width: 100% !important;
+        overflow: visible !important;
+    }
+
+    .header .nav-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 auto !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 12px;
+    }
+
+    .header .logo {
+        display: block !important;
+        position: relative !important;
+        left: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+
+        flex-shrink: 0 !important;
+        white-space: nowrap !important;
+        font-size: clamp(23px, 6vw, 30px) !important;
+    }
+
+    .header .btn-contacto {
+        flex-shrink: 0 !important;
+        margin: 0 !important;
+    }
+
+    /* SEPARACIÓN ENTRE MENÚ Y FOTOGRAFÍA */
+
+    .navidad-producto-container {
+        margin-top: 28px !important;
+    }
+
+    .navidad-producto-main {
+        padding-top: 0 !important;
+    }
+
+}
+
+/* CELULARES MUY PEQUEÑOS */
+
+@media (max-width: 380px) {
+
+    .header .nav-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .header .logo {
+        font-size: 23px !important;
+    }
+
+    .navidad-producto-container {
+        margin-top: 24px !important;
+    }
+
+}
