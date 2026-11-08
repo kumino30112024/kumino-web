@@ -5,13 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vestido Nochebuena Encantada de KÚMINO. Moda navideña para tu mascota.">
+
     <title>Vestido Nochebuena Encantada | KÚMINO</title>
+
     <link rel="stylesheet" href="../style.css">
 
     <style>
+        /* =========================================
+           FONDO NAVIDEÑO
+        ========================================= */
+
         body {
-            background-image: linear-gradient(rgba(255,250,242,.22), rgba(255,250,242,.22)),
-                              url("../fondo_productosnav.jpg");
+            background-image:
+                linear-gradient(
+                    rgba(255, 250, 242, .08),
+                    rgba(255, 250, 242, .08)
+                ),
+                url("../fondo_productosnav.jpg");
+
             background-position: center top;
             background-size: cover;
             background-repeat: no-repeat;
@@ -22,27 +33,38 @@
             padding: 58px 20px 76px;
         }
 
+        /* =========================================
+           CONTENEDOR PRINCIPAL
+        ========================================= */
+
         .navidad-producto-container {
-            width: min(1120px, 100%);
+            width: min(1250px, 100%);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0,1fr) minmax(0,.95fr);
-            gap: clamp(28px,5vw,64px);
+            grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+            gap: clamp(35px, 5vw, 65px);
             align-items: center;
-            padding: clamp(22px,4vw,48px);
-            background: rgba(255,252,247,.94);
-            border: 1px solid rgba(157,122,76,.22);
-            border-radius: 22px;
-            box-shadow: 0 18px 55px rgba(65,43,28,.13);
-            backdrop-filter: blur(5px);
+            padding: 35px 25px;
+
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            backdrop-filter: none;
         }
+
+        /* =========================================
+           IMAGEN DEL PRODUCTO
+        ========================================= */
 
         .navidad-producto-imagen {
             min-width: 0;
-            background: #f5eee5;
-            border-radius: 16px;
-            overflow: hidden;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            overflow: visible;
             aspect-ratio: 4 / 5;
+            box-shadow: none;
         }
 
         .navidad-producto-imagen img {
@@ -50,10 +72,19 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            mix-blend-mode: multiply;
+            mix-blend-mode: normal;
+            opacity: 1;
+            filter: drop-shadow(0 10px 16px rgba(65, 43, 28, .18));
         }
 
-        .navidad-producto-info { color: #333333; }
+        /* =========================================
+           INFORMACIÓN DEL PRODUCTO
+        ========================================= */
+
+        .navidad-producto-info {
+            min-width: 0;
+            color: #333333;
+        }
 
         .navidad-producto-categoria {
             display: inline-block;
@@ -68,7 +99,7 @@
             margin: 0 0 17px;
             color: #71343a;
             font-family: "Playfair Display", Georgia, serif;
-            font-size: clamp(30px,4vw,43px);
+            font-size: clamp(30px, 4vw, 43px);
             line-height: 1.12;
         }
 
@@ -78,7 +109,7 @@
             padding: 7px 13px;
             border-radius: 4px;
             background: #8b343b;
-            color: #fff;
+            color: #ffffff;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 1.2px;
@@ -86,12 +117,18 @@
 
         .navidad-producto-descripcion {
             margin: 0 0 25px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 14px;
             line-height: 1.85;
         }
 
-        .navidad-producto-seccion { margin-top: 23px; }
+        /* =========================================
+           SECCIONES
+        ========================================= */
+
+        .navidad-producto-seccion {
+            margin-top: 23px;
+        }
 
         .navidad-producto-seccion h2 {
             margin: 0 0 13px;
@@ -100,6 +137,10 @@
             font-size: 21px;
             font-weight: 600;
         }
+
+        /* =========================================
+           COLOR
+        ========================================= */
 
         .navidad-color {
             display: inline-flex;
@@ -112,24 +153,30 @@
         .navidad-color-muestra {
             width: 17px;
             height: 17px;
-            border: 2px solid #fff;
+            border: 2px solid #ffffff;
             border-radius: 50%;
             background: #a71925;
             box-shadow: 0 0 0 1px #b8a99a;
         }
 
+        /* =========================================
+           TALLAS Y PRECIOS
+        ========================================= */
+
         .navidad-tallas-precios {
             display: grid;
-            grid-template-columns: repeat(3,minmax(0,1fr));
+            grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 10px;
         }
 
         .navidad-talla-card {
+            min-width: 0;
             padding: 13px 9px;
-            border: 1px solid #e5d8c9;
-            border-radius: 10px;
-            background: #fffaf4;
+            border: 1px solid rgba(157, 122, 76, .28);
+            border-radius: 12px;
+            background: rgba(255, 250, 242, .65);
             text-align: center;
+            backdrop-filter: blur(3px);
         }
 
         .navidad-talla-card strong {
@@ -141,7 +188,7 @@
 
         .navidad-precio-regular {
             display: block;
-            color: #91877d;
+            color: #81766d;
             font-size: 12px;
             text-decoration: line-through;
         }
@@ -154,20 +201,42 @@
             font-weight: 700;
         }
 
+        /* AHORRO EN VERDE SALVIA */
+
+        .navidad-ahorro {
+            display: block;
+            margin-top: 5px;
+            color: #526B50 !important;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
         .navidad-aviso-precio {
             display: block;
             margin-top: 9px;
-            color: #81776c;
+            color: #62584e;
             font-size: 11px;
         }
+
+        /* =========================================
+           CARACTERÍSTICAS
+        ========================================= */
 
         .navidad-caracteristicas {
             margin: 0;
             padding-left: 19px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 13px;
             line-height: 1.9;
         }
+
+        .navidad-caracteristicas li {
+            padding-left: 2px;
+        }
+
+        /* =========================================
+           BOTÓN WHATSAPP
+        ========================================= */
 
         .navidad-btn-whatsapp {
             display: flex;
@@ -176,14 +245,15 @@
             width: 100%;
             margin-top: 27px;
             padding: 15px 20px;
-            border-radius: 8px;
+            border-radius: 30px;
             background: #81363d;
-            color: #fff;
+            color: #ffffff;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: .3px;
             text-align: center;
             text-decoration: none;
+            box-shadow: 0 5px 14px rgba(91, 35, 40, .15);
             transition: background .2s ease, transform .2s ease;
         }
 
@@ -192,44 +262,260 @@
             transform: translateY(-2px);
         }
 
+        /* =========================================
+           VOLVER A COLECCIÓN
+        ========================================= */
+
         .navidad-volver {
             display: inline-block;
             margin-top: 17px;
-            color: #65785e;
+            color: #526b50;
             font-size: 13px;
+            font-weight: 600;
             text-decoration: none;
         }
 
-        .navidad-volver:hover { text-decoration: underline; }
+        .navidad-volver:hover {
+            text-decoration: underline;
+        }
 
-        @media (max-width:760px) {
-            body { background-attachment: scroll; }
+        /* =========================================
+           RESPONSIVE - TABLETS Y CELULARES
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            body {
+                background-attachment: scroll;
+                background-position: center top;
+                background-size: cover;
+            }
+
+            /* ENCABEZADO MÓVIL */
+
+            .header {
+                width: 100%;
+            }
+
+            .header .nav-container {
+                width: 100%;
+                box-sizing: border-box;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .header .logo {
+                font-size: clamp(23px, 6vw, 30px);
+                white-space: nowrap;
+            }
+
+            .header .btn-contacto {
+                white-space: nowrap;
+            }
+
+            /* CONTENIDO */
 
             .navidad-producto-main {
-                padding: 28px 13px 45px;
+                padding: 20px 14px 42px;
             }
 
             .navidad-producto-container {
                 grid-template-columns: 1fr;
-                gap: 25px;
-                padding: 16px;
-                border-radius: 16px;
+                gap: 19px;
+                padding: 8px 3px;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
             }
 
+            /* FOTOGRAFÍA MÁS COMPACTA */
+
             .navidad-producto-imagen {
-                max-height: 440px;
+                width: 100%;
+                height: 350px;
+                max-height: 350px;
+                aspect-ratio: auto;
+                border-radius: 17px;
+            }
+
+            .navidad-producto-imagen img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            /* INFORMACIÓN */
+
+            .navidad-producto-categoria {
+                margin-bottom: 9px;
+                font-size: 10px;
+                letter-spacing: 1.5px;
             }
 
             .navidad-producto-info h1 {
-                font-size: 32px;
+                font-size: clamp(27px, 7vw, 34px);
+                line-height: 1.15;
+                margin-bottom: 13px;
+            }
+
+            .navidad-promo-etiqueta {
+                margin-bottom: 13px;
+                font-size: 10px;
+            }
+
+            .navidad-producto-descripcion {
+                font-size: 14px;
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
+
+            /* SECCIONES */
+
+            .navidad-producto-seccion {
+                margin-top: 19px;
+            }
+
+            .navidad-producto-seccion h2 {
+                font-size: 20px;
+                margin-bottom: 11px;
+            }
+
+            /* PRECIOS */
+
+            .navidad-tallas-precios {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 7px;
+            }
+
+            .navidad-talla-card {
+                padding: 11px 5px;
+                border-radius: 10px;
+            }
+
+            .navidad-talla-card strong {
+                font-size: 12px;
+                margin-bottom: 7px;
+            }
+
+            .navidad-precio-regular {
+                font-size: 10px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 17px;
+            }
+
+            .navidad-ahorro {
+                font-size: 10px;
+            }
+
+            .navidad-aviso-precio {
+                font-size: 10px;
+            }
+
+            /* CARACTERÍSTICAS */
+
+            .navidad-caracteristicas {
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            /* WHATSAPP */
+
+            .navidad-btn-whatsapp {
+                margin-top: 22px;
+                padding: 14px;
+                font-size: 13px;
             }
         }
 
-        @media (max-width:380px) {
-            .navidad-tallas-precios { gap: 6px; }
-            .navidad-talla-card { padding: 11px 5px; }
-            .navidad-precio-promo { font-size: 17px; }
+        /* =========================================
+           CELULARES PEQUEÑOS
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .navidad-producto-main {
+                padding-left: 11px;
+                padding-right: 11px;
+            }
+
+            .navidad-producto-imagen {
+                height: 310px;
+                max-height: 310px;
+            }
+
+            .navidad-tallas-precios {
+                gap: 5px;
+            }
+
+            .navidad-talla-card {
+                padding: 10px 3px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 15px;
+            }
+
+            .navidad-ahorro {
+                font-size: 9px;
+            }
+
+            .navidad-producto-info h1 {
+                font-size: 28px;
+            }
         }
+
+        /* =========================================
+           AJUSTES FINALES PARA CELULARES
+        ========================================= */
+
+        @media (max-width: 760px) {
+
+            .navidad-producto-main {
+                padding: 30px 16px 45px !important;
+            }
+
+            .navidad-producto-container {
+                padding: 0 !important;
+                gap: 22px;
+            }
+
+            .navidad-producto-imagen {
+                width: 100%;
+                height: auto !important;
+                max-height: none !important;
+                aspect-ratio: auto !important;
+
+                background: transparent !important;
+                border: none !important;
+                border-radius: 15px;
+                overflow: hidden;
+
+                box-shadow: 0 10px 28px rgba(73, 43, 28, .18);
+            }
+
+            .navidad-producto-imagen img {
+                display: block;
+                width: 100%;
+                height: auto !important;
+                object-fit: contain;
+                mix-blend-mode: multiply;
+            }
+        }
+
+        /* =========================================
+           CELULARES PEQUEÑOS
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            .navidad-producto-main {
+                padding: 25px 13px 40px !important;
+            }
+        }
+
     </style>
 </head>
 
@@ -238,6 +524,7 @@
     <!-- HEADER -->
     <header class="header">
         <div class="nav-container">
+
             <a href="../index.html" class="logo">KÚMINO</a>
 
             <nav class="navbar">
@@ -246,6 +533,7 @@
             </nav>
 
             <a href="#contacto" class="btn-contacto">Contacto</a>
+
         </div>
     </header>
 
@@ -256,10 +544,12 @@
 
             <!-- IMAGEN -->
             <div class="navidad-producto-imagen">
+
                 <img
                     src="../IMAGENES/vestidonochebuenaencantada.jpg"
                     alt="Vestido Nochebuena Encantada para mascotas"
                 >
+
             </div>
 
             <!-- INFORMACIÓN -->
@@ -281,42 +571,69 @@
 
                 <!-- COLOR -->
                 <section class="navidad-producto-seccion">
+
                     <h2>Color</h2>
 
                     <div class="navidad-color">
                         <span class="navidad-color-muestra"></span>
                         <span>Rojo</span>
                     </div>
+
                 </section>
 
                 <!-- TALLAS Y PRECIOS -->
                 <section class="navidad-producto-seccion">
-                    <h2>Tallas disponibles</h2>
+
+                    <h2>Tallas y precios</h2>
 
                     <div class="navidad-tallas-precios">
 
                         <div class="navidad-talla-card">
                             <strong>Talla 0</strong>
-                            <span class="navidad-precio-regular">S/ 49.00</span>
-                            <span class="navidad-precio-promo">Desde S/ 35.00</span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 49.00
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                Desde S/ 35.00
+                            </span>
                         </div>
 
                         <div class="navidad-talla-card">
                             <strong>Talla 1</strong>
-                            <span class="navidad-precio-regular">S/ 49.00</span>
-                            <span class="navidad-precio-promo">Desde S/ 35.00</span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 49.00
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                Desde S/ 35.00
+                            </span>
                         </div>
 
                         <div class="navidad-talla-card">
                             <strong>Talla 2</strong>
-                            <span class="navidad-precio-regular">S/ 49.00</span>
-                            <span class="navidad-precio-promo">Desde S/ 35.00</span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 49.00
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                Desde S/ 35.00
+                            </span>
                         </div>
 
                         <div class="navidad-talla-card">
                             <strong>Talla 3</strong>
-                            <span class="navidad-precio-regular">S/ 49.00</span>
-                            <span class="navidad-precio-promo">Desde S/ 35.00</span>
+
+                            <span class="navidad-precio-regular">
+                                S/ 49.00
+                            </span>
+
+                            <span class="navidad-precio-promo">
+                                Desde S/ 35.00
+                            </span>
                         </div>
 
                     </div>
@@ -324,10 +641,12 @@
                     <span class="navidad-aviso-precio">
                         Precio promocional desde S/ 35.00. Consulta el precio correspondiente a tu talla.
                     </span>
+
                 </section>
 
                 <!-- CARACTERÍSTICAS -->
                 <section class="navidad-producto-seccion">
+
                     <h2>Características</h2>
 
                     <ul class="navidad-caracteristicas">
@@ -335,6 +654,7 @@
                         <li>Detalles decorativos festivos.</li>
                         <li>Acabados delicados para un look especial.</li>
                     </ul>
+
                 </section>
 
                 <!-- WHATSAPP -->
@@ -353,7 +673,9 @@
                 </a>
 
             </div>
+
         </div>
+
     </main>
 
     <!-- FOOTER -->
@@ -374,8 +696,15 @@
 
             <div class="footer-contacto" id="contacto">
                 <h3>Contáctanos</h3>
-                <a href="https://wa.me/51940151463"
-                   target="_blank" rel="noopener noreferrer">WhatsApp</a>
+
+                <a
+                    href="https://wa.me/51940151463"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
+
                 <span>Envíos a todo el Perú</span>
             </div>
 
@@ -390,4 +719,5 @@
 
 </body>
 </html>
+
 
