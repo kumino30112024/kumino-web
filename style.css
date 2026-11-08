@@ -5193,4 +5193,26 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     }
 
 }
+/* Espacio entre el menú y el encabezado */
+.catalogo-hembras {
+    padding-top: 55px;
+}
 
+/* Encabezado de Navidad */
+.catalogo-header {
+    margin: 35px auto 28px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Ajustes para celulares */
+@media (max-width: 768px) {
+    .catalogo-hembras {
+        padding-top: 38px;
+    }
+
+    .catalogo-header {
+        margin-top: 28px;
+        margin-bottom: 22px;
+    }
+}
