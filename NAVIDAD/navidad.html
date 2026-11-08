@@ -213,9 +213,8 @@
         width: 100%;
         max-width: none;
         min-height: auto;
-        margin: 18px 0 12px;
+        margin: 12px 0 8px;
         padding: 0;
-
         background: transparent;
         border: none;
         border-radius: 0;
@@ -230,13 +229,13 @@
     .navidad-controles .filtros-movil {
         display: flex !important;
         flex-direction: row;
-        align-items: stretch;
+        align-items: center;
         justify-content: center;
-        gap: 12px;
+        gap: 10px;
 
         width: calc(100% - 40px);
         max-width: 420px;
-        margin: 0 auto 32px;
+        margin: 0 auto 20px;
     }
 
     .filtro-desplegable {
@@ -246,9 +245,11 @@
     }
 
     .btn-filtro {
+        box-sizing: border-box;
         width: 100%;
-        height: 54px;
-        padding: 0 10px;
+        height: 48px;
+        min-height: 48px;
+        padding: 0 12px;
 
         display: flex;
         align-items: center;
@@ -260,15 +261,15 @@
         border-radius: 28px;
 
         font-family: 'Poppins', sans-serif;
-        font-size: 11px;
+        font-size: 12px;
         font-weight: 500;
         color: #2B2B2B;
         cursor: pointer;
     }
 
     .btn-filtro span:first-child {
-        overflow: hidden;
-        text-overflow: ellipsis;
+        overflow: visible;
+        text-overflow: clip;
         white-space: nowrap;
     }
 
@@ -290,7 +291,6 @@
         z-index: 1000;
     }
 }
-
 /* PRECIOS DE LA COLECCIÓN NAVIDAD */
 .precio-navidad-fila {
     display: flex;
