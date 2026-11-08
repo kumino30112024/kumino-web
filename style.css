@@ -4781,47 +4781,64 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 
 /* =========================================================
-   BANNER NAVIDEÑO KÚMINO
+   BANNER NAVIDEÑO KÚMINO - VIDEO
 ========================================================= */
 
 .banner-navidad {
     position: relative;
+    isolation: isolate;
 
-    /* DIMENSIONES */
     width: calc(100% - 46px);
-  max-width: none;
+    max-width: none;
     min-height: 360px;
 
     margin: 30px auto;
     padding: 40px 8%;
+    box-sizing: border-box;
 
-    /* DISTRIBUCIÓN */
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
-    /* IMAGEN DE FONDO */
-    background-image:
-        linear-gradient(
-            90deg,
-            transparent 35%,
-            rgba(249, 243, 235, 0.12) 52%,
-            rgba(249, 243, 235, 0.35) 100%
-        ),
-        url("banner_navideño.mp4");
-
-    background-size: cover;
-    background-position: center 42%;
-    background-repeat: no-repeat;
-
-    /* ACABADO VISUAL */
     border-radius: 20px;
     overflow: hidden;
 
     box-shadow: 0 8px 25px rgba(44, 53, 49, 0.10);
 }
 
+/* VIDEO DE FONDO */
+.banner-navidad-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 42%;
+    z-index: -2;
+}
 
+/* CAPA SUAVE SOBRE EL VIDEO */
+.banner-navidad::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        transparent 35%,
+        rgba(249, 243, 235, 0.12) 52%,
+        rgba(249, 243, 235, 0.35) 100%
+    );
+    z-index: -1;
+}
+
+/* CONTENIDO DEL BANNER */
+.banner-navidad-contenido {
+    position: relative;
+    z-index: 1;
+    width: 48%;
+    max-width: 620px;
+    text-align: center;
+}
 /* =========================================================
    CONTENIDO DEL BANNER
 ========================================================= */
