@@ -283,245 +283,195 @@
             text-decoration: underline;
         }
 
-        /* =========================================
-           RESPONSIVE - TABLETS Y CELULARES
-        ========================================= */
+      /* =========================================
+   RESPONSIVE - TABLETS Y CELULARES
+========================================= */
 
-        @media (max-width: 760px) {
+@media (max-width: 760px) {
 
-            body {
-                background-attachment: scroll;
-                background-position: center top;
-                background-size: cover;
-            }
+    body {
+        background-attachment: scroll;
+        background-position: center top;
+        background-size: cover;
+    }
 
-            /* ENCABEZADO MÓVIL */
+    /* ENCABEZADO MÓVIL */
 
-            .header {
-                width: 100%;
-            }
+    .header {
+        width: 100%;
+    }
 
-            .header .nav-container {
-                width: 100%;
-                box-sizing: border-box;
-                padding-left: 16px;
-                padding-right: 16px;
-            }
+    .header .nav-container {
+        width: 100%;
+        box-sizing: border-box;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 
-            .header .logo {
-                font-size: clamp(23px, 6vw, 30px);
-                white-space: nowrap;
-            }
+    .header .logo {
+        font-size: clamp(23px, 6vw, 30px);
+        white-space: nowrap;
+    }
 
-            .header .btn-contacto {
-                white-space: nowrap;
-            }
+    .header .btn-contacto {
+        white-space: nowrap;
+    }
 
-            /* CONTENIDO */
+    /* CONTENIDO */
 
-            .navidad-producto-main {
-                padding: 20px 14px 42px;
-            }
+    .navidad-producto-main {
+        padding: 30px 16px 45px;
+    }
 
-            .navidad-producto-container {
-                grid-template-columns: 1fr;
-                gap: 19px;
-                padding: 8px 3px;
-                background: transparent;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-            }
+    .navidad-producto-container {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+    }
 
-            /* FOTOGRAFÍA MÁS COMPACTA */
+    /* FOTOGRAFÍA: CONSERVAR PROPORCIÓN ORIGINAL */
 
-            .navidad-producto-imagen {
-                width: 100%;
-                height: 350px;
-                max-height: 350px;
-                aspect-ratio: auto;
-                border-radius: 17px;
-            }
+    .navidad-producto-imagen {
+        width: 100%;
+        height: auto;
+        max-height: none;
+        aspect-ratio: auto;
+        background: transparent;
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 28px rgba(73, 43, 28, .18);
+    }
 
-            .navidad-producto-imagen img {
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-            }
+    .navidad-producto-imagen img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        object-fit: contain;
+        object-position: center;
+        mix-blend-mode: normal;
+    }
 
-            /* INFORMACIÓN */
+    /* INFORMACIÓN */
 
-            .navidad-producto-categoria {
-                margin-bottom: 9px;
-                font-size: 10px;
-                letter-spacing: 1.5px;
-            }
+    .navidad-producto-categoria {
+        margin-bottom: 9px;
+        font-size: 10px;
+        letter-spacing: 1.5px;
+    }
 
-            .navidad-producto-info h1 {
-                font-size: clamp(27px, 7vw, 34px);
-                line-height: 1.15;
-                margin-bottom: 13px;
-            }
+    .navidad-producto-info h1 {
+        font-size: clamp(27px, 7vw, 34px);
+        line-height: 1.15;
+        margin-bottom: 13px;
+    }
 
-            .navidad-promo-etiqueta {
-                margin-bottom: 13px;
-                font-size: 10px;
-            }
+    .navidad-promo-etiqueta {
+        margin-bottom: 13px;
+        font-size: 10px;
+    }
 
-            .navidad-producto-descripcion {
-                font-size: 14px;
-                line-height: 1.7;
-                margin-bottom: 18px;
-            }
+    .navidad-producto-descripcion {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 18px;
+    }
 
-            /* SECCIONES */
+    /* SECCIONES */
 
-            .navidad-producto-seccion {
-                margin-top: 19px;
-            }
+    .navidad-producto-seccion {
+        margin-top: 19px;
+    }
 
-            .navidad-producto-seccion h2 {
-                font-size: 20px;
-                margin-bottom: 11px;
-            }
+    .navidad-producto-seccion h2 {
+        font-size: 20px;
+        margin-bottom: 11px;
+    }
 
-            /* PRECIOS */
+    /* PRECIOS */
 
-            .navidad-tallas-precios {
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                gap: 7px;
-            }
+    .navidad-tallas-precios {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+    }
 
-            .navidad-talla-card {
-                padding: 11px 5px;
-                border-radius: 10px;
-            }
+    .navidad-talla-card {
+        padding: 11px 5px;
+        border-radius: 10px;
+    }
 
-            .navidad-talla-card strong {
-                font-size: 12px;
-                margin-bottom: 7px;
-            }
+    .navidad-talla-card strong {
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
 
-            .navidad-precio-regular {
-                font-size: 10px;
-            }
+    .navidad-precio-regular {
+        font-size: 10px;
+    }
 
-            .navidad-precio-promo {
-                font-size: 17px;
-            }
+    .navidad-precio-promo {
+        font-size: 17px;
+    }
 
-            .navidad-ahorro {
-                font-size: 10px;
-            }
+    .navidad-ahorro {
+        font-size: 10px;
+    }
 
-            .navidad-aviso-precio {
-                font-size: 10px;
-            }
+    .navidad-aviso-precio {
+        font-size: 10px;
+    }
 
-            /* CARACTERÍSTICAS */
+    /* CARACTERÍSTICAS */
 
-            .navidad-caracteristicas {
-                font-size: 13px;
-                line-height: 1.8;
-            }
+    .navidad-caracteristicas {
+        font-size: 13px;
+        line-height: 1.8;
+    }
 
-            /* WHATSAPP */
+    /* WHATSAPP */
 
-            .navidad-btn-whatsapp {
-                margin-top: 22px;
-                padding: 14px;
-                font-size: 13px;
-            }
-        }
+    .navidad-btn-whatsapp {
+        margin-top: 22px;
+        padding: 14px;
+        font-size: 13px;
+    }
+}
 
-        /* =========================================
-           CELULARES PEQUEÑOS
-        ========================================= */
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
 
-        @media (max-width: 380px) {
+@media (max-width: 380px) {
 
-            .navidad-producto-main {
-                padding-left: 11px;
-                padding-right: 11px;
-            }
+    .navidad-producto-main {
+        padding: 25px 13px 40px;
+    }
 
-            .navidad-producto-imagen {
-                height: 310px;
-                max-height: 310px;
-            }
+    .navidad-tallas-precios {
+        gap: 5px;
+    }
 
-            .navidad-tallas-precios {
-                gap: 5px;
-            }
+    .navidad-talla-card {
+        padding: 10px 3px;
+    }
 
-            .navidad-talla-card {
-                padding: 10px 3px;
-            }
+    .navidad-precio-promo {
+        font-size: 15px;
+    }
 
-            .navidad-precio-promo {
-                font-size: 15px;
-            }
+    .navidad-ahorro {
+        font-size: 9px;
+    }
 
-            .navidad-ahorro {
-                font-size: 9px;
-            }
-
-            .navidad-producto-info h1 {
-                font-size: 28px;
-            }
-        }
-
-        /* =========================================
-           AJUSTES FINALES PARA CELULARES
-        ========================================= */
-
-        @media (max-width: 760px) {
-
-            /* Separación entre menú y fotografía */
-            .navidad-producto-main {
-                padding: 30px 16px 45px !important;
-            }
-
-            .navidad-producto-container {
-                padding: 0 !important;
-                gap: 22px;
-            }
-
-            /* Fotografía sin marco ni fondo blanco */
-            .navidad-producto-imagen {
-                width: 100%;
-                height: auto !important;
-                max-height: none !important;
-                aspect-ratio: auto !important;
-
-                background: transparent !important;
-                border: none !important;
-                border-radius: 15px;
-                overflow: hidden;
-
-                box-shadow: 0 10px 28px rgba(73, 43, 28, .18);
-            }
-
-            .navidad-producto-imagen img {
-                display: block;
-                width: 100%;
-                height: auto !important;
-                object-fit: contain;
-                mix-blend-mode: multiply;
-            }
-        }
-
-        /* =========================================
-           CELULARES PEQUEÑOS
-        ========================================= */
-
-        @media (max-width: 380px) {
-
-            .navidad-producto-main {
-                padding: 25px 13px 40px !important;
-            }
-        }
-
+    .navidad-producto-info h1 {
+        font-size: 28px;
+    }
+}
     </style>
 </head>
 
