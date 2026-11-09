@@ -5393,3 +5393,14 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     }
 
 }
+/* PREVENTA: tamaño reducido en celulares */
+@media (max-width: 600px) {
+    .etiqueta-proximamente.etiqueta-preventa {
+        font-size: 11px !important;
+        padding: 9px 13px !important;
+        letter-spacing: 1.5px !important;
+        top: 12px !important;
+        left: 12px !important;
+        border-radius: 25px !important;
+    }
+}
