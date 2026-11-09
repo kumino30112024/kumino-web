@@ -74,12 +74,10 @@
     height: 100%;
     object-fit: contain;
 
-    /* Conservar la fotografía original */
+    /* Fotografía con colores originales */
     mix-blend-mode: normal;
     opacity: 1;
-
-    /* Sombra exterior elegante */
-    filter: drop-shadow(0 10px 16px rgba(65, 43, 28, .18));
+    filter: none;
 }
 
         /* =========================================
@@ -486,6 +484,7 @@
         overflow: hidden;
         border-radius: 15px;
         background: transparent !important;
+        box-shadow: none !important;
     }
 
     .navidad-producto-imagen img {
@@ -496,8 +495,9 @@
         object-fit: contain !important;
         object-position: center;
         mix-blend-mode: normal !important;
+        opacity: 1 !important;
+        filter: none !important;
     }
-
 }
 
 @media (max-width: 380px) {
@@ -507,9 +507,7 @@
         height: auto !important;
         max-height: none !important;
     }
-
 }
-
     </style>
 </head>
 
