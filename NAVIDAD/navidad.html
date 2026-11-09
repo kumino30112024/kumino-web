@@ -530,6 +530,12 @@ body {
     box-shadow: 0 3px 10px rgba(90, 30, 25, .18);
 }
 
+/* ETIQUETA PREVENTA: NARANJA OFICIAL KÚMINO */
+.etiqueta-proximamente.etiqueta-preventa {
+    background: #FF6600 !important;
+    color: #FFFFFF !important;
+}
+
 .catalogo-datos {
     padding: 13px 16px 4px;
     text-align: left;
@@ -1319,6 +1325,22 @@ body {
             ".productos-grid .producto-catalogo"
         )
     );
+
+    /* CLASIFICAR AUTOMÁTICAMENTE PREVENTA Y PRÓXIMAMENTE */
+    productos.forEach(producto => {
+        const tieneTallas = (producto.dataset.tallas || "").trim().length > 0;
+        const etiqueta = producto.querySelector(".etiqueta-proximamente");
+
+        if (!etiqueta) return;
+
+        if (tieneTallas) {
+            etiqueta.textContent = "PREVENTA";
+            etiqueta.classList.add("etiqueta-preventa");
+        } else {
+            etiqueta.textContent = "PRÓXIMAMENTE";
+            etiqueta.classList.remove("etiqueta-preventa");
+        }
+    });
 
     const categorias = Array.from(
         document.querySelectorAll(
