@@ -36,6 +36,169 @@ body.pagina-machos .catalogo-datos > .aviso-precio-talla {
     line-height: 1.4;
 }
 </style>
+
+
+<style>
+/* =========================================
+   KÚMINO MACHOS — REDISEÑO BOUTIQUE
+   Inspirado en la presentación de NAVIDAD,
+   adaptado a la paleta verde salvia.
+========================================= */
+body.pagina-machos {
+    background-color: #F5EADD;
+}
+body.pagina-machos .catalogo-hembras {
+    background: transparent !important;
+}
+body.pagina-machos .productos-grid {
+    width: min(calc(100% - 48px), 1110px) !important;
+    margin: 28px auto 60px !important;
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 28px !important;
+    align-items: stretch;
+}
+body.pagina-machos .producto-catalogo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(83, 108, 82, .13) !important;
+    border-radius: 16px !important;
+    background: rgba(255, 250, 243, .96) !important;
+    box-shadow: 0 8px 20px rgba(57, 67, 52, .12) !important;
+    text-decoration: none !important;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+body.pagina-machos .producto-catalogo:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(57, 67, 52, .18) !important;
+}
+body.pagina-machos .catalogo-foto {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #EEE8DE !important;
+    border-radius: 0 !important;
+}
+body.pagina-machos .catalogo-foto img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: transform .45s ease;
+}
+body.pagina-machos .producto-catalogo:hover .catalogo-foto img {
+    transform: scale(1.035);
+}
+/* Cápsula visual de colección, sin atribuir stock ni preventa */
+body.pagina-machos .catalogo-foto > span {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 29px;
+    padding: 6px 12px;
+    border-radius: 22px;
+    background: #7A9B76;
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px rgba(45, 65, 43, .18);
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+body.pagina-machos .catalogo-foto > span:empty::after {
+    content: 'MACHOS';
+}
+body.pagina-machos .catalogo-datos {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 13px 16px 16px !important;
+    text-align: left !important;
+    background: transparent !important;
+}
+body.pagina-machos .catalogo-datos h2 {
+    margin: 0 0 8px !important;
+    color: #2C3531 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1.45 !important;
+}
+body.pagina-machos .catalogo-datos > p {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin: 2px 0 0 !important;
+    padding: 6px 11px;
+    border-radius: 20px;
+    background: #7A9B76 !important;
+    color: #FFFFFF !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    line-height: 1.35;
+}
+body.pagina-machos .catalogo-datos > .aviso-precio-talla {
+    display: inline-block !important;
+    width: fit-content;
+    margin: 7px 0 0 !important;
+    padding: 4px 8px !important;
+    border: 0 !important;
+    border-radius: 15px !important;
+    background: rgba(122, 155, 118, .16) !important;
+    color: #526B50 !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    line-height: 1.45 !important;
+}
+/* Mantener los avisos de precio solo donde ya existen */
+body.pagina-machos .producto-catalogo[hidden] { display: none !important; }
+@media (max-width: 900px) {
+    body.pagina-machos .productos-grid {
+        width: calc(100% - 36px) !important;
+        gap: 18px !important;
+    }
+}
+@media (max-width: 600px) {
+    body.pagina-machos .productos-grid {
+        width: calc(100% - 28px) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 14px !important;
+        margin-top: 22px !important;
+    }
+    body.pagina-machos .producto-catalogo { border-radius: 12px !important; }
+    body.pagina-machos .catalogo-foto img { aspect-ratio: 1 / 1.08; }
+    body.pagina-machos .catalogo-foto > span {
+        top: 8px; left: 8px; min-height: 23px;
+        padding: 5px 8px; font-size: 8px; letter-spacing: .7px;
+    }
+    body.pagina-machos .catalogo-datos { padding: 10px 10px 12px !important; }
+    body.pagina-machos .catalogo-datos h2 {
+        margin-bottom: 7px !important;
+        font-size: 11px !important;
+        line-height: 1.4 !important;
+    }
+    body.pagina-machos .catalogo-datos > p {
+        padding: 5px 8px;
+        font-size: 10px !important;
+    }
+    body.pagina-machos .catalogo-datos > .aviso-precio-talla {
+        margin-top: 6px !important;
+        padding: 3px 6px !important;
+        font-size: 8px !important;
+    }
+}
+</style>
+
 </head>
 <body class="pagina-machos">
 <header class="header">
@@ -377,6 +540,7 @@ data-categoria="sudaderas">
 </a>
 <a href="sudadera-urbana.html"
 class="producto-catalogo"
+data-tallas="3"
 data-categoria="sudaderas">
 <div class="catalogo-foto">
 <span>
@@ -390,6 +554,7 @@ data-categoria="sudaderas">
 </a>
 <a href="sudadera-deportiva.html"
 class="producto-catalogo precio-variable"
+data-tallas="2,3,4"
 data-categoria="sudaderas">
 <div class="catalogo-foto">
 <span>
