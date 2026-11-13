@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
  <head>
   <meta charset="utf-8"/>
@@ -375,6 +376,162 @@ body.pagina-machos .machos-sin-resultados {
 @media (max-width: 768px) {
     body.pagina-machos { background-attachment: scroll; }
 }
+   /* =========================================================
+   AJUSTE FINAL DE TARJETAS MACHOS
+   Alturas uniformes, precios compactos y avisos consistentes
+========================================================= */
+
+/* Cada fila de la cuadrícula comparte altura y todas las tarjetas
+   mantienen la misma estructura vertical. */
+body.pagina-machos .productos-grid {
+    align-items: stretch;
+    grid-auto-rows: 1fr;
+}
+body.pagina-machos .producto-catalogo.machos-card {
+    height: 100%;
+    min-height: 0;
+    display: flex !important;
+    flex-direction: column;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-foto {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 13px 16px 12px;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+    min-height: 1.45em;
+    margin: 0 0 8px;
+}
+
+/* "Desde" debe ser una cápsula ajustada al texto, nunca un bloque ancho. */
+body.pagina-machos .precio-simple-machos {
+    display: inline-flex !important;
+    align-self: flex-start;
+    align-items: center;
+    width: auto !important;
+    max-width: 100%;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    box-sizing: border-box;
+    margin: 3px 0 2px !important;
+    padding: 6px 12px !important;
+    border: 0 !important;
+    border-radius: 22px !important;
+    background: #7A9B76 !important;
+    color: #FFFFFF !important;
+    box-shadow: none !important;
+    font: 600 13px/1.3 'Poppins', sans-serif !important;
+    white-space: normal;
+}
+
+/* Promociones: precio promocional naranja, a juego con su etiqueta. */
+body.pagina-machos .precio-destacado-machos {
+    display: inline-flex !important;
+    align-items: center;
+    width: auto !important;
+    max-width: 100%;
+    min-height: 0 !important;
+    box-sizing: border-box;
+    padding: 6px 12px !important;
+    border: 0 !important;
+    border-radius: 22px !important;
+    background: #FF6600 !important;
+    color: #FFFFFF !important;
+    box-shadow: none !important;
+    font: 600 13px/1.3 'Poppins', sans-serif !important;
+}
+body.pagina-machos .precio-machos-fila {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    margin: 3px 0 2px;
+}
+body.pagina-machos .precio-regular-machos {
+    color: #8B8B80 !important;
+    font: 400 12px 'Poppins', sans-serif !important;
+    text-decoration: line-through !important;
+}
+body.pagina-machos .ahorro-machos {
+    display: inline-block;
+    width: auto !important;
+    margin: 4px 0 2px;
+    padding: 0;
+    background: transparent !important;
+    color: #668565 !important;
+    font: 500 10px/1.4 'Poppins', sans-serif !important;
+}
+
+/* El aviso aparece en todas las tarjetas, siempre como cápsula pequeña. */
+body.pagina-machos .aviso-precio-talla-machos {
+    display: inline-flex !important;
+    align-items: center;
+    align-self: flex-start;
+    width: auto !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: auto 0 0 !important;
+    padding: 3px 8px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: rgba(122,155,118,.17) !important;
+    color: #526B50 !important;
+    box-shadow: none !important;
+    font: 500 10px/1.4 'Poppins', sans-serif !important;
+}
+
+/* Asegura que la imagen no altere la altura de las tarjetas en móvil. */
+@media (max-width: 600px) {
+    body.pagina-machos .productos-grid {
+        grid-auto-rows: 1fr;
+        align-items: stretch;
+    }
+    body.pagina-machos .producto-catalogo.machos-card {
+        height: 100%;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-foto {
+        aspect-ratio: 1 / 1.08;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+        aspect-ratio: 1 / 1.08;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+        padding: 10px 10px 9px;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+        min-height: 2.9em;
+        margin-bottom: 6px;
+        font-size: 11px;
+    }
+    body.pagina-machos .precio-simple-machos,
+    body.pagina-machos .precio-destacado-machos {
+        padding: 5px 8px !important;
+        font-size: 10px !important;
+    }
+    body.pagina-machos .precio-regular-machos {
+        font-size: 9px !important;
+    }
+    body.pagina-machos .aviso-precio-talla-machos {
+        font-size: 8px !important;
+        padding: 3px 6px !important;
+    }
+}
   </style>
  </head>
  <body class="pagina-machos">
@@ -654,6 +811,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 32.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo machos-card" data-categoria="sudaderas" data-tallas="2" href="sudadera-marfil-urbano.html">
@@ -667,6 +827,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 28.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo machos-card" data-categoria="abrigos" data-tallas="1" href="parka-amanecer-andino.html">
@@ -680,6 +843,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 32.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo precio-variable machos-card" data-categoria="impermeables" data-tallas="1,3" href="casaca-brisa-de-mar.html">
@@ -741,6 +907,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 30.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo precio-variable machos-card" data-categoria="especiales" data-tallas="2,3,4" href="overol-mini-saurio.html">
@@ -770,6 +939,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 40.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo machos-card" data-categoria="abrigos" data-tallas="3" href="sueter-doggiematch.html">
@@ -783,6 +955,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 33.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo precio-variable machos-card" data-categoria="polos" data-tallas="3,4" href="polos-rayas-de-verano.html">
@@ -828,6 +1003,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 34.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo precio-variable machos-card" data-categoria="sudaderas" data-tallas="2,3" href="sudadera-de-mimos.html">
@@ -857,6 +1035,9 @@ body.pagina-machos .machos-sin-resultados {
       <p class="precio-simple-machos">
        S/ 36.00
       </p>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo precio-variable machos-card" data-categoria="sudaderas" data-tallas="2,3,4" href="sudadera-deportiva.html">
@@ -924,6 +1105,9 @@ body.pagina-machos .machos-sin-resultados {
       <span class="ahorro-machos">
        Ahorras S/ 9.50
       </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo precio-variable machos-card" data-categoria="abrigos" data-tallas="2,3" href="abrigo-orejas-de-algodon.html">
@@ -975,6 +1159,9 @@ body.pagina-machos .machos-sin-resultados {
       <span class="ahorro-machos">
        Ahorras S/ 11.00
       </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo machos-card" data-categoria="especiales" data-tallas="2" href="pequeno-ejecutivo.html">
@@ -999,6 +1186,9 @@ body.pagina-machos .machos-sin-resultados {
       <span class="ahorro-machos">
        Ahorras S/ 9.00
       </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo machos-card" data-categoria="abrigos" data-tallas="3" href="chompa-snoopy.html">
@@ -1022,6 +1212,9 @@ body.pagina-machos .machos-sin-resultados {
       </div>
       <span class="ahorro-machos">
        Ahorras S/ 10.00
+      </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
       </span>
      </div>
     </a>
@@ -1073,6 +1266,9 @@ body.pagina-machos .machos-sin-resultados {
       </div>
       <span class="ahorro-machos">
        Ahorras S/ 10.00
+      </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
       </span>
      </div>
     </a>
@@ -1151,6 +1347,9 @@ body.pagina-machos .machos-sin-resultados {
       </div>
       <span class="ahorro-machos">
        Ahorras S/ 11.00
+      </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
       </span>
      </div>
     </a>
@@ -1257,6 +1456,9 @@ body.pagina-machos .machos-sin-resultados {
       <span class="ahorro-machos">
        Ahorras S/ 14.00
       </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
      </div>
     </a>
     <a class="producto-catalogo machos-card" data-categoria="sudaderas" data-tallas="7,8" href="sudadera-i-love-my-mom.html">
@@ -1280,6 +1482,9 @@ body.pagina-machos .machos-sin-resultados {
       </div>
       <span class="ahorro-machos">
        Ahorras S/ 14.00
+      </span>
+      <span class="aviso-precio-talla-machos">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
       </span>
      </div>
     </a>
@@ -1437,3 +1642,4 @@ body.pagina-machos .machos-sin-resultados {
   </script>
  </body>
 </html>
+
