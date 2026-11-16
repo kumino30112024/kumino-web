@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -23,7 +22,17 @@
             --casita-coral: #E63946;
             --casita-texto: #2C3531;
 
-            background: var(--casita-crema);
+            background-color: var(--casita-crema);
+            background-image:
+                linear-gradient(
+                    rgba(249, 241, 232, 0.42),
+                    rgba(249, 241, 232, 0.42)
+                ),
+                url("../Fondo-casitas.png");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--casita-texto);
             font-family: 'Poppins', sans-serif;
             padding: 65px 6% 85px;
@@ -290,6 +299,8 @@
         @media (max-width: 650px) {
             #pagina-casitas {
                 padding: 38px 5% 55px;
+                background-attachment: scroll;
+                background-position: center top;
             }
 
             #pagina-casitas .casitas-intro {
@@ -559,4 +570,3 @@
 
 </body>
 </html>
-
