@@ -1,317 +1,293 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>KÚMINO | Accesorios</title>
-
-    <link rel="stylesheet" href="../style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KÚMINO | Accesorios</title>
+<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ACCESORIOS — diseño propio inspirado en MACHOS, sin modificar style.css */
+body.pagina-accesorios{
+  background:#F5EADD url("../Fondo-accesorios.png") center top / cover no-repeat fixed;
+}
+body.pagina-accesorios .catalogo-hembras{
+  min-height:100vh;background:transparent!important;padding:42px 0 70px;
+}
+body.pagina-accesorios .catalogo-hembras::before,
+body.pagina-accesorios .catalogo-hembras::after{display:none!important}
+body.pagina-accesorios .catalogo-header{
+  max-width:900px;margin:30px auto 28px;padding:0 20px;text-align:center;
+}
+body.pagina-accesorios .accesorios-eyebrow{
+  display:inline-flex;align-items:center;margin-bottom:10px;padding:8px 18px;
+  border-radius:30px;background:rgba(122,155,118,.17);color:#526B50;
+  font:600 12px 'Poppins',sans-serif;letter-spacing:.7px;
+}
+body.pagina-accesorios .catalogo-header h1{
+  margin:0 0 10px;color:#2C3531;font:600 clamp(46px,5vw,66px)/1.08 'Playfair Display',serif;
+}
+body.pagina-accesorios .catalogo-header p{
+  max-width:680px;margin:0 auto;color:#526B50;font:400 14px/1.8 'Poppins',sans-serif;
+}
+/* Categorías: barra horizontal en escritorio */
+body.pagina-accesorios .categorias-catalogo{
+  position:relative;z-index:20;display:flex;align-items:center;justify-content:space-between;
+  gap:8px;width:min(1120px,calc(100% - 48px));margin:30px auto 38px;padding:12px 16px;
+  border:1px solid rgba(255,255,255,.8);border-radius:40px;background:rgba(255,255,255,.94);
+  box-shadow:0 8px 24px rgba(65,45,35,.08);box-sizing:border-box;
+}
+body.pagina-accesorios .categorias-catalogo button{
+  border:0;border-radius:25px;padding:12px 17px;background:transparent;color:#526B50;
+  font:500 13px 'Poppins',sans-serif;white-space:nowrap;cursor:pointer;transition:.2s ease;
+}
+body.pagina-accesorios .categorias-catalogo button:hover{background:rgba(122,155,118,.13)}
+body.pagina-accesorios .categorias-catalogo button.categoria-activa{background:#7A9B76;color:#fff}
+/* Menú compacto para móvil: una sola categoría, no se agrega filtro de talla */
+body.pagina-accesorios .filtro-categoria-movil{display:none;position:relative;z-index:30}
+body.pagina-accesorios .btn-categoria-movil{
+  width:100%;min-height:49px;display:flex;align-items:center;justify-content:space-between;
+  padding:11px 15px;border:1px solid #BFD0BA;border-radius:14px;background:#FFFAF3;
+  color:#526B50;font:500 12px 'Poppins',sans-serif;text-align:left;cursor:pointer;
+}
+body.pagina-accesorios .opciones-categoria-movil{
+  position:absolute;top:calc(100% + 7px);left:0;right:0;z-index:1000;max-height:230px;overflow-y:auto;
+  padding:7px;border:1px solid #E8DED7;border-radius:14px;background:#FFFCF9;
+  box-shadow:0 10px 24px rgba(40,30,25,.16);
+}
+body.pagina-accesorios .opciones-categoria-movil[hidden]{display:none!important}
+body.pagina-accesorios .opciones-categoria-movil button{
+  display:block;width:100%;min-height:37px;padding:8px 11px;border:0;border-radius:9px;
+  background:transparent;color:#526B50;text-align:left;font:500 12px 'Poppins',sans-serif;cursor:pointer;
+}
+body.pagina-accesorios .opciones-categoria-movil button.opcion-activa{background:#7A9B76;color:#fff}
+/* Tarjetas compactas y parejas */
+body.pagina-accesorios .productos-grid{
+  width:min(1120px,calc(100% - 48px));margin:0 auto;display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;grid-auto-rows:auto;gap:28px;
+}
+body.pagina-accesorios .producto-catalogo[hidden]{display:none!important}
+body.pagina-accesorios .producto-catalogo.accesorios-card{
+  display:block;min-width:0;height:auto;align-self:start;overflow:hidden;position:relative;
+  border:1px solid rgba(112,91,65,.10);border-radius:16px;background:rgba(255,247,237,.95);
+  box-shadow:0 8px 20px rgba(62,47,31,.13);color:inherit;text-decoration:none;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+body.pagina-accesorios .producto-catalogo.accesorios-card:hover{
+  transform:translateY(-4px);box-shadow:0 13px 26px rgba(62,47,31,.17);
+}
+body.pagina-accesorios .catalogo-foto{position:relative;overflow:hidden;background:#EFE5D8}
+body.pagina-accesorios .catalogo-foto img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover}
+body.pagina-accesorios .catalogo-datos{
+  display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:13px 16px 11px;text-align:left;
+}
+body.pagina-accesorios .catalogo-datos h2{
+  width:100%;margin:0 0 3px;color:#292D29;font:600 14px/1.4 'Poppins',sans-serif;
+}
+body.pagina-accesorios .precio-simple-accesorios{
+  display:inline-block;width:fit-content;margin:0;padding:6px 12px;border-radius:22px;
+  background:#7A9B76;color:#fff;font:600 13px/1.25 'Poppins',sans-serif;
+}
+body.pagina-accesorios .aviso-precio-talla{
+  display:inline-flex;width:fit-content;max-width:100%;margin:0;padding:3px 8px;
+  border-radius:14px;background:rgba(122,155,118,.17);color:#526B50;
+  font:500 10px/1.35 'Poppins',sans-serif;
+}
+body.pagina-accesorios .sin-resultados{
+  grid-column:1/-1;text-align:center;color:#526B50;font:500 14px 'Poppins',sans-serif;
+}
+@media(max-width:850px){
+  body.pagina-accesorios .productos-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  body.pagina-accesorios .categorias-catalogo{width:calc(100% - 36px)}
+}
+@media(max-width:600px){
+  body.pagina-accesorios{background-attachment:scroll;background-position:center top}
+  body.pagina-accesorios .catalogo-hembras{padding:28px 0 48px}
+  body.pagina-accesorios .catalogo-header{margin:18px auto 20px;padding:0 18px}
+  body.pagina-accesorios .catalogo-header h1{font-size:42px}
+  body.pagina-accesorios .catalogo-header p{font-size:13px;line-height:1.55}
+  body.pagina-accesorios .categorias-catalogo{display:none}
+  body.pagina-accesorios .filtro-categoria-movil{display:block;width:calc(100% - 40px);margin:22px auto 24px}
+  body.pagina-accesorios .productos-grid{
+    width:calc(100% - 32px);grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-auto-rows:auto;align-items:start;gap:12px;margin:0 auto;
+  }
+  body.pagina-accesorios .producto-catalogo.accesorios-card{height:auto;align-self:start;border-radius:15px}
+  body.pagina-accesorios .catalogo-foto img{aspect-ratio:1/1}
+  body.pagina-accesorios .catalogo-datos{gap:5px;padding:9px 9px 10px}
+  body.pagina-accesorios .catalogo-datos h2{min-height:2.7em;margin:0 0 2px;font-size:11px;line-height:1.35}
+  body.pagina-accesorios .precio-simple-accesorios{padding:5px 9px;font-size:10px}
+  body.pagina-accesorios .aviso-precio-talla{padding:3px 6px;font-size:8px;white-space:normal}
+}
+</style>
 </head>
-
-<body>
-
-<!-- HEADER -->
+<body class="pagina-accesorios">
 <header class="header">
-    <div class="nav-container">
-
-        <a href="../index.html" class="logo">
-            KÚMINO
-        </a>
-
-        <nav class="navbar">
-            <a href="../index.html">Inicio</a>
-            <a href="../index.html#coleccion">Colección</a>
-            <a href="../HALLOWEN/hallowen.html">Disfraces</a>
-            <a href="../HEMBRAS/hembras.html">Hembras</a>
-            <a href="../MACHOS/machos.html">Machos</a>
-            <a href="accesorios.html" class="activo">Accesorios</a>
-            <a href="../CASITAS/casitas.html">Casitas</a>
-        </nav>
-
-        <a href="https://wa.me/51940151463"
-           class="btn-contacto"
-           target="_blank"
-           rel="noopener noreferrer">
-            Contacto
-        </a>
-
-    </div>
+  <div class="nav-container">
+    <a href="../index.html" class="logo">KÚMINO</a>
+    <nav class="navbar">
+      <a href="../index.html">Inicio</a>
+      <a href="../index.html#coleccion">Colección</a>
+      <a href="../HALLOWEN/hallowen.html">Disfraces</a>
+      <a href="../HEMBRAS/hembras.html">Hembras</a>
+      <a href="../MACHOS/machos.html">Machos</a>
+      <a href="accesorios.html" class="activo">Accesorios</a>
+      <a href="../CASITAS/casitas.html">Casitas</a>
+    </nav>
+    <a href="https://wa.me/51940151463" class="btn-contacto" target="_blank" rel="noopener noreferrer">Contacto</a>
+  </div>
 </header>
 
-<!-- CATÁLOGO -->
 <section class="catalogo-hembras">
+  <div class="catalogo-header">
+    <span class="accesorios-eyebrow">COLECCIÓN KÚMINO</span>
+    <h1>Accesorios</h1>
+    <p>Complementa el estilo de tu mascota con accesorios pensados para acompañarla con comodidad y personalidad.</p>
+  </div>
 
-    <div class="catalogo-header">
-        <span>COLECCIÓN KÚMINO</span>
+  <!-- Filtros de categoría: se conservan únicamente las categorías existentes -->
+  <div class="categorias-catalogo" aria-label="Filtrar por categoría">
+    <button type="button" class="categoria-activa" data-filtro="todos">Todos</button>
+    <button type="button" data-filtro="pecheras">Pecheras</button>
+    <button type="button" data-filtro="arneses">Arneses</button>
+    <button type="button" data-filtro="accesorios">Accesorios</button>
+  </div>
 
-        <h1>Accesorios</h1>
-
-        <p>
-            Complementa el estilo de tu mascota con accesorios
-            pensados para acompañarla con comodidad y personalidad.
-        </p>
+  <div class="filtro-categoria-movil">
+    <button type="button" class="btn-categoria-movil" id="btnCategoriaAccesorios" aria-expanded="false" aria-controls="opcionesCategoriaAccesorios">
+      <span id="textoCategoriaAccesorios">Todas las categorías</span><span>⌄</span>
+    </button>
+    <div class="opciones-categoria-movil" id="opcionesCategoriaAccesorios" hidden>
+      <button type="button" data-filtro="todos" class="opcion-activa">Todos</button>
+      <button type="button" data-filtro="pecheras">Pecheras</button>
+      <button type="button" data-filtro="arneses">Arneses</button>
+      <button type="button" data-filtro="accesorios">Accesorios</button>
     </div>
+  </div>
 
-    <!-- CATEGORÍAS -->
-    <div class="categorias-catalogo">
+  <div class="productos-grid">
+    <a href="peine-furminator.html" class="producto-catalogo accesorios-card" data-categoria="accesorios">
+      <div class="catalogo-foto"><img src="../IMAGENES/Peine Fluminator.jpg" alt="Peine Furminator"></div>
+      <div class="catalogo-datos"><h2>Peine Furminator</h2><span class="precio-simple-accesorios">S/ 25.00</span></div>
+    </a>
 
-        <button class="categoria-activa" data-filtro="todos">
-            Todos
-        </button>
+    <a href="conjunto-de-salidas-2.html" class="producto-catalogo accesorios-card precio-variable" data-categoria="accesorios">
+      <div class="catalogo-foto"><img src="../IMAGENES/Conjunto de Salidas.jpg" alt="Conjunto de Salidas 2"></div>
+      <div class="catalogo-datos"><h2>Conjunto de Salidas 2</h2><span class="precio-simple-accesorios">Desde S/ 25.00</span><span class="aviso-precio-talla">ⓘ Precio varía según la talla</span></div>
+    </a>
 
-        <button data-filtro="pecheras">
-            Pecheras
-        </button>
+    <a href="arnes-abejita.html" class="producto-catalogo accesorios-card" data-categoria="arneses">
+      <div class="catalogo-foto"><img src="../IMAGENES/Arnes Abejita.jpg" alt="Arnés Abejita"></div>
+      <div class="catalogo-datos"><h2>Arnés Abejita</h2><span class="precio-simple-accesorios">S/ 16.00</span></div>
+    </a>
 
-        <button data-filtro="arneses">
-            Arneses
-        </button>
+    <a href="pechera-a-cuadros.html" class="producto-catalogo accesorios-card" data-categoria="pecheras">
+      <div class="catalogo-foto"><img src="../IMAGENES/Pechera a Cuadros.jpg" alt="Pechera a Cuadros"></div>
+      <div class="catalogo-datos"><h2>Pechera a Cuadros</h2><span class="precio-simple-accesorios">S/ 17.00</span></div>
+    </a>
 
-        <button data-filtro="accesorios">
-            Accesorios
-        </button>
+    <a href="pechera-con-mono.html" class="producto-catalogo accesorios-card" data-categoria="pecheras">
+      <div class="catalogo-foto"><img src="../IMAGENES/Pechera con Moño.jpg" alt="Pechera con Moño"></div>
+      <div class="catalogo-datos"><h2>Pechera con Moño</h2><span class="precio-simple-accesorios">S/ 20.00</span></div>
+    </a>
 
-    </div>
+    <a href="pechera-azul-marino.html" class="producto-catalogo accesorios-card precio-variable" data-categoria="pecheras">
+      <div class="catalogo-foto"><img src="../IMAGENES/Pechera Azul Marino.jpg" alt="Pechera Azul Marino"></div>
+      <div class="catalogo-datos"><h2>Pechera Azul Marino</h2><span class="precio-simple-accesorios">Desde S/ 19.00</span><span class="aviso-precio-talla">ⓘ Precio varía según la talla</span></div>
+    </a>
 
-    <!-- PRODUCTOS -->
-    <div class="productos-grid">
+    <a href="bufand-punto.html" class="producto-catalogo accesorios-card" data-categoria="accesorios">
+      <div class="catalogo-foto"><img src="../IMAGENES/Bufand de punto.jpg" alt="Bufanda de Punto"></div>
+      <div class="catalogo-datos"><h2>Bufanda de Punto</h2><span class="precio-simple-accesorios">S/ 15.00</span></div>
+    </a>
 
-        <!-- 01 — PEINE FURMINATOR -->
-        <a href="peine-furminator.html"
-           class="producto-catalogo"
-           data-categoria="accesorios">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Peine Fluminator.jpg"
-                    alt="Peine Furminator">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Peine Furminator</h2>
-                <p>S/ 25.00</p>
-            </div>
-
-        </a>
-
-        <!-- 02 — CONJUNTO DE SALIDAS 2 -->
-        <a href="conjunto-de-salidas-2.html"
-           class="producto-catalogo precio-variable"
-           data-categoria="accesorios">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Conjunto de Salidas.jpg"
-                    alt="Conjunto de Salidas 2">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Conjunto de Salidas 2</h2>
-                <p>Desde S/ 25.00</p>
-            </div>
-
-        </a>
-
-        <!-- 03 — ARNÉS ABEJITA -->
-        <a href="arnes-abejita.html"
-           class="producto-catalogo"
-           data-categoria="arneses">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Arnes Abejita.jpg"
-                    alt="Arnés Abejita">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Arnés Abejita</h2>
-                <p>S/ 16.00</p>
-            </div>
-
-        </a>
-
-        <!-- 04 — PECHERA A CUADROS -->
-        <a href="pechera-a-cuadros.html"
-           class="producto-catalogo"
-           data-categoria="pecheras">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Pechera a Cuadros.jpg"
-                    alt="Pechera a Cuadros">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Pechera a Cuadros</h2>
-                <p>S/ 17.00</p>
-            </div>
-
-        </a>
-
-        <!-- 05 — PECHERA CON MOÑO -->
-        <a href="pechera-con-mono.html"
-           class="producto-catalogo"
-           data-categoria="pecheras">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Pechera con Moño.jpg"
-                    alt="Pechera con Moño">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Pechera con Moño</h2>
-                <p>S/ 20.00</p>
-            </div>
-
-        </a>
-
-        <!-- 06 — PECHERA AZUL MARINO -->
-        <a href="pechera-azul-marino.html"
-           class="producto-catalogo precio-variable"
-           data-categoria="pecheras">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Pechera Azul Marino.jpg"
-                    alt="Pechera Azul Marino">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Pechera Azul Marino</h2>
-                <p>Desde S/ 19.00</p>
-            </div>
-
-        </a>
-
-        <!-- 07 — BUFANDA DE PUNTO -->
-        <a href="bufand-punto.html"
-           class="producto-catalogo"
-           data-categoria="accesorios">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Bufand de punto.jpg"
-                    alt="Bufanda de Punto">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Bufanda de Punto</h2>
-                <p>S/ 15.00</p>
-            </div>
-
-        </a>
-
-        <!-- 08 — VESTIDO BRISA A CUADROS -->
-        <a href="vestido-brisa-a-cuadros.html"
-           class="producto-catalogo precio-variable"
-           data-categoria="accesorios">
-
-            <div class="catalogo-foto">
-                <span></span>
-                <img
-                    src="../IMAGENES/Vestido Brisa a Cuadros.jpg"
-                    alt="Vestido Brisa a Cuadros">
-            </div>
-
-            <div class="catalogo-datos">
-                <h2>Vestido Brisa a Cuadros</h2>
-                <p>Desde S/ 40.00</p>
-            </div>
-
-        </a>
-
-    </div>
+    <a href="vestido-brisa-a-cuadros.html" class="producto-catalogo accesorios-card precio-variable" data-categoria="accesorios">
+      <div class="catalogo-foto"><img src="../IMAGENES/Vestido Brisa a Cuadros.jpg" alt="Vestido Brisa a Cuadros"></div>
+      <div class="catalogo-datos"><h2>Vestido Brisa a Cuadros</h2><span class="precio-simple-accesorios">Desde S/ 40.00</span><span class="aviso-precio-talla">ⓘ Precio varía según la talla</span></div>
+    </a>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer-kumino">
-
-    <div class="footer-container">
-
-        <div class="footer-marca">
-            <h2>KÚMINO</h2>
-            <p>Moda con amor para tu mascota.</p>
-        </div>
-
-        <div class="footer-enlaces">
-            <h3>Navegación</h3>
-            <a href="../index.html">Inicio</a>
-            <a href="../MACHOS/machos.html">Machos</a>
-            <a href="../HEMBRAS/hembras.html">Hembras</a>
-            <a href="accesorios.html">Accesorios</a>
-            <a href="../CASITAS/casitas.html">Casitas</a>
-        </div>
-
-        <div class="footer-contacto">
-            <h3>Contáctanos</h3>
-
-            <a href="https://wa.me/51940151463"
-               target="_blank"
-               rel="noopener noreferrer">
-                WhatsApp
-            </a>
-
-            <span>Envíos a todo el Perú</span>
-        </div>
-
+  <div class="footer-container">
+    <div class="footer-marca"><h2>KÚMINO</h2><p>Moda con amor para tu mascota.</p></div>
+    <div class="footer-enlaces">
+      <h3>Navegación</h3>
+      <a href="../index.html">Inicio</a>
+      <a href="../MACHOS/machos.html">Machos</a>
+      <a href="../HEMBRAS/hembras.html">Hembras</a>
+      <a href="accesorios.html">Accesorios</a>
+      <a href="../CASITAS/casitas.html">Casitas</a>
     </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 KÚMINO. Todos los derechos reservados.</p>
-        <span>Moda con amor para tu mascota</span>
+    <div class="footer-contacto">
+      <h3>Contáctanos</h3>
+      <a href="https://wa.me/51940151463" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <span>Envíos a todo el Perú</span>
     </div>
-
+  </div>
+  <div class="footer-bottom"><p>© 2026 KÚMINO. Todos los derechos reservados.</p><span>Moda con amor para tu mascota</span></div>
 </footer>
 
-<!-- FILTROS POR CATEGORÍA -->
 <script>
-const botones = document.querySelectorAll(
-    ".categorias-catalogo button"
-);
+document.addEventListener("DOMContentLoaded", () => {
+  const productos = [...document.querySelectorAll(".productos-grid .producto-catalogo")];
+  const botonesEscritorio = [...document.querySelectorAll(".categorias-catalogo [data-filtro]")];
+  const botonesMovil = [...document.querySelectorAll(".opciones-categoria-movil [data-filtro]")];
+  const botonMovil = document.getElementById("btnCategoriaAccesorios");
+  const menuMovil = document.getElementById("opcionesCategoriaAccesorios");
+  const textoMovil = document.getElementById("textoCategoriaAccesorios");
+  const mensaje = document.createElement("p");
+  mensaje.className = "sin-resultados";
+  mensaje.textContent = "No encontramos productos en esta categoría.";
+  mensaje.hidden = true;
+  document.querySelector(".productos-grid").appendChild(mensaje);
 
-const productos = document.querySelectorAll(
-    ".productos-grid .producto-catalogo"
-);
-
-botones.forEach(boton => {
-    boton.addEventListener("click", () => {
-        const filtro = boton.dataset.filtro;
-
-        botones.forEach(b => {
-            b.classList.remove("categoria-activa");
-        });
-
-        boton.classList.add("categoria-activa");
-
-        productos.forEach(producto => {
-            const categoria = producto.dataset.categoria;
-
-            if (filtro === "todos" || categoria === filtro) {
-                producto.style.display = "";
-            } else {
-                producto.style.display = "none";
-            }
-        });
+  function aplicarFiltro(valor) {
+    let visibles = 0;
+    productos.forEach(producto => {
+      const mostrar = valor === "todos" || producto.dataset.categoria === valor;
+      producto.hidden = !mostrar;
+      if (mostrar) visibles++;
     });
+    mensaje.hidden = visibles > 0;
+
+    botonesEscritorio.forEach(b => b.classList.toggle("categoria-activa", b.dataset.filtro === valor));
+    botonesMovil.forEach(b => b.classList.toggle("opcion-activa", b.dataset.filtro === valor));
+
+    const seleccionado = [...botonesEscritorio, ...botonesMovil].find(b => b.dataset.filtro === valor);
+    if (textoMovil) textoMovil.textContent = valor === "todos" ? "Todas las categorías" : seleccionado.textContent.trim();
+  }
+
+  [...botonesEscritorio, ...botonesMovil].forEach(boton => {
+    boton.addEventListener("click", () => {
+      aplicarFiltro(boton.dataset.filtro);
+      if (menuMovil) menuMovil.hidden = true;
+      botonMovil?.setAttribute("aria-expanded", "false");
+    });
+  });
+
+  botonMovil?.addEventListener("click", event => {
+    event.stopPropagation();
+    const abrir = menuMovil.hidden;
+    menuMovil.hidden = !abrir;
+    botonMovil.setAttribute("aria-expanded", abrir ? "true" : "false");
+  });
+
+  document.addEventListener("click", event => {
+    if (!event.target.closest(".filtro-categoria-movil")) {
+      menuMovil.hidden = true;
+      botonMovil?.setAttribute("aria-expanded", "false");
+    }
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      menuMovil.hidden = true;
+      botonMovil?.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  aplicarFiltro("todos");
 });
 </script>
-
 </body>
-</html>
-
-
-</body>
-
 </html>
