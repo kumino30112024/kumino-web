@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>KÚMINO | Colección Hembras</title>
-<link href="../style.css" rel="stylesheet"/>
-
-<style>
-    /* Aviso de precio variable: mismo diseño en todos los productos */
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   K&Uacute;MINO | Colecci&oacute;n Hembras
+  </title>
+  <link href="../style.css" rel="stylesheet"/>
+  <style>
+   /* Aviso de precio variable: mismo diseño en todos los productos */
     .aviso-precio-talla {
         display: table;
         width: fit-content;
@@ -125,672 +126,1379 @@
         content: none !important;
         display: none !important;
     }
+   /* =========================================================
+   KÚMINO HEMBRAS — diseño de tarjetas inspirado en NAVIDAD
+   Fondo ubicado en el directorio principal del repositorio.
+========================================================= */
+body.pagina-hembras .catalogo-hembras {
+    background-image: url("../Fondo-hembras.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-bottom: 64px;
+}
 
-</style>
+/* Filtros: conservar los controles originales y darles presencia */
+body.pagina-hembras .categorias-catalogo {
+    position: relative;
+    z-index: 20;
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-</head>
-<body class="pagina-hembras">
-<!-- =========================
+/* Cuadrícula de productos */
+body.pagina-hembras .productos-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    grid-auto-rows: 1fr;
+    gap: 28px;
+    width: min(1120px, calc(100% - 48px));
+    margin: 34px auto 0;
+}
+
+/* Los productos en promoción están dentro de un enlace envolvente. */
+body.pagina-hembras .productos-grid > .producto-enlace {
+    display: flex;
+    min-width: 0;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+body.pagina-hembras .productos-grid > .producto-enlace[hidden],
+body.pagina-hembras .productos-grid > .producto-catalogo[hidden],
+body.pagina-hembras .producto-catalogo.hembras-card[hidden] {
+    display: none !important;
+}
+
+body.pagina-hembras .productos-grid > .producto-catalogo.hembras-card,
+body.pagina-hembras .productos-grid > .producto-enlace > .producto-catalogo.hembras-card {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.55);
+    border-radius: 17px;
+    background: rgba(255, 248, 240, .92);
+    box-shadow: 0 9px 22px rgba(75, 54, 43, .12);
+    box-sizing: border-box;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+body.pagina-hembras .productos-grid > .producto-catalogo.hembras-card:not(.producto-agotado):hover,
+body.pagina-hembras .productos-grid > .producto-enlace:hover > .producto-catalogo.hembras-card {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 26px rgba(75, 54, 43, .16);
+}
+
+/* Imagen uniforme */
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-foto {
+    position: relative;
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #F5EADD;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-foto img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Información: filas constantes para alinear los precios y avisos */
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos {
+    display: flex !important;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    min-width: 0;
+    padding: 12px 16px 12px;
+    box-sizing: border-box;
+    background: transparent;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos h2 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 38px;
+    margin: 0 !important;
+    color: #292D29;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Precio normal / Desde: cápsula verde compacta */
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p:not(.precio-promocional) {
+    display: inline-flex !important;
+    align-items: center;
+    width: max-content !important;
+    max-width: 100%;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 6px 12px !important;
+    border: 0 !important;
+    border-radius: 24px !important;
+    background: #7A9B76 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    font: 600 13px/1.25 'Poppins', sans-serif !important;
+    white-space: nowrap;
+}
+
+/* Precio regular tachado en las promociones */
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p:has(.precio-regular) {
+    display: block !important;
+    width: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    color: #888 !important;
+    font: 400 12px/1.35 'Poppins', sans-serif !important;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .precio-regular {
+    color: #888 !important;
+    text-decoration: line-through !important;
+    white-space: nowrap;
+}
+
+/* Precio promocional: cápsula naranja */
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p.precio-promocional {
+    display: inline-flex !important;
+    align-items: center;
+    width: max-content !important;
+    max-width: 100%;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 6px 12px !important;
+    border: 0 !important;
+    border-radius: 24px !important;
+    background: #FF6600 !important;
+    color: #fff !important;
+    box-shadow: none !important;
+    font: 600 13px/1.25 'Poppins', sans-serif !important;
+    white-space: nowrap;
+}
+
+/* Ahorro como texto secundario, no como bloque */
+body.pagina-hembras .producto-catalogo.hembras-card .promo-ahorro {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    color: #668565 !important;
+    font: 500 10px/1.4 'Poppins', sans-serif !important;
+}
+
+/* Aviso de precio variable, pequeño y consistente */
+body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
+    display: inline-flex !important;
+    align-items: center;
+    width: max-content !important;
+    max-width: 100%;
+    margin: 0 !important;
+    padding: 3px 8px !important;
+    border: 0 !important;
+    border-radius: 15px !important;
+    background: rgba(122,155,118,.17) !important;
+    color: #526B50 !important;
+    box-shadow: none !important;
+    font: 500 10px/1.35 'Poppins', sans-serif !important;
+    white-space: nowrap;
+}
+
+/* Etiqueta de promoción en fotografía */
+body.pagina-hembras .producto-liquidacion .catalogo-foto .promo-etiqueta {
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 24px;
+    background: #FF6600;
+    color: #fff;
+    font: 600 11px/1.2 'Poppins', sans-serif;
+    letter-spacing: .8px;
+    box-shadow: 0 3px 9px rgba(0,0,0,.12);
+}
+
+/* Producto agotado: conservar la etiqueta y no convertirlo en enlace */
+body.pagina-hembras .producto-agotado .catalogo-datos > p {
+    display: inline-flex !important;
+    width: max-content !important;
+    padding: 6px 12px !important;
+    border-radius: 24px;
+    background: #7A9B76;
+    color: #fff;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    body.pagina-hembras .productos-grid {
+        width: calc(100% - 36px);
+        gap: 18px;
+    }
+}
+/* Móvil */
+@media (max-width: 600px) {
+    body.pagina-hembras .catalogo-hembras {
+        background-attachment: scroll;
+        background-position: center top;
+    }
+    body.pagina-hembras .productos-grid {
+        width: calc(100% - 28px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+    }
+    body.pagina-hembras .producto-catalogo.hembras-card .catalogo-foto {
+        aspect-ratio: 1 / 1.08;
+    }
+    body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos {
+        gap: 5px;
+        padding: 9px 9px 8px;
+    }
+    body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos h2 {
+        min-height: 34px;
+        font-size: 11px;
+        line-height: 1.35;
+    }
+    body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p:not(.precio-promocional),
+    body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p.precio-promocional {
+        padding: 5px 8px !important;
+        font-size: 10px !important;
+    }
+    body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
+        padding: 3px 6px !important;
+        font-size: 8px !important;
+    }
+    body.pagina-hembras .producto-catalogo.hembras-card .promo-ahorro {
+        font-size: 9px !important;
+    }
+}
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+ </head>
+ <body class="pagina-hembras">
+  <!-- =========================
      HEADER
 ========================= -->
-<header class="header">
-<div class="nav-container">
-<a class="logo" href="../index.html">KÚMINO</a>
-<nav class="navbar">
-<a href="../index.html">
-                Inicio
-            </a>
-<a href="../index.html#coleccion">
-                Colección
-            </a>
-<a href="../HALLOWEN/hallowen.html">
-                Disfraces
-            </a>
-<a class="activo" href="hembras.html">
-                Hembras
-            </a>
-<a href="../MACHOS/machos.html">
-                Machos
-            </a>
-<a href="../ACCESORIOS/accesorios.html">
-                Accesorios
-            </a>
-<a href="../CASITAS/casitas.html">
-                Casitas
-            </a>
-</nav>
-<a class="btn-contacto" href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">
-            Contacto
-        </a>
-</div>
-</header>
-<!-- =========================
+  <header class="header">
+   <div class="nav-container">
+    <a class="logo" href="../index.html">
+     K&Uacute;MINO
+    </a>
+    <nav class="navbar">
+     <a href="../index.html">
+      Inicio
+     </a>
+     <a href="../index.html#coleccion">
+      Colecci&oacute;n
+     </a>
+     <a href="../HALLOWEN/hallowen.html">
+      Disfraces
+     </a>
+     <a class="activo" href="hembras.html">
+      Hembras
+     </a>
+     <a href="../MACHOS/machos.html">
+      Machos
+     </a>
+     <a href="../ACCESORIOS/accesorios.html">
+      Accesorios
+     </a>
+     <a href="../CASITAS/casitas.html">
+      Casitas
+     </a>
+    </nav>
+    <a class="btn-contacto" href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">
+     Contacto
+    </a>
+   </div>
+  </header>
+  <!-- =========================
      CATÁLOGO
 ========================= -->
-<section class="catalogo-hembras">
-<div class="catalogo-header">
-<span>COLECCIÓN KÚMINO</span>
-<h1>Hembras</h1>
-<p>
-            Descubre nuestra selección de prendas para ellas,
+  <section class="catalogo-hembras">
+   <div class="catalogo-header">
+    <span>
+     COLECCI&Oacute;N K&Uacute;MINO
+    </span>
+    <h1>
+     Hembras
+    </h1>
+    <p>
+     Descubre nuestra selecci&oacute;n de prendas para ellas,
             pensadas para combinar comodidad, estilo y encanto.
-        </p>
-</div>
-<!-- =========================
+    </p>
+   </div>
+   <!-- =========================
      FILTROS DE CATEGORÍA Y TALLA
 ========================== -->
-<div class="categorias-catalogo">
-<!-- FILTRO DE CATEGORÍA -->
-<div class="filtro-categoria">
-<button aria-expanded="false" class="btn-filtro-categoria" type="button">
-<span>Filtrar por categoría</span>
-<span class="flecha-categoria">⌄</span>
-</button>
-<div class="opciones-categoria">
-<button class="categoria-activa" data-filtro="todos" type="button">
-                Todos
-            </button>
-<button data-filtro="abrigos" type="button">Abrigos</button>
-<button data-filtro="casacas" type="button">Casacas</button>
-<button data-filtro="chompas" type="button">Chompas</button>
-<button data-filtro="vestidos" type="button">Vestidos</button>
-<button data-filtro="blusas" type="button">Blusas</button>
-<button data-filtro="otros" type="button">Otros</button>
-</div>
-</div>
-<!-- FILTRO DE TALLA -->
-<div class="filtro-talla">
-<button aria-expanded="false" class="btn-filtro-talla" type="button">
-<span>Filtrar por talla</span>
-<span class="flecha-talla">⌄</span>
-</button>
-<div class="opciones-talla">
-<button data-talla="todas" type="button">Todas las tallas</button>
-<button data-talla="0" type="button">Talla 0</button>
-<button data-talla="1" type="button">Talla 1</button>
-<button data-talla="2" type="button">Talla 2</button>
-<button data-talla="3" type="button">Talla 3</button>
-<button data-talla="4" type="button">Talla 4</button>
-<button data-talla="5" type="button">Talla 5</button>
-<button data-talla="6" type="button">Talla 6</button>
-<button data-talla="7" type="button">Talla 7</button>
-<button data-talla="8" type="button">Talla 8</button>
-<button data-talla="9" type="button">Talla 9</button>
-</div>
-</div>
-</div>
-<!-- =========================
+   <div class="categorias-catalogo">
+    <!-- FILTRO DE CATEGORÍA -->
+    <div class="filtro-categoria">
+     <button aria-expanded="false" class="btn-filtro-categoria" type="button">
+      <span>
+       Filtrar por categor&iacute;a
+      </span>
+      <span class="flecha-categoria">
+       ⌄
+      </span>
+     </button>
+     <div class="opciones-categoria">
+      <button class="categoria-activa" data-filtro="todos" type="button">
+       Todos
+      </button>
+      <button data-filtro="abrigos" type="button">
+       Abrigos
+      </button>
+      <button data-filtro="casacas" type="button">
+       Casacas
+      </button>
+      <button data-filtro="chompas" type="button">
+       Chompas
+      </button>
+      <button data-filtro="vestidos" type="button">
+       Vestidos
+      </button>
+      <button data-filtro="blusas" type="button">
+       Blusas
+      </button>
+      <button data-filtro="otros" type="button">
+       Otros
+      </button>
+     </div>
+    </div>
+    <!-- FILTRO DE TALLA -->
+    <div class="filtro-talla">
+     <button aria-expanded="false" class="btn-filtro-talla" type="button">
+      <span>
+       Filtrar por talla
+      </span>
+      <span class="flecha-talla">
+       ⌄
+      </span>
+     </button>
+     <div class="opciones-talla">
+      <button data-talla="todas" type="button">
+       Todas las tallas
+      </button>
+      <button data-talla="0" type="button">
+       Talla 0
+      </button>
+      <button data-talla="1" type="button">
+       Talla 1
+      </button>
+      <button data-talla="2" type="button">
+       Talla 2
+      </button>
+      <button data-talla="3" type="button">
+       Talla 3
+      </button>
+      <button data-talla="4" type="button">
+       Talla 4
+      </button>
+      <button data-talla="5" type="button">
+       Talla 5
+      </button>
+      <button data-talla="6" type="button">
+       Talla 6
+      </button>
+      <button data-talla="7" type="button">
+       Talla 7
+      </button>
+      <button data-talla="8" type="button">
+       Talla 8
+      </button>
+      <button data-talla="9" type="button">
+       Talla 9
+      </button>
+     </div>
+    </div>
+   </div>
+   <!-- =========================
          PRODUCTOS
     ========================= -->
-<div class="productos-grid">
-
-<a class="producto-catalogo" data-categoria="blusas" data-tallas="2 3" href="encaje-coquette.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Encaje Coquette" src="../IMAGENES/Encaje Coquette.jpeg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Encaje Coquette</h2>
-<p>Desde S/ 23.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="abrigos" data-tallas="2 3" href="abrigo-duquesa.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Abrigo Duquesa de Invierno" src="../IMAGENES/Abrigo Duquesa de Invierno.jpeg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Abrigo Duquesa de Invierno</h2>
-<p>Desde S/ 38.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="abrigos" data-tallas="1 2 3" href="puffer-nube.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Puffer Nube de Invierno" src="../IMAGENES/Puffer Nube de Invierno.jpeg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Puffer Nube de Invierno</h2>
-<p>Desde S/ 32.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="casacas" data-tallas="1 3" href="casaca-brisa.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Casaca Brisa de Mar" src="../IMAGENES/Casaca Brisa de Mar.jpeg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Casaca Brisa de Mar</h2>
-<p>Desde S/ 36.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="casacas" data-tallas="3 4" href="casaca-latidos.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Casaca Latidos de Algodón" src="../IMAGENES/Casaca Latidos de Algodón.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Casaca Latidos de Algodón</h2>
-<p>Desde S/ 30.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="chompas" data-tallas="1 2 3" href="chompa-hilo.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Chompa de Hilo" src="../IMAGENES/Chompa de Hilo.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Chompa de Hilo</h2>
-<p>Desde S/ 16.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="otros" data-tallas="2" href="pijama-sueno-oso.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Pijama Sueño de Oso" src="../IMAGENES/Pijama Sueño de Oso.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Pijama Sueño de Oso</h2>
-<p>Desde S/ 35.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="blusas" data-tallas="2 3 4" href="blusa-baby-bear.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Blusa Baby Bear" src="../IMAGENES/Blusa Baby Bear.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Blusa Baby Bear</h2>
-<p>Desde S/ 39.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="chompas" data-tallas="0 3" href="hilado-fantasia-corazones.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Hilado Fantasía de Corazones" src="../IMAGENES/Hilado Fantasía de Corazones.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Hilado Fantasía de Corazones</h2>
-<p>Desde S/ 12.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2 3" href="vestido-fresa-encantada.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Fresa Encantada" src="../IMAGENES/Vestido Fresa Encantada.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Fresa Encantada</h2>
-<p>Desde S/ 25.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2 3" href="vestido-hacienda-real.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Hacienda Real" src="../IMAGENES/Vestido Hacienda Real.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Hacienda Real</h2>
-<p>Desde S/ 32.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="1 2 3" href="vestido-pink-blossom.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Pink Blossom" src="../IMAGENES/Vestido Pink Blossom.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Pink Blossom</h2>
-<p>Desde S/ 41.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="vestido-coquette-blossom.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Coquette Blossom" src="../IMAGENES/Vestido Coquette Blossom.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Coquette Blossom</h2>
-<p>Desde S/ 35.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3 4" href="vestido-dulce-primavera.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Dulce Primavera" src="../IMAGENES/Vestido Dulce Primavera.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Dulce Primavera</h2>
-<p>Desde S/ 41.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2 4" href="vestido-novia-elegante.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Novia Elegante" src="../IMAGENES/Vestido Novia Elegante.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Novia Elegante</h2>
-<p>Desde S/ 39.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3 4" href="vestido-de-boda.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido de Boda" src="../IMAGENES/Vestido de Boda.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido de Boda</h2>
-<p>Desde S/ 41.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="0 1 4" href="gala-floral-pink.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Gala Floral Pink" src="../IMAGENES/Gala Floral Pink.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Gala Floral Pink</h2>
-<p>Desde S/ 33.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2" href="ruffle-dress.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Ruffle Dress" src="../IMAGENES/Ruffle Dress.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Ruffle Dress</h2>
-<p>Desde S/ 32.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3 4" href="vestido-lazo-cereza.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Lazo de Cereza" src="../IMAGENES/Vestido Lazo de Cereza.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Lazo de Cereza</h2>
-<p>Desde S/ 35.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="otros" data-tallas="2 3 4" href="cortavientos-pink-pocket.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Cortavientos Pink Pocket" src="../IMAGENES/Cortavientos Pink Pocket.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Cortavientos Pink Pocket</h2>
-<p>Desde S/ 37.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="otros" data-tallas="1 2 3" href="cortavientos-pink-purpple.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Cortavientos Pink Purpple" src="../IMAGENES/Cortavientos Pink Purpple.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Cortavientos Pink Purpple</h2>
-<p>Desde S/ 35.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3 4" href="vestido-de-princesa.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido de Princesa" src="../IMAGENES/Vestido Princesa.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido de Princesa</h2>
-<p>Desde S/ 52.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3 4" href="vestido-princesa-de-hielo.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Princesa de Hielo" src="../IMAGENES/Vestido Princesa de Hielo.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Princesa de Hielo</h2>
-<p>Desde S/ 50.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2 3-4" href="vestido-suspiro-de-corazones.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Suspiro de Corazones" src="../IMAGENES/Vestido Suspiro de Corazones.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Suspiro de Corazones</h2>
-<p>Desde S/ 48.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="vestido-princess-blue.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Princess Blue" src="../IMAGENES/Vestido Princess Blue.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Princess Blue</h2>
-<p>Desde S/ 50.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2 3" href="vestido-lazo-noir.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Lazo Noir" src="../IMAGENES/Vestido Lazo Noir.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Lazo Noir</h2>
-<p>Desde S/ 48.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2" href="vestido-margarita.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Margarita" src="../IMAGENES/Vestido Margarita.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Margarita</h2>
-<p>Desde S/ 36.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="vestido-elegancia-real.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Elegancia Real" src="../IMAGENES/Vestido Elegancia Real.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Elegancia Real</h2>
-<p>Desde S/ 50.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="3 5 6" href="vestido-noche-de-diamantes.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Noche de Diamantes" src="../IMAGENES/Vestido Noche de Diamantes.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Noche de Diamantes</h2>
-<p>Desde S/ 50.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="otros" data-tallas="1 2 3" href="cafarena-encaje-de-angel.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Cafarena Encaje de Angel" src="../IMAGENES/Cafarena Encaje de Angel.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Cafarena Encaje de Angel</h2>
-<p>Desde S/ 20.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><!-- Gala Ejecutiva: producto agotado, tarjeta independiente y no clicable -->
-<div
-    aria-label="Gala Ejecutiva - agotado"
-    class="producto-catalogo producto-agotado"
-    data-categoria="vestidos"
-    data-tallas=""
->
-    <div class="catalogo-foto agotado-foto">
-        <span class="etiqueta-agotado">
-            AGOTADO
+   <div class="productos-grid">
+    <a class="producto-catalogo hembras-card" data-categoria="blusas" data-tallas="2 3" href="encaje-coquette.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Encaje Coquette" src="../IMAGENES/Encaje Coquette.jpeg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Encaje Coquette
+      </h2>
+      <p>
+       Desde S/ 23.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="abrigos" data-tallas="2 3" href="abrigo-duquesa.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Abrigo Duquesa de Invierno" src="../IMAGENES/Abrigo Duquesa de Invierno.jpeg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Abrigo Duquesa de Invierno
+      </h2>
+      <p>
+       Desde S/ 38.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="abrigos" data-tallas="1 2 3" href="puffer-nube.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Puffer Nube de Invierno" src="../IMAGENES/Puffer Nube de Invierno.jpeg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Puffer Nube de Invierno
+      </h2>
+      <p>
+       Desde S/ 32.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="casacas" data-tallas="1 3" href="casaca-brisa.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Casaca Brisa de Mar" src="../IMAGENES/Casaca Brisa de Mar.jpeg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Casaca Brisa de Mar
+      </h2>
+      <p>
+       Desde S/ 36.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="casacas" data-tallas="3 4" href="casaca-latidos.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Casaca Latidos de Algod&oacute;n" src="../IMAGENES/Casaca Latidos de Algod&oacute;n.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Casaca Latidos de Algod&oacute;n
+      </h2>
+      <p>
+       Desde S/ 30.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="chompas" data-tallas="1 2 3" href="chompa-hilo.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Chompa de Hilo" src="../IMAGENES/Chompa de Hilo.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Chompa de Hilo
+      </h2>
+      <p>
+       Desde S/ 16.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="otros" data-tallas="2" href="pijama-sueno-oso.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Pijama Sue&ntilde;o de Oso" src="../IMAGENES/Pijama Sue&ntilde;o de Oso.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Pijama Sue&ntilde;o de Oso
+      </h2>
+      <p>
+       Desde S/ 35.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="blusas" data-tallas="2 3 4" href="blusa-baby-bear.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Blusa Baby Bear" src="../IMAGENES/Blusa Baby Bear.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Blusa Baby Bear
+      </h2>
+      <p>
+       Desde S/ 39.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="chompas" data-tallas="0 3" href="hilado-fantasia-corazones.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Hilado Fantas&iacute;a de Corazones" src="../IMAGENES/Hilado Fantas&iacute;a de Corazones.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Hilado Fantas&iacute;a de Corazones
+      </h2>
+      <p>
+       Desde S/ 12.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2 3" href="vestido-fresa-encantada.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Fresa Encantada" src="../IMAGENES/Vestido Fresa Encantada.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Fresa Encantada
+      </h2>
+      <p>
+       Desde S/ 25.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2 3" href="vestido-hacienda-real.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Hacienda Real" src="../IMAGENES/Vestido Hacienda Real.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Hacienda Real
+      </h2>
+      <p>
+       Desde S/ 32.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="1 2 3" href="vestido-pink-blossom.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Pink Blossom" src="../IMAGENES/Vestido Pink Blossom.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Pink Blossom
+      </h2>
+      <p>
+       Desde S/ 41.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3" href="vestido-coquette-blossom.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Coquette Blossom" src="../IMAGENES/Vestido Coquette Blossom.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Coquette Blossom
+      </h2>
+      <p>
+       Desde S/ 35.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3 4" href="vestido-dulce-primavera.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Dulce Primavera" src="../IMAGENES/Vestido Dulce Primavera.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Dulce Primavera
+      </h2>
+      <p>
+       Desde S/ 41.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2 4" href="vestido-novia-elegante.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Novia Elegante" src="../IMAGENES/Vestido Novia Elegante.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Novia Elegante
+      </h2>
+      <p>
+       Desde S/ 39.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3 4" href="vestido-de-boda.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido de Boda" src="../IMAGENES/Vestido de Boda.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido de Boda
+      </h2>
+      <p>
+       Desde S/ 41.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="0 1 4" href="gala-floral-pink.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Gala Floral Pink" src="../IMAGENES/Gala Floral Pink.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Gala Floral Pink
+      </h2>
+      <p>
+       Desde S/ 33.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2" href="ruffle-dress.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Ruffle Dress" src="../IMAGENES/Ruffle Dress.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Ruffle Dress
+      </h2>
+      <p>
+       Desde S/ 32.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3 4" href="vestido-lazo-cereza.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Lazo de Cereza" src="../IMAGENES/Vestido Lazo de Cereza.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Lazo de Cereza
+      </h2>
+      <p>
+       Desde S/ 35.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="otros" data-tallas="2 3 4" href="cortavientos-pink-pocket.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Cortavientos Pink Pocket" src="../IMAGENES/Cortavientos Pink Pocket.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Cortavientos Pink Pocket
+      </h2>
+      <p>
+       Desde S/ 37.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="otros" data-tallas="1 2 3" href="cortavientos-pink-purpple.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Cortavientos Pink Purpple" src="../IMAGENES/Cortavientos Pink Purpple.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Cortavientos Pink Purpple
+      </h2>
+      <p>
+       Desde S/ 35.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3 4" href="vestido-de-princesa.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido de Princesa" src="../IMAGENES/Vestido Princesa.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido de Princesa
+      </h2>
+      <p>
+       Desde S/ 52.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3 4" href="vestido-princesa-de-hielo.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Princesa de Hielo" src="../IMAGENES/Vestido Princesa de Hielo.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Princesa de Hielo
+      </h2>
+      <p>
+       Desde S/ 50.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2 3-4" href="vestido-suspiro-de-corazones.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Suspiro de Corazones" src="../IMAGENES/Vestido Suspiro de Corazones.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Suspiro de Corazones
+      </h2>
+      <p>
+       Desde S/ 48.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3" href="vestido-princess-blue.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Princess Blue" src="../IMAGENES/Vestido Princess Blue.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Princess Blue
+      </h2>
+      <p>
+       Desde S/ 50.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2 3" href="vestido-lazo-noir.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Lazo Noir" src="../IMAGENES/Vestido Lazo Noir.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Lazo Noir
+      </h2>
+      <p>
+       Desde S/ 48.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2" href="vestido-margarita.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Margarita" src="../IMAGENES/Vestido Margarita.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Margarita
+      </h2>
+      <p>
+       Desde S/ 36.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3" href="vestido-elegancia-real.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Elegancia Real" src="../IMAGENES/Vestido Elegancia Real.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Elegancia Real
+      </h2>
+      <p>
+       Desde S/ 50.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3 5 6" href="vestido-noche-de-diamantes.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Noche de Diamantes" src="../IMAGENES/Vestido Noche de Diamantes.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Noche de Diamantes
+      </h2>
+      <p>
+       Desde S/ 50.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="otros" data-tallas="1 2 3" href="cafarena-encaje-de-angel.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Cafarena Encaje de Angel" src="../IMAGENES/Cafarena Encaje de Angel.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Cafarena Encaje de Angel
+      </h2>
+      <p>
+       Desde S/ 20.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <!-- Gala Ejecutiva: producto agotado, tarjeta independiente y no clicable -->
+    <div aria-label="Gala Ejecutiva - agotado" class="producto-catalogo producto-agotado hembras-card" data-categoria="vestidos" data-tallas="">
+     <div class="catalogo-foto agotado-foto">
+      <span class="etiqueta-agotado">
+       AGOTADO
+      </span>
+      <img alt="Gala Ejecutiva" src="../IMAGENES/Gala Ejecutiva.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Gala Ejecutiva
+      </h2>
+      <p>
+       Desde S/ 50.00
+      </p>
+     </div>
+    </div>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2 3" href="vestido-rous.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido Rous" src="../IMAGENES/Vestido Rous.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido Rous
+      </h2>
+      <p>
+       Desde S/ 42.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="2 3" href="vestido-porrista-tejido.html">
+     <div class="catalogo-foto">
+      <span>
+      </span>
+      <img alt="Vestido de Porrista Tejido" src="../IMAGENES/Vestido de Porrista Tejido.jpg"/>
+     </div>
+     <div class="catalogo-datos">
+      <h2>
+       Vestido de Porrista Tejido
+      </h2>
+      <p>
+       Desde S/ 35.00
+      </p>
+      <span class="aviso-precio-talla">
+       ⓘ Precio var&iacute;a seg&uacute;n la talla
+      </span>
+     </div>
+    </a>
+    <a class="producto-enlace" href="chaqueta-paris-premium.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="casacas" data-colores="blanco" data-tallas="2,3">
+      <div class="catalogo-foto">
+       <img alt="Chaqueta Paris Premium" src="../IMAGENES/Chaqueta Paris Premium.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Chaqueta Paris Premium
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 37.50
         </span>
-
-        <img
-            alt="Gala Ejecutiva"
-            src="../IMAGENES/Gala Ejecutiva.jpg"
-        />
-    </div>
-
-    <div class="catalogo-datos">
-        <h2>Gala Ejecutiva</h2>
-        <p>Desde S/ 50.00</p>
-    </div>
-</div><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2 3" href="vestido-rous.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido Rous" src="../IMAGENES/Vestido Rous.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido Rous</h2>
-<p>Desde S/ 42.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a><a class="producto-catalogo" data-categoria="vestidos" data-tallas="2 3" href="vestido-porrista-tejido.html">
-<div class="catalogo-foto">
-<span></span>
-<img alt="Vestido de Porrista Tejido" src="../IMAGENES/Vestido de Porrista Tejido.jpg"/>
-</div>
-<div class="catalogo-datos">
-<h2>Vestido de Porrista Tejido</h2>
-<p>Desde S/ 35.00</p>
-<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-</div>
-</a>
-
-<a href="chaqueta-paris-premium.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="casacas" data-colores="blanco" data-tallas="2,3">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Chaqueta Paris Premium.jpg" alt="Chaqueta Paris Premium">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Chaqueta Paris Premium</h2>
-            <p><span class="precio-regular">S/ 37.50</span></p>
-            <p class="precio-promocional">Desde S/ 25.00</p>
-            <span class="promo-ahorro">Ahorras hasta S/ 13.00</span>
-            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-        </div>
-    </div>
-</a>
-
-<a href="puffer-dulce-conejito.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="abrigos" data-colores="blanco" data-tallas="3">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Puffer Dulce Conejito.jpg" alt="Puffer Dulce Conejito">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Puffer Dulce Conejito</h2>
-            <p><span class="precio-regular">S/ 39.00</span></p>
-            <p class="precio-promocional">S/ 26.00</p>
-            <span class="promo-ahorro">Ahorras S/ 13.00</span>
-        </div>
-    </div>
-</a>
-
-<a href="vestido-pastelito-de-invierno.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="vestidos" data-colores="rosa-pastel" data-tallas="3">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Vestido Pastelito de Invierno.jpg" alt="Vestido Pastelito de Invierno">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Vestido Pastelito de Invierno</h2>
-            <p><span class="precio-regular">S/ 37.50</span></p>
-            <p class="precio-promocional">S/ 25.00</p>
-            <span class="promo-ahorro">Ahorras S/ 12.50</span>
-        </div>
-    </div>
-</a>
-
-<a href="sudadera-mantita-dulce-sueno.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="chompas" data-colores="amarillo" data-tallas="2">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Sudadera Mantita Dulce Sueño.jpg" alt="Sudadera Mantita Dulce Sueño">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Sudadera Mantita Dulce Sueño</h2>
-            <p><span class="precio-regular">S/ 34.50</span></p>
-            <p class="precio-promocional">S/ 23.00</p>
-            <span class="promo-ahorro">Ahorras S/ 11.50</span>
-        </div>
-    </div>
-</a>
-
-<a href="duo-invernal.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="abrigos" data-colores="azul" data-tallas="3">
-        <div class="catalogo-foto">
-        <img src="../IMAGENES/Duo%20Invernal.jpg" alt="Dúo Invernal">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Dúo Invernal</h2>
-            <p><span class="precio-regular">S/ 37.50</span></p>
-            <p class="precio-promocional">S/ 25.00</p>
-            <span class="promo-ahorro">Ahorras S/ 12.50</span>
-        </div>
-    </div>
-</a>
-
-<a href="cafarena-basica.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="otros" data-colores="rosa-pastel azul" data-tallas="1,2,4">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Cafarena Básica.jpg" alt="Cafarena Básica">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Cafarena Básica</h2>
-            <p><span class="precio-regular">Desde S/ 27.00</span></p>
-            <p class="precio-promocional">Desde S/ 18.00</p>
-            <span class="promo-ahorro">Ahorras hasta S/ 11.00</span>
-            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-        </div>
-    </div>
-</a>
-
-<a href="vestido-bosque-de-otono.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="vestidos" data-colores="marron" data-tallas="1">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Vestido Bosque de Otoño.jpg" alt="Vestido Bosque de Otoño">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Vestido Bosque de Otoño</h2>
-            <p><span class="precio-regular">S/ 30.00</span></p>
-            <p class="precio-promocional">S/ 20.00</p>
-            <span class="promo-ahorro">Ahorras S/ 10.00</span>
-        </div>
-    </div>
-</a>
-
-<a href="polo-jardin-de-fresas.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="blusas" data-colores="blanco rosa" data-tallas="2,3">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Polo Jardín de Fresas.jpg" alt="Polo Jardín de Fresas">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Polo Jardín de Fresas</h2>
-            <p><span class="precio-regular">S/ 18.00</span></p>
-            <p class="precio-promocional">Desde S/ 12.00</p>
-            <span class="promo-ahorro">Ahorras hasta S/ 7.50</span>
-            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-        </div>
-    </div>
-</a>
-
-<a href="vestido-lunares.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="vestidos" data-colores="crema" data-tallas="0">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Vestido Lunares.jpg" alt="Vestido Lunares">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Vestido Lunares</h2>
-            <p><span class="precio-regular">S/ 22.50</span></p>
-            <p class="precio-promocional">S/ 15.00</p>
-            <span class="promo-ahorro">Ahorras S/ 7.50</span>
-        </div>
-    </div>
-</a>
-
-<a href="chaleco-lima-verde.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="abrigos" data-colores="verde-limon" data-tallas="2,4,5">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Chaleco Lima Verde.jpg" alt="Chaleco Lima Verde">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Chaleco Lima Verde</h2>
-            <p><span class="precio-regular">Desde S/ 21.00</span></p>
-            <p class="precio-promocional">Desde S/ 14.00</p>
-            <span class="promo-ahorro">Ahorras hasta S/ 8.00</span>
-            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-        </div>
-    </div>
-</a>
-
-<a href="bruma-de-amor.html" class="producto-enlace">
-    <div class="producto-catalogo producto-liquidacion" data-categoria="vestidos" data-colores="crema" data-tallas="3,4">
-        <div class="catalogo-foto">
-            <img src="../IMAGENES/Bruma de Amor.jpg" alt="Bruma de Amor">
-            <span class="promo-etiqueta">PROMOCIÓN</span>
-        </div>
-        <div class="catalogo-datos">
-            <h2>Bruma de Amor</h2>
-            <p><span class="precio-regular">Desde S/ 25.50</span></p>
-            <p class="precio-promocional">Desde S/ 17.00</p>
-            <span class="promo-ahorro">Ahorras hasta S/ 10.00</span>
-            <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
-        </div>
-    </div>
-</a>
-</div>
-</section>
-<!-- =========================
+       </p>
+       <p class="precio-promocional">
+        Desde S/ 25.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras hasta S/ 13.00
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="puffer-dulce-conejito.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="abrigos" data-colores="blanco" data-tallas="3">
+      <div class="catalogo-foto">
+       <img alt="Puffer Dulce Conejito" src="../IMAGENES/Puffer Dulce Conejito.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Puffer Dulce Conejito
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 39.00
+        </span>
+       </p>
+       <p class="precio-promocional">
+        S/ 26.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras S/ 13.00
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="vestido-pastelito-de-invierno.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="vestidos" data-colores="rosa-pastel" data-tallas="3">
+      <div class="catalogo-foto">
+       <img alt="Vestido Pastelito de Invierno" src="../IMAGENES/Vestido Pastelito de Invierno.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Vestido Pastelito de Invierno
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 37.50
+        </span>
+       </p>
+       <p class="precio-promocional">
+        S/ 25.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras S/ 12.50
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="sudadera-mantita-dulce-sueno.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="chompas" data-colores="amarillo" data-tallas="2">
+      <div class="catalogo-foto">
+       <img alt="Sudadera Mantita Dulce Sue&ntilde;o" src="../IMAGENES/Sudadera Mantita Dulce Sue&ntilde;o.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Sudadera Mantita Dulce Sue&ntilde;o
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 34.50
+        </span>
+       </p>
+       <p class="precio-promocional">
+        S/ 23.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras S/ 11.50
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="duo-invernal.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="abrigos" data-colores="azul" data-tallas="3">
+      <div class="catalogo-foto">
+       <img alt="D&uacute;o Invernal" src="../IMAGENES/Duo%20Invernal.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        D&uacute;o Invernal
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 37.50
+        </span>
+       </p>
+       <p class="precio-promocional">
+        S/ 25.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras S/ 12.50
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="cafarena-basica.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="otros" data-colores="rosa-pastel azul" data-tallas="1,2,4">
+      <div class="catalogo-foto">
+       <img alt="Cafarena B&aacute;sica" src="../IMAGENES/Cafarena B&aacute;sica.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Cafarena B&aacute;sica
+       </h2>
+       <p>
+        <span class="precio-regular">
+         Desde S/ 27.00
+        </span>
+       </p>
+       <p class="precio-promocional">
+        Desde S/ 18.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras hasta S/ 11.00
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="vestido-bosque-de-otono.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="vestidos" data-colores="marron" data-tallas="1">
+      <div class="catalogo-foto">
+       <img alt="Vestido Bosque de Oto&ntilde;o" src="../IMAGENES/Vestido Bosque de Oto&ntilde;o.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Vestido Bosque de Oto&ntilde;o
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 30.00
+        </span>
+       </p>
+       <p class="precio-promocional">
+        S/ 20.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras S/ 10.00
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="polo-jardin-de-fresas.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="blusas" data-colores="blanco rosa" data-tallas="2,3">
+      <div class="catalogo-foto">
+       <img alt="Polo Jard&iacute;n de Fresas" src="../IMAGENES/Polo Jard&iacute;n de Fresas.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Polo Jard&iacute;n de Fresas
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 18.00
+        </span>
+       </p>
+       <p class="precio-promocional">
+        Desde S/ 12.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras hasta S/ 7.50
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="vestido-lunares.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="vestidos" data-colores="crema" data-tallas="0">
+      <div class="catalogo-foto">
+       <img alt="Vestido Lunares" src="../IMAGENES/Vestido Lunares.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Vestido Lunares
+       </h2>
+       <p>
+        <span class="precio-regular">
+         S/ 22.50
+        </span>
+       </p>
+       <p class="precio-promocional">
+        S/ 15.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras S/ 7.50
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="chaleco-lima-verde.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="abrigos" data-colores="verde-limon" data-tallas="2,4,5">
+      <div class="catalogo-foto">
+       <img alt="Chaleco Lima Verde" src="../IMAGENES/Chaleco Lima Verde.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Chaleco Lima Verde
+       </h2>
+       <p>
+        <span class="precio-regular">
+         Desde S/ 21.00
+        </span>
+       </p>
+       <p class="precio-promocional">
+        Desde S/ 14.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras hasta S/ 8.00
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+    <a class="producto-enlace" href="bruma-de-amor.html">
+     <div class="producto-catalogo producto-liquidacion hembras-card" data-categoria="vestidos" data-colores="crema" data-tallas="3,4">
+      <div class="catalogo-foto">
+       <img alt="Bruma de Amor" src="../IMAGENES/Bruma de Amor.jpg"/>
+       <span class="promo-etiqueta">
+        PROMOCI&Oacute;N
+       </span>
+      </div>
+      <div class="catalogo-datos">
+       <h2>
+        Bruma de Amor
+       </h2>
+       <p>
+        <span class="precio-regular">
+         Desde S/ 25.50
+        </span>
+       </p>
+       <p class="precio-promocional">
+        Desde S/ 17.00
+       </p>
+       <span class="promo-ahorro">
+        Ahorras hasta S/ 10.00
+       </span>
+       <span class="aviso-precio-talla">
+        ⓘ Precio var&iacute;a seg&uacute;n la talla
+       </span>
+      </div>
+     </div>
+    </a>
+   </div>
+  </section>
+  <!-- =========================
      FOOTER
 ========================= -->
-<footer class="footer-kumino">
-<div class="footer-container">
-<div class="footer-marca">
-<h2>KÚMINO</h2>
-<p>
-                Moda con amor para tu mascota.
-            </p>
-</div>
-<div class="footer-enlaces">
-<h3>Navegación</h3>
-<a href="../index.html">
-                Inicio
-            </a>
-<a href="hembras.html">
-                Hembras
-            </a>
-<a href="../MACHOS/machos.html">
-                Machos
-            </a>
-<a href="../ACCESORIOS/accesorios.html">
-                Accesorios
-            </a>
-<a href="../CASITAS/casitas.html">
-                Casitas
-            </a>
-</div>
-<div class="footer-contacto">
-<h3>Contáctanos</h3>
-<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">
-                WhatsApp
-            </a>
-<span>
-                Envíos a todo el Perú
-            </span>
-</div>
-</div>
-<div class="footer-bottom">
-<p>
-            © 2026 KÚMINO. Todos los derechos reservados.
-        </p>
-<span>
-            Moda con amor para tu mascota
-        </span>
-</div>
-</footer>
-
-<script>
-const filtroCategoria = document.querySelector(".filtro-categoria");
+  <footer class="footer-kumino">
+   <div class="footer-container">
+    <div class="footer-marca">
+     <h2>
+      K&Uacute;MINO
+     </h2>
+     <p>
+      Moda con amor para tu mascota.
+     </p>
+    </div>
+    <div class="footer-enlaces">
+     <h3>
+      Navegaci&oacute;n
+     </h3>
+     <a href="../index.html">
+      Inicio
+     </a>
+     <a href="hembras.html">
+      Hembras
+     </a>
+     <a href="../MACHOS/machos.html">
+      Machos
+     </a>
+     <a href="../ACCESORIOS/accesorios.html">
+      Accesorios
+     </a>
+     <a href="../CASITAS/casitas.html">
+      Casitas
+     </a>
+    </div>
+    <div class="footer-contacto">
+     <h3>
+      Cont&aacute;ctanos
+     </h3>
+     <a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">
+      WhatsApp
+     </a>
+     <span>
+      Env&iacute;os a todo el Per&uacute;
+     </span>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p>
+     &copy; 2026 K&Uacute;MINO. Todos los derechos reservados.
+    </p>
+    <span>
+     Moda con amor para tu mascota
+    </span>
+   </div>
+  </footer>
+  <script>
+   const filtroCategoria = document.querySelector(".filtro-categoria");
 const botonCategoria = document.querySelector(".btn-filtro-categoria");
 const opcionesCategoria = document.querySelectorAll(
     ".opciones-categoria button[data-filtro]"
@@ -810,6 +1518,13 @@ const productos = document.querySelectorAll(
 
 let categoriaSeleccionada = "todos";
 let tallaSeleccionada = "todas";
+
+const mensajeSinResultados = document.createElement("p");
+mensajeSinResultados.className = "sin-resultados-hembras";
+mensajeSinResultados.textContent = "No encontramos productos con esos filtros.";
+mensajeSinResultados.hidden = true;
+const cuadrillaProductos = document.querySelector(".productos-grid");
+cuadrillaProductos?.appendChild(mensajeSinResultados);
 
 /* Abrir y cerrar categorías */
 if (filtroCategoria && botonCategoria) {
@@ -843,6 +1558,7 @@ if (filtroTalla && botonTalla) {
 
 /* Aplicar filtros a cada tarjeta completa */
 function actualizarProductos() {
+    let visibles = 0;
     productos.forEach(producto => {
         /* Los productos normales tienen los datos en el enlace.
            Las promociones los tienen en la tarjeta interior. */
@@ -876,10 +1592,10 @@ function actualizarProductos() {
             tallaSeleccionada === "todas" ||
             tallasProducto.includes(tallaSeleccionada);
 
-        producto.hidden = !(
-            coincideCategoria && coincideTalla
-        );
+        producto.hidden = !(coincideCategoria && coincideTalla);
+        if (!producto.hidden) visibles++;
     });
+    if (mensajeSinResultados) mensajeSinResultados.hidden = visibles > 0;
 }
 
 /* Seleccionar categoría */
@@ -934,4 +1650,6 @@ opcionesTalla.forEach(boton => {
         actualizarProductos();
     });
 });
-</script>
+  </script>
+ </body>
+</html>
