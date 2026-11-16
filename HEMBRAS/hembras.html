@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
  <head>
   <meta charset="utf-8"/>
@@ -383,6 +384,185 @@ body.pagina-hembras .producto-agotado .catalogo-datos > p {
     body.pagina-hembras .producto-catalogo.hembras-card .promo-ahorro {
         font-size: 9px !important;
     }
+}
+   /* ===== HEMBRAS: barra de filtros horizontal + filtros funcionales ===== */
+body.pagina-hembras .catalogo-hembras .categorias-catalogo {
+    position: relative !important;
+    z-index: 50 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    width: min(1120px, calc(100% - 48px));
+    margin: 28px auto 0 !important;
+    padding: 12px 16px;
+    border: 1px solid rgba(255,255,255,.85);
+    border-radius: 999px;
+    background: rgba(255,255,255,.94);
+    box-shadow: 0 10px 28px rgba(94,61,57,.12);
+    box-sizing: border-box;
+}
+body.pagina-hembras .categorias-catalogo .filtro-categoria {
+    position: static !important;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+body.pagina-hembras .categorias-catalogo .btn-filtro-categoria {
+    display: none !important;
+}
+body.pagina-hembras .categorias-catalogo .opciones-categoria {
+    position: static !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-around;
+    gap: 5px;
+    width: 100%;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+}
+body.pagina-hembras .categorias-catalogo .opciones-categoria button {
+    flex: 0 1 auto;
+    min-height: 42px;
+    padding: 10px 17px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: transparent !important;
+    color: #526B50 !important;
+    font: 500 13px/1.2 'Poppins', sans-serif !important;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+body.pagina-hembras .categorias-catalogo .opciones-categoria button:hover {
+    background: rgba(122,155,118,.12) !important;
+}
+body.pagina-hembras .categorias-catalogo .opciones-categoria button.categoria-activa {
+    background: #7A9B76 !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+}
+body.pagina-hembras .categorias-catalogo .filtro-talla {
+    position: relative !important;
+    flex: 0 0 170px;
+    min-width: 150px;
+    margin: 0 !important;
+}
+body.pagina-hembras .categorias-catalogo .btn-filtro-talla {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 46px;
+    padding: 0 15px !important;
+    border: 1px solid #E8E2DD !important;
+    border-radius: 999px !important;
+    background: #fff !important;
+    color: #333 !important;
+    font: 400 13px 'Poppins', sans-serif !important;
+    cursor: pointer;
+}
+body.pagina-hembras .categorias-catalogo .opciones-talla {
+    position: absolute !important;
+    top: calc(100% + 9px) !important;
+    right: 0 !important;
+    left: auto !important;
+    z-index: 100 !important;
+    display: none;
+    width: 100%;
+    min-width: 170px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 8px !important;
+    border: 1px solid #eee5df !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    box-shadow: 0 12px 28px rgba(60,40,35,.16) !important;
+}
+body.pagina-hembras .categorias-catalogo .filtro-talla.abierto .opciones-talla {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+}
+body.pagina-hembras .categorias-catalogo .opciones-talla button {
+    padding: 9px 7px !important;
+    border: 0 !important;
+    border-radius: 9px !important;
+    background: transparent !important;
+    color: #526B50 !important;
+    font: 400 12px 'Poppins', sans-serif !important;
+    cursor: pointer;
+}
+body.pagina-hembras .categorias-catalogo .opciones-talla button.talla-activa,
+body.pagina-hembras .categorias-catalogo .opciones-talla button:hover {
+    background: #7A9B76 !important;
+    color: #fff !important;
+}
+
+/* Crucial: hidden debe ganar a display:flex !important en todas las tarjetas y wrappers. */
+body.pagina-hembras .productos-grid > a.producto-enlace[hidden],
+body.pagina-hembras .productos-grid > .producto-catalogo[hidden],
+body.pagina-hembras .productos-grid > a.producto-enlace[hidden] > .producto-catalogo,
+body.pagina-hembras .productos-grid > .producto-catalogo.hembras-card[hidden] {
+    display: none !important;
+}
+
+/* Los enlaces de promociones se comportan como elementos de la cuadrícula. */
+body.pagina-hembras .productos-grid > a.producto-enlace:not([hidden]) {
+    display: flex !important;
+    min-width: 0;
+    height: 100%;
+}
+body.pagina-hembras .productos-grid > a.producto-enlace > .producto-liquidacion {
+    display: flex !important;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* Mensaje de resultados */
+body.pagina-hembras .sin-resultados-hembras {
+    grid-column: 1 / -1;
+    margin: 24px auto;
+    padding: 14px 22px;
+    border-radius: 18px;
+    background: rgba(255,255,255,.88);
+    color: #526B50;
+    font: 500 14px 'Poppins', sans-serif;
+    text-align: center;
+}
+body.pagina-hembras .sin-resultados-hembras[hidden] { display:none !important; }
+
+@media (max-width: 850px) {
+    body.pagina-hembras .catalogo-hembras .categorias-catalogo {
+        width: calc(100% - 28px);
+        flex-wrap: wrap;
+        border-radius: 24px;
+    }
+    body.pagina-hembras .categorias-catalogo .filtro-categoria { flex-basis: 100%; }
+    body.pagina-hembras .categorias-catalogo .opciones-categoria {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    body.pagina-hembras .categorias-catalogo .filtro-talla {
+        flex: 1 1 100%;
+        max-width: 220px;
+        margin: 0 auto !important;
+    }
+}
+@media (max-width: 600px) {
+    body.pagina-hembras .categorias-catalogo { padding: 10px; gap: 8px; }
+    body.pagina-hembras .categorias-catalogo .opciones-categoria button {
+        min-height: 36px;
+        padding: 8px 11px !important;
+        font-size: 11px !important;
+    }
+    body.pagina-hembras .categorias-catalogo .filtro-talla { max-width: none; }
 }
   </style>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
@@ -1498,157 +1678,119 @@ body.pagina-hembras .producto-agotado .catalogo-datos > p {
    </div>
   </footer>
   <script>
-   const filtroCategoria = document.querySelector(".filtro-categoria");
-const botonCategoria = document.querySelector(".btn-filtro-categoria");
-const opcionesCategoria = document.querySelectorAll(
-    ".opciones-categoria button[data-filtro]"
-);
+   document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.querySelector(".productos-grid");
+    const categoryBox = document.querySelector(".filtro-categoria");
+    const categoryButton = document.querySelector(".btn-filtro-categoria");
+    const categoryOptions = [...document.querySelectorAll(".opciones-categoria button[data-filtro]")];
+    const sizeBox = document.querySelector(".filtro-talla");
+    const sizeButton = document.querySelector(".btn-filtro-talla");
+    const sizeOptions = [...document.querySelectorAll(".opciones-talla button[data-talla]")];
 
-const filtroTalla = document.querySelector(".filtro-talla");
-const botonTalla = document.querySelector(".btn-filtro-talla");
-const opcionesTalla = document.querySelectorAll(
-    ".opciones-talla button[data-talla]"
-);
+    // Include normal cards and promotional cards (whose outer anchor is the grid item).
+    const products = grid ? [...grid.children].filter(el =>
+        el.matches(".producto-catalogo, .producto-enlace")
+    ) : [];
 
-/* Cada producto se selecciona una sola vez desde la cuadrícula */
-const productos = document.querySelectorAll(
-    ".productos-grid > .producto-catalogo, " +
-    ".productos-grid > .producto-enlace"
-);
+    let selectedCategory = "todos";
+    let selectedSize = "todas";
 
-let categoriaSeleccionada = "todos";
-let tallaSeleccionada = "todas";
+    const emptyMessage = document.createElement("p");
+    emptyMessage.className = "sin-resultados-hembras";
+    emptyMessage.textContent = "No encontramos productos con esos filtros.";
+    emptyMessage.hidden = true;
+    grid?.appendChild(emptyMessage);
 
-const mensajeSinResultados = document.createElement("p");
-mensajeSinResultados.className = "sin-resultados-hembras";
-mensajeSinResultados.textContent = "No encontramos productos con esos filtros.";
-mensajeSinResultados.hidden = true;
-const cuadrillaProductos = document.querySelector(".productos-grid");
-cuadrillaProductos?.appendChild(mensajeSinResultados);
+    function cardOf(item) {
+        return item.matches(".producto-enlace")
+            ? item.querySelector(".producto-liquidacion")
+            : item;
+    }
 
-/* Abrir y cerrar categorías */
-if (filtroCategoria && botonCategoria) {
-    botonCategoria.addEventListener("click", () => {
-        const abierto = filtroCategoria.classList.toggle("abierto");
-
-        botonCategoria.setAttribute(
-            "aria-expanded",
-            abierto ? "true" : "false"
-        );
-
-        filtroTalla?.classList.remove("abierto");
-        botonTalla?.setAttribute("aria-expanded", "false");
-    });
-}
-
-/* Abrir y cerrar tallas */
-if (filtroTalla && botonTalla) {
-    botonTalla.addEventListener("click", () => {
-        const abierto = filtroTalla.classList.toggle("abierto");
-
-        botonTalla.setAttribute(
-            "aria-expanded",
-            abierto ? "true" : "false"
-        );
-
-        filtroCategoria?.classList.remove("abierto");
-        botonCategoria?.setAttribute("aria-expanded", "false");
-    });
-}
-
-/* Aplicar filtros a cada tarjeta completa */
-function actualizarProductos() {
-    let visibles = 0;
-    productos.forEach(producto => {
-        /* Los productos normales tienen los datos en el enlace.
-           Las promociones los tienen en la tarjeta interior. */
-        const tarjeta = producto.classList.contains("producto-enlace")
-            ? producto.querySelector(".producto-liquidacion")
-            : producto;
-
-        if (!tarjeta) {
-            producto.hidden = true;
-            return;
-        }
-
-        const categoria = (
-            tarjeta.dataset.categoria || ""
-        ).trim().toLowerCase();
-
-        const tallasTexto = [
-            tarjeta.dataset.tallas || "",
-            tarjeta.dataset.talla || ""
-        ].join(" ");
-
-        const tallasProducto = tallasTexto
-            .split(/[\s,;|]+/)
-            .filter(Boolean);
-
-        const coincideCategoria =
-            categoriaSeleccionada === "todos" ||
-            categoria === categoriaSeleccionada;
-
-        const coincideTalla =
-            tallaSeleccionada === "todas" ||
-            tallasProducto.includes(tallaSeleccionada);
-
-        producto.hidden = !(coincideCategoria && coincideTalla);
-        if (!producto.hidden) visibles++;
-    });
-    if (mensajeSinResultados) mensajeSinResultados.hidden = visibles > 0;
-}
-
-/* Seleccionar categoría */
-opcionesCategoria.forEach(boton => {
-    boton.addEventListener("click", () => {
-        categoriaSeleccionada = boton.dataset.filtro;
-
-        opcionesCategoria.forEach(opcion => {
-            opcion.classList.toggle(
-                "categoria-activa",
-                opcion === boton
-            );
+    function normalizedSizes(card) {
+        const raw = `${card?.dataset.tallas || ""} ${card?.dataset.talla || ""}`;
+        const found = new Set();
+        raw.split(/[\s,;|]+/).filter(Boolean).forEach(token => {
+            // Expand ranges such as 3-4, while preserving single numeric sizes.
+            const range = token.match(/^(\d+)-(\d+)$/);
+            if (range) {
+                const start = Number(range[1]), end = Number(range[2]);
+                for (let n = Math.min(start, end); n <= Math.max(start, end); n++) found.add(String(n));
+            } else if (/^\d+$/.test(token)) {
+                found.add(token);
+            }
         });
+        return found;
+    }
 
-        const texto = botonCategoria?.querySelector("span:first-child");
-
-        if (texto) {
-            texto.textContent = boton.textContent.trim();
-        }
-
-        filtroCategoria?.classList.remove("abierto");
-        botonCategoria?.setAttribute("aria-expanded", "false");
-
-        actualizarProductos();
-    });
-});
-
-/* Seleccionar talla */
-opcionesTalla.forEach(boton => {
-    boton.addEventListener("click", () => {
-        tallaSeleccionada = boton.dataset.talla;
-
-        opcionesTalla.forEach(opcion => {
-            opcion.classList.toggle(
-                "talla-activa",
-                opcion === boton
-            );
+    function updateProducts() {
+        let visibleCount = 0;
+        products.forEach(item => {
+            const card = cardOf(item);
+            if (!card) {
+                item.hidden = true;
+                return;
+            }
+            const category = (card.dataset.categoria || "").trim().toLowerCase();
+            const sizes = normalizedSizes(card);
+            const categoryMatch = selectedCategory === "todos" || category === selectedCategory;
+            const sizeMatch = selectedSize === "todas" || sizes.has(selectedSize);
+            item.hidden = !(categoryMatch && sizeMatch);
+            if (!item.hidden) visibleCount++;
         });
+        emptyMessage.hidden = visibleCount !== 0;
+    }
 
-        const texto = botonTalla?.querySelector("span:first-child");
-
-        if (texto) {
-            texto.textContent =
-                tallaSeleccionada === "todas"
-                    ? "Filtrar por talla"
-                    : "Talla " + tallaSeleccionada;
-        }
-
-        filtroTalla?.classList.remove("abierto");
-        botonTalla?.setAttribute("aria-expanded", "false");
-
-        actualizarProductos();
+    // Category options stay visible as a horizontal filter bar.
+    categoryOptions.forEach(button => {
+        button.addEventListener("click", () => {
+            selectedCategory = button.dataset.filtro;
+            categoryOptions.forEach(option => {
+                option.classList.toggle("categoria-activa", option === button);
+                option.setAttribute("aria-pressed", option === button ? "true" : "false");
+            });
+            updateProducts();
+        });
     });
+
+    // Size dropdown.
+    sizeButton?.addEventListener("click", () => {
+        const open = sizeBox.classList.toggle("abierto");
+        sizeButton.setAttribute("aria-expanded", open ? "true" : "false");
+        categoryBox?.classList.remove("abierto");
+        categoryButton?.setAttribute("aria-expanded", "false");
+    });
+
+    sizeOptions.forEach(button => {
+        button.addEventListener("click", () => {
+            selectedSize = button.dataset.talla;
+            sizeOptions.forEach(option => {
+                option.classList.toggle("talla-activa", option === button);
+                option.setAttribute("aria-pressed", option === button ? "true" : "false");
+            });
+            const label = sizeButton?.querySelector("span:first-child");
+            if (label) label.textContent = selectedSize === "todas" ? "Todas las tallas" : `Talla ${selectedSize}`;
+            sizeBox?.classList.remove("abierto");
+            sizeButton?.setAttribute("aria-expanded", "false");
+            updateProducts();
+        });
+    });
+
+    // Close size menu on outside click or Escape.
+    document.addEventListener("click", event => {
+        if (sizeBox && !sizeBox.contains(event.target)) {
+            sizeBox.classList.remove("abierto");
+            sizeButton?.setAttribute("aria-expanded", "false");
+        }
+    });
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+            sizeBox?.classList.remove("abierto");
+            sizeButton?.setAttribute("aria-expanded", "false");
+        }
+    });
+
+    updateProducts();
 });
   </script>
  </body>
