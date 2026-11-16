@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
  <head>
   <meta charset="utf-8"/>
@@ -782,6 +783,76 @@ body.pagina-machos .productos-grid .producto-catalogo.machos-card[hidden] {
 }
 body.pagina-machos .productos-grid .producto-catalogo.machos-card:not([hidden]) {
     display: flex !important;
+}
+   /* =========================================================
+   MACHOS DEFINITIVO — TARJETAS COMPACTAS SIN ESPACIO VACÍO
+   Se conserva la estructura, filtros y productos existentes.
+========================================================= */
+body.pagina-machos .productos-grid {
+  grid-auto-rows: auto !important;
+  align-items: start !important;
+}
+body.pagina-machos .producto-catalogo.machos-card {
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: start !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 5px !important;
+  padding: 12px 15px 11px !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+  width: 100%;
+  min-height: 0 !important;
+  margin: 0 0 3px !important;
+  line-height: 1.4 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .precio-simple-machos,
+body.pagina-machos .producto-catalogo.machos-card .precio-destacado-machos {
+  margin: 0 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .precio-machos-fila {
+  margin: 0 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .ahorro-machos {
+  margin: 0 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
+  margin: 0 !important;
+  align-self: flex-start !important;
+}
+@media (max-width: 600px) {
+  body.pagina-machos .productos-grid {
+    grid-auto-rows: auto !important;
+    align-items: start !important;
+    gap: 12px !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card {
+    height: auto !important;
+    align-self: start !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-foto,
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+    aspect-ratio: 1 / 1 !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+    flex: 0 0 auto !important;
+    gap: 5px !important;
+    padding: 9px 9px 9px !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+    min-height: 2.7em !important;
+    margin: 0 0 2px !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
+    margin-top: 0 !important;
+  }
 }
   </style>
  </head>
