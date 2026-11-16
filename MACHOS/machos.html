@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
  <head>
   <meta charset="utf-8"/>
@@ -773,6 +774,14 @@ body.pagina-machos .producto-catalogo.machos-card .etiqueta-machos {
     padding: 3px 6px !important;
     font-size: 8px !important;
   }
+}
+   /* FIX CRÍTICO: las tarjetas ocultas por los filtros no deben volver a mostrarse.
+   La regla display:flex de las tarjetas tenía mayor prioridad que el atributo hidden. */
+body.pagina-machos .productos-grid .producto-catalogo.machos-card[hidden] {
+    display: none !important;
+}
+body.pagina-machos .productos-grid .producto-catalogo.machos-card:not([hidden]) {
+    display: flex !important;
 }
   </style>
  </head>
