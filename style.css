@@ -5538,54 +5538,70 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     transform: translateY(-3px);
 }
 
-/* RESPONSIVE */
+
+/* ==========================================
+   HERO NAVIDEÑO — AJUSTE PARA CELULARES
+========================================== */
 
 @media (max-width: 768px) {
 
+    /* MÁS ALTURA */
     .hero.hero-navidad {
-        height: 88svh;
-        min-height: 600px;
+        height: 100svh !important;
+        min-height: 760px !important;
+        max-height: none !important;
     }
 
+    /* ENCUADRE DEL VIDEO */
     .hero-navidad .hero-video {
-        object-position: 58% center;
+        object-fit: cover !important;
+        object-position: 56% center !important;
     }
 
+    /* REDUCIR MUCHO EL DIFUMINADO */
     .hero-navidad .hero-navidad-overlay {
         background: linear-gradient(
             90deg,
-            rgba(249, 241, 231, 0.62) 0%,
-            rgba(249, 241, 231, 0.30) 38%,
-            transparent 70%
-        );
+            rgba(249, 241, 231, 0.22) 0%,
+            rgba(249, 241, 231, 0.10) 20%,
+            transparent 38%
+        ) !important;
     }
 
+    /* MENSAJE MÁS PEQUEÑO Y UN POCO MÁS ARRIBA */
     .hero-navidad .hero-navidad-contenido {
-        left: 6%;
-        width: 82%;
-        max-width: 400px;
+        top: 40% !important;
+        left: 6% !important;
+        transform: translateY(-50%) !important;
+        width: 88% !important;
+        max-width: 360px !important;
     }
 
     .hero-navidad .hero-navidad-etiqueta {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-        margin-bottom: 17px;
+        font-size: 9px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 14px !important;
     }
 
     .hero-navidad .hero-navidad-contenido h1 {
-        font-size: clamp(44px, 10vw, 60px);
+        font-size: clamp(38px, 9vw, 48px) !important;
+        line-height: 1.05 !important;
+        margin-bottom: 12px !important;
     }
 
     .hero-navidad .hero-navidad-contenido p {
-        font-size: 17px;
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        max-width: 280px !important;
     }
 
+    /* BOTÓN ABAJO A LA DERECHA */
     .hero-navidad .hero-coleccion {
-        right: 6%;
-        bottom: 25px;
-        padding: 13px 22px;
-        font-size: 13px;
+        right: 6% !important;
+        bottom: 28px !important;
+        left: auto !important;
+        top: auto !important;
+        padding: 12px 20px !important;
+        font-size: 12px !important;
     }
 }
-
-
