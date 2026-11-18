@@ -5402,138 +5402,166 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 }
 
 
-/* ==========================================
-   HERO NAVIDEÑO KÚMINO - AJUSTE DEFINITIVO
-========================================== */
+/* =========================================
+   HERO NAVIDEÑO - KÚMINO
+========================================= */
 
-.pagina-inicio .hero-navidad {
+.hero.hero-navidad {
     position: relative;
     width: 100%;
     height: calc(100vh - 80px);
     height: calc(100svh - 80px);
-    min-height: 680px;
-    max-height: 950px;
+    min-height: 650px;
     overflow: hidden;
     display: flex;
     align-items: center;
     isolation: isolate;
+    margin: 0;
+    padding: 0;
     background: #F5EADD;
 }
 
-/* VIDEO */
-.pagina-inicio .hero-navidad .hero-video {
+/* VIDEO A PANTALLA COMPLETA */
+
+.hero-navidad .hero-video {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 48%;
+    object-position: center center;
     z-index: -2;
 }
 
-/* DEGRADADO: SOLO DETRÁS DEL TEXTO */
-.pagina-inicio .hero-navidad-overlay {
+/* LUZ SUAVE A LA IZQUIERDA */
+
+.hero-navidad-overlay {
     position: absolute;
     inset: 0;
     z-index: -1;
     background: linear-gradient(
         90deg,
-        rgba(249, 241, 231, 0.86) 0%,
-        rgba(249, 241, 231, 0.68) 23%,
-        rgba(249, 241, 231, 0.25) 40%,
-        rgba(249, 241, 231, 0) 55%
+        rgba(249, 241, 231, 0.72) 0%,
+        rgba(249, 241, 231, 0.48) 23%,
+        rgba(249, 241, 231, 0.12) 43%,
+        transparent 58%
     );
 }
 
-/* CONTENIDO */
-.pagina-inicio .hero-navidad-contenido {
+/* MENSAJE */
+
+.hero-navidad-contenido {
     position: relative;
-    z-index: 1;
-    width: min(90%, 1250px);
+    width: 90%;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 30px 0;
+    padding: 0 0 0 2%;
+    z-index: 2;
     color: #30251F;
 }
 
-/* ETIQUETA */
-.pagina-inicio .hero-navidad-etiqueta {
+.hero-navidad-etiqueta {
     display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
+    margin-bottom: 20px;
     color: #465B43;
-    margin-bottom: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3.5px;
 }
 
-/* TÍTULO */
-.pagina-inicio .hero-navidad h1 {
-    max-width: 620px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(55px, 5.2vw, 82px);
+.hero-navidad-contenido h1 {
+    max-width: 520px;
+    margin: 0 0 14px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 4.5vw, 68px);
     font-weight: 600;
     font-style: italic;
-    line-height: 0.98;
-    letter-spacing: -1.5px;
+    line-height: 1.05;
     color: #38241E;
-    margin: 0 0 18px;
 }
 
-/* MENSAJE */
-.pagina-inicio .hero-navidad-contenido p {
-    max-width: 440px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(18px, 1.6vw, 23px);
-    font-weight: 500;
-    line-height: 1.5;
+.hero-navidad-contenido p {
+    max-width: 380px;
+    margin: 0 0 28px;
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(16px, 1.35vw, 20px);
+    font-weight: 400;
+    line-height: 1.6;
     color: #344435;
-    margin: 0;
 }
 
-/* ==========================================
-   RESPONSIVE
-========================================== */
+/* BOTÓN VER COLECCIÓN */
+
+.hero-navidad .hero-coleccion {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 13px 22px;
+    border: 1px solid rgba(70, 91, 67, 0.55);
+    border-radius: 40px;
+    color: #465B43;
+    background: rgba(255, 250, 244, 0.78);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-navidad .hero-coleccion:hover {
+    background: #465B43;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.hero-navidad .hero-coleccion-flecha {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.hero-navidad .hero-coleccion:hover .hero-coleccion-flecha {
+    transform: translateX(4px);
+}
+
+/* =========================================
+   CELULARES
+========================================= */
 
 @media (max-width: 768px) {
 
-    .pagina-inicio .hero-navidad {
-        height: calc(88svh - 75px);
-        min-height: 540px;
-        max-height: 720px;
+    .hero.hero-navidad {
+        height: calc(88svh - 70px);
+        min-height: 520px;
     }
 
-    .pagina-inicio .hero-navidad .hero-video {
+    .hero-navidad .hero-video {
         object-position: 58% center;
     }
 
-    .pagina-inicio .hero-navidad-overlay {
+    .hero-navidad-overlay {
         background: linear-gradient(
             90deg,
-            rgba(249, 241, 231, 0.78) 0%,
-            rgba(249, 241, 231, 0.48) 42%,
-            rgba(249, 241, 231, 0.08) 75%,
-            transparent 100%
+            rgba(249, 241, 231, 0.72),
+            rgba(249, 241, 231, 0.32) 55%,
+            transparent
         );
     }
 
-    .pagina-inicio .hero-navidad-contenido {
+    .hero-navidad-contenido {
         width: 88%;
+        padding-left: 0;
     }
 
-    .pagina-inicio .hero-navidad-etiqueta {
-        font-size: 10px;
-        letter-spacing: 2.5px;
-        margin-bottom: 20px;
-    }
-
-    .pagina-inicio .hero-navidad h1 {
+    .hero-navidad-contenido h1 {
         max-width: 340px;
-        font-size: clamp(48px, 11vw, 68px);
+        font-size: clamp(42px, 10vw, 56px);
     }
 
-    .pagina-inicio .hero-navidad-contenido p {
-        max-width: 300px;
-        font-size: 17px;
+    .hero-navidad-contenido p {
+        max-width: 280px;
+        font-size: 16px;
     }
 }
+
+
