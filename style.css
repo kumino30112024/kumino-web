@@ -5400,3 +5400,127 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         border-radius: 25px !important;
     }
 }
+
+/* =================================
+   HERO NAVIDEÑO KÚMINO
+================================= */
+
+.pagina-inicio .hero-navidad {
+    position: relative;
+    min-height: 590px;
+    height: 72vh;
+    max-height: 760px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    isolation: isolate;
+    background: #F5EADD;
+}
+
+.pagina-inicio .hero-navidad .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+}
+
+.pagina-inicio .hero-navidad-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        90deg,
+        rgba(249, 241, 231, 0.88) 0%,
+        rgba(249, 241, 231, 0.68) 32%,
+        rgba(249, 241, 231, 0.08) 62%,
+        transparent 100%
+    );
+}
+
+.pagina-inicio .hero-navidad-contenido {
+    width: min(90%, 1250px);
+    margin: 0 auto;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1;
+    color: #30251F;
+}
+
+.pagina-inicio .hero-navidad-etiqueta {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    color: #465B43;
+}
+
+.pagina-inicio .hero-navidad h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(65px, 7.5vw, 112px);
+    font-weight: 600;
+    font-style: italic;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    margin: 0 0 15px;
+    color: #38241E;
+}
+
+.pagina-inicio .hero-navidad-contenido p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(19px, 2.1vw, 29px);
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    color: #344435;
+}
+
+/* CELULARES */
+
+@media (max-width: 768px) {
+
+    .pagina-inicio .hero-navidad {
+        min-height: 520px;
+        height: 70vh;
+        max-height: 680px;
+    }
+
+    .pagina-inicio .hero-navidad .hero-video {
+        object-position: 58% center;
+    }
+
+    .pagina-inicio .hero-navidad-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(249, 241, 231, 0.82),
+            rgba(249, 241, 231, 0.48) 65%,
+            rgba(249, 241, 231, 0.08)
+        );
+    }
+
+    .pagina-inicio .hero-navidad-contenido {
+        width: 88%;
+        padding: 35px 0;
+    }
+
+    .pagina-inicio .hero-navidad-etiqueta {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+        margin-bottom: 25px;
+    }
+
+    .pagina-inicio .hero-navidad h1 {
+        font-size: clamp(48px, 12vw, 75px);
+        letter-spacing: -1px;
+    }
+
+    .pagina-inicio .hero-navidad-contenido p {
+        font-size: clamp(16px, 4vw, 21px);
+        max-width: 340px;
+    }
+}
