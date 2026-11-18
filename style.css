@@ -5619,4 +5619,78 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         gap: 14px;
     }
 }
+/* ==========================================
+   FRANJA DE ENVÍOS KÚMINO
+========================================== */
 
+.franja-envios {
+    width: 100%;
+    min-height: 48px;
+    padding: 8px 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+
+    background: #F5EADD;
+}
+
+.envios-titulo {
+    margin: 0;
+    color: #2C3531;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.envios-separador {
+    width: 1px;
+    height: 20px;
+    background: #A9A99B;
+}
+
+.envios-descripcion {
+    margin: 0;
+    color: #7A8D78;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/* CELULARES */
+@media (max-width: 768px) {
+    .franja-envios {
+        min-height: 44px;
+        padding: 8px 10px;
+        gap: 10px;
+    }
+
+    .envios-titulo {
+        font-size: 10px;
+    }
+
+    .envios-separador {
+        height: 16px;
+    }
+
+    .envios-descripcion {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 380px) {
+    .franja-envios {
+        gap: 7px;
+    }
+
+    .envios-titulo {
+        font-size: 9px;
+    }
+
+    .envios-descripcion {
+        font-size: 8px;
+    }
+}
