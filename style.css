@@ -5694,3 +5694,9 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         font-size: 8px;
     }
 }
+.envios-icono {
+    width: 25px;
+    height: 25px;
+    color: #7A8D78;
+    flex-shrink: 0;
+}
