@@ -5540,13 +5540,14 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 
 
 
+
 /* ==========================================
    HERO NAVIDEÑO KÚMINO - SOLO CELULARES
 ========================================== */
 
 @media (max-width: 768px) {
 
-    /* Aumentar altura del hero */
+    /* ALTURA DEL HERO */
     .hero.hero-navidad {
         height: calc(100svh - 80px);
         min-height: 700px;
@@ -5554,22 +5555,20 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         aspect-ratio: auto;
     }
 
-    /* Encuadre del video */
+    /* VIDEO ORIGINAL, SIN FILTROS */
     .hero-navidad .hero-video {
         object-position: 56% center;
+        filter: none !important;
+        opacity: 1 !important;
     }
 
-    /* Reducir el difuminado */
+    /* ELIMINAR COMPLETAMENTE EL DIFUMINADO */
     .hero-navidad .hero-navidad-overlay {
-        background: radial-gradient(
-            ellipse at 28% 25%,
-            rgba(249, 241, 231, 0.38) 0%,
-            rgba(249, 241, 231, 0.16) 38%,
-            transparent 70%
-        );
+        background: transparent !important;
+        opacity: 0 !important;
     }
 
-    /* Mensaje más pequeño y ubicado arriba */
+    /* MENSAJE */
     .hero-navidad .hero-navidad-contenido {
         position: absolute;
         top: 27%;
@@ -5598,7 +5597,7 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         line-height: 1.5;
     }
 
-    /* Botón abajo a la derecha */
+    /* BOTÓN INFERIOR DERECHO */
     .hero-navidad .hero-coleccion {
         position: absolute;
         right: 6%;
@@ -5611,4 +5610,5 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         gap: 14px;
     }
 }
+
 
