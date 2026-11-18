@@ -5610,5 +5610,11 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
         gap: 14px;
     }
 }
-
+/* Mejorar la lectura del mensaje sin cubrir el video */
+.hero-navidad .hero-navidad-contenido {
+    background: rgba(249, 241, 231, 0.22);
+    padding: 12px;
+    border-radius: 8px;
+    backdrop-filter: blur(2px);
+}
 
