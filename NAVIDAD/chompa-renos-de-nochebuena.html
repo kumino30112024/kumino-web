@@ -5,13 +5,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Chompa Renos de Nochebuena para mascotas - KÚMINO" name="description"/>
-<title>Chompa Renos de Nochebuena | KÚMINO</title>
+<meta content="Chompa Renos de Invierno para mascotas - KÚMINO" name="description"/>
+<title>Chompa Renos de Invierno | KÚMINO</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
         body {
-            background-image: linear-gradient(rgba(255,250,242,.08), rgba(255,250,242,.08)),
-                              url("../fondo_productosnav.jpg");
+            background-image:
+                linear-gradient(rgba(255,250,242,.08), rgba(255,250,242,.08)),
+                url("../fondo_productosnav.jpg");
             background-position: center top;
             background-size: cover;
             background-repeat: no-repeat;
@@ -39,9 +40,9 @@
 
         .navidad-producto-imagen {
             min-width: 0;
-            background: transparent;
             aspect-ratio: 4 / 5;
-            overflow: visible;
+            overflow: hidden;
+            background: transparent;
         }
 
         .navidad-producto-imagen img {
@@ -51,7 +52,7 @@
             object-fit: contain;
             mix-blend-mode: normal;
             opacity: 1;
-            filter: drop-shadow(0 10px 16px rgba(65,43,28,.18));
+            filter: drop-shadow(0 12px 18px rgba(45,35,25,.13));
         }
 
         .navidad-producto-info {
@@ -89,7 +90,7 @@
 
         .navidad-producto-descripcion {
             margin: 0 0 25px;
-            color: #4d443d;
+            color: #5b554e;
             font-size: 14px;
             line-height: 1.85;
         }
@@ -123,13 +124,13 @@
         .navidad-talla-card strong {
             display: block;
             margin-bottom: 9px;
-            color: #514b44;
+            color: #4c5145;
             font-size: 13px;
         }
 
         .navidad-precio-regular {
             display: block;
-            color: #81766d;
+            color: #91877d;
             font-size: 12px;
             text-decoration: line-through;
         }
@@ -150,17 +151,10 @@
             font-weight: 700;
         }
 
-        .navidad-aviso-precio {
-            display: block;
-            margin-top: 9px;
-            color: #62584e;
-            font-size: 11px;
-        }
-
         .navidad-caracteristicas {
             margin: 0;
             padding-left: 19px;
-            color: #4d443d;
+            color: #5b554e;
             font-size: 13px;
             line-height: 1.9;
         }
@@ -180,7 +174,7 @@
             letter-spacing: .3px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 7px 16px rgba(91,39,43,.16);
+            box-shadow: 0 7px 18px rgba(129,54,61,.18);
             transition: background .2s ease,transform .2s ease;
         }
 
@@ -192,9 +186,8 @@
         .navidad-volver {
             display: inline-block;
             margin-top: 17px;
-            color: #526b50;
+            color: #65785e;
             font-size: 13px;
-            font-weight: 700;
             text-decoration: none;
         }
 
@@ -220,16 +213,12 @@
             .navidad-producto-imagen {
                 width: 100%;
                 max-height: none;
-                height: auto;
                 aspect-ratio: 4 / 5;
-                background: transparent;
             }
 
             .navidad-producto-imagen img {
-                height: 100%;
-                object-fit: contain;
                 mix-blend-mode: multiply;
-                filter: drop-shadow(0 10px 28px rgba(73,43,28,.18));
+                filter: drop-shadow(0 10px 14px rgba(45,35,25,.10));
             }
 
             .navidad-producto-info h1 {
@@ -316,6 +305,14 @@
 .navidad-agregar-carrito:hover:not(:disabled) { background: #40563f; transform: translateY(-2px); }
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
+
+        .navidad-colores-lista { display:flex; flex-wrap:wrap; gap:12px; }
+        .navidad-color { display:inline-flex; align-items:center; gap:9px; padding:5px 8px; border:1px solid transparent; border-radius:22px; background:transparent; color:#514b44; font:inherit; cursor:pointer; }
+        .navidad-color-muestra { width:17px; height:17px; display:inline-block; flex-shrink:0; border:2px solid #fff; border-radius:50%; box-shadow:0 0 0 1px rgba(80,65,50,.35); }
+        .navidad-color-blanco { background:#fff; }
+        .navidad-color-rojo { background:#C51F32; }
+        .navidad-color.kumino-color-seleccionado { border-color:#71343a; background:rgba(255,255,255,.55); box-shadow:0 0 0 1px #71343a; }
+        .navidad-color:focus-visible { outline:2px solid #71343a; outline-offset:3px; }
 </style>
 </head>
 <body>
@@ -332,56 +329,57 @@
 <main class="navidad-producto-main">
 <div class="navidad-producto-container">
 <div class="navidad-producto-imagen">
-<img alt="Chompa Renos de Nochebuena para mascotas" src="../IMAGENES/chomparenosdenochebuena.jpg"/>
+<img alt="Chompa Renos de Invierno para mascotas" src="../IMAGENES/chomparenosdeinvierno.jpg"/>
 </div>
 <div class="navidad-producto-info">
 <span class="navidad-producto-categoria">
                     COLECCIÓN NAVIDEÑA
                 </span>
-<h1>Chompa Renos de Nochebuena</h1>
+<h1>Chompa Renos de Invierno</h1>
 <span class="navidad-promo-etiqueta">
                     PRECIO PROMOCIONAL
                 </span>
 <p class="navidad-producto-descripcion">
-                    ¡La magia de la Navidad llega al guardarropa de tu engreído! Una chompa con inspiración navideña, ideal para completar un look adorable y festivo durante las celebraciones de Nochebuena.
-                </p>
-<!-- COLOR DISPONIBLE -->
+    ¡El encanto de los renos llega para acompañar a tu engreído!
+    La Chompa Renos de Invierno es una propuesta de inspiración
+    navideña para darle un estilo especial y festivo durante
+    los días de celebración.
+</p>
+<!-- COLORES DISPONIBLES -->
 <section class="navidad-producto-seccion">
-<h2>Color</h2>
-<div style="display: flex; align-items: center; gap: 10px;">
-<span style="
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            min-width: 20px;
-            border-radius: 50%;
-            background-color: #FFFFFF;
-            border: 2px solid #FFFFFF;
-            box-shadow: 0 0 0 1px #71343A;
-        "></span>
-<span>Blanco</span>
-</div>
+  <h2>Colores disponibles</h2>
+  <div class="navidad-colores-lista">
+    <button class="navidad-color" data-kumino-color="Blanco" type="button" aria-pressed="false">
+      <span class="navidad-color-muestra navidad-color-blanco"></span>
+      <span>Blanco</span>
+    </button>
+    <button class="navidad-color" data-kumino-color="Rojo" type="button" aria-pressed="false">
+      <span class="navidad-color-muestra navidad-color-rojo"></span>
+      <span>Rojo</span>
+    </button>
+  </div>
 </section>
+<!-- TALLAS Y PRECIOS -->
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
 <div class="navidad-tallas-precios">
 <!-- TALLA 1 -->
-<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="1" data-promo-price="26.00" data-regular-price="36.40" type="button">
+<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="1" data-promo-price="32.00" data-regular-price="44.80" type="button">
 <strong>Talla 1</strong>
-<span class="navidad-precio-regular">S/ 36.40</span>
-<span class="navidad-precio-promo">S/ 26.00</span>
-<span class="navidad-ahorro">Ahorras S/ 10.40</span>
+<span class="navidad-precio-regular">S/ 44.80</span>
+<span class="navidad-precio-promo">S/ 32.00</span>
+<span class="navidad-ahorro">Ahorras S/ 12.80</span>
+</button>
+<!-- TALLA 2 -->
+<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="2" data-promo-price="34.00" data-regular-price="47.60" type="button">
+<strong>Talla 2</strong>
+<span class="navidad-precio-regular">S/ 47.60</span>
+<span class="navidad-precio-promo">S/ 34.00</span>
+<span class="navidad-ahorro">Ahorras S/ 13.60</span>
 </button>
 <!-- TALLA 3 -->
-<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-promo-price="33.00" data-regular-price="46.20" type="button">
+<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-promo-price="36.00" data-regular-price="50.40" type="button">
 <strong>Talla 3</strong>
-<span class="navidad-precio-regular">S/ 46.20</span>
-<span class="navidad-precio-promo">S/ 33.00</span>
-<span class="navidad-ahorro">Ahorras S/ 13.20</span>
-</button>
-<!-- TALLA 4 -->
-<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="4" data-promo-price="36.00" data-regular-price="50.40" type="button">
-<strong>Talla 4</strong>
 <span class="navidad-precio-regular">S/ 50.40</span>
 <span class="navidad-precio-promo">S/ 36.00</span>
 <span class="navidad-ahorro">Ahorras S/ 14.40</span>
@@ -392,11 +390,11 @@
 <h2>Características</h2>
 <ul class="navidad-caracteristicas">
 <li>Prenda tipo chompa con temática navideña.</li>
-<li>Diseño inspirado en los renos de Navidad.</li>
-<li>Ideal para complementar el look festivo de tu mascota.</li>
+<li>Diseño inspirado en los renos de invierno.</li>
+<li>Ideal para completar el look de temporada de tu mascota.</li>
 </ul>
 </section>
-<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="No especificado" data-image="../IMAGENES/chomparenosdenochebuena.jpg" data-kumino-add="" data-product-id="chompa-renos-de-nochebuena" data-product-name="Chompa Renos de Nochebuena" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
+<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="" data-image="../IMAGENES/chomparenosdeinvierno.jpg" data-kumino-add="" data-product-id="chompa-renos-de-invierno" data-product-name="Chompa Renos de Invierno" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
 <a class="navidad-volver" href="navidad.html">
                     ← Volver a colección
                 </a>
@@ -431,25 +429,21 @@
   'use strict';
   const addButton = document.querySelector('[data-kumino-add]');
   if (!addButton) return;
-
   const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
-  const colorSelect = document.querySelector('.navidad-color-selector');
+  const colorOptions = Array.from(document.querySelectorAll('[data-kumino-color]'));
   const notice = document.querySelector('.navidad-seleccion-aviso');
-  const productName = addButton.dataset.productName;
   let selected = null;
-
-  const currentColor = () => colorSelect ? colorSelect.value : addButton.dataset.defaultColor;
+  let selectedColor = '';
 
   function refresh() {
-    const color = currentColor();
-    const ready = Boolean(selected && color);
+    const ready = Boolean(selected && selectedColor);
     addButton.disabled = !ready;
     if (ready) {
       addButton.dataset.size = selected.size;
       addButton.dataset.regularPrice = selected.regular;
       addButton.dataset.promoPrice = selected.promo;
-      addButton.dataset.color = color;
-      notice.textContent = `Seleccionado: ${selected.size} · ${color}`;
+      addButton.dataset.color = selectedColor;
+      notice.textContent = `Seleccionado: ${selected.size} · ${selectedColor}`;
     } else if (!selected) {
       notice.textContent = 'Selecciona una talla para continuar.';
     } else {
@@ -457,26 +451,32 @@
     }
   }
 
-  sizeCards.forEach(card => {
-    card.addEventListener('click', () => {
-      sizeCards.forEach(item => {
-        item.classList.remove('kumino-talla-seleccionada');
-        item.setAttribute('aria-pressed', 'false');
-      });
-      card.classList.add('kumino-talla-seleccionada');
-      card.setAttribute('aria-pressed', 'true');
-      selected = {
-        size: card.dataset.kuminoSize,
-        regular: card.dataset.regularPrice,
-        promo: card.dataset.promoPrice
-      };
-      refresh();
+  sizeCards.forEach(card => card.addEventListener('click', () => {
+    sizeCards.forEach(item => {
+      item.classList.remove('kumino-talla-seleccionada');
+      item.setAttribute('aria-pressed', 'false');
     });
-  });
+    card.classList.add('kumino-talla-seleccionada');
+    card.setAttribute('aria-pressed', 'true');
+    selected = {
+      size: card.dataset.kuminoSize,
+      regular: card.dataset.regularPrice,
+      promo: card.dataset.promoPrice
+    };
+    refresh();
+  }));
 
-  if (colorSelect) colorSelect.addEventListener('change', refresh);
+  colorOptions.forEach(option => option.addEventListener('click', () => {
+    selectedColor = option.dataset.kuminoColor;
+    colorOptions.forEach(item => {
+      item.classList.toggle('kumino-color-seleccionado', item === option);
+      item.setAttribute('aria-pressed', item === option ? 'true' : 'false');
+    });
+    refresh();
+  }));
   refresh();
 })();
 </script>
 <script src="../kumino-cart.js"></script></body>
 </html>
+
