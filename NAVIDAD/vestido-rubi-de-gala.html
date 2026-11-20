@@ -555,139 +555,7 @@
             font-size: 12px;
             min-height: 17px;
         }
-        .kumino-carrito-boton {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            z-index: 9998;
-            display: flex;
-            align-items: center;
-            gap: 9px;
-            border: 0;
-            border-radius: 999px;
-            padding: 13px 18px;
-            background: #81363d;
-            color: #fff;
-            font: inherit;
-            font-size: 13px;
-            font-weight: 700;
-            box-shadow: 0 5px 20px rgba(40, 20, 20, .22);
-            cursor: pointer;
-        }
-        .kumino-carrito-contador {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 22px;
-            height: 22px;
-            padding: 0 5px;
-            border-radius: 50%;
-            background: #fff;
-            color: #81363d;
-            font-size: 11px;
-        }
-        .kumino-carrito-panel {
-            position: fixed;
-            right: 22px;
-            bottom: 82px;
-            z-index: 9999;
-            display: none;
-            width: min(420px, calc(100vw - 28px));
-            max-height: min(72vh, 620px);
-            overflow: auto;
-            padding: 20px;
-            border: 1px solid rgba(129, 54, 61, .18);
-            border-radius: 17px;
-            background: #fffdf9;
-            color: #333;
-            box-shadow: 0 10px 35px rgba(40, 20, 20, .2);
-        }
-        .kumino-carrito-panel.abierto { display: block; }
-        .kumino-carrito-cabecera {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-        .kumino-carrito-cabecera h2 {
-            margin: 0;
-            color: #71343a;
-            font: 600 23px "Playfair Display", Georgia, serif;
-        }
-        .kumino-carrito-cerrar {
-            border: 0;
-            background: transparent;
-            color: #71343a;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        .kumino-carrito-vacio { color: #756b62; font-size: 13px; line-height: 1.6; }
-        .kumino-carrito-item {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 8px;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee5dc;
-            font-size: 12px;
-        }
-        .kumino-carrito-item strong { display: block; color: #413a35; font-size: 13px; }
-        .kumino-carrito-item small { display: block; margin-top: 4px; color: #766c63; line-height: 1.5; }
-        .kumino-carrito-item-precio { text-align: right; white-space: nowrap; font-weight: 700; }
-        .kumino-carrito-quitar {
-            display: block;
-            margin: 5px 0 0 auto;
-            padding: 0;
-            border: 0;
-            background: none;
-            color: #9b4148;
-            font-size: 11px;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        .kumino-carrito-resumen { margin-top: 14px; font-size: 13px; }
-        .kumino-carrito-linea { display: flex; justify-content: space-between; gap: 12px; margin: 8px 0; }
-        .kumino-carrito-total {
-            margin-top: 10px;
-            padding-top: 12px;
-            border-top: 1px solid #e7dcd1;
-            color: #71343a;
-            font-size: 17px;
-            font-weight: 800;
-        }
-        .kumino-carrito-nota { margin: 12px 0; color: #766c63; font-size: 11px; line-height: 1.5; }
-        .kumino-carrito-whatsapp {
-            display: block;
-            width: 100%;
-            margin-top: 13px;
-            padding: 13px;
-            border: 0;
-            border-radius: 25px;
-            background: #526B50;
-            color: #fff;
-            font: inherit;
-            font-size: 13px;
-            font-weight: 700;
-            text-align: center;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .kumino-carrito-vaciar {
-            display: block;
-            margin: 10px auto 0;
-            padding: 5px;
-            border: 0;
-            background: transparent;
-            color: #8a7770;
-            font: inherit;
-            font-size: 11px;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        @media (max-width: 480px) {
-            .kumino-carrito-boton { right: 13px; bottom: 13px; padding: 11px 14px; }
-            .kumino-carrito-panel { right: 10px; bottom: 70px; width: calc(100vw - 20px); padding: 16px; }
-        }
+
 
     </style>
 </head>
@@ -841,7 +709,17 @@
                 </section>
 
                 <!-- AGREGAR AL CARRITO -->
-                <button type="button" class="navidad-agregar-carrito" id="agregar-al-carrito" disabled>
+                <button
+                    type="button"
+                    class="navidad-agregar-carrito"
+                    id="agregar-al-carrito"
+                    data-kumino-add
+                    data-id="vestido-rubi-de-gala"
+                    data-name="Vestido Rubí de Gala"
+                    data-category="navidad"
+                    data-color="Rojo"
+                    data-image="../IMAGENES/vestidorubidegala.jpg"
+                    disabled>
                     Agregar al carrito
                 </button>
                 <span class="navidad-seleccion-aviso" id="aviso-seleccion-talla" aria-live="polite">
@@ -860,171 +738,19 @@
     </main>
 
 
-    <!-- CARRITO KÚMINO -->
-    <button type="button" class="kumino-carrito-boton" id="kumino-carrito-abrir" aria-expanded="false" aria-controls="kumino-carrito-panel">
-        Mi carrito <span class="kumino-carrito-contador" id="kumino-carrito-contador">0</span>
-    </button>
-
-    <aside class="kumino-carrito-panel" id="kumino-carrito-panel" aria-label="Carrito de compras" aria-live="polite">
-        <div class="kumino-carrito-cabecera">
-            <h2>Mi carrito</h2>
-            <button type="button" class="kumino-carrito-cerrar" id="kumino-carrito-cerrar" aria-label="Cerrar carrito">×</button>
-        </div>
-        <div id="kumino-carrito-contenido"></div>
-    </aside>
+    <!-- El carrito unificado se genera desde kumino-cart.js -->
 
     <script>
     (() => {
         "use strict";
 
-        const CLAVE_CARRITO = "kumino_navidad_cart_v1";
-        const WHATSAPP = "51940151463";
-        const PRODUCTO = {
-            id: "vestido-rubi-de-gala",
-            nombre: "Vestido Rubí de Gala",
-            color: "Rojo",
-            imagen: "../IMAGENES/vestidorubidegala.jpg"
-        };
-
         const tarjetasTalla = document.querySelectorAll(".navidad-talla-card[data-talla]");
         const botonAgregar = document.getElementById("agregar-al-carrito");
         const avisoTalla = document.getElementById("aviso-seleccion-talla");
-        const botonAbrir = document.getElementById("kumino-carrito-abrir");
-        const botonCerrar = document.getElementById("kumino-carrito-cerrar");
-        const panel = document.getElementById("kumino-carrito-panel");
-        const contenido = document.getElementById("kumino-carrito-contenido");
-        const contador = document.getElementById("kumino-carrito-contador");
 
         let tallaSeleccionada = null;
-        let carrito = cargarCarrito();
 
-        function cargarCarrito() {
-            try {
-                const guardado = JSON.parse(localStorage.getItem(CLAVE_CARRITO) || "[]");
-                return Array.isArray(guardado) ? guardado : [];
-            } catch (error) {
-                return [];
-            }
-        }
-
-        function guardarCarrito() {
-            try {
-                localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
-            } catch (error) {
-                console.warn("No se pudo guardar el carrito en este navegador.", error);
-            }
-        }
-
-        function soles(valor) {
-            return "S/ " + Number(valor).toFixed(2);
-        }
-
-        function calcular() {
-            let subtotalRegular = 0;
-            let subtotalPromocional = 0;
-            let total = 0;
-            let descuento = 0;
-
-            const detalle = carrito.map((producto, indice) => {
-                const esSegundoDelPar = indice % 2 === 1;
-                const regular = Number(producto.precioRegular);
-                const promocional = Number(producto.precioPromo);
-                const precioFinal = esSegundoDelPar ? regular * 0.60 : promocional;
-                const descuentoItem = esSegundoDelPar ? regular * 0.40 : regular - promocional;
-
-                subtotalRegular += regular;
-                subtotalPromocional += promocional;
-                total += precioFinal;
-                descuento += regular - precioFinal;
-
-                return { ...producto, indice, esSegundoDelPar, precioFinal, descuentoItem };
-            });
-
-            return { detalle, subtotalRegular, subtotalPromocional, total, descuento };
-        }
-
-        function renderizarCarrito() {
-            const { detalle, subtotalRegular, total, descuento } = calcular();
-            contador.textContent = carrito.length;
-
-            if (!detalle.length) {
-                contenido.innerHTML = '<p class="kumino-carrito-vacio">Tu carrito está vacío. Selecciona una talla y agrega tu primera prenda.</p>';
-                return;
-            }
-
-            const itemsHTML = detalle.map(item => `
-                <div class="kumino-carrito-item">
-                    <div>
-                        <strong>${escaparHTML(item.nombre)}</strong>
-                        <small>Talla ${escaparHTML(item.talla)} · ${escaparHTML(item.color)}<br>
-                        ${item.esSegundoDelPar ? "40 % de descuento sobre precio regular" : "Precio promocional vigente"}<br>
-                        Precio regular: ${soles(item.precioRegular)}</small>
-                    </div>
-                    <div class="kumino-carrito-item-precio">
-                        ${soles(item.precioFinal)}
-                        <button type="button" class="kumino-carrito-quitar" data-quitar="${item.idUnico}">Quitar</button>
-                    </div>
-                </div>
-            `).join("");
-
-            contenido.innerHTML = `
-                ${itemsHTML}
-                <div class="kumino-carrito-resumen">
-                    <div class="kumino-carrito-linea"><span>Subtotal (precios regulares)</span><strong>${soles(subtotalRegular)}</strong></div>
-                    <div class="kumino-carrito-linea"><span>Descuentos aplicados</span><strong>− ${soles(descuento)}</strong></div>
-                    <div class="kumino-carrito-linea kumino-carrito-total"><span>Total a pagar</span><strong>${soles(total)}</strong></div>
-                </div>
-                <p class="kumino-carrito-nota">La promoción se aplica por orden de agregado: la 2.ª, 4.ª, 6.ª prenda, etc., recibe 40 % de descuento sobre su precio regular. Las demás se cobran al precio promocional vigente.</p>
-                <button type="button" class="kumino-carrito-whatsapp" id="kumino-carrito-whatsapp">Finalizar pedido por WhatsApp</button>
-                <button type="button" class="kumino-carrito-vaciar" id="kumino-carrito-vaciar">Vaciar carrito</button>
-            `;
-
-            contenido.querySelectorAll("[data-quitar]").forEach(boton => {
-                boton.addEventListener("click", () => {
-                    carrito = carrito.filter(item => item.idUnico !== boton.dataset.quitar);
-                    guardarCarrito();
-                    renderizarCarrito();
-                });
-            });
-
-            document.getElementById("kumino-carrito-vaciar").addEventListener("click", () => {
-                carrito = [];
-                guardarCarrito();
-                renderizarCarrito();
-            });
-
-            document.getElementById("kumino-carrito-whatsapp").addEventListener("click", enviarWhatsApp);
-        }
-
-        function escaparHTML(valor) {
-            return String(valor).replace(/[&<>"']/g, caracter => ({
-                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-            })[caracter]);
-        }
-
-        function enviarWhatsApp() {
-            const { detalle, subtotalRegular, total, descuento } = calcular();
-            if (!detalle.length) return;
-
-            const lineas = detalle.map((item, indice) =>
-                `${indice + 1}. ${item.nombre} — Talla ${item.talla} — ${item.color}\n` +
-                `   ${item.esSegundoDelPar ? "40 % de descuento sobre precio regular" : "Precio promocional"}: ${soles(item.precioFinal)}`
-            );
-
-            const mensaje = [
-                "¡Hola KÚMINO! Quiero realizar este pedido:",
-                "",
-                ...lineas,
-                "",
-                `Subtotal (precios regulares): ${soles(subtotalRegular)}`,
-                `Descuentos aplicados: -${soles(descuento)}`,
-                `TOTAL A PAGAR: ${soles(total)}`,
-                "",
-                "Quedo atento/a a la confirmación de disponibilidad y envío. ¡Gracias!"
-            ].join("\n");
-
-            window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");
-        }
+        const soles = valor => "S/ " + Number(valor).toFixed(2);
 
         tarjetasTalla.forEach(tarjeta => {
             tarjeta.addEventListener("click", () => {
@@ -1032,50 +758,40 @@
                     otra.classList.remove("seleccionada");
                     otra.setAttribute("aria-pressed", "false");
                 });
+
                 tarjeta.classList.add("seleccionada");
                 tarjeta.setAttribute("aria-pressed", "true");
+
                 tallaSeleccionada = {
                     talla: tarjeta.dataset.talla,
                     precioRegular: Number(tarjeta.dataset.precioRegular),
                     precioPromo: Number(tarjeta.dataset.precioPromo)
                 };
+
+                // El carrito global lee estos datos directamente del botón.
+                botonAgregar.dataset.size = "Talla " + tallaSeleccionada.talla;
+                botonAgregar.dataset.regularPrice = String(tallaSeleccionada.precioRegular);
+                botonAgregar.dataset.promoPrice = String(tallaSeleccionada.precioPromo);
+
                 botonAgregar.disabled = false;
-                avisoTalla.textContent = `Talla ${tallaSeleccionada.talla} seleccionada · ${soles(tallaSeleccionada.precioPromo)}`;
+                avisoTalla.textContent =
+                    `Talla ${tallaSeleccionada.talla} seleccionada · ${soles(tallaSeleccionada.precioPromo)}`;
             });
         });
 
         botonAgregar.addEventListener("click", () => {
-            if (!tallaSeleccionada) return;
+            if (!tallaSeleccionada) {
+                avisoTalla.textContent = "Selecciona una talla para continuar.";
+                return;
+            }
 
-            carrito.push({
-                idUnico: `${PRODUCTO.id}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
-                id: PRODUCTO.id,
-                nombre: PRODUCTO.nombre,
-                talla: tallaSeleccionada.talla,
-                color: PRODUCTO.color,
-                precioRegular: tallaSeleccionada.precioRegular,
-                precioPromo: tallaSeleccionada.precioPromo
-            });
-
-            guardarCarrito();
-            renderizarCarrito();
-            panel.classList.add("abierto");
-            botonAbrir.setAttribute("aria-expanded", "true");
-            avisoTalla.textContent = `¡Agregado! Vestido Rubí de Gala · Talla ${tallaSeleccionada.talla}`;
+            avisoTalla.textContent =
+                `Agregando Vestido Rubí de Gala · Talla ${tallaSeleccionada.talla}`;
         });
-
-        botonAbrir.addEventListener("click", () => {
-            const abierto = panel.classList.toggle("abierto");
-            botonAbrir.setAttribute("aria-expanded", String(abierto));
-        });
-        botonCerrar.addEventListener("click", () => {
-            panel.classList.remove("abierto");
-            botonAbrir.setAttribute("aria-expanded", "false");
-        });
-
-        renderizarCarrito();
     })();
     </script>
+
+    <script src="../kumino-cart.js"></script>
 
     <!-- FOOTER -->
     <footer class="footer-kumino">
