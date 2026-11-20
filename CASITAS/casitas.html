@@ -238,7 +238,35 @@
             color: var(--casita-verde);
         }
 
-        /* Botón de WhatsApp */
+        /* Selector de color y medida */
+
+        #pagina-casitas .casita-compra label {
+            display: block;
+            margin: 12px 0 6px;
+            color: var(--casita-texto);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        #pagina-casitas .casita-compra select {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 10px 14px;
+            border: 1px solid #E8DCD0;
+            border-radius: 12px;
+            background: var(--casita-card);
+            color: var(--casita-texto);
+            font: 13px 'Poppins', sans-serif;
+        }
+
+        #pagina-casitas .casita-compra .btn-consultar {
+            border: 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Botón */
 
         #pagina-casitas .btn-consultar {
             display: flex;
@@ -264,10 +292,6 @@
             background: #CE2F3B;
             transform: translateY(-3px);
             box-shadow: 0 12px 22px rgba(230,57,70,0.23);
-        }
-
-        #pagina-casitas .btn-consultar span {
-            font-size: 19px;
         }
 
         /* =========================================
@@ -361,7 +385,7 @@
     </style>
 </head>
 
-<body data-cart-mode="casitas">
+<body>
 
 <!-- HEADER -->
 <header class="header">
@@ -370,20 +394,22 @@
         <a href="../index.html" class="logo">
             KÚMINO
         </a>
-<nav class="navbar">
-    <a href="../index.html">Inicio</a>
-    <a href="../index.html#coleccion">Colección</a>
 
-    <a href="../NAVIDAD/navidad.html" class="btn-navidad">
-        Colección Navideña
-    </a>
+        <nav class="navbar">
+            <a href="../index.html">Inicio</a>
+            <a href="../index.html#coleccion">Colección</a>
 
-    <a href="../HALLOWEN/hallowen.html">Disfraces</a>
-    <a href="../HEMBRAS/hembras.html">Hembras</a>
-    <a href="../MACHOS/machos.html">Machos</a>
-    <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
-    <a href="casitas.html" class="activo">Casitas</a>
-</nav>
+            <a href="../NAVIDAD/navidad.html" class="btn-navidad">
+                Colección Navideña
+            </a>
+
+            <a href="../HALLOWEN/hallowen.html">Disfraces</a>
+            <a href="../HEMBRAS/hembras.html">Hembras</a>
+            <a href="../MACHOS/machos.html">Machos</a>
+            <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
+            <a href="casitas.html" class="activo">Casitas</a>
+        </nav>
+
         <a href="https://wa.me/51940151463"
            class="btn-contacto"
            target="_blank"
@@ -397,9 +423,7 @@
 <!-- CONTENIDO PRINCIPAL -->
 <main id="pagina-casitas">
 
-    <!-- INTRODUCCIÓN -->
     <section class="casitas-intro">
-
         <span>COLECCIÓN KÚMINO</span>
 
         <h1>Casitas</h1>
@@ -408,24 +432,19 @@
             Espacios acogedores pensados para que tu mascota
             descanse cómoda, tranquila y protegida.
         </p>
-
     </section>
 
     <!-- PRODUCTO DESTACADO -->
     <section class="producto-destacado">
 
-        <!-- FOTOGRAFÍA ORIGINAL -->
         <div class="casita-imagen">
-
             <img
                 src="../IMAGENES/Casita de Ensueño.jpg"
                 alt="Casita de Ensueño en colores rosa pastel y celeste pastel para mascotas"
                 loading="eager"
             >
-
         </div>
 
-        <!-- INFORMACIÓN DEL PRODUCTO -->
         <div class="casita-info">
 
             <span class="etiqueta-coleccion">
@@ -514,16 +533,72 @@
 
             </div>
 
-            <!-- WHATSAPP -->
-            <a
-                href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quisiera%20consultar%20por%20la%20Casita%20de%20Ensue%C3%B1o.%20Me%20interesan%20los%20colores%20y%20medidas%20disponibles."
-                class="btn-consultar"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <span>☏</span>
-                Consultar por WhatsApp →
-            </a>
+            <!-- SELECCIÓN Y CARRITO -->
+            <div class="bloque-info casita-compra">
+
+                <h3>ELIGE TU CASITA</h3>
+
+                <label for="casita-color">Color</label>
+
+                <select id="casita-color">
+                    <option value="Rosa Pastel">Rosa Pastel</option>
+                    <option value="Celeste Pastel">Celeste Pastel</option>
+                </select>
+
+                <label for="casita-medida">Medida</label>
+
+                <select id="casita-medida">
+                    <option value="40 × 40 cm" data-price="75">
+                        40 × 40 cm — S/ 75.00
+                    </option>
+                    <option value="50 × 50 cm" data-price="85">
+                        50 × 50 cm — S/ 85.00
+                    </option>
+                </select>
+
+                <button
+                    type="button"
+                    class="btn-consultar"
+                    data-kumino-add
+                    data-product-id="casita-de-ensueno"
+                    data-product-name="Casita de Ensueño"
+                    data-category="casitas"
+                    data-color="Rosa Pastel"
+                    data-size="40 × 40 cm"
+                    data-regular-price="75"
+                    data-promo-price="75"
+                >
+                    Agregar al carrito →
+                </button>
+
+            </div>
+
+            <script>
+                (() => {
+                    const colorSelect = document.getElementById('casita-color');
+                    const measureSelect = document.getElementById('casita-medida');
+                    const addButton = document.querySelector(
+                        '[data-product-id="casita-de-ensueno"]'
+                    );
+
+                    function updateCasitaData() {
+                        const selectedMeasure =
+                            measureSelect.options[measureSelect.selectedIndex];
+
+                        const price = selectedMeasure.dataset.price;
+
+                        addButton.dataset.color = colorSelect.value;
+                        addButton.dataset.size = measureSelect.value;
+                        addButton.dataset.regularPrice = price;
+                        addButton.dataset.promoPrice = price;
+                    }
+
+                    colorSelect.addEventListener('change', updateCasitaData);
+                    measureSelect.addEventListener('change', updateCasitaData);
+
+                    updateCasitaData();
+                })();
+            </script>
 
         </div>
 
