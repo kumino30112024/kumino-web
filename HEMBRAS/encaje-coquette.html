@@ -78,23 +78,70 @@
                 </p>
 
                 <div class="producto-detalle-seccion">
-                    <h3>Colores</h3>
-                    <div class="kc-colors" role="group" aria-label="Selecciona un color">
-                        <button type="button" class="kc-color-option is-selected" data-color="Crema" aria-pressed="true"><span class="kc-swatch kc-swatch-cream"></span> Crema</button>
-                        <button type="button" class="kc-color-option" data-color="Azul pastel" aria-pressed="false"><span class="kc-swatch kc-swatch-blue"></span> Azul pastel</button>
+
+                    <h3>
+                        Colores
+                    </h3>
+
+                    <div class="colores-producto">
+
+                        <div class="color-opcion">
+
+                            <span class="color-circulo color-crema"></span>
+
+                            <span>
+                                Crema
+                            </span>
+
+                        </div>
+
+                        <div class="color-opcion">
+
+                            <span class="color-circulo color-azul"></span>
+
+                            <span>
+                                Azul pastel
+                            </span>
+
+                        </div>
+
                     </div>
-                </div>
 
                 </div>
 
                 <div class="producto-detalle-seccion">
-                    <h3>Tallas y precios</h3>
-                    <div class="kc-sizes" role="group" aria-label="Selecciona una talla">
-                        <button type="button" class="kc-size-option" data-size="2" data-price="23" aria-pressed="false"><span>Talla 2</span><strong>S/23</strong></button>
-                        <button type="button" class="kc-size-option" data-size="3" data-price="25" aria-pressed="false"><span>Talla 3</span><strong>S/25</strong></button>
+
+                    <h3>
+                        Tallas y precios
+                    </h3>
+
+                    <div class="tallas-precios">
+
+                        <div>
+
+                            <span>
+                                Talla 2
+                            </span>
+
+                            <strong>
+                                S/23
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <span>
+                                Talla 3
+                            </span>
+
+                            <strong>
+                                S/25
+                            </strong>
+
+                        </div>
+
                     </div>
-                    <p class="kc-selection-hint" id="kc-selection-hint" aria-live="polite">Selecciona un color y una talla.</p>
-                </div>
 
                 </div>
 
@@ -130,7 +177,14 @@
 
                 </div>
 
-                
+                <a
+                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Encaje%20Coquette."
+                    class="btn-comprar-producto"
+                    target="_blank"
+                >
+                    Consultar por WhatsApp →
+                </a>
+
                 <a
                     href="hembras.html"
                     class="volver-coleccion"
@@ -210,26 +264,6 @@
         </div>
 
     </footer>
-
-<style>
-.kc-colors{display:flex;gap:12px;flex-wrap:wrap}.kc-color-option{display:inline-flex;align-items:center;gap:9px;padding:8px 13px;border:1px solid #d9d0c6;border-radius:24px;background:#fff8f0;color:#48515a;font:400 14px Poppins,sans-serif;cursor:pointer}.kc-color-option.is-selected{border:2px solid #e63946;background:#fff}.kc-swatch{width:22px;height:22px;border-radius:50%;border:1px solid #c9c0b6;display:inline-block}.kc-swatch-cream{background:#f3e5cc}.kc-swatch-blue{background:#a9c7d8}.kc-sizes{display:flex;gap:12px;flex-wrap:wrap}.kc-size-option{min-width:124px;min-height:86px;padding:13px 16px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:7px;border:1px solid #d9d0c6;background:#fff8f2;color:#59616a;cursor:pointer;font:400 14px Poppins,sans-serif}.kc-size-option strong{font:600 19px Poppins,sans-serif;color:#e63946}.kc-size-option.is-selected{border:2px solid #e63946;background:#fff}.kc-selection-hint{margin:10px 0 0;color:#687078;font:400 12px Poppins,sans-serif}
-</style>
-<script>
-(() => {
- const root=document, add=root.querySelector('#kc-add')||root.querySelector('.btn-comprar-producto');
- if(!add)return;
- let color='Crema',size='',price='';
- add.disabled=true;
- add.dataset.kuminoAdd='';
- add.dataset.id='encaje-coquette'; add.dataset.name='Encaje Coquette'; add.dataset.category='Hembras';
- const hint=root.querySelector('#kc-selection-hint');
- function sync(){add.disabled=!(color&&size);Object.assign(add.dataset,{color,variant:size?'Talla '+size:'',regularPrice:price,promoPrice:price});if(hint)hint.textContent=size?`${color} · Talla ${size} · S/${price}`:'Selecciona un color y una talla.';}
- root.querySelectorAll('.kc-color-option').forEach(b=>b.addEventListener('click',()=>{color=b.dataset.color;root.querySelectorAll('.kc-color-option').forEach(x=>{x.classList.toggle('is-selected',x===b);x.setAttribute('aria-pressed',String(x===b));});sync();}));
- root.querySelectorAll('.kc-size-option').forEach(b=>b.addEventListener('click',()=>{size=b.dataset.size;price=b.dataset.price;root.querySelectorAll('.kc-size-option').forEach(x=>{x.classList.toggle('is-selected',x===b);x.setAttribute('aria-pressed',String(x===b));});sync();}));
- sync();
-})();
-</script>
-<script src="../kumino-cart.js" defer></script>
 
 </body>
 
