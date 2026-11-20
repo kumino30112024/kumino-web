@@ -49,6 +49,8 @@
     .kumino-cart-item strong{display:block;color:#413a35;font-size:13px}
     .kumino-cart-item small{display:block;margin-top:4px;color:#766c63;line-height:1.55}
     .kumino-cart-item-price{text-align:right;white-space:nowrap;font-weight:700;color:#413a35}
+    .kumino-cart-old-price{color:#929292;font-size:11px;font-weight:400;text-decoration:line-through}
+    .kumino-cart-discount-badge{display:inline-block;margin:3px 0;padding:3px 8px;border-radius:999px;background:#d8f3e3;color:#167447;font-size:10px;font-weight:700}
     .kumino-cart-remove{display:block;margin:6px 0 0 auto;padding:0;border:0;background:none;color:#9b4148;font:11px Poppins,Arial,sans-serif;text-decoration:underline;cursor:pointer}
     .kumino-cart-summary{margin-top:14px;padding-top:12px;border-top:1px solid #e7dcd1;font-size:13px}
     .kumino-cart-line{display:flex;justify-content:space-between;gap:12px;margin:7px 0;color:#413a35}
@@ -82,6 +84,9 @@
     const details = cart.map(item => {
       let itemTotal = 0;
       let itemSaving = 0;
+      let discountedUnits = 0;
+      let promoUnits = 0;
+      let discountedUnitPrice = 0;
 
       for (let i = 0; i < Number(item.qty); i++) {
         const isSecondInPair = unitIndex % 2 === 1;
@@ -93,10 +98,24 @@
         itemSaving += regular - finalPrice;
         subtotalRegular += regular;
         total += finalPrice;
+
+        if (isSecondInPair) {
+          discountedUnits++;
+          discountedUnitPrice = finalPrice;
+        } else {
+          promoUnits++;
+        }
         unitIndex++;
       }
 
-      return { ...item, itemTotal, itemSaving };
+      return {
+        ...item,
+        itemTotal,
+        itemSaving,
+        discountedUnits,
+        promoUnits,
+        discountedUnitPrice
+      };
     });
 
     return {
@@ -130,7 +149,14 @@
           </small>
         </div>
         <div class="kumino-cart-item-price">
-          ${money(item.itemTotal)}
+          ${item.discountedUnits > 0 && Number(item.qty) === 1
+            ? `<div><span class="kumino-cart-old-price">${money(item.regular)}</span></div>
+               <span class="kumino-cart-discount-badge">40 % de descuento</span>
+               <div>${money(item.discountedUnitPrice)}</div>`
+            : `${money(item.itemTotal)}
+               ${item.discountedUnits > 0
+                 ? `<div><span class="kumino-cart-discount-badge">${item.discountedUnits} ${item.discountedUnits === 1 ? 'unidad con' : 'unidades con'} 40 % de descuento</span></div>`
+                 : ''}`}
           <button type="button" class="kumino-cart-remove" data-kumino-remove="${esc(item.key)}">Quitar</button>
         </div>
       </div>
@@ -262,3 +288,4 @@
 
   render();
 })();
+
