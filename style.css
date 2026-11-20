@@ -5700,3 +5700,63 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     color: #7A8D78;
     flex-shrink: 0;
 }
+
+
+/* =========================================================
+   KÚMINO — AJUSTE DEL CARRITO EN EL ENCABEZADO MÓVIL
+   Mantiene menú, logo, carrito y contacto en una sola fila.
+========================================================= */
+
+@media (max-width: 760px) {
+    .header-navidad .nav-container {
+        grid-template-columns: 42px minmax(0, 1fr) 40px auto !important;
+        align-items: center !important;
+        column-gap: 8px !important;
+        row-gap: 0 !important;
+    }
+
+    .header-navidad .menu-toggle {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+
+    .header-navidad .logo {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        justify-self: center !important;
+        min-width: 0 !important;
+    }
+
+    .header-navidad .kumino-cart-nav {
+        grid-column: 3 !important;
+        grid-row: 1 !important;
+        justify-self: center !important;
+        width: 40px !important;
+        height: 40px !important;
+        flex: 0 0 40px !important;
+        margin: 0 !important;
+    }
+
+    .header-navidad .btn-contacto {
+        grid-column: 4 !important;
+        grid-row: 1 !important;
+        justify-self: end !important;
+        margin: 0 !important;
+    }
+}
+
+@media (max-width: 380px) {
+    .header-navidad .nav-container {
+        grid-template-columns: 36px minmax(0, 1fr) 36px auto !important;
+        column-gap: 5px !important;
+        padding-right: 10px !important;
+        padding-left: 10px !important;
+    }
+
+    .header-navidad .kumino-cart-nav {
+        width: 36px !important;
+        height: 36px !important;
+        flex-basis: 36px !important;
+    }
+}
+
