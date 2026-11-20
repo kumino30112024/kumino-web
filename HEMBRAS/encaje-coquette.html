@@ -177,13 +177,11 @@
 
                 </div>
 
-                <a
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Encaje%20Coquette."
-                    class="btn-comprar-producto"
-                    target="_blank"
-                >
-                    Consultar por WhatsApp →
-                </a>
+                <div class="kc-selectors" style="margin-top:20px;display:grid;gap:12px">
+                  <label>Color <select id="kc-color"><option value="Crema">Crema</option><option value="Azul pastel">Azul pastel</option></select></label>
+                  <label>Talla <select id="kc-size"><option value="">Selecciona una talla</option><option value="2" data-price="23">Talla 2 · S/23</option><option value="3" data-price="25">Talla 3 · S/25</option></select></label>
+                  <button type="button" class="btn-comprar-producto" id="kc-add" disabled>Agregar al carrito</button>
+                </div>
 
                 <a
                     href="hembras.html"
@@ -265,6 +263,11 @@
 
     </footer>
 
+<script>
+(() => {const size=document.getElementById('kc-size'),color=document.getElementById('kc-color'),add=document.getElementById('kc-add');size.addEventListener('change',()=>add.disabled=!size.value);add.addEventListener('click',()=>{const opt=size.selectedOptions[0];Object.assign(add.dataset,{kuminoAdd:'',id:'encaje-coquette',name:'Encaje Coquette',variant:'Talla '+size.value,color:color.value,regularPrice:opt.dataset.price,promoPrice:opt.dataset.price});});})();
+</script>
+<script src="../kumino-cart.js" defer></script>
 </body>
 
 </html>
+
