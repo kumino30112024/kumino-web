@@ -15,14 +15,19 @@
         rel="stylesheet"
     >
 
+
 <style>
-/* Interacción añadida a los controles originales; no se agregan tarjetas duplicadas. */
-.color-opcion.kc-color-choice{appearance:none;-webkit-appearance:none;border:0;background:transparent;padding:0;font:inherit;color:inherit;cursor:pointer}
-.color-opcion.kc-color-choice.is-selected{outline:2px solid #e63946;outline-offset:3px;border-radius:22px}
-.tallas-precios .kc-size-choice{appearance:none;-webkit-appearance:none;border:1px solid rgba(43,43,43,.15);background-color:var(--beige);padding:14px 20px;min-width:110px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;font:inherit;color:inherit;text-align:left;cursor:pointer}
-.tallas-precios .kc-size-choice span{font-size:12px;color:#666}.tallas-precios .kc-size-choice strong{font-size:15px;color:var(--coral)}.tallas-precios .kc-size-choice.is-selected{outline:2px solid #e63946;outline-offset:2px;background:#fffaf5}
-#kc-add-encaje:disabled{opacity:.55;cursor:not-allowed}
-.kc-selection-status{margin:10px 0 0;color:#59616a;font:400 13px Poppins,sans-serif}
+/* Encaje Coquette: controles integrados en las tarjetas originales */
+.color-opcion.kc-color{appearance:none;-webkit-appearance:none;border:0;background:transparent;padding:5px 9px;font:inherit;cursor:pointer;border-radius:24px;color:inherit}
+.color-opcion.kc-color.is-selected{outline:2px solid #e63946;outline-offset:2px;background:#fff8f2}
+.tallas-precios .kc-size{appearance:none;-webkit-appearance:none;box-sizing:border-box;border:1px solid rgba(43,43,43,.15);background:var(--beige);padding:18px 22px;min-width:195px;min-height:120px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:border-color .18s,background .18s,box-shadow .18s}
+.tallas-precios .kc-size span{font-size:14px;color:#666}
+.tallas-precios .kc-size strong{font-size:22px;color:var(--coral)}
+.tallas-precios .kc-size.is-selected{border:2px solid #e63946;background:#fff8f2;box-shadow:0 0 0 2px rgba(230,57,70,.12)}
+.kc-selection-status{margin:8px 0 0;font-size:13px;color:#666}
+#kc-add{width:100%;border:0;cursor:pointer;font:inherit}
+#kc-add:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:768px){.tallas-precios .kc-size{min-width:calc(50% - 6px);min-height:100px}}
 </style>
 </head>
 
@@ -94,9 +99,9 @@
 
                     <div class="colores-producto">
 
-                        <button type="button" class="color-opcion kc-color-choice is-selected" data-color="Crema" aria-pressed="true"><span class="color-circulo color-crema"></span><span>Crema</span></button>
+                        <button type="button" class="color-opcion kc-color" data-color="Crema" aria-pressed="false"><span class="color-circulo color-crema"></span><span>Crema</span></button>
 
-                        <button type="button" class="color-opcion kc-color-choice" data-color="Azul pastel" aria-pressed="false"><span class="color-circulo color-azul"></span><span>Azul pastel</span></button>
+                        <button type="button" class="color-opcion kc-color" data-color="Azul pastel" aria-pressed="false"><span class="color-circulo color-azul"></span><span>Azul pastel</span></button>
 
                     </div>
 
@@ -110,13 +115,12 @@
 
                     <div class="tallas-precios">
 
-                        <button type="button" class="kc-size-choice" data-size="2" data-price="23" aria-pressed="false"><span>Talla 2</span><strong>S/23</strong></button>
+                        <button type="button" data-size="2" data-price="23" class="kc-size" aria-pressed="false"><span>Talla 2</span><strong>S/23</strong></button>
 
-                        <button type="button" class="kc-size-choice" data-size="3" data-price="25" aria-pressed="false"><span>Talla 3</span><strong>S/25</strong></button>
+                        <button type="button" data-size="3" data-price="25" class="kc-size" aria-pressed="false"><span>Talla 3</span><strong>S/25</strong></button>
 
                     </div>
-
-                    <p class="kc-selection-status" id="kc-selection-status" aria-live="polite">Selecciona un color y una talla.</p>
+                    <p class="kc-selection-status" id="kc-status" aria-live="polite">Selecciona un color y una talla.</p>
 
                 </div>
 
@@ -152,7 +156,7 @@
 
                 </div>
 
-                <button type="button" class="btn-comprar-producto" id="kc-add-encaje" data-kumino-add disabled>Agregar al carrito</button>
+                <button type="button" class="btn-comprar-producto" id="kc-add" disabled>Agregar al carrito</button>
 
                 <a
                     href="hembras.html"
@@ -234,28 +238,42 @@
 
     </footer>
 
+
 <script>
 (() => {
- const colors=[...document.querySelectorAll('.kc-color-choice')];
- const sizes=[...document.querySelectorAll('.kc-size-choice')];
- const add=document.getElementById('kc-add-encaje');
- const status=document.getElementById('kc-selection-status');
- if(!add||!colors.length||!sizes.length)return;
- let color='Crema',size='',price=null;
- function sync(){
-  const ready=Boolean(color&&size&&price!==null);
-  add.disabled=!ready;
-  Object.assign(add.dataset,{id:'encaje-coquette',name:'Encaje Coquette',category:'Hembras',color,variant:size?'Talla '+size:'',regularPrice:price===null?'':String(price),promoPrice:price===null?'':String(price)});
-  if(status)status.textContent=ready?`${color} · Talla ${size} · S/${price}`:'Selecciona un color y una talla.';
- }
- colors.forEach(b=>b.addEventListener('click',()=>{color=b.dataset.color;colors.forEach(x=>{let a=x===b;x.classList.toggle('is-selected',a);x.setAttribute('aria-pressed',String(a));});sync();}));
- sizes.forEach(b=>b.addEventListener('click',()=>{size=b.dataset.size;price=Number(b.dataset.price);sizes.forEach(x=>{let a=x===b;x.classList.toggle('is-selected',a);x.setAttribute('aria-pressed',String(a));});sync();}));
- sync();
+  const colors=[...document.querySelectorAll('.kc-color')];
+  const sizes=[...document.querySelectorAll('.kc-size')];
+  const add=document.getElementById('kc-add');
+  const status=document.getElementById('kc-status');
+  if(!add || colors.length!==2 || sizes.length!==2) return;
+  let color=null, size=null, price=null;
+  function update(){
+    const ready=Boolean(color && size && Number.isFinite(price));
+    add.disabled=!ready;
+    add.dataset.productId='encaje-coquette';
+    add.dataset.productName='Encaje Coquette';
+    add.dataset.category='Hembras';
+    add.dataset.color=color || '';
+    add.dataset.size=size || '';
+    add.dataset.regularPrice=ready ? String(price) : '';
+    add.dataset.promoPrice=ready ? String(price) : '';
+    status.textContent=ready ? `${color} · Talla ${size} · S/${price}` : 'Selecciona un color y una talla.';
+  }
+  colors.forEach(b=>b.addEventListener('click',()=>{
+    color=b.dataset.color;
+    colors.forEach(x=>{x.classList.toggle('is-selected',x===b);x.setAttribute('aria-pressed',String(x===b));});
+    update();
+  }));
+  sizes.forEach(b=>b.addEventListener('click',()=>{
+    size=b.dataset.size; price=Number(b.dataset.price);
+    sizes.forEach(x=>{x.classList.toggle('is-selected',x===b);x.setAttribute('aria-pressed',String(x===b));});
+    update();
+  }));
+  update();
 })();
 </script>
 <script src="../kumino-cart.js" defer></script>
 </body>
 
 </html>
-
 
