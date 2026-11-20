@@ -841,7 +841,7 @@
                 </section>
 
                 <!-- AGREGAR AL CARRITO -->
-                <button type="button" class="navidad-agregar-carrito" id="agregar-al-carrito" disabled>
+                <button type="button" class="navidad-agregar-carrito" id="agregar-al-carrito" data-kumino-add data-id="vestido-rubi-de-gala" data-name="Vestido Rubí de Gala" data-category="Navidad" disabled>
                     Agregar al carrito
                 </button>
                 <span class="navidad-seleccion-aviso" id="aviso-seleccion-talla" aria-live="polite">
@@ -873,7 +873,30 @@
         <div id="kumino-carrito-contenido"></div>
     </aside>
 
-    <script src="../kumino-cart.js" defer></script>
+    <style>.navidad-talla-card.seleccionada{outline:2px solid #e63946;outline-offset:2px;background:#fff8f2}</style>
+
+<script>
+(() => {
+ const cards=[...document.querySelectorAll('.navidad-talla-card')];
+ const add=document.getElementById('agregar-al-carrito');
+ const notice=document.getElementById('aviso-seleccion-talla');
+ if(!add||!cards.length)return;
+ let selected=null;
+ cards.forEach(card=>card.addEventListener('click',()=>{
+   selected=card;
+   cards.forEach(c=>{c.classList.toggle('seleccionada',c===card);c.setAttribute('aria-pressed',String(c===card));});
+   add.disabled=false;
+   Object.assign(add.dataset,{
+     variant:'Talla '+card.dataset.talla,
+     regularPrice:card.dataset.precioRegular,
+     promoPrice:card.dataset.precioPromo,
+     color:'Rojo'
+   });
+   if(notice)notice.textContent='Talla '+card.dataset.talla+' seleccionada.';
+ }));
+})();
+</script>
+<script src="../kumino-cart.js" defer></script>
 
 
     <!-- FOOTER -->
@@ -917,6 +940,7 @@
 
 </body>
 </html>
+
 
 
 
