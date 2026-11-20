@@ -714,8 +714,8 @@
                     class="navidad-agregar-carrito"
                     id="agregar-al-carrito"
                     data-kumino-add
-                    data-id="vestido-rubi-de-gala"
-                    data-name="Vestido Rubí de Gala"
+                    data-product-id="vestido-rubi-de-gala"
+                    data-product-name="Vestido Rubí de Gala"
                     data-category="navidad"
                     data-color="Rojo"
                     data-image="../IMAGENES/vestidorubidegala.jpg"
@@ -769,7 +769,7 @@
                 };
 
                 // El carrito global lee estos datos directamente del botón.
-                botonAgregar.dataset.size = "Talla " + tallaSeleccionada.talla;
+                botonAgregar.dataset.size = String(tallaSeleccionada.talla);
                 botonAgregar.dataset.regularPrice = String(tallaSeleccionada.precioRegular);
                 botonAgregar.dataset.promoPrice = String(tallaSeleccionada.precioPromo);
 
@@ -834,6 +834,3 @@
 
 </body>
 </html>
-
-
-
