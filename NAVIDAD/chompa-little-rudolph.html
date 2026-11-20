@@ -1,14 +1,14 @@
 
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Chompa Little Rudolph para mascotas - KÚMINO">
-    <title>Chompa Little Rudolph | KÚMINO</title>
-    <link rel="stylesheet" href="../style.css">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Chompa Little Rudolph para mascotas - KÚMINO" name="description"/>
+<title>Chompa Little Rudolph | KÚMINO</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
         body {
             background-image:
                 linear-gradient(rgba(255,250,242,.08), rgba(255,250,242,.08)),
@@ -208,119 +208,137 @@
                 padding: 25px 13px 40px !important;
             }
         }
-    </style>
+    
+
+/* INTEGRACIÓN CARRITO KÚMINO - NAVIDAD */
+.navidad-talla-card[data-kumino-size] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.navidad-talla-card[data-kumino-size]:hover {
+  border-color: #81363d;
+  transform: translateY(-2px);
+}
+.navidad-talla-card[data-kumino-size].kumino-talla-seleccionada {
+  border: 2px solid #81363d;
+  background: rgba(255,245,238,.96);
+  box-shadow: 0 4px 13px rgba(91,35,40,.12);
+}
+.navidad-talla-card[data-kumino-size]:focus-visible {
+  outline: 3px solid rgba(129,54,61,.28);
+  outline-offset: 3px;
+}
+.navidad-color-selector-wrap { margin-top: 13px; }
+.navidad-color-selector-wrap label {
+  display: block; margin-bottom: 8px; color: #71343a;
+  font-size: 13px; font-weight: 600;
+}
+.navidad-color-selector {
+  width: 100%; max-width: 320px; padding: 11px 13px;
+  border: 1px solid rgba(157,122,76,.4); border-radius: 9px;
+  background: rgba(255,250,242,.9); color: #514b44;
+  font: inherit; font-size: 13px;
+}
+.navidad-agregar-carrito {
+  display: flex; justify-content: center; align-items: center;
+  width: 100%; margin-top: 27px; padding: 15px 20px;
+  border: 0; border-radius: 30px; background: #526B50; color: #fff;
+  font: inherit; font-size: 13px; font-weight: 700; letter-spacing: .3px;
+  text-align: center; cursor: pointer;
+  box-shadow: 0 5px 14px rgba(91,35,40,.15);
+  transition: background .2s ease, transform .2s ease;
+}
+.navidad-agregar-carrito:hover:not(:disabled) { background: #40563f; transform: translateY(-2px); }
+.navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
+.navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
+</style>
 </head>
-
 <body>
-
-    <header class="header">
-        <div class="nav-container">
-            <a href="../index.html" class="logo">KÚMINO</a>
-            <nav class="navbar">
-                <a href="../index.html">Inicio</a>
-                <a href="navidad.html" class="activo">Navidad</a>
-            </nav>
-            <a href="#contacto" class="btn-contacto">Contacto</a>
-        </div>
-    </header>
-
-    <main class="navidad-producto-main">
-        <div class="navidad-producto-container">
-
-            <div class="navidad-producto-imagen">
-                <img
-                    src="../IMAGENES/chompalittlerudolph.jpg"
-                    alt="Chompa Little Rudolph para mascotas"
-                >
-            </div>
-
-            <div class="navidad-producto-info">
-
-                <span class="navidad-producto-categoria">
+<header class="header">
+<div class="nav-container">
+<a class="logo" href="../index.html">KÚMINO</a>
+<nav class="navbar">
+<a href="../index.html">Inicio</a>
+<a class="activo" href="navidad.html">Navidad</a>
+</nav>
+<a class="btn-contacto" href="#contacto">Contacto</a>
+</div>
+</header>
+<main class="navidad-producto-main">
+<div class="navidad-producto-container">
+<div class="navidad-producto-imagen">
+<img alt="Chompa Little Rudolph para mascotas" src="../IMAGENES/chompalittlerudolph.jpg"/>
+</div>
+<div class="navidad-producto-info">
+<span class="navidad-producto-categoria">
                     COLECCIÓN NAVIDEÑA
                 </span>
-
-                <h1>Chompa Little Rudolph</h1>
-
-                <span class="navidad-promo-etiqueta">
+<h1>Chompa Little Rudolph</h1>
+<span class="navidad-promo-etiqueta">
                     PRÓXIMAMENTE
                 </span>
-
-                <p class="navidad-producto-descripcion">
+<p class="navidad-producto-descripcion">
                     ¡Rudolph llega a KÚMINO para llenar de encanto la Navidad!
                     La Chompa Little Rudolph forma parte de nuestra colección
                     especial de temporada, una propuesta de inspiración
                     navideña para darle a tu engreído un look festivo y adorable.
                 </p>
-
-                <section class="navidad-producto-seccion">
-                    <h2>Disponibilidad</h2>
-
-                    <div class="navidad-estado">
-                        <strong>Muy pronto en KÚMINO</strong>
-                        <p>
+<section class="navidad-producto-seccion">
+<h2>Disponibilidad</h2>
+<div class="navidad-estado">
+<strong>Muy pronto en KÚMINO</strong>
+<p>
                             Las tallas y los precios estarán disponibles
                             próximamente. Escríbenos para recibir información
                             sobre su lanzamiento.
                         </p>
-                    </div>
-                </section>
-
-                <section class="navidad-producto-seccion">
-                    <h2>Características</h2>
-
-                    <ul class="navidad-caracteristicas">
-                        <li>Prenda tipo chompa.</li>
-                        <li>Diseño de inspiración navideña.</li>
-                        <li>Temática inspirada en Rudolph.</li>
-                        <li>Parte de la colección especial de Navidad KÚMINO.</li>
-                    </ul>
-                </section>
-
-                <a
-                    class="navidad-btn-whatsapp"
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20Chompa%20Little%20Rudolph."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
+</div>
+</section>
+<section class="navidad-producto-seccion">
+<h2>Características</h2>
+<ul class="navidad-caracteristicas">
+<li>Prenda tipo chompa.</li>
+<li>Diseño de inspiración navideña.</li>
+<li>Temática inspirada en Rudolph.</li>
+<li>Parte de la colección especial de Navidad KÚMINO.</li>
+</ul>
+</section>
+<a class="navidad-btn-whatsapp" href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20Chompa%20Little%20Rudolph." rel="noopener noreferrer" target="_blank">
                     Consultar por WhatsApp →
                 </a>
-
-                <a href="navidad.html" class="navidad-volver">
+<a class="navidad-volver" href="navidad.html">
                     ← Volver a colección
                 </a>
-
-            </div>
-        </div>
-    </main>
-
-    <footer class="footer-kumino">
-        <div class="footer-container">
-            <div class="footer-marca">
-                <h2>KÚMINO</h2>
-                <p>Moda con amor para tu mascota.</p>
-            </div>
-
-            <div class="footer-enlaces">
-                <h3>Navegación</h3>
-                <a href="../index.html">Inicio</a>
-                <a href="navidad.html">Navidad</a>
-            </div>
-
-            <div class="footer-contacto" id="contacto">
-                <h3>Contáctanos</h3>
-                <a href="https://wa.me/51940151463"
-                   target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                <span>Envíos a todo el Perú</span>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 KÚMINO. Todos los derechos reservados.</p>
-            <span>Moda con amor para tu mascota</span>
-        </div>
-    </footer>
-
-</body>
+</div>
+</div>
+</main>
+<footer class="footer-kumino">
+<div class="footer-container">
+<div class="footer-marca">
+<h2>KÚMINO</h2>
+<p>Moda con amor para tu mascota.</p>
+</div>
+<div class="footer-enlaces">
+<h3>Navegación</h3>
+<a href="../index.html">Inicio</a>
+<a href="navidad.html">Navidad</a>
+</div>
+<div class="footer-contacto" id="contacto">
+<h3>Contáctanos</h3>
+<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+<span>Envíos a todo el Perú</span>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 KÚMINO. Todos los derechos reservados.</p>
+<span>Moda con amor para tu mascota</span>
+</div>
+</footer>
+<script src="../kumino-cart.js"></script></body>
 </html>
-
