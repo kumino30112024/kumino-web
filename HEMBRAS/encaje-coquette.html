@@ -15,6 +15,15 @@
         rel="stylesheet"
     >
 
+<style>
+/* Interacción añadida a los controles originales; no se agregan tarjetas duplicadas. */
+.color-opcion.kc-color-choice{appearance:none;-webkit-appearance:none;border:0;background:transparent;padding:0;font:inherit;color:inherit;cursor:pointer}
+.color-opcion.kc-color-choice.is-selected{outline:2px solid #e63946;outline-offset:3px;border-radius:22px}
+.tallas-precios .kc-size-choice{appearance:none;-webkit-appearance:none;border:1px solid rgba(43,43,43,.15);background-color:var(--beige);padding:14px 20px;min-width:110px;display:flex;flex-direction:column;align-items:flex-start;gap:5px;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.tallas-precios .kc-size-choice span{font-size:12px;color:#666}.tallas-precios .kc-size-choice strong{font-size:15px;color:var(--coral)}.tallas-precios .kc-size-choice.is-selected{outline:2px solid #e63946;outline-offset:2px;background:#fffaf5}
+#kc-add-encaje:disabled{opacity:.55;cursor:not-allowed}
+.kc-selection-status{margin:10px 0 0;color:#59616a;font:400 13px Poppins,sans-serif}
+</style>
 </head>
 
 <body>
@@ -85,25 +94,9 @@
 
                     <div class="colores-producto">
 
-                        <div class="color-opcion">
+                        <button type="button" class="color-opcion kc-color-choice is-selected" data-color="Crema" aria-pressed="true"><span class="color-circulo color-crema"></span><span>Crema</span></button>
 
-                            <span class="color-circulo color-crema"></span>
-
-                            <span>
-                                Crema
-                            </span>
-
-                        </div>
-
-                        <div class="color-opcion">
-
-                            <span class="color-circulo color-azul"></span>
-
-                            <span>
-                                Azul pastel
-                            </span>
-
-                        </div>
+                        <button type="button" class="color-opcion kc-color-choice" data-color="Azul pastel" aria-pressed="false"><span class="color-circulo color-azul"></span><span>Azul pastel</span></button>
 
                     </div>
 
@@ -117,31 +110,13 @@
 
                     <div class="tallas-precios">
 
-                        <div>
+                        <button type="button" class="kc-size-choice" data-size="2" data-price="23" aria-pressed="false"><span>Talla 2</span><strong>S/23</strong></button>
 
-                            <span>
-                                Talla 2
-                            </span>
-
-                            <strong>
-                                S/23
-                            </strong>
-
-                        </div>
-
-                        <div>
-
-                            <span>
-                                Talla 3
-                            </span>
-
-                            <strong>
-                                S/25
-                            </strong>
-
-                        </div>
+                        <button type="button" class="kc-size-choice" data-size="3" data-price="25" aria-pressed="false"><span>Talla 3</span><strong>S/25</strong></button>
 
                     </div>
+
+                    <p class="kc-selection-status" id="kc-selection-status" aria-live="polite">Selecciona un color y una talla.</p>
 
                 </div>
 
@@ -177,13 +152,7 @@
 
                 </div>
 
-                <a
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Encaje%20Coquette."
-                    class="btn-comprar-producto"
-                    target="_blank"
-                >
-                    Consultar por WhatsApp →
-                </a>
+                <button type="button" class="btn-comprar-producto" id="kc-add-encaje" data-kumino-add disabled>Agregar al carrito</button>
 
                 <a
                     href="hembras.html"
@@ -265,7 +234,28 @@
 
     </footer>
 
+<script>
+(() => {
+ const colors=[...document.querySelectorAll('.kc-color-choice')];
+ const sizes=[...document.querySelectorAll('.kc-size-choice')];
+ const add=document.getElementById('kc-add-encaje');
+ const status=document.getElementById('kc-selection-status');
+ if(!add||!colors.length||!sizes.length)return;
+ let color='Crema',size='',price=null;
+ function sync(){
+  const ready=Boolean(color&&size&&price!==null);
+  add.disabled=!ready;
+  Object.assign(add.dataset,{id:'encaje-coquette',name:'Encaje Coquette',category:'Hembras',color,variant:size?'Talla '+size:'',regularPrice:price===null?'':String(price),promoPrice:price===null?'':String(price)});
+  if(status)status.textContent=ready?`${color} · Talla ${size} · S/${price}`:'Selecciona un color y una talla.';
+ }
+ colors.forEach(b=>b.addEventListener('click',()=>{color=b.dataset.color;colors.forEach(x=>{let a=x===b;x.classList.toggle('is-selected',a);x.setAttribute('aria-pressed',String(a));});sync();}));
+ sizes.forEach(b=>b.addEventListener('click',()=>{size=b.dataset.size;price=Number(b.dataset.price);sizes.forEach(x=>{let a=x===b;x.classList.toggle('is-selected',a);x.setAttribute('aria-pressed',String(a));});sync();}));
+ sync();
+})();
+</script>
+<script src="../kumino-cart.js" defer></script>
 </body>
 
 </html>
+
 
