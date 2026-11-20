@@ -841,7 +841,7 @@
                 </section>
 
                 <!-- AGREGAR AL CARRITO -->
-                <button type="button" class="navidad-agregar-carrito" id="agregar-al-carrito" data-kumino-add data-id="vestido-rubi-de-gala" data-name="Vestido Rubí de Gala" data-category="Navidad" disabled>
+                <button type="button" class="navidad-agregar-carrito" id="agregar-al-carrito" disabled>
                     Agregar al carrito
                 </button>
                 <span class="navidad-seleccion-aviso" id="aviso-seleccion-talla" aria-live="polite">
@@ -873,31 +873,209 @@
         <div id="kumino-carrito-contenido"></div>
     </aside>
 
-    <style>.navidad-talla-card.seleccionada{outline:2px solid #e63946;outline-offset:2px;background:#fff8f2}</style>
+    <script>
+    (() => {
+        "use strict";
 
-<script>
-(() => {
- const cards=[...document.querySelectorAll('.navidad-talla-card')];
- const add=document.getElementById('agregar-al-carrito');
- const notice=document.getElementById('aviso-seleccion-talla');
- if(!add||!cards.length)return;
- let selected=null;
- cards.forEach(card=>card.addEventListener('click',()=>{
-   selected=card;
-   cards.forEach(c=>{c.classList.toggle('seleccionada',c===card);c.setAttribute('aria-pressed',String(c===card));});
-   add.disabled=false;
-   Object.assign(add.dataset,{
-     variant:'Talla '+card.dataset.talla,
-     regularPrice:card.dataset.precioRegular,
-     promoPrice:card.dataset.precioPromo,
-     color:'Rojo'
-   });
-   if(notice)notice.textContent='Talla '+card.dataset.talla+' seleccionada.';
- }));
-})();
-</script>
-<script src="../kumino-cart.js" defer></script>
+        const CLAVE_CARRITO = "kumino_navidad_cart_v1";
+        const WHATSAPP = "51940151463";
+        const PRODUCTO = {
+            id: "vestido-rubi-de-gala",
+            nombre: "Vestido Rubí de Gala",
+            color: "Rojo",
+            imagen: "../IMAGENES/vestidorubidegala.jpg"
+        };
 
+        const tarjetasTalla = document.querySelectorAll(".navidad-talla-card[data-talla]");
+        const botonAgregar = document.getElementById("agregar-al-carrito");
+        const avisoTalla = document.getElementById("aviso-seleccion-talla");
+        const botonAbrir = document.getElementById("kumino-carrito-abrir");
+        const botonCerrar = document.getElementById("kumino-carrito-cerrar");
+        const panel = document.getElementById("kumino-carrito-panel");
+        const contenido = document.getElementById("kumino-carrito-contenido");
+        const contador = document.getElementById("kumino-carrito-contador");
+
+        let tallaSeleccionada = null;
+        let carrito = cargarCarrito();
+
+        function cargarCarrito() {
+            try {
+                const guardado = JSON.parse(localStorage.getItem(CLAVE_CARRITO) || "[]");
+                return Array.isArray(guardado) ? guardado : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        function guardarCarrito() {
+            try {
+                localStorage.setItem(CLAVE_CARRITO, JSON.stringify(carrito));
+            } catch (error) {
+                console.warn("No se pudo guardar el carrito en este navegador.", error);
+            }
+        }
+
+        function soles(valor) {
+            return "S/ " + Number(valor).toFixed(2);
+        }
+
+        function calcular() {
+            let subtotalRegular = 0;
+            let subtotalPromocional = 0;
+            let total = 0;
+            let descuento = 0;
+
+            const detalle = carrito.map((producto, indice) => {
+                const esSegundoDelPar = indice % 2 === 1;
+                const regular = Number(producto.precioRegular);
+                const promocional = Number(producto.precioPromo);
+                const precioFinal = esSegundoDelPar ? regular * 0.60 : promocional;
+                const descuentoItem = esSegundoDelPar ? regular * 0.40 : regular - promocional;
+
+                subtotalRegular += regular;
+                subtotalPromocional += promocional;
+                total += precioFinal;
+                descuento += regular - precioFinal;
+
+                return { ...producto, indice, esSegundoDelPar, precioFinal, descuentoItem };
+            });
+
+            return { detalle, subtotalRegular, subtotalPromocional, total, descuento };
+        }
+
+        function renderizarCarrito() {
+            const { detalle, subtotalRegular, total, descuento } = calcular();
+            contador.textContent = carrito.length;
+
+            if (!detalle.length) {
+                contenido.innerHTML = '<p class="kumino-carrito-vacio">Tu carrito está vacío. Selecciona una talla y agrega tu primera prenda.</p>';
+                return;
+            }
+
+            const itemsHTML = detalle.map(item => `
+                <div class="kumino-carrito-item">
+                    <div>
+                        <strong>${escaparHTML(item.nombre)}</strong>
+                        <small>Talla ${escaparHTML(item.talla)} · ${escaparHTML(item.color)}<br>
+                        ${item.esSegundoDelPar ? "40 % de descuento sobre precio regular" : "Precio promocional vigente"}<br>
+                        Precio regular: ${soles(item.precioRegular)}</small>
+                    </div>
+                    <div class="kumino-carrito-item-precio">
+                        ${soles(item.precioFinal)}
+                        <button type="button" class="kumino-carrito-quitar" data-quitar="${item.idUnico}">Quitar</button>
+                    </div>
+                </div>
+            `).join("");
+
+            contenido.innerHTML = `
+                ${itemsHTML}
+                <div class="kumino-carrito-resumen">
+                    <div class="kumino-carrito-linea"><span>Subtotal (precios regulares)</span><strong>${soles(subtotalRegular)}</strong></div>
+                    <div class="kumino-carrito-linea"><span>Descuentos aplicados</span><strong>− ${soles(descuento)}</strong></div>
+                    <div class="kumino-carrito-linea kumino-carrito-total"><span>Total a pagar</span><strong>${soles(total)}</strong></div>
+                </div>
+                <p class="kumino-carrito-nota">La promoción se aplica por orden de agregado: la 2.ª, 4.ª, 6.ª prenda, etc., recibe 40 % de descuento sobre su precio regular. Las demás se cobran al precio promocional vigente.</p>
+                <button type="button" class="kumino-carrito-whatsapp" id="kumino-carrito-whatsapp">Finalizar pedido por WhatsApp</button>
+                <button type="button" class="kumino-carrito-vaciar" id="kumino-carrito-vaciar">Vaciar carrito</button>
+            `;
+
+            contenido.querySelectorAll("[data-quitar]").forEach(boton => {
+                boton.addEventListener("click", () => {
+                    carrito = carrito.filter(item => item.idUnico !== boton.dataset.quitar);
+                    guardarCarrito();
+                    renderizarCarrito();
+                });
+            });
+
+            document.getElementById("kumino-carrito-vaciar").addEventListener("click", () => {
+                carrito = [];
+                guardarCarrito();
+                renderizarCarrito();
+            });
+
+            document.getElementById("kumino-carrito-whatsapp").addEventListener("click", enviarWhatsApp);
+        }
+
+        function escaparHTML(valor) {
+            return String(valor).replace(/[&<>"']/g, caracter => ({
+                "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+            })[caracter]);
+        }
+
+        function enviarWhatsApp() {
+            const { detalle, subtotalRegular, total, descuento } = calcular();
+            if (!detalle.length) return;
+
+            const lineas = detalle.map((item, indice) =>
+                `${indice + 1}. ${item.nombre} — Talla ${item.talla} — ${item.color}\n` +
+                `   ${item.esSegundoDelPar ? "40 % de descuento sobre precio regular" : "Precio promocional"}: ${soles(item.precioFinal)}`
+            );
+
+            const mensaje = [
+                "¡Hola KÚMINO! Quiero realizar este pedido:",
+                "",
+                ...lineas,
+                "",
+                `Subtotal (precios regulares): ${soles(subtotalRegular)}`,
+                `Descuentos aplicados: -${soles(descuento)}`,
+                `TOTAL A PAGAR: ${soles(total)}`,
+                "",
+                "Quedo atento/a a la confirmación de disponibilidad y envío. ¡Gracias!"
+            ].join("\n");
+
+            window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensaje)}`, "_blank", "noopener,noreferrer");
+        }
+
+        tarjetasTalla.forEach(tarjeta => {
+            tarjeta.addEventListener("click", () => {
+                tarjetasTalla.forEach(otra => {
+                    otra.classList.remove("seleccionada");
+                    otra.setAttribute("aria-pressed", "false");
+                });
+                tarjeta.classList.add("seleccionada");
+                tarjeta.setAttribute("aria-pressed", "true");
+                tallaSeleccionada = {
+                    talla: tarjeta.dataset.talla,
+                    precioRegular: Number(tarjeta.dataset.precioRegular),
+                    precioPromo: Number(tarjeta.dataset.precioPromo)
+                };
+                botonAgregar.disabled = false;
+                avisoTalla.textContent = `Talla ${tallaSeleccionada.talla} seleccionada · ${soles(tallaSeleccionada.precioPromo)}`;
+            });
+        });
+
+        botonAgregar.addEventListener("click", () => {
+            if (!tallaSeleccionada) return;
+
+            carrito.push({
+                idUnico: `${PRODUCTO.id}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+                id: PRODUCTO.id,
+                nombre: PRODUCTO.nombre,
+                talla: tallaSeleccionada.talla,
+                color: PRODUCTO.color,
+                precioRegular: tallaSeleccionada.precioRegular,
+                precioPromo: tallaSeleccionada.precioPromo
+            });
+
+            guardarCarrito();
+            renderizarCarrito();
+            panel.classList.add("abierto");
+            botonAbrir.setAttribute("aria-expanded", "true");
+            avisoTalla.textContent = `¡Agregado! Vestido Rubí de Gala · Talla ${tallaSeleccionada.talla}`;
+        });
+
+        botonAbrir.addEventListener("click", () => {
+            const abierto = panel.classList.toggle("abierto");
+            botonAbrir.setAttribute("aria-expanded", String(abierto));
+        });
+        botonCerrar.addEventListener("click", () => {
+            panel.classList.remove("abierto");
+            botonAbrir.setAttribute("aria-expanded", "false");
+        });
+
+        renderizarCarrito();
+    })();
+    </script>
 
     <!-- FOOTER -->
     <footer class="footer-kumino">
@@ -940,7 +1118,6 @@
 
 </body>
 </html>
-
 
 
 
