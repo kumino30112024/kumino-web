@@ -37,44 +37,300 @@
 
   const style = document.createElement('style');
   style.textContent = `
-    .kumino-cart-fab{position:fixed;right:22px;bottom:22px;z-index:9998;display:flex;align-items:center;gap:9px;border:0;border-radius:999px;padding:13px 18px;background:#81363d;color:#fff;font:700 13px Poppins,Arial,sans-serif;box-shadow:0 5px 20px #28141438;cursor:pointer}
-    .kumino-cart-fab-count{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;padding:0 5px;border-radius:50%;background:#fff;color:#81363d;font-size:11px}
-    .kumino-cart-panel{display:none;position:fixed;right:22px;bottom:82px;z-index:9999;width:min(420px,calc(100vw - 28px));max-height:min(72vh,620px);overflow:auto;box-sizing:border-box;padding:20px;border:1px solid rgba(129,54,61,.18);border-radius:17px;background:#fffdf9;color:#333;box-shadow:0 10px 35px #28141433;font:13px Poppins,Arial,sans-serif}
-    .kumino-cart-panel.is-open{display:block}
-    .kumino-cart-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}
-    .kumino-cart-head strong{color:#71343a;font:600 23px 'Playfair Display',Georgia,serif}
-    .kumino-cart-close{border:0;background:transparent;color:#71343a;font-size:25px;cursor:pointer}
-    .kumino-cart-empty{color:#756b62;font-size:13px;line-height:1.6}
-    .kumino-cart-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;padding:12px 0;border-bottom:1px solid #eee5dc;font-size:12px}
-    .kumino-cart-item strong{display:block;color:#413a35;font-size:13px}
-    .kumino-cart-item small{display:block;margin-top:4px;color:#766c63;line-height:1.55}
-    .kumino-cart-item-price{text-align:right;white-space:nowrap;font-weight:700;color:#413a35}
-    .kumino-cart-old-price{color:#929292;font-size:11px;font-weight:400;text-decoration:line-through}
-    .kumino-cart-discount-badge{display:inline-block;margin:3px 0;padding:3px 8px;border-radius:999px;background:#d8f3e3;color:#167447;font-size:10px;font-weight:700}
-    .kumino-cart-remove{display:block;margin:6px 0 0 auto;padding:0;border:0;background:none;color:#9b4148;font:11px Poppins,Arial,sans-serif;text-decoration:underline;cursor:pointer}
-    .kumino-cart-summary{margin-top:14px;padding-top:12px;border-top:1px solid #e7dcd1;font-size:13px}
-    .kumino-cart-line{display:flex;justify-content:space-between;gap:12px;margin:7px 0;color:#413a35}
-    .kumino-cart-line strong{font-weight:700}
-    .kumino-cart-total{margin-top:10px;padding-top:12px;border-top:1px solid #e7dcd1;color:#81363d;font-size:20px;font-weight:800}
-    .kumino-cart-note{margin:12px 0;color:#766c63;font-size:10px;line-height:1.5}
-    .kumino-cart-checkout{display:block;width:100%;margin-top:13px;padding:13px;border:0;border-radius:25px;background:#526b50;color:#fff;font:700 13px Poppins,Arial,sans-serif;cursor:pointer}
-    .kumino-cart-clear{display:block;margin:10px auto 0;padding:5px;border:0;background:transparent;color:#8a7770;font:11px Poppins,Arial,sans-serif;text-decoration:underline;cursor:pointer}
-    @media(max-width:480px){.kumino-cart-fab{right:13px;bottom:13px;padding:11px 14px}.kumino-cart-panel{right:10px;bottom:70px;width:calc(100vw - 20px);padding:16px}}
+    .kumino-cart-nav {
+      position: relative;
+      display: inline-flex;
+      flex: 0 0 44px;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-left: 12px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: #81363d;
+      cursor: pointer;
+      vertical-align: middle;
+      transition: background .2s ease;
+    }
+
+    .kumino-cart-nav:hover {
+      background: rgba(129,54,61,.08);
+    }
+
+    .kumino-cart-nav svg {
+      display: block;
+      width: 25px;
+      height: 25px;
+      stroke: currentColor;
+    }
+
+    .kumino-cart-nav-count {
+      position: absolute;
+      top: 1px;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border: 2px solid #fff;
+      border-radius: 999px;
+      background: #E63946;
+      color: #fff;
+      font: 700 10px Poppins,Arial,sans-serif;
+      line-height: 1;
+    }
+
+    .kumino-cart-nav-count.is-empty {
+      display: none;
+    }
+
+    .kumino-cart-panel {
+      display: none;
+      position: fixed;
+      top: 88px;
+      right: 20px;
+      bottom: auto;
+      z-index: 10001;
+      width: min(420px,calc(100vw - 28px));
+      max-height: min(72vh,620px);
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 20px;
+      border: 1px solid rgba(129,54,61,.18);
+      border-radius: 17px;
+      background: #fffdf9;
+      color: #333;
+      box-shadow: 0 10px 35px #28141433;
+      font: 13px Poppins,Arial,sans-serif;
+    }
+
+    .kumino-cart-panel.is-open {
+      display: block;
+    }
+
+    .kumino-cart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .kumino-cart-head strong {
+      color: #71343a;
+      font: 600 23px 'Playfair Display',Georgia,serif;
+    }
+
+    .kumino-cart-close {
+      border: 0;
+      background: transparent;
+      color: #71343a;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .kumino-cart-empty {
+      color: #756b62;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .kumino-cart-item {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      gap: 8px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee5dc;
+      font-size: 12px;
+    }
+
+    .kumino-cart-item strong {
+      display: block;
+      color: #413a35;
+      font-size: 13px;
+    }
+
+    .kumino-cart-item small {
+      display: block;
+      margin-top: 4px;
+      color: #766c63;
+      line-height: 1.55;
+    }
+
+    .kumino-cart-item-price {
+      text-align: right;
+      white-space: nowrap;
+      font-weight: 700;
+      color: #413a35;
+    }
+
+    .kumino-cart-old-price {
+      color: #929292;
+      font-size: 11px;
+      font-weight: 400;
+      text-decoration: line-through;
+    }
+
+    .kumino-cart-discount-badge {
+      display: inline-block;
+      margin: 3px 0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #d8f3e3;
+      color: #167447;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .kumino-cart-remove {
+      display: block;
+      margin: 6px 0 0 auto;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: #9b4148;
+      font: 11px Poppins,Arial,sans-serif;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .kumino-cart-summary {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #e7dcd1;
+      font-size: 13px;
+    }
+
+    .kumino-cart-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 7px 0;
+      color: #413a35;
+    }
+
+    .kumino-cart-line strong {
+      font-weight: 700;
+    }
+
+    .kumino-cart-total {
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid #e7dcd1;
+      color: #81363d;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .kumino-cart-note {
+      margin: 12px 0;
+      color: #766c63;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .kumino-cart-checkout {
+      display: block;
+      width: 100%;
+      margin-top: 13px;
+      padding: 13px;
+      border: 0;
+      border-radius: 25px;
+      background: #526b50;
+      color: #fff;
+      font: 700 13px Poppins,Arial,sans-serif;
+      cursor: pointer;
+    }
+
+    .kumino-cart-clear {
+      display: block;
+      margin: 10px auto 0;
+      padding: 5px;
+      border: 0;
+      background: transparent;
+      color: #8a7770;
+      font: 11px Poppins,Arial,sans-serif;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .nav-container .kumino-cart-nav {
+      order: 4;
+    }
+
+    @media(max-width:600px) {
+      .kumino-cart-nav {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+        margin-left: 7px;
+      }
+
+      .kumino-cart-nav svg {
+        width: 23px;
+        height: 23px;
+      }
+
+      .kumino-cart-panel {
+        top: 76px;
+        right: 10px;
+        width: calc(100vw - 20px);
+        max-height: calc(100dvh - 92px);
+        padding: 16px;
+      }
+    }
   `;
   document.head.append(style);
 
   const fab = document.createElement('button');
   fab.type = 'button';
-  fab.className = 'kumino-cart-fab';
+  fab.className = 'kumino-cart-nav';
+  fab.setAttribute('aria-label', 'Abrir carrito de compras');
   fab.setAttribute('aria-expanded', 'false');
-  fab.innerHTML = 'Mi carrito <span class="kumino-cart-fab-count">0</span>';
+
+  fab.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+         aria-hidden="true">
+      <circle cx="9" cy="20" r="1"></circle>
+      <circle cx="19" cy="20" r="1"></circle>
+      <path d="M2 3h2l2.4 11.2a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L22 7H5"></path>
+    </svg>
+    <span class="kumino-cart-nav-count is-empty">0</span>
+  `;
+
+  // Inserta el icono inmediatamente después de Contacto.
+  const contactLink = document.querySelector('.nav-container .btn-contacto');
+  const navContainer = document.querySelector('.nav-container');
+
+  if (contactLink) {
+    contactLink.insertAdjacentElement('afterend', fab);
+  } else if (navContainer) {
+    navContainer.appendChild(fab);
+  } else {
+    document.body.appendChild(fab);
+  }
 
   const panel = document.createElement('aside');
   panel.className = 'kumino-cart-panel';
   panel.setAttribute('aria-label', 'Carrito de compras KÚMINO');
   panel.setAttribute('aria-live', 'polite');
-  panel.innerHTML = '<div class="kumino-cart-head"><strong>Mi carrito</strong><button type="button" class="kumino-cart-close" aria-label="Cerrar carrito">×</button></div><div class="kumino-cart-content"></div>';
-  document.body.append(fab, panel);
+
+  panel.innerHTML = `
+    <div class="kumino-cart-head">
+      <strong>Mi carrito</strong>
+      <button type="button" class="kumino-cart-close"
+              aria-label="Cerrar carrito">×</button>
+    </div>
+    <div class="kumino-cart-content"></div>
+  `;
+
+  document.body.append(panel);
 
   function calculate() {
     let unitIndex = 0;
@@ -105,6 +361,7 @@
         } else {
           promoUnits++;
         }
+
         unitIndex++;
       }
 
@@ -128,7 +385,14 @@
 
   function render() {
     const count = cart.reduce((sum, item) => sum + Number(item.qty), 0);
-    fab.querySelector('.kumino-cart-fab-count').textContent = count;
+    const countBadge = fab.querySelector('.kumino-cart-nav-count');
+
+    countBadge.textContent = count;
+    countBadge.classList.toggle('is-empty', count === 0);
+
+    fab.setAttribute('aria-label', count
+      ? `Abrir carrito de compras, ${count} ${count === 1 ? 'producto' : 'productos'}`
+      : 'Abrir carrito de compras');
 
     const area = panel.querySelector('.kumino-cart-content');
     const { details, subtotalRegular, total, discount } = calculate();
@@ -148,6 +412,7 @@
             Ahorro en este producto: ${money(item.itemSaving)}
           </small>
         </div>
+
         <div class="kumino-cart-item-price">
           ${item.discountedUnits > 0 && Number(item.qty) === 1
             ? `<div><span class="kumino-cart-old-price">${money(item.regular)}</span></div>
@@ -157,7 +422,9 @@
                ${item.discountedUnits > 0
                  ? `<div><span class="kumino-cart-discount-badge">${item.discountedUnits} ${item.discountedUnits === 1 ? 'unidad con' : 'unidades con'} 40 % de descuento</span></div>`
                  : ''}`}
-          <button type="button" class="kumino-cart-remove" data-kumino-remove="${esc(item.key)}">Quitar</button>
+
+          <button type="button" class="kumino-cart-remove"
+                  data-kumino-remove="${esc(item.key)}">Quitar</button>
         </div>
       </div>
     `).join('');
@@ -168,20 +435,29 @@
           <span>Subtotal (precios regulares)</span>
           <strong>${money(subtotalRegular)}</strong>
         </div>
+
         <div class="kumino-cart-line">
           <span>Descuentos aplicados</span>
           <strong>− ${money(discount)}</strong>
         </div>
+
         <div class="kumino-cart-line kumino-cart-total">
           <span>Total a pagar</span>
           <strong>${money(total)}</strong>
         </div>
       </div>
+
       <p class="kumino-cart-note">
         La promoción se aplica por orden de agregado: la 2.ª, 4.ª, 6.ª prenda, etc., recibe 40 % de descuento sobre su precio regular. Las demás se cobran al precio promocional vigente.
       </p>
-      <button type="button" class="kumino-cart-checkout">Finalizar pedido por WhatsApp</button>
-      <button type="button" class="kumino-cart-clear">Vaciar carrito</button>`;
+
+      <button type="button" class="kumino-cart-checkout">
+        Finalizar pedido por WhatsApp
+      </button>
+
+      <button type="button" class="kumino-cart-clear">
+        Vaciar carrito
+      </button>`;
   }
 
   function add(button) {
@@ -251,7 +527,7 @@
   fab.addEventListener('click', () => {
     const open = !panel.classList.contains('is-open');
     panel.classList.toggle('is-open', open);
-    fab.setAttribute('aria-expanded', String(open));
+    fab.setAttribute('aria-expanded', 'true' === String(open));
   });
 
   panel.querySelector('.kumino-cart-close').addEventListener('click', () => {
