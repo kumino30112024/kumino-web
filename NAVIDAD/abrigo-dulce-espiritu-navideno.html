@@ -142,6 +142,22 @@
             background: #9a6038;
         }
 
+        
+        .navidad-color {
+            padding: 5px 8px;
+            border: 1px solid transparent;
+            border-radius: 22px;
+            background: transparent;
+            cursor: pointer;
+            font: inherit;
+        }
+        .navidad-color.kumino-color-seleccionado {
+            border-color: #71343a;
+            background: rgba(255,255,255,.55);
+            box-shadow: 0 0 0 1px #71343a;
+        }
+        .navidad-color:focus-visible { outline: 2px solid #71343a; outline-offset: 3px; }
+
         /* TALLAS Y PRECIOS */
 
         .navidad-tallas-grid {
@@ -503,17 +519,8 @@
 <!-- COLOR -->
 <section class="navidad-producto-seccion">
 <h2>Color</h2>
-<div class="navidad-colores-lista">
-<div class="navidad-color">
-<span class="navidad-color-muestra navidad-color-rojo"></span>
-<span>Rojo</span>
-</div>
-<div class="navidad-color">
-<span class="navidad-color-muestra navidad-color-marron"></span>
-<span>Marrón</span>
-</div>
-</div>
-<div class="navidad-color-selector-wrap"><label for="kumino-navidad-color">Selecciona el color</label><select class="navidad-color-selector" id="kumino-navidad-color" required="required"><option value="">Elige un color</option><option value="Rojo">Rojo</option><option value="Marrón">Marrón</option></select></div></section>
+<div class="navidad-colores-lista"><button aria-pressed="false" class="navidad-color" data-kumino-color="Rojo" type="button"><span class="navidad-color-muestra navidad-color-rojo"></span><span>Rojo</span></button><button aria-pressed="false" class="navidad-color" data-kumino-color="Marrón" type="button"><span class="navidad-color-muestra navidad-color-marron"></span><span>Marrón</span></button></div>
+</section>
 <!-- TALLAS Y PRECIOS -->
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
@@ -583,12 +590,13 @@
   if (!addButton) return;
 
   const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
-  const colorSelect = document.querySelector('.navidad-color-selector');
+  const colorOptions = Array.from(document.querySelectorAll('[data-kumino-color]'));
+  let selectedColor = ''; 
   const notice = document.querySelector('.navidad-seleccion-aviso');
   const productName = addButton.dataset.productName;
   let selected = null;
 
-  const currentColor = () => colorSelect ? colorSelect.value : addButton.dataset.defaultColor;
+  const currentColor = () => selectedColor;
 
   function refresh() {
     const color = currentColor();
@@ -624,7 +632,14 @@
     });
   });
 
-  if (colorSelect) colorSelect.addEventListener('change', refresh);
+  colorOptions.forEach(option => option.addEventListener('click', () => {
+    selectedColor = option.dataset.kuminoColor;
+    colorOptions.forEach(item => {
+      item.classList.toggle('kumino-color-seleccionado', item === option);
+      item.setAttribute('aria-pressed', item === option ? 'true' : 'false');
+    });
+    refresh();
+  }));
   refresh();
 })();
 </script>
