@@ -282,6 +282,24 @@
   outline: 3px solid rgba(129,54,61,.28);
   outline-offset: 3px;
 }
+
+.navidad-colores-opciones { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.navidad-color-opcion {
+  display:inline-flex; align-items:center; gap:9px; padding:6px 10px;
+  border:1px solid transparent; border-radius:22px; background:transparent;
+  color:#333; font:inherit; cursor:pointer;
+}
+.navidad-color-opcion:hover { background:rgba(255,250,242,.55); }
+.navidad-color-opcion[aria-pressed="true"] {
+  border-color:#71343a; background:rgba(255,245,238,.9);
+  box-shadow:0 2px 8px rgba(91,35,40,.10);
+}
+.navidad-color-muestra {
+  display:inline-block; width:20px; height:20px; min-width:20px;
+  border:2px solid #fff; border-radius:50%; box-shadow:0 0 0 1px #71343a;
+}
+.navidad-color-blanco { background:#fff; }
+.navidad-color-rojo { background:#c51f32; }
 .navidad-color-selector-wrap { margin-top: 13px; }
 .navidad-color-selector-wrap label {
   display: block; margin-bottom: 8px; color: #71343a;
@@ -337,34 +355,18 @@
     navideña para darle un estilo especial y festivo durante
     los días de celebración.
 </p>
-<!-- COLORES DISPONIBLES -->
+<!-- COLORES DISPONIBLES: SELECCIÓN FUNCIONAL -->
 <section class="navidad-producto-seccion">
 <h2>Colores disponibles</h2>
-<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-<span style="
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            min-width: 20px;
-            border-radius: 50%;
-            background-color: #FFFFFF;
-            border: 2px solid #FFFFFF;
-            box-shadow: 0 0 0 1px #71343A;
-        "></span>
+<div class="navidad-colores-opciones" role="group" aria-label="Selecciona el color">
+<button class="navidad-color-opcion" type="button" data-color-choice="Blanco" aria-pressed="false">
+<span class="navidad-color-muestra navidad-color-blanco" aria-hidden="true"></span>
 <span>Blanco</span>
-</div>
-<div style="display: flex; align-items: center; gap: 10px;">
-<span style="
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            min-width: 20px;
-            border-radius: 50%;
-            background-color: #C51F32;
-            border: 2px solid #FFFFFF;
-            box-shadow: 0 0 0 1px #71343A;
-        "></span>
+</button>
+<button class="navidad-color-opcion" type="button" data-color-choice="Rojo" aria-pressed="false">
+<span class="navidad-color-muestra navidad-color-rojo" aria-hidden="true"></span>
 <span>Rojo</span>
+</button>
 </div>
 </section>
 <!-- TALLAS Y PRECIOS -->
@@ -402,7 +404,7 @@
 <li>Ideal para completar el look de temporada de tu mascota.</li>
 </ul>
 </section>
-<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="No especificado" data-image="../IMAGENES/chomparenosdeinvierno.jpg" data-kumino-add="" data-product-id="chompa-renos-de-invierno" data-product-name="Chompa Renos de Invierno" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
+<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="" data-image="../IMAGENES/chomparenosdeinvierno.jpg" data-kumino-add="" data-product-id="chompa-renos-de-invierno" data-product-name="Chompa Renos de Invierno" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
 <a class="navidad-volver" href="navidad.html">
                     ← Volver a colección
                 </a>
@@ -439,12 +441,12 @@
   if (!addButton) return;
 
   const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
-  const colorSelect = document.querySelector('.navidad-color-selector');
+  const colorOptions = Array.from(document.querySelectorAll('[data-color-choice]'));
   const notice = document.querySelector('.navidad-seleccion-aviso');
-  const productName = addButton.dataset.productName;
   let selected = null;
+  let selectedColor = null;
 
-  const currentColor = () => colorSelect ? colorSelect.value : addButton.dataset.defaultColor;
+  const currentColor = () => selectedColor;
 
   function refresh() {
     const color = currentColor();
@@ -463,6 +465,15 @@
     }
   }
 
+  colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      colorOptions.forEach(item => item.setAttribute('aria-pressed', 'false'));
+      option.setAttribute('aria-pressed', 'true');
+      selectedColor = option.dataset.colorChoice;
+      refresh();
+    });
+  });
+
   sizeCards.forEach(card => {
     card.addEventListener('click', () => {
       sizeCards.forEach(item => {
@@ -480,7 +491,6 @@
     });
   });
 
-  if (colorSelect) colorSelect.addEventListener('change', refresh);
   refresh();
 })();
 </script>
