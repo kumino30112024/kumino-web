@@ -1,290 +1,264 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Chompa de Hilo | KÚMINO</title>
-
-    <link rel="stylesheet" href="../style.css">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-    >
-
-</head>
-
-<body>
-
-    <header class="header">
-
-        <div class="nav-container">
-
-            <a href="../index.html" class="logo">
-                KÚMINO
-            </a>
-
-            <nav class="navbar">
-
-                <a href="../index.html">
-                    Inicio
-                </a>
-
-                <a href="hembras.html" class="activo">
-                    Hembras
-                </a>
-
-                <a href="../index.html#contacto">
-                    Contacto
-                </a>
-
-            </nav>
-
-            <a href="../index.html#contacto" class="btn-contacto">
-                Contacto
-            </a>
-
-        </div>
-
-    </header>
-
-    <main class="producto-detalle-pagina">
-
-        <div class="producto-detalle-container">
-
-            <div class="producto-detalle-imagen">
-
-                <img
-                    src="../IMAGENES/Chompa de Hilo.jpg"
-                    alt="Chompa de Hilo"
-                >
-
-            </div>
-
-            <div class="producto-detalle-contenido">
-
-                <span class="producto-detalle-categoria">
-                    COLECCIÓN HEMBRAS
-                </span>
-
-                <h1>
-                    Chompa de Hilo
-                </h1>
-
-                <p class="producto-detalle-descripcion">
-                    Una chompa tejida, suave y cálida, ideal para
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   Chompa de Hilo | KÚMINO
+  </title>
+  <link href="../style.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+  <style>
+   /* Selección de variantes para carrito KÚMINO */
+.tallas-precios > div[data-kumino-size] {
+  cursor: pointer;
+  border: 1px solid rgba(127,145,131,.35);
+  border-radius: 12px;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.tallas-precios > div[data-kumino-size]:hover { border-color: #526B50; transform: translateY(-2px); }
+.tallas-precios > div.kumino-selected { border: 2px solid #526B50; background: rgba(255,245,238,.96); box-shadow: 0 4px 13px rgba(50,70,48,.12); }
+.tallas-precios > div[data-kumino-soldout="true"] { opacity: .48; cursor: not-allowed; }
+.color-opcion[data-kumino-color] { cursor: pointer; border-radius: 18px; padding: 4px 7px; transition: background .2s ease, outline .2s ease; }
+.color-opcion.kumino-color-selected { outline: 2px solid #526B50; outline-offset: 2px; background: rgba(255,255,255,.45); }
+.btn-comprar-producto[data-kumino-add] { border: 0; cursor: pointer; }
+.btn-comprar-producto[data-kumino-add]:disabled { opacity: .52; cursor: not-allowed; }
+.kumino-selection-status { display:block; min-height:18px; margin-top:9px; color:#81363d; font-size:12px; line-height:1.5; }
+  </style>
+ </head>
+ <body>
+  <header class="header">
+   <div class="nav-container">
+    <a class="logo" href="../index.html">
+     KÚMINO
+    </a>
+    <nav class="navbar">
+     <a href="../index.html">
+      Inicio
+     </a>
+     <a class="activo" href="hembras.html">
+      Hembras
+     </a>
+     <a href="../index.html#contacto">
+      Contacto
+     </a>
+    </nav>
+    <a class="btn-contacto" href="../index.html#contacto">
+     Contacto
+    </a>
+   </div>
+  </header>
+  <main class="producto-detalle-pagina">
+   <div class="producto-detalle-container">
+    <div class="producto-detalle-imagen">
+     <img alt="Chompa de Hilo" src="../IMAGENES/Chompa de Hilo.jpg"/>
+    </div>
+    <div class="producto-detalle-contenido">
+     <span class="producto-detalle-categoria">
+      COLECCIÓN HEMBRAS
+     </span>
+     <h1>
+      Chompa de Hilo
+     </h1>
+     <p class="producto-detalle-descripcion">
+      Una chompa tejida, suave y cálida, ideal para
                     mantener cómoda a tu mascota durante los días
                     frescos. Su diseño clásico permite usarla
                     fácilmente en diferentes ocasiones.
-                </p>
-
-                <div class="producto-detalle-seccion">
-
-                    <h3>
-                        Color disponible
-                    </h3>
-
-                    <div class="colores-producto">
-
-                        <div class="color-opcion">
-
-                            <span class="color-circulo color-rosado"></span>
-
-                            Rosado
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="producto-detalle-seccion">
-
-                    <h3>
-                        Tallas y precios
-                    </h3>
-
-                    <div class="tallas-precios">
-
-                        <div>
-
-                            <span>
-                                Talla 1
-                            </span>
-
-                            <strong>
-                                S/ 16
-                            </strong>
-
-                        </div>
-
-                        <div>
-
-                            <span>
-                                Talla 2
-                            </span>
-
-                            <strong>
-                                S/ 17
-                            </strong>
-
-                        </div>
-
-                        <div>
-
-                            <span>
-                                Talla 3
-                            </span>
-
-                            <strong>
-                                S/ 18
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="producto-detalle-seccion">
-
-                    <h3>
-                        Características
-                    </h3>
-
-                    <ul class="producto-caracteristicas">
-
-                        <li>
-                            Diseño tejido con punto trenzado.
-                        </li>
-
-                        <li>
-                            Material suave y cálido.
-                        </li>
-
-                        <li>
-                            Cuello y bordes acanalados.
-                        </li>
-
-                        <li>
-                            Prenda ligera y cómoda.
-                        </li>
-
-                        <li>
-                            Fácil de colocar.
-                        </li>
-
-                        <li>
-                            Ideal para el uso diario.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <a
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20la%20Chompa%20de%20Hilo."
-                    class="btn-comprar-producto"
-                    target="_blank"
-                >
-                    Consultar por WhatsApp →
-                </a>
-
-                <a
-                    href="hembras.html"
-                    class="volver-coleccion"
-                >
-                    ← Volver a colección de hembras
-                </a>
-
-            </div>
-
-        </div>
-
-    </main>
-
-    <footer class="footer-kumino">
-
-        <div class="footer-container">
-
-            <div class="footer-marca">
-
-                <h2>
-                    KÚMINO
-                </h2>
-
-                <p>
-                    Moda con amor para tu mascota.
-                </p>
-
-            </div>
-
-            <div class="footer-enlaces">
-
-                <h3>
-                    Navegación
-                </h3>
-
-                <a href="../index.html">
-                    Inicio
-                </a>
-
-                <a href="hembras.html">
-                    Hembras
-                </a>
-
-                <a href="../index.html#ofertas">
-                    Ofertas
-                </a>
-
-                <a href="../index.html#nosotros">
-                    Nosotros
-                </a>
-
-                <a href="../index.html#contacto">
-                    Contacto
-                </a>
-
-            </div>
-
-            <div class="footer-contacto">
-
-                <h3>
-                    Contáctanos
-                </h3>
-
-                <a
-                    href="https://wa.me/51940151463"
-                    target="_blank"
-                >
-                    WhatsApp
-                </a>
-
-                <span>
-                    Envíos a todo el Perú
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 KÚMINO. Todos los derechos reservados.
-            </p>
-
-            <span>
-                Moda con amor para tu mascota
-            </span>
-
-        </div>
-
-    </footer>
-
-</body>
-
+     </p>
+     <div class="producto-detalle-seccion">
+      <h3>
+       Color disponible
+      </h3>
+      <div class="colores-producto">
+       <div aria-pressed="false" class="color-opcion" data-kumino-color="Rosado" role="button" tabindex="0">
+        <span class="color-circulo color-rosado">
+        </span>
+        Rosado
+       </div>
+      </div>
+     </div>
+     <div class="producto-detalle-seccion">
+      <h3>
+       Tallas y precios
+      </h3>
+      <div class="tallas-precios">
+       <div aria-pressed="false" data-kumino-size="1" data-kumino-soldout="false" data-promo-price="16" data-regular-price="16" role="button" tabindex="0">
+        <span>
+         Talla 1
+        </span>
+        <strong>
+         S/ 16
+        </strong>
+       </div>
+       <div aria-pressed="false" data-kumino-size="2" data-kumino-soldout="false" data-promo-price="17" data-regular-price="17" role="button" tabindex="0">
+        <span>
+         Talla 2
+        </span>
+        <strong>
+         S/ 17
+        </strong>
+       </div>
+       <div aria-pressed="false" data-kumino-size="3" data-kumino-soldout="false" data-promo-price="18" data-regular-price="18" role="button" tabindex="0">
+        <span>
+         Talla 3
+        </span>
+        <strong>
+         S/ 18
+        </strong>
+       </div>
+      </div>
+     </div>
+     <div class="producto-detalle-seccion">
+      <h3>
+       Características
+      </h3>
+      <ul class="producto-caracteristicas">
+       <li>
+        Diseño tejido con punto trenzado.
+       </li>
+       <li>
+        Material suave y cálido.
+       </li>
+       <li>
+        Cuello y bordes acanalados.
+       </li>
+       <li>
+        Prenda ligera y cómoda.
+       </li>
+       <li>
+        Fácil de colocar.
+       </li>
+       <li>
+        Ideal para el uso diario.
+       </li>
+      </ul>
+     </div>
+     <button class="btn-comprar-producto" data-category="Hembras" data-image="../IMAGENES/Chompa de Hilo.jpg" data-kumino-add="" data-product-id="chompa-hilo" data-product-name="Chompa de Hilo" disabled="disabled" type="button">
+      Agregar al carrito
+     </button>
+     <span aria-live="polite" class="kumino-selection-status">
+      Selecciona una talla y un color para continuar.
+     </span>
+     <a class="volver-coleccion" href="hembras.html">
+      ← Volver a colección de hembras
+     </a>
+    </div>
+   </div>
+  </main>
+  <footer class="footer-kumino">
+   <div class="footer-container">
+    <div class="footer-marca">
+     <h2>
+      KÚMINO
+     </h2>
+     <p>
+      Moda con amor para tu mascota.
+     </p>
+    </div>
+    <div class="footer-enlaces">
+     <h3>
+      Navegación
+     </h3>
+     <a href="../index.html">
+      Inicio
+     </a>
+     <a href="hembras.html">
+      Hembras
+     </a>
+     <a href="../index.html#ofertas">
+      Ofertas
+     </a>
+     <a href="../index.html#nosotros">
+      Nosotros
+     </a>
+     <a href="../index.html#contacto">
+      Contacto
+     </a>
+    </div>
+    <div class="footer-contacto">
+     <h3>
+      Contáctanos
+     </h3>
+     <a href="https://wa.me/51940151463" target="_blank">
+      WhatsApp
+     </a>
+     <span>
+      Envíos a todo el Perú
+     </span>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p>
+     © 2026 KÚMINO. Todos los derechos reservados.
+    </p>
+    <span>
+     Moda con amor para tu mascota
+    </span>
+   </div>
+  </footer>
+  <script>
+   (() => {
+  'use strict';
+  const add = document.querySelector('[data-kumino-add]');
+  if (!add) return;
+  const sizeCards = Array.from(document.querySelectorAll('[data-kumino-size]'));
+  const colorOptions = Array.from(document.querySelectorAll('[data-kumino-color]'));
+  const status = document.querySelector('.kumino-selection-status');
+  let selectedSize = null;
+  let selectedColor = colorOptions.length === 1 ? colorOptions[0].dataset.kuminoColor : null;
+  function update() {
+    const ready = Boolean(selectedSize && selectedColor);
+    add.disabled = !ready;
+    if (ready) {
+      add.dataset.size = selectedSize.size;
+      add.dataset.regularPrice = selectedSize.regular;
+      add.dataset.promoPrice = selectedSize.promo;
+      add.dataset.color = selectedColor;
+      status.textContent = `Seleccionado: Talla ${selectedSize.size} · ${selectedColor} · S/ ${Number(selectedSize.promo).toFixed(2)}`;
+    } else if (!selectedSize && !selectedColor) {
+      status.textContent = 'Selecciona un color y una talla para continuar.';
+    } else if (!selectedColor) {
+      status.textContent = 'Selecciona un color para continuar.';
+    } else {
+      status.textContent = 'Selecciona una talla para continuar.';
+    }
+  }
+  sizeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.dataset.kuminoSoldout === 'true') return;
+      sizeCards.forEach(item => {
+        item.classList.remove('kumino-selected');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      card.classList.add('kumino-selected');
+      card.setAttribute('aria-pressed', 'true');
+      selectedSize = {
+        size: card.dataset.kuminoSize,
+        regular: card.dataset.regularPrice,
+        promo: card.dataset.promoPrice
+      };
+      update();
+    });
+  });
+  colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      selectedColor = option.dataset.kuminoColor;
+      colorOptions.forEach(item => {
+        item.classList.toggle('kumino-color-selected', item === option);
+        item.setAttribute('aria-pressed', String(item === option));
+      });
+      update();
+    });
+  });
+  if (colorOptions.length === 1) {
+    colorOptions[0].classList.add('kumino-color-selected');
+    colorOptions[0].setAttribute('aria-pressed', 'true');
+  }
+  update();
+})();
+  </script>
+  <script src="../kumino-cart.js">
+  </script>
+ </body>
 </html>
