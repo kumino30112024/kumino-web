@@ -156,7 +156,7 @@
 
                 </div>
 
-                <button type="button" class="btn-comprar-producto" id="kc-add" disabled>Agregar al carrito</button>
+                <button type="button" class="btn-comprar-producto" id="kc-add" data-kumino-add data-product-id="encaje-coquette" data-product-name="Encaje Coquette" data-category="hembras" data-image="../IMAGENES/Encaje Coquette.jpeg" disabled>Agregar al carrito</button>
 
                 <a
                     href="hembras.html"
@@ -241,35 +241,72 @@
 
 <script>
 (() => {
-  const colors=[...document.querySelectorAll('.kc-color')];
-  const sizes=[...document.querySelectorAll('.kc-size')];
-  const add=document.getElementById('kc-add');
-  const status=document.getElementById('kc-status');
-  if(!add || colors.length!==2 || sizes.length!==2) return;
-  let color=null, size=null, price=null;
-  function update(){
-    const ready=Boolean(color && size && Number.isFinite(price));
-    add.disabled=!ready;
-    add.dataset.productId='encaje-coquette';
-    add.dataset.productName='Encaje Coquette';
-    add.dataset.category='Hembras';
-    add.dataset.color=color || '';
-    add.dataset.size=size || '';
-    add.dataset.regularPrice=ready ? String(price) : '';
-    add.dataset.promoPrice=ready ? String(price) : '';
-    status.textContent=ready ? `${color} · Talla ${size} · S/${price}` : 'Selecciona un color y una talla.';
+  'use strict';
+
+  const colors = Array.from(document.querySelectorAll('.kc-color'));
+  const sizes = Array.from(document.querySelectorAll('.kc-size'));
+  const add = document.getElementById('kc-add');
+  const status = document.getElementById('kc-status');
+
+  if (!add || !status || !colors.length || !sizes.length) return;
+
+  let selectedColor = '';
+  let selectedSize = '';
+  let selectedPrice = 0;
+
+  function updateSelection() {
+    const ready = Boolean(
+      selectedColor && selectedSize && Number.isFinite(selectedPrice) && selectedPrice > 0
+    );
+
+    add.disabled = !ready;
+
+    if (ready) {
+      add.dataset.color = selectedColor;
+      add.dataset.size = selectedSize;
+      // Encaje Coquette no tiene precio referencial distinto en esta ficha.
+      add.dataset.regularPrice = String(selectedPrice);
+      add.dataset.promoPrice = String(selectedPrice);
+      status.textContent = `${selectedColor} · Talla ${selectedSize} · S/${selectedPrice.toFixed(2)}`;
+    } else {
+      delete add.dataset.color;
+      delete add.dataset.size;
+      delete add.dataset.regularPrice;
+      delete add.dataset.promoPrice;
+      status.textContent = !selectedColor && !selectedSize
+        ? 'Selecciona un color y una talla.'
+        : !selectedColor
+          ? 'Selecciona un color para continuar.'
+          : 'Selecciona una talla para continuar.';
+    }
   }
-  colors.forEach(b=>b.addEventListener('click',()=>{
-    color=b.dataset.color;
-    colors.forEach(x=>{x.classList.toggle('is-selected',x===b);x.setAttribute('aria-pressed',String(x===b));});
-    update();
-  }));
-  sizes.forEach(b=>b.addEventListener('click',()=>{
-    size=b.dataset.size; price=Number(b.dataset.price);
-    sizes.forEach(x=>{x.classList.toggle('is-selected',x===b);x.setAttribute('aria-pressed',String(x===b));});
-    update();
-  }));
-  update();
+
+  colors.forEach(button => {
+    button.addEventListener('click', () => {
+      selectedColor = button.dataset.color || '';
+      colors.forEach(option => {
+        const active = option === button;
+        option.classList.toggle('is-selected', active);
+        option.setAttribute('aria-pressed', String(active));
+      });
+      updateSelection();
+    });
+  });
+
+  sizes.forEach(button => {
+    button.addEventListener('click', () => {
+      selectedSize = button.dataset.size || '';
+      selectedPrice = Number(button.dataset.price);
+      sizes.forEach(option => {
+        const active = option === button;
+        option.classList.toggle('is-selected', active);
+        option.setAttribute('aria-pressed', String(active));
+      });
+      updateSelection();
+    });
+  });
+
+  updateSelection();
 })();
 </script>
 <script src="../kumino-cart.js" defer></script>
