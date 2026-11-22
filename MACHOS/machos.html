@@ -854,7 +854,133 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
     margin-top: 0 !important;
   }
 }
-  </style>
+  
+/* AJUSTE DE ALTURA: tarjetas más compactas en celulares */
+@media (max-width: 600px) {
+    .productos-grid {
+        grid-auto-rows: 1fr !important;
+        align-items: stretch !important;
+        row-gap: 14px !important;
+    }
+
+    .productos-grid > .producto-catalogo,
+    .productos-grid > .producto-enlace {
+        min-width: 0;
+        height: 100%;
+        align-self: stretch;
+    }
+
+    .productos-grid .producto-catalogo {
+        display: flex !important;
+        flex-direction: column !important;
+        height: 100% !important;
+    }
+
+    /* Foto ligeramente más baja que ancha para reducir la altura total */
+    .productos-grid .catalogo-foto {
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        aspect-ratio: 1 / 0.90 !important;
+        overflow: hidden;
+    }
+
+    .productos-grid .catalogo-foto img {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: auto !important;
+        object-fit: cover !important;
+    }
+
+    .productos-grid .catalogo-datos {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+        min-width: 0;
+        padding: 8px 9px 8px !important;
+        box-sizing: border-box !important;
+    }
+
+    .productos-grid .catalogo-titulo-tallas {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 3px !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        margin: 0 0 1px !important;
+    }
+
+    .productos-grid .catalogo-titulo-tallas h2 {
+        display: block !important;
+        width: 100% !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        font-size: 10.5px !important;
+        line-height: 1.25 !important;
+        overflow-wrap: break-word;
+    }
+
+    .productos-grid .tallas-disponibles {
+        display: flex !important;
+        align-items: center !important;
+        flex-wrap: wrap !important;
+        gap: 3px !important;
+        min-height: 0 !important;
+    }
+
+    .productos-grid .talla-chip {
+        width: 19px !important;
+        min-width: 19px !important;
+        height: 19px !important;
+        padding: 0 !important;
+        font-size: 8.5px !important;
+        line-height: 19px !important;
+    }
+
+    .productos-grid .precio-simple-machos,
+    .productos-grid .precio-destacado-machos,
+    .productos-grid .precio-simple-accesorios,
+    .productos-grid .catalogo-datos > p:not(.precio-promocional),
+    .productos-grid .catalogo-datos > p.precio-promocional {
+        margin: 0 !important;
+        padding: 5px 9px !important;
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+    }
+
+    .productos-grid .precio-machos-fila {
+        gap: 5px !important;
+        margin: 0 !important;
+    }
+
+    .productos-grid .precio-regular-machos,
+    .productos-grid .precio-regular {
+        font-size: 9px !important;
+        line-height: 1.2 !important;
+    }
+
+    .productos-grid .aviso-precio-talla,
+    .productos-grid .aviso-precio-talla-machos {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 2px 6px !important;
+        font-size: 8px !important;
+        line-height: 1.25 !important;
+        white-space: normal !important;
+    }
+
+    .productos-grid .catalogo-datos .promo-ahorro,
+    .productos-grid .catalogo-datos .ahorro-machos {
+        margin: 0 !important;
+        font-size: 8px !important;
+        line-height: 1.2 !important;
+    }
+}
+
+</style>
  <style>
 
 /* KÚMINO — TALLAS VISIBLES Y TARJETAS UNIFORMES EN MÓVIL */
