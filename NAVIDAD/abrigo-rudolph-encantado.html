@@ -357,43 +357,65 @@
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
 </style>
-<style id="kumino-drawer-global-style">
-#kumino-drawer-toggle{display:inline-flex!important;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(44,53,49,.18);border-radius:12px;background:#fff;color:#2C3531;font-size:25px;line-height:1;cursor:pointer;z-index:10002;flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.06)}
-#kumino-drawer-backdrop{position:fixed;inset:0;background:rgba(25,30,27,.48);z-index:10010;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
-#kumino-drawer{position:fixed;inset:0 auto 0 0;width:min(340px,86vw);height:100dvh;background:#F9F9F8;z-index:10011;transform:translateX(-105%);transition:transform .28s ease;box-shadow:8px 0 32px rgba(0,0,0,.16);display:flex;flex-direction:column;overflow-y:auto;color:#2C3531}
-body.kumino-drawer-open #kumino-drawer{transform:translateX(0)}body.kumino-drawer-open #kumino-drawer-backdrop{opacity:1;visibility:visible}body.kumino-drawer-open{overflow:hidden}
-.kumino-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:23px 22px 18px;border-bottom:1px solid #e8e5df}
-.kumino-drawer-brand{font-family:inherit;font-weight:700;letter-spacing:3px;font-size:22px;color:#2C3531;text-decoration:none}
-#kumino-drawer-close{width:36px;height:36px;border:0;border-radius:50%;background:#eee9e1;color:#2C3531;font-size:23px;cursor:pointer}
-.kumino-drawer-nav{display:flex;flex-direction:column;padding:13px 14px 24px;gap:3px}
-.kumino-drawer-nav a{display:block;padding:12px 14px;border-radius:10px;text-decoration:none!important;color:#2C3531!important;font-family:inherit;font-size:15px;font-weight:500;transition:background .18s ease,color .18s ease}
-.kumino-drawer-nav a:hover,.kumino-drawer-nav a:focus{background:#F5EADD;color:#8d4935!important;outline:none}
-.kumino-drawer-nav a.kumino-drawer-primary{font-weight:700}
-@media(max-width:760px){#kumino-drawer-toggle{width:40px;height:40px}.nav-container{gap:10px}}
-</style>
+<link rel="stylesheet" href="../kumino-global-nav.css">
 </head>
 <body>
-<!-- HEADER -->
-<header class="header">
-<div class="nav-container"><button id="kumino-drawer-toggle" class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="kumino-drawer" aria-expanded="false">☰</button>
-<a class="logo" href="../index.html">KÚMINO</a>
-<nav class="navbar">
-<a href="../index.html">Inicio</a>
-<a class="activo" href="navidad.html">Navidad</a>
-</nav>
-<a class="btn-contacto" href="#contacto">Contacto</a>
-</div>
+<!-- ENCABEZADO GLOBAL KÚMINO: uniforme en todas las páginas -->
+<header class="kumino-site-header">
+  <div class="kumino-header-inner nav-container">
+    <button class="kumino-menu-toggle" type="button" aria-label="Abrir menú principal" aria-controls="kumino-drawer" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <a class="kumino-brand" href="../index.html" aria-label="KÚMINO - Inicio">
+      <img src="../isotipo-kumino.png" alt="" onerror="this.style.display='none'">
+      <span>KÚMINO</span>
+    </a>
+    <a class="btn-contacto" href="https://wa.me/51940151463" target="_blank" rel="noopener">Contacto</a>
+  </div>
 </header>
+<div class="kumino-drawer-backdrop" data-kumino-close></div>
+<aside class="kumino-drawer" id="kumino-drawer" aria-hidden="true" aria-label="Menú principal">
+  <div class="kumino-drawer-head">
+    <a class="kumino-drawer-brand" href="../index.html">KÚMINO</a>
+    <button class="kumino-drawer-close" type="button" aria-label="Cerrar menú" data-kumino-close>×</button>
+  </div>
+  <div class="kumino-drawer-scroll">
+    <p class="kumino-drawer-label">MENÚ PRINCIPAL</p>
+    <nav class="kumino-drawer-nav">
+      <a href="../index.html"><span class="kumino-nav-icon">⌂</span><span>Inicio</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../index.html#coleccion"><span class="kumino-nav-icon">▦</span><span>Colecciones</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../NAVIDAD/navidad.html"><span class="kumino-nav-icon">❉</span><span>Navidad</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../HEMBRAS/hembras.html"><span class="kumino-nav-icon">♧</span><span>Hembras</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../MACHOS/machos.html"><span class="kumino-nav-icon">♧</span><span>Machos</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../ACCESORIOS/accesorios.html"><span class="kumino-nav-icon">▤</span><span>Accesorios</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../HALLOWEN/hallowen.html"><span class="kumino-nav-icon">♧</span><span>Disfraces</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../CASITAS/casitas.html"><span class="kumino-nav-icon">⌂</span><span>Casitas</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../guia-tallas.html"><span class="kumino-nav-icon">⌁</span><span>Guía de tallas</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="../index.html#nosotros"><span class="kumino-nav-icon">ⓘ</span><span>Nosotros</span><span class="kumino-nav-arrow">›</span></a>
+      <a href="https://wa.me/51940151463" target="_blank" rel="noopener"><span class="kumino-nav-icon">◉</span><span>Contacto</span><span class="kumino-nav-arrow">›</span></a>
+    </nav>
+  </div>
+  <div class="kumino-drawer-footer"><div class="kumino-paws">●　●　●</div><p>Moda con amor para tus mascotas</p></div>
+</aside>
+
+<!-- HEADER -->
+
 <!-- PRODUCTO -->
 <main class="navidad-producto-main">
 <div class="navidad-producto-container">
+<!-- IMAGEN -->
 <div class="navidad-producto-imagen">
 <img alt="Abrigo Rudolph Encantado para mascotas" src="../IMAGENES/abrigorudolphencantado.jpg"/>
 </div>
+<!-- INFORMACIÓN -->
 <div class="navidad-producto-info">
-<span class="navidad-producto-categoria">COLECCIÓN NAVIDEÑA</span>
+<span class="navidad-producto-categoria">
+                    COLECCIÓN NAVIDEÑA
+                </span>
 <h1>Abrigo Rudolph Encantado</h1>
-<span class="navidad-promo-etiqueta">PRECIO PROMOCIONAL</span>
+<span class="navidad-promo-etiqueta">
+                    PRECIO PROMOCIONAL
+                </span>
 <p class="navidad-producto-descripcion">
                     ¡La magia de Rudolph acompaña a tu engreído esta Navidad!
                     Un adorable abrigo afelpado en verde navideño,
@@ -401,16 +423,55 @@ body.kumino-drawer-open #kumino-drawer{transform:translateX(0)}body.kumino-drawe
                     Un diseño encantador para mantener a tu engreído abrigadito
                     y lleno de espíritu navideño.
                 </p>
-
+<!-- COLOR -->
+<section class="navidad-producto-seccion">
+<h2>Color</h2>
+<div class="navidad-colores">
+<span class="navidad-color-circulo"></span>
+<span>Verde</span>
+</div>
+</section>
+<!-- TALLAS Y PRECIOS -->
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
-<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="2" data-color="Verde" data-promo-price="33.00" data-regular-price="46.20" type="button">
-<strong>Talla 2</strong>
-<span class="navidad-precio-regular">S/ 46.20</span>
-<span class="navidad-precio-promo">S/ 33.00</span>
-<span class="navidad-ahorro">Ahorras S/ 13.20</span>
-</button></div>
+<div class="navidad-tallas-grid">
+<!-- TALLA 3 -->
+<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-promo-price="35.00" data-regular-price="49.00" type="button">
+<span class="navidad-talla-numero">
+                Talla 3
+            </span>
+<span class="navidad-precio-regular">
+                S/ 49.00
+            </span>
+<span class="navidad-precio-promo">
+                S/ 35.00
+            </span>
+<span class="navidad-ahorro">
+                Ahorras S/ 14.00
+            </span>
+</button>
+<!-- TALLA 4 -->
+<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="4" data-promo-price="39.00" data-regular-price="54.60" type="button">
+<span class="navidad-talla-numero">
+                Talla 4
+            </span>
+<span class="navidad-precio-regular">
+                S/ 54.60
+            </span>
+<span class="navidad-precio-promo">
+                S/ 39.00
+            </span>
+<span class="navidad-ahorro">
+                Ahorras S/ 15.60
+            </span>
+</button>
+</div>
+<span class="navidad-aviso-precio">
+        Consulta por WhatsApp la disponibilidad de tu talla
+        antes de realizar tu pedido.
+    </span>
 </section>
+<!-- CARACTERÍSTICAS -->
 <section class="navidad-producto-seccion">
 <h2>Características</h2>
 <ul class="navidad-caracteristicas">
@@ -420,10 +481,14 @@ body.kumino-drawer-open #kumino-drawer{transform:translateX(0)}body.kumino-drawe
 <li>Decoración inspirada en el espíritu navideño.</li>
 </ul>
 </section>
-<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="Verde" data-image="../IMAGENES/abrigorudolphencantado.jpg" data-kumino-add="" data-product-id="abrigo-rudolph-encantado" data-product-name="Abrigo Rudolph Encantado" disabled="disabled" type="button">Agregar al carrito</button>
-<span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
-<a class="navidad-volver" href="navidad.html">← Volver a colección</a>
-</div></div></main>
+<!-- WHATSAPP -->
+<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="Verde" data-image="../IMAGENES/abrigorudolphencantado.jpg" data-kumino-add="" data-product-id="abrigo-rudolph-encantado" data-product-name="Abrigo Rudolph Encantado" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
+<a class="navidad-volver" href="navidad.html">
+                    ← Volver a colección
+                </a>
+</div>
+</div>
+</main>
 <!-- FOOTER -->
 <footer class="footer-kumino">
 <div class="footer-container">
@@ -453,14 +518,17 @@ body.kumino-drawer-open #kumino-drawer{transform:translateX(0)}body.kumino-drawe
   'use strict';
   const addButton = document.querySelector('[data-kumino-add]');
   if (!addButton) return;
+
   const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
-  const colorOptions = Array.from(document.querySelectorAll('[data-color-choice]'));
+  const colorSelect = document.querySelector('.navidad-color-selector');
   const notice = document.querySelector('.navidad-seleccion-aviso');
+  const productName = addButton.dataset.productName;
   let selected = null;
-  let selectedColor = addButton.dataset.defaultColor || '';
+
+  const currentColor = () => colorSelect ? colorSelect.value : addButton.dataset.defaultColor;
 
   function refresh() {
-    const color = selected ? selected.color : selectedColor;
+    const color = currentColor();
     const ready = Boolean(selected && color);
     addButton.disabled = !ready;
     if (ready) {
@@ -468,31 +536,35 @@ body.kumino-drawer-open #kumino-drawer{transform:translateX(0)}body.kumino-drawe
       addButton.dataset.regularPrice = selected.regular;
       addButton.dataset.promoPrice = selected.promo;
       addButton.dataset.color = color;
-      notice.textContent = `Seleccionado: Talla ${selected.size} · ${color}`;
+      notice.textContent = `Seleccionado: ${selected.size} · ${color}`;
     } else if (!selected) {
       notice.textContent = 'Selecciona una talla para continuar.';
     } else {
       notice.textContent = 'Selecciona un color para continuar.';
     }
   }
-  colorOptions.forEach(option => option.addEventListener('click', () => {
-    colorOptions.forEach(item => { item.classList.remove('kumino-color-seleccionado'); item.setAttribute('aria-pressed','false'); });
-    option.classList.add('kumino-color-seleccionado');
-    option.setAttribute('aria-pressed','true');
-    selectedColor = option.dataset.colorChoice;
-    refresh();
-  }));
-  sizeCards.forEach(card => card.addEventListener('click', () => {
-    sizeCards.forEach(item => { item.classList.remove('kumino-talla-seleccionada'); item.setAttribute('aria-pressed','false'); });
-    card.classList.add('kumino-talla-seleccionada');
-    card.setAttribute('aria-pressed','true');
-    selected = { size: card.dataset.kuminoSize, color: card.dataset.color, regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
-    refresh();
-  }));
+
+  sizeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      sizeCards.forEach(item => {
+        item.classList.remove('kumino-talla-seleccionada');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      card.classList.add('kumino-talla-seleccionada');
+      card.setAttribute('aria-pressed', 'true');
+      selected = {
+        size: card.dataset.kuminoSize,
+        regular: card.dataset.regularPrice,
+        promo: card.dataset.promoPrice
+      };
+      refresh();
+    });
+  });
+
+  if (colorSelect) colorSelect.addEventListener('change', refresh);
   refresh();
 })();
 </script>
-<script src="../kumino-cart.js"></script><div id="kumino-drawer-backdrop" aria-hidden="true"></div><aside id="kumino-drawer" aria-label="Menú principal KÚMINO" aria-hidden="true"><div class="kumino-drawer-head"><a class="kumino-drawer-brand" href="../index.html">KÚMINO</a><button id="kumino-drawer-close" type="button" aria-label="Cerrar menú">×</button></div><nav class="kumino-drawer-nav"><a class="kumino-drawer-primary" href="../index.html#inicio">Inicio</a><a class="" href="../index.html#coleccion">Colecciones</a><a class="" href="../NAVIDAD/navidad.html">Navidad</a><a class="" href="../HEMBRAS/hembras.html">Hembras</a><a class="" href="../MACHOS/machos.html">Machos</a><a class="" href="../ACCESORIOS/accesorios.html">Accesorios</a><a class="" href="../HALLOWEN/hallowen.html">Disfraces</a><a class="" href="../CASITAS/casitas.html">Casitas</a><a class="" href="../guia-tallas.html">Guía de tallas</a><a class="" href="../index.html#nosotros">Nosotros</a><a class="" href="../index.html#contacto">Contacto</a></nav></aside>
-<script id="kumino-drawer-global-script">(function(){var body=document.body,btn=document.getElementById("kumino-drawer-toggle"),panel=document.getElementById("kumino-drawer"),back=document.getElementById("kumino-drawer-backdrop"),close=document.getElementById("kumino-drawer-close");if(!btn||!panel||!back)return;function open(){body.classList.add("kumino-drawer-open");panel.setAttribute("aria-hidden","false");btn.setAttribute("aria-expanded","true");if(close)close.focus()}function shut(){body.classList.remove("kumino-drawer-open");panel.setAttribute("aria-hidden","true");btn.setAttribute("aria-expanded","false");btn.focus()}btn.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();open()},true);if(close)close.addEventListener("click",shut);back.addEventListener("click",shut);panel.querySelectorAll("a").forEach(function(a){a.addEventListener("click",shut)});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&body.classList.contains("kumino-drawer-open"))shut()})})();</script>
+<script src="../kumino-cart.js"></script><script src="../kumino-global-nav.js" defer></script>
 </body>
 </html>
