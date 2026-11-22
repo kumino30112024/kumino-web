@@ -863,6 +863,59 @@ body {
     }
 }
 
+
+/* AJUSTE MÓVIL: nombre completo en una fila y tallas debajo */
+@media (max-width: 600px) {
+    .catalogo-titulo-tallas {
+        display: flex !important;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 5px;
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        margin: 0 0 8px !important;
+        overflow: visible !important;
+    }
+
+    .catalogo-titulo-tallas h2 {
+        display: block !important;
+        width: 100%;
+        min-width: 0;
+        flex: none !important;
+        margin: 0 !important;
+        font-size: 11px;
+        line-height: 1.35;
+        white-space: normal;
+        overflow: visible !important;
+        text-overflow: clip;
+        -webkit-line-clamp: unset !important;
+        line-clamp: unset !important;
+        -webkit-box-orient: initial !important;
+        overflow-wrap: anywhere;
+    }
+
+    .tallas-disponibles {
+        display: inline-flex;
+        width: auto;
+        flex: none !important;
+        align-self: flex-start;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 3px;
+        white-space: normal;
+    }
+
+    .talla-chip {
+        min-width: 21px;
+        width: 21px;
+        height: 21px;
+        padding: 0;
+        font-size: 9px;
+    }
+}
+
 </style>
 </head>
 <body>
