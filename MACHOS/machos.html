@@ -13,166 +13,849 @@
   </title>
   <link href="../style.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-  
-
-<style id="kumino-mobile-card-layout">
-/* KÚMINO: diseño móvil limpio, compacto y equilibrado */
-@media (max-width: 600px) {
-  /* Cada fila toma la altura de la tarjeta más alta de esa fila. */
-  body.pagina-machos .productos-grid,
-  body.pagina-hembras .productos-grid {
-    display: grid !important;
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    grid-auto-rows: auto !important;
-    align-items: stretch !important;
-    align-content: start !important;
-    column-gap: 12px !important;
-    row-gap: 12px !important;
-  }
-
-  /* Tarjetas normales (Machos, Hembras y Halloween). */
-  body.pagina-machos .productos-grid > a.producto-catalogo,
-  body.pagina-machos .productos-grid > .producto-catalogo,
-  body.pagina-hembras .productos-grid > a.producto-catalogo,
-  body.pagina-hembras .productos-grid > .producto-catalogo {
-    display: flex !important;
-    flex-direction: column !important;
-    align-self: stretch !important;
-    justify-self: stretch !important;
-    width: 100% !important;
-    height: auto !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Tarjetas de promoción envueltas en un enlace en Hembras. */
-  body.pagina-hembras .productos-grid > a.producto-enlace {
-    display: flex !important;
-    align-self: stretch !important;
-    justify-self: stretch !important;
-    width: 100% !important;
-    height: auto !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  body.pagina-hembras .productos-grid > a.producto-enlace > .producto-catalogo {
-    display: flex !important;
-    flex: 1 1 auto !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    height: auto !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Todas las fotografías conservan la misma proporción. */
-  body.pagina-machos .productos-grid .catalogo-foto,
-  body.pagina-hembras .productos-grid .catalogo-foto {
-    display: block !important;
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    aspect-ratio: 1 / 1 !important;
-    overflow: hidden !important;
-  }
-
-  body.pagina-machos .productos-grid .catalogo-foto img,
-  body.pagina-hembras .productos-grid .catalogo-foto img {
-    display: block !important;
-    width: 100% !important;
-    height: 100% !important;
-    aspect-ratio: auto !important;
-    object-fit: cover !important;
-  }
-
-  /* El bloque de texto crece naturalmente: sin altura reservada para títulos. */
-  body.pagina-machos .productos-grid .catalogo-datos,
-  body.pagina-hembras .productos-grid .catalogo-datos {
-    display: flex !important;
-    flex: 1 1 auto !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    align-content: flex-start !important;
-    gap: 5px !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    padding: 8px 9px 9px !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Nombre natural de una o dos líneas. */
-  body.pagina-machos .productos-grid .catalogo-titulo-tallas,
-  body.pagina-hembras .productos-grid .catalogo-titulo-tallas {
-    display: block !important;
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  body.pagina-machos .productos-grid .catalogo-titulo-tallas h2,
-  body.pagina-hembras .productos-grid .catalogo-titulo-tallas h2,
-  body.pagina-machos .productos-grid .catalogo-datos > h2,
-  body.pagina-hembras .productos-grid .catalogo-datos > h2 {
-    display: block !important;
-    flex: 0 0 auto !important;
-    width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    font-size: 11px !important;
-    line-height: 1.3 !important;
-    white-space: normal !important;
-    overflow: visible !important;
-    text-overflow: clip !important;
-    overflow-wrap: break-word !important;
-  }
-
-  /* En celular no mostramos las chips; los datos/filtros siguen intactos. */
-  body.pagina-machos .productos-grid .tallas-disponibles,
-  body.pagina-hembras .productos-grid .tallas-disponibles {
+  <style>
+   /* KÚMINO MACHOS: aviso de talla independiente del recuadro de ahorro */
+body.pagina-machos .producto-catalogo.precio-variable:has(.precio-promocional) .catalogo-datos > .promo-ahorro::after {
+    content: none !important;
     display: none !important;
-  }
+}
+body.pagina-machos .producto-catalogo.precio-variable:has(.precio-promocional) .catalogo-datos > .precio-promocional::after {
+    content: none !important;
+    display: none !important;
+}
+body.pagina-machos .catalogo-datos > .aviso-precio-talla {
+    display: table;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    padding: 7px 12px;
+    border: 1px solid #7A9B76;
+    border-radius: 30px;
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    color: #7A9B76 !important;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+   /* =========================================================
+   KÚMINO MACHOS — PRESENTACIÓN BASADA EN COLECCIÓN NAVIDAD
+   CSS propio de esta página; no modifica style.css global.
+========================================================= */
+body.pagina-machos {
+    background-color: #F5EADD;
+    background-image: url("../Fondo-machos.png");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+body.pagina-machos .catalogo-hembras {
+    background: transparent !important;
+    padding: 42px 0 70px;
+    min-height: 100vh;
+}
+body.pagina-machos .catalogo-hembras::before,
+body.pagina-machos .catalogo-hembras::after { display: none !important; }
 
-  /* Precios y avisos permanecen inmediatamente debajo del título. */
-  body.pagina-machos .productos-grid .catalogo-datos > *,
-  body.pagina-hembras .productos-grid .catalogo-datos > * {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
+body.pagina-machos .catalogo-header {
+    max-width: 900px;
+    margin: 30px auto 28px;
+    padding: 0 20px;
+    text-align: center;
+}
+body.pagina-machos .machos-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px 18px;
+    border-radius: 30px;
+    background: rgba(122,155,118,.17);
+    color: #526B50;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .7px;
+}
+body.pagina-machos .catalogo-header h1 {
+    margin: 0 0 10px;
+    color: #2C3531;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 5vw, 68px);
+    line-height: 1.08;
+}
+body.pagina-machos .catalogo-header p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #526B50;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
 
-  body.pagina-machos .productos-grid .aviso-precio-talla-machos,
-  body.pagina-hembras .productos-grid .aviso-precio-talla {
+/* Barra de filtros — mismo orden y proporción que NAVIDAD */
+body.pagina-machos .machos-controles {
+    width: min(calc(100% - 48px), 1080px);
+    min-height: 72px;
+    margin: 0 auto 34px;
+    padding: 7px 18px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: rgba(255,255,255,.96);
+    border: 1px solid rgba(82,107,80,.12);
+    border-radius: 40px;
+    box-shadow: 0 8px 24px rgba(54,45,35,.12);
+    position: relative;
+    z-index: 5;
+}
+body.pagina-machos .machos-categorias {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+body.pagina-machos .machos-categorias button {
+    border: 0;
+    border-radius: 25px;
+    padding: 11px 13px;
+    background: transparent;
+    color: #526B50;
+    font: 500 13px 'Poppins', sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: .2s ease;
+}
+body.pagina-machos .machos-categorias button:hover {
+    background: #F5EADD;
+    color: #2C3531;
+}
+body.pagina-machos .machos-categorias .categoria-activa {
+    background: #526B50;
+    color: #fff;
+}
+body.pagina-machos .filtro-talla-desktop-machos {
+    position: relative;
+    flex: 0 0 178px;
+}
+body.pagina-machos .btn-talla-desktop-machos {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #E5E5E5;
+    border-radius: 28px;
+    color: #2C3531;
+    font: 400 13px 'Poppins', sans-serif;
+    cursor: pointer;
+}
+body.pagina-machos .opciones-talla-desktop-machos,
+body.pagina-machos .opciones-filtro-machos {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 100%;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 8px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid rgba(82,107,80,.16);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(43,43,43,.12);
+    z-index: 1000;
+}
+body.pagina-machos .opciones-talla-desktop-machos[hidden],
+body.pagina-machos .opciones-filtro-machos[hidden] { display: none !important; }
+body.pagina-machos .opciones-talla-desktop-machos button,
+body.pagina-machos .opciones-filtro-machos button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #526B50;
+    font: 400 12px 'Poppins', sans-serif;
+    text-align: left;
+    cursor: pointer;
+}
+body.pagina-machos .opciones-talla-desktop-machos button:hover,
+body.pagina-machos .opciones-filtro-machos button:hover,
+body.pagina-machos .opcion-seleccionada {
+    background: rgba(122,155,118,.15);
+}
+body.pagina-machos .filtros-movil-machos { display: none; }
+
+/* Cuadrícula y tarjetas — replica estructura visual de NAVIDAD */
+body.pagina-machos .productos-grid {
+    width: min(calc(100% - 48px), 1110px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 28px;
+}
+body.pagina-machos .producto-catalogo[hidden] { display: none !important; }
+body.pagina-machos .producto-catalogo.machos-card {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(112,91,65,.10);
+    border-radius: 15px;
+    background: rgba(255,247,237,.94);
+    box-shadow: 0 8px 20px rgba(62,47,31,.13);
+    color: inherit;
+    text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+body.pagina-machos .producto-catalogo.machos-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 13px 26px rgba(62,47,31,.17);
+}
+body.pagina-machos .catalogo-foto {
+    position: relative;
+    overflow: hidden;
+    background: #EFE5D8;
+}
+body.pagina-machos .catalogo-foto img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+body.pagina-machos .catalogo-datos {
+    padding: 13px 16px 9px;
+    text-align: left;
+}
+body.pagina-machos .catalogo-datos h2 {
+    margin: 0 0 9px;
+    color: #292D29;
+    font: 600 14px/1.45 'Poppins', sans-serif;
+}
+body.pagina-machos .precio-simple-machos {
+    display: inline-block;
+    width: fit-content;
+    margin: 5px 0 2px;
+    padding: 6px 12px;
+    border-radius: 22px;
+    background: #7A9B76;
+    color: #fff;
+    font: 600 13px/1.25 'Poppins', sans-serif;
+}
+body.pagina-machos .precio-machos-fila {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 5px 0 2px;
+}
+body.pagina-machos .precio-regular-machos {
+    color: #8B8B80;
+    font: 400 12px 'Poppins', sans-serif;
+    text-decoration: line-through;
+}
+body.pagina-machos .precio-destacado-machos {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 22px;
+    background: #E63946;
+    color: #fff;
+    font: 600 13px/1.25 'Poppins', sans-serif;
+}
+body.pagina-machos .ahorro-machos {
+    display: inline-block;
+    margin: 4px 0 1px;
+    color: #668565;
+    font: 500 10px 'Poppins', sans-serif;
+}
+body.pagina-machos .aviso-precio-talla-machos {
+    display: inline-block;
+    margin: 6px 0 2px;
+    padding: 3px 8px;
+    border-radius: 14px;
+    background: rgba(122,155,118,.17);
+    color: #526B50;
+    font: 500 10px/1.4 'Poppins', sans-serif;
+}
+body.pagina-machos .etiqueta-machos {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    z-index: 2;
+    padding: 8px 12px;
+    border-radius: 22px;
+    background: #FF6600;
+    color: #fff;
+    font: 600 10px 'Poppins', sans-serif;
+    letter-spacing: .5px;
+    box-shadow: 0 3px 10px rgba(90,30,25,.18);
+}
+body.pagina-machos .machos-sin-resultados {
+    padding: 28px 12px;
+    color: #526B50;
+    font: 500 14px 'Poppins', sans-serif;
+    text-align: center;
+}
+
+/* Ajustes tablet y móvil */
+@media (max-width: 900px) {
+    body.pagina-machos .machos-controles { width: calc(100% - 36px); padding: 7px 12px; }
+    body.pagina-machos .machos-categorias button { padding: 10px 8px; font-size: 11px; }
+    body.pagina-machos .productos-grid { width: calc(100% - 36px); gap: 18px; }
+}
+@media (max-width: 600px) {
+    body.pagina-machos { background-attachment: scroll; background-size: auto 100vh; }
+    body.pagina-machos .catalogo-hembras { padding: 28px 0 48px; }
+    body.pagina-machos .catalogo-header { margin: 24px auto 22px; }
+    body.pagina-machos .catalogo-header h1 { font-size: 46px; }
+    body.pagina-machos .catalogo-header p { font-size: 12px; line-height: 1.7; }
+    body.pagina-machos .machos-controles {
+        display: block;
+        width: 100%;
+        min-height: 0;
+        margin: 0 auto 24px;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
+    }
+    body.pagina-machos .machos-categorias,
+    body.pagina-machos .filtro-talla-desktop-machos { display: none; }
+    body.pagina-machos .filtros-movil-machos {
+        display: flex;
+        width: calc(100% - 36px);
+        max-width: 440px;
+        margin: 0 auto;
+        gap: 10px;
+    }
+    body.pagina-machos .filtro-desplegable-machos { position: relative; flex: 1 1 0; min-width: 0; }
+    body.pagina-machos .btn-filtro-machos {
+        width: 100%;
+        height: 43px;
+        padding: 0 9px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 4px;
+        border: 1px solid rgba(122,155,118,.55);
+        border-radius: 13px;
+        background: rgba(255,250,242,.96);
+        color: #526B50;
+        box-shadow: 0 3px 9px rgba(65,55,40,.07);
+        font: 500 10px 'Poppins', sans-serif;
+        cursor: pointer;
+    }
+    body.pagina-machos .btn-filtro-machos span:first-child {
+        overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    body.pagina-machos .opciones-filtro-machos { left: 0; right: auto; min-width: 145px; }
+    body.pagina-machos .productos-grid {
+        width: calc(100% - 28px);
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 14px;
+    }
+    body.pagina-machos .producto-catalogo.machos-card { border-radius: 12px; }
+    body.pagina-machos .catalogo-foto img { aspect-ratio: 1 / 1.08; }
+    body.pagina-machos .catalogo-datos { padding: 10px 10px 7px; }
+    body.pagina-machos .catalogo-datos h2 { font-size: 11px; margin-bottom: 7px; }
+    body.pagina-machos .precio-simple-machos { padding: 5px 8px; font-size: 10px; }
+    body.pagina-machos .precio-machos-fila { gap: 5px; }
+    body.pagina-machos .precio-regular-machos { font-size: 9px; }
+    body.pagina-machos .precio-destacado-machos { padding: 5px 8px; font-size: 10px; }
+    body.pagina-machos .aviso-precio-talla-machos { font-size: 8px; padding: 3px 6px; }
+    body.pagina-machos .etiqueta-machos { top: 8px; left: 8px; padding: 7px 9px; font-size: 8px; }
+}
+@media (max-width: 768px) {
+    body.pagina-machos { background-attachment: scroll; }
+}
+   /* =========================================================
+   AJUSTE FINAL DE TARJETAS MACHOS
+   Alturas uniformes, precios compactos y avisos consistentes
+========================================================= */
+
+/* Cada fila de la cuadrícula comparte altura y todas las tarjetas
+   mantienen la misma estructura vertical. */
+body.pagina-machos .productos-grid {
+    align-items: stretch;
+    grid-auto-rows: 1fr;
+}
+body.pagina-machos .producto-catalogo.machos-card {
+    height: 100%;
+    min-height: 0;
+    display: flex !important;
+    flex-direction: column;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-foto {
+    flex: 0 0 auto;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    padding: 13px 16px 12px;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+    min-height: 1.45em;
+    margin: 0 0 8px;
+}
+
+/* "Desde" debe ser una cápsula ajustada al texto, nunca un bloque ancho. */
+body.pagina-machos .precio-simple-machos {
     display: inline-flex !important;
+    align-self: flex-start;
+    align-items: center;
+    width: auto !important;
+    max-width: 100%;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    box-sizing: border-box;
+    margin: 3px 0 2px !important;
+    padding: 6px 12px !important;
+    border: 0 !important;
+    border-radius: 22px !important;
+    background: #7A9B76 !important;
+    color: #FFFFFF !important;
+    box-shadow: none !important;
+    font: 600 13px/1.3 'Poppins', sans-serif !important;
+    white-space: normal;
+}
+
+/* Promociones: precio promocional naranja, a juego con su etiqueta. */
+body.pagina-machos .precio-destacado-machos {
+    display: inline-flex !important;
+    align-items: center;
+    width: auto !important;
+    max-width: 100%;
+    min-height: 0 !important;
+    box-sizing: border-box;
+    padding: 6px 12px !important;
+    border: 0 !important;
+    border-radius: 22px !important;
+    background: #FF6600 !important;
+    color: #FFFFFF !important;
+    box-shadow: none !important;
+    font: 600 13px/1.3 'Poppins', sans-serif !important;
+}
+body.pagina-machos .precio-machos-fila {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    margin: 3px 0 2px;
+}
+body.pagina-machos .precio-regular-machos {
+    color: #8B8B80 !important;
+    font: 400 12px 'Poppins', sans-serif !important;
+    text-decoration: line-through !important;
+}
+body.pagina-machos .ahorro-machos {
+    display: inline-block;
+    width: auto !important;
+    margin: 4px 0 2px;
+    padding: 0;
+    background: transparent !important;
+    color: #668565 !important;
+    font: 500 10px/1.4 'Poppins', sans-serif !important;
+}
+
+/* El aviso aparece en todas las tarjetas, siempre como cápsula pequeña. */
+body.pagina-machos .aviso-precio-talla-machos {
+    display: inline-flex !important;
+    align-items: center;
+    align-self: flex-start;
+    width: auto !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: auto 0 0 !important;
+    padding: 3px 8px !important;
+    border: 0 !important;
+    border-radius: 14px !important;
+    background: rgba(122,155,118,.17) !important;
+    color: #526B50 !important;
+    box-shadow: none !important;
+    font: 500 10px/1.4 'Poppins', sans-serif !important;
+}
+
+/* Asegura que la imagen no altere la altura de las tarjetas en móvil. */
+@media (max-width: 600px) {
+    body.pagina-machos .productos-grid {
+        grid-auto-rows: 1fr;
+        align-items: stretch;
+    }
+    body.pagina-machos .producto-catalogo.machos-card {
+        height: 100%;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-foto {
+        aspect-ratio: 1 / 1.08;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+        aspect-ratio: 1 / 1.08;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+        padding: 10px 10px 9px;
+    }
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+        min-height: 2.9em;
+        margin-bottom: 6px;
+        font-size: 11px;
+    }
+    body.pagina-machos .precio-simple-machos,
+    body.pagina-machos .precio-destacado-machos {
+        padding: 5px 8px !important;
+        font-size: 10px !important;
+    }
+    body.pagina-machos .precio-regular-machos {
+        font-size: 9px !important;
+    }
+    body.pagina-machos .aviso-precio-talla-machos {
+        font-size: 8px !important;
+        padding: 3px 6px !important;
+    }
+}
+   /* FIX DEFINITIVO: cápsulas de precio compactas; no heredan estilos de <p>. */
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos > .precio-simple-machos {
+    display: inline-block !important;
+    position: static !important;
     flex: 0 0 auto !important;
     align-self: flex-start !important;
-    width: fit-content !important;
+    width: max-content !important;
+    min-width: 0 !important;
     max-width: 100% !important;
-    min-height: 0 !important;
     height: auto !important;
-    margin: 0 !important;
-    padding: 3px 7px !important;
-    font-size: 8px !important;
-    line-height: 1.25 !important;
-    white-space: normal !important;
-  }
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+    margin: 3px 0 2px !important;
+    padding: 6px 12px !important;
+    border: 0 !important;
+    border-radius: 22px !important;
+    background: #7A9B76 !important;
+    color: #FFFFFF !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    white-space: nowrap !important;
+    box-shadow: none !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos > .precio-destacado-machos {
+    display: inline-block !important;
+    flex: 0 0 auto !important;
+    align-self: flex-start !important;
+    width: max-content !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    white-space: nowrap !important;
+    background: #FF6600 !important;
+}
+@media (max-width: 600px) {
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos > .precio-simple-machos,
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos > .precio-destacado-machos {
+        padding: 5px 8px !important;
+        font-size: 10px !important;
+    }
+}
+   /* ===== MACHOS: ajuste final fiel a la referencia visual aprobada ===== */
+body.pagina-machos .productos-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+  gap: 28px;
+}
+body.pagina-machos .producto-catalogo.machos-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-foto {
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+  flex: 1 1 auto;
+  display: grid !important;
+  grid-template-rows: minmax(2.8em, auto) minmax(34px, auto) minmax(14px, auto) auto;
+  align-content: start;
+  align-items: start;
+  gap: 4px;
+  min-width: 0;
+  padding: 12px 16px 11px;
+  box-sizing: border-box;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+  align-self: center;
+  min-height: 0;
+  margin: 0 !important;
+  color: #292D29;
+  font: 600 14px/1.4 'Poppins', sans-serif;
+}
 
-  /* Productos agotados y elementos especiales no pierden su visibilidad. */
-  body.pagina-hembras .productos-grid > .producto-agotado {
-    align-self: stretch !important;
+/* Precio normal o "Desde": cápsula verde pequeña, ajustada al texto. */
+body.pagina-machos .producto-catalogo.machos-card .precio-simple-machos {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-self: start !important;
+  align-items: center;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 6px 12px !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  border: 0 !important;
+  border-radius: 24px !important;
+  background: #7A9B76 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  font: 600 13px/1.25 'Poppins', sans-serif !important;
+}
+
+/* Fila de promoción: precio anterior tachado + precio promocional naranja. */
+body.pagina-machos .producto-catalogo.machos-card .precio-machos-fila {
+  display: flex !important;
+  align-items: center;
+  align-self: start;
+  justify-self: start;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  min-height: 34px;
+  margin: 0 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .precio-regular-machos {
+  display: inline-block;
+  width: auto !important;
+  padding: 6px 0;
+  margin: 0 !important;
+  background: transparent !important;
+  color: #8B8B80 !important;
+  font: 400 12px/1.25 'Poppins', sans-serif !important;
+  text-decoration: line-through !important;
+  white-space: nowrap;
+}
+body.pagina-machos .producto-catalogo.machos-card .precio-destacado-machos {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-items: center;
+  width: max-content !important;
+  min-width: 0 !important;
+  max-width: 100%;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 6px 12px !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  border: 0 !important;
+  border-radius: 24px !important;
+  background: #FF6600 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  white-space: nowrap !important;
+  font: 600 13px/1.25 'Poppins', sans-serif !important;
+}
+
+/* Ahorro en texto discreto y aviso idéntico en todas las tarjetas. */
+body.pagina-machos .producto-catalogo.machos-card .ahorro-machos {
+  display: inline-block !important;
+  align-self: start;
+  width: auto !important;
+  min-height: 14px;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  color: #668565 !important;
+  font: 500 10px/1.4 'Poppins', sans-serif !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
+  display: inline-flex !important;
+  justify-self: start !important;
+  align-self: end !important;
+  align-items: center;
+  width: max-content !important;
+  max-width: 100%;
+  min-height: 0 !important;
+  padding: 3px 8px !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  border: 0 !important;
+  border-radius: 15px !important;
+  background: rgba(122,155,118,.17) !important;
+  color: #526B50 !important;
+  box-shadow: none !important;
+  white-space: nowrap;
+  font: 500 10px/1.35 'Poppins', sans-serif !important;
+}
+
+/* Etiqueta de promoción */
+body.pagina-machos .producto-catalogo.machos-card .etiqueta-machos {
+  background: #FF6600 !important;
+  color: #fff !important;
+  border-radius: 24px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  body.pagina-machos .productos-grid {
+    width: calc(100% - 36px);
+    gap: 18px;
   }
 }
-</style>
-
-</head>
+/* Móvil: dos columnas, alturas y proporciones coherentes. */
+@media (max-width: 600px) {
+  body.pagina-machos .productos-grid {
+    width: calc(100% - 28px);
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: 1fr;
+    gap: 14px;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-foto,
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+    aspect-ratio: 1 / 1.08;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+    grid-template-rows: minmax(2.8em, auto) minmax(30px, auto) minmax(13px, auto) auto;
+    gap: 3px;
+    padding: 9px 9px 8px;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .precio-simple-machos,
+  body.pagina-machos .producto-catalogo.machos-card .precio-destacado-machos {
+    padding: 5px 8px !important;
+    font-size: 10px !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .precio-regular-machos {
+    font-size: 9px !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
+    padding: 3px 6px !important;
+    font-size: 8px !important;
+  }
+}
+   /* FIX CRÍTICO: las tarjetas ocultas por los filtros no deben volver a mostrarse.
+   La regla display:flex de las tarjetas tenía mayor prioridad que el atributo hidden. */
+body.pagina-machos .productos-grid .producto-catalogo.machos-card[hidden] {
+    display: none !important;
+}
+body.pagina-machos .productos-grid .producto-catalogo.machos-card:not([hidden]) {
+    display: flex !important;
+}
+   /* =========================================================
+   MACHOS DEFINITIVO — TARJETAS COMPACTAS SIN ESPACIO VACÍO
+   Se conserva la estructura, filtros y productos existentes.
+========================================================= */
+body.pagina-machos .productos-grid {
+  grid-auto-rows: auto !important;
+  align-items: start !important;
+}
+body.pagina-machos .producto-catalogo.machos-card {
+  height: auto !important;
+  min-height: 0 !important;
+  align-self: start !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+  display: flex !important;
+  flex: 0 0 auto !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 5px !important;
+  padding: 12px 15px 11px !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+  width: 100%;
+  min-height: 0 !important;
+  margin: 0 0 3px !important;
+  line-height: 1.4 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .precio-simple-machos,
+body.pagina-machos .producto-catalogo.machos-card .precio-destacado-machos {
+  margin: 0 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .precio-machos-fila {
+  margin: 0 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .ahorro-machos {
+  margin: 0 !important;
+}
+body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
+  margin: 0 !important;
+  align-self: flex-start !important;
+}
+@media (max-width: 600px) {
+  body.pagina-machos .productos-grid {
+    grid-auto-rows: auto !important;
+    align-items: start !important;
+    gap: 12px !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card {
+    height: auto !important;
+    align-self: start !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-foto,
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-foto img {
+    aspect-ratio: 1 / 1 !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-datos {
+    flex: 0 0 auto !important;
+    gap: 5px !important;
+    padding: 9px 9px 9px !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .catalogo-datos h2 {
+    min-height: 2.7em !important;
+    margin: 0 0 2px !important;
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+  }
+  body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
+    margin-top: 0 !important;
+  }
+}
+  </style>
+ </head>
  <body class="pagina-machos">
 <header class="header">
     <div class="nav-container">
@@ -364,12 +1047,9 @@
       <img alt="Puffer Nube de Invierno" src="../IMAGENES/Puffer Nube de Invierno.jpeg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Puffer Nube de Invierno
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 32.00
       </span>
@@ -383,12 +1063,9 @@
       <img alt="Casaca Alpinista" src="../IMAGENES/Casaca Alpinista.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Casaca Alpinista
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 40.00
       </span>
@@ -402,12 +1079,9 @@
       <img alt="Duo Oto&ntilde;o Urbano" src="../IMAGENES/Duo Oto&ntilde;o Urbano.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Duo Oto&ntilde;o Urbano
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 30.00
       </span>
@@ -421,12 +1095,9 @@
       <img alt="Hoodie Huellita Urbana" src="../IMAGENES/Hoodie Huellita Urbana.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Hoodie Huellita Urbana
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 30.00
       </span>
@@ -440,12 +1111,9 @@
       <img alt="Puffer Refugio Alpino" src="../IMAGENES/Puffer Refugio Alpino.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Puffer Refugio Alpino
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 34.00
       </span>
@@ -459,12 +1127,9 @@
       <img alt="Cacao Universitario" src="../IMAGENES/Cacao Universitario.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Cacao Universitario
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 32.00
       </span>
@@ -478,12 +1143,9 @@
       <img alt="Sudadera Marfil Urbano" src="../IMAGENES/Sudadera Marfil Urbano.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera Marfil Urbano
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 28.00
       </span>
@@ -497,12 +1159,9 @@
       <img alt="Parka Amanecer Andino" src="../IMAGENES/Parka Amanecer Andino.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Parka Amanecer Andino
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 32.00
       </span>
@@ -516,12 +1175,9 @@
       <img alt="Casaca Brisa de Mar" src="../IMAGENES/Casaca Brisa de Mar.jpeg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Casaca Brisa de Mar
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 36.00
       </span>
@@ -535,12 +1191,9 @@
       <img alt="Disfraz de Baloncesto" src="../IMAGENES/Disfraz Baloncesto.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Disfraz de Baloncesto
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -554,12 +1207,9 @@
       <img alt="Polo Vintage Fantasy" src="../IMAGENES/Polo Vintage Fantasy.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Polo Vintage Fantasy
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -573,12 +1223,9 @@
       <img alt="Impermeable Osito" src="../IMAGENES/Impermeable Osito.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Impermeable Osito
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 30.00
       </span>
@@ -592,12 +1239,9 @@
       <img alt="Overol Mini Saurio" src="../IMAGENES/Oberol Mini Saurio.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Overol Mini Saurio
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -611,12 +1255,9 @@
       <img alt="Enterizo Soft Quilt" src="../IMAGENES/Enterizo Soft Quilt.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Enterizo Soft Quilt
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 40.00
       </span>
@@ -630,12 +1271,9 @@
       <img alt="Su&eacute;ter DoggieMatch" src="../IMAGENES/Sueter Doggie Match.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Su&eacute;ter DoggieMatch
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 33.00
       </span>
@@ -649,12 +1287,9 @@
       <img alt="Polos Rayas de Verano" src="../IMAGENES/Polo Rayas de Verano.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Polos Rayas de Verano
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 36.00
       </span>
@@ -668,12 +1303,9 @@
       <img alt="Gabardina Real" src="../IMAGENES/Gabardina Real.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Gabardina Real
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 48.00
       </span>
@@ -687,12 +1319,9 @@
       <img alt="Polo Gal&aacute;n de Verano" src="../IMAGENES/Polo Galan de Verano.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Polo Gal&aacute;n de Verano
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 34.00
       </span>
@@ -706,12 +1335,9 @@
       <img alt="Sudadera de Mimos" src="../IMAGENES/Sudadera de Mimos.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera de Mimos
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -725,12 +1351,9 @@
       <img alt="Sudadera Urbana" src="../IMAGENES/Sudadera Urbana.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera Urbana
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
-</div>
       <span class="precio-simple-machos">
        S/ 36.00
       </span>
@@ -744,12 +1367,9 @@
       <img alt="Sudadera Deportiva" src="../IMAGENES/Sudadera Deportiva.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera Deportiva
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <span class="precio-simple-machos">
        Desde S/ 36.00
       </span>
@@ -766,12 +1386,9 @@
       <img alt="Chompa The Cat Face" src="../IMAGENES/chompa-the-cat-face.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Chompa The Cat Face
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 28.50
@@ -796,12 +1413,9 @@
       <img alt="Tejido Toffee" src="../IMAGENES/tejido-toffee.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Tejido Toffee
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 28.50
@@ -826,12 +1440,9 @@
       <img alt="Abrigo Orejas de Algod&oacute;n" src="../IMAGENES/abrigo-orejas-de-algodon.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Abrigo Orejas de Algod&oacute;n
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 42.00
@@ -856,12 +1467,9 @@
       <img alt="Cafarena Avellana Tostada" src="../IMAGENES/cafarena-avellana-tostada.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Cafarena Avellana Tostada
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 33.00
@@ -886,12 +1494,9 @@
       <img alt="Peque&ntilde;o Ejecutivo" src="../IMAGENES/pequeno-ejecutivo.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Peque&ntilde;o Ejecutivo
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 27.00
@@ -916,12 +1521,9 @@
       <img alt="Chompa Snoopy" src="../IMAGENES/chompa-snoopy.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Chompa Snoopy
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 30.00
@@ -946,12 +1548,9 @@
       <img alt="Abrigo Faro del Norte" src="../IMAGENES/abrigo-faro-del-norte.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Abrigo Faro del Norte
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 34.50
@@ -976,12 +1575,9 @@
       <img alt="Chaleco Texturizado" src="../IMAGENES/chaleco-texturizado.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Chaleco Texturizado
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 30.00
@@ -1006,12 +1602,9 @@
       <img alt="Sweater Sr Teddy" src="../IMAGENES/sweater-sr-teddy.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sweater Sr Teddy
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 34.50
@@ -1036,12 +1629,9 @@
       <img alt="Cafarena B&aacute;sica" src="../IMAGENES/cafarena-basica.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Cafarena B&aacute;sica
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">4</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 27.00
@@ -1066,12 +1656,9 @@
       <img alt="Sudadera Dino-Pocket" src="../IMAGENES/sudadera-dino-pocket.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera Dino-Pocket
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 33.00
@@ -1096,12 +1683,9 @@
       <img alt="Su&eacute;ter Oxford de Punto" src="../IMAGENES/sueter-oxford-de-punto.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Su&eacute;ter Oxford de Punto
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">4</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 39.00
@@ -1126,12 +1710,9 @@
       <img alt="Chaleco Linear Confort" src="../IMAGENES/chaleco-linear-confort.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Chaleco Linear Confort
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 30.00
@@ -1156,12 +1737,9 @@
       <img alt="Sudadera Consentido de Mam&aacute;" src="../IMAGENES/sudadera-consentido-de-mama.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera Consentido de Mam&aacute;
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">7</span><span class="talla-chip">8</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 45.75
@@ -1186,12 +1764,9 @@
       <img alt="Sudadera Huellita" src="../IMAGENES/sudadera-huellita.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera Huellita
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">6</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 42.00
@@ -1216,12 +1791,9 @@
       <img alt="Sudadera I Love My Mom" src="../IMAGENES/sudadera-i-love-my-mom.jpg"/>
      </div>
      <div class="catalogo-datos">
-<div class="catalogo-titulo-tallas">
-<h2>
+      <h2>
        Sudadera I Love My Mom
       </h2>
-<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">7</span><span class="talla-chip">8</span></div>
-</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 42.00
