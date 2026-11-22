@@ -1268,7 +1268,118 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
   body.pagina-hembras .productos-grid {margin-top:0 !important}
 }
   </style>
- </head>
+ <style>
+
+/* KÚMINO — TALLAS VISIBLES Y TARJETAS UNIFORMES EN MÓVIL */
+.productos-grid .catalogo-titulo-tallas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+}
+.productos-grid .catalogo-titulo-tallas h2 {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0 !important;
+}
+.productos-grid .tallas-disponibles {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.productos-grid .talla-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background: #7A9B76;
+    color: #fff;
+    font: 600 10px/1 'Poppins', sans-serif;
+}
+@media (max-width: 600px) {
+    .productos-grid {
+        grid-auto-rows: 1fr !important;
+        align-items: stretch !important;
+    }
+    .productos-grid > .producto-catalogo,
+    .productos-grid > .producto-enlace {
+        display: flex !important;
+        height: 100% !important;
+        min-width: 0;
+        align-self: stretch !important;
+    }
+    .productos-grid .producto-catalogo {
+        display: flex !important;
+        flex: 1 1 auto;
+        flex-direction: column !important;
+        height: 100% !important;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .productos-grid .catalogo-foto,
+    .productos-grid .catalogo-foto img {
+        width: 100%;
+        aspect-ratio: 1 / 1 !important;
+    }
+    .productos-grid .catalogo-foto img {
+        display: block;
+        height: auto;
+        object-fit: cover;
+    }
+    .productos-grid .catalogo-datos {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        min-width: 0;
+        gap: 6px !important;
+        box-sizing: border-box;
+    }
+    .productos-grid .catalogo-titulo-tallas {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 5px !important;
+        width: 100%;
+        min-height: 0 !important;
+        margin: 0 0 2px !important;
+    }
+    .productos-grid .catalogo-titulo-tallas h2 {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0;
+        min-height: 0 !important;
+        margin: 0 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        overflow-wrap: break-word;
+    }
+    .productos-grid .tallas-disponibles {
+        align-self: flex-start;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .productos-grid .talla-chip {
+        min-width: 21px;
+        width: 21px;
+        height: 21px;
+        padding: 0;
+        font-size: 9px;
+    }
+}
+
+</style>
+</head>
  <body class="pagina-hembras">
  <!-- =========================
      HEADER
@@ -1491,9 +1602,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Encaje Coquette" src="../IMAGENES/Encaje Coquette.jpeg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Encaje Coquette
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 23.00
       </p>
@@ -1509,9 +1623,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Abrigo Duquesa de Invierno" src="../IMAGENES/Abrigo Duquesa de Invierno.jpeg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Abrigo Duquesa de Invierno
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 38.00
       </p>
@@ -1527,9 +1644,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Puffer Nube de Invierno" src="../IMAGENES/Puffer Nube de Invierno.jpeg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Puffer Nube de Invierno
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 32.00
       </p>
@@ -1545,9 +1665,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Casaca Brisa de Mar" src="../IMAGENES/Casaca Brisa de Mar.jpeg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Casaca Brisa de Mar
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 36.00
       </p>
@@ -1563,9 +1686,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Casaca Latidos de Algod&oacute;n" src="../IMAGENES/Casaca Latidos de Algod&oacute;n.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Casaca Latidos de Algod&oacute;n
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 30.00
       </p>
@@ -1581,9 +1707,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Chompa de Hilo" src="../IMAGENES/Chompa de Hilo.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Chompa de Hilo
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 16.00
       </p>
@@ -1599,9 +1728,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Pijama Sue&ntilde;o de Oso" src="../IMAGENES/Pijama Sue&ntilde;o de Oso.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Pijama Sue&ntilde;o de Oso
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <p>
        Desde S/ 35.00
       </p>
@@ -1617,9 +1749,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Blusa Baby Bear" src="../IMAGENES/Blusa Baby Bear.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Blusa Baby Bear
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 39.00
       </p>
@@ -1635,9 +1770,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Hilado Fantas&iacute;a de Corazones" src="../IMAGENES/Hilado Fantas&iacute;a de Corazones.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Hilado Fantas&iacute;a de Corazones
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">0</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 12.00
       </p>
@@ -1653,9 +1791,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Fresa Encantada" src="../IMAGENES/Vestido Fresa Encantada.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Fresa Encantada
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 25.00
       </p>
@@ -1671,9 +1812,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Hacienda Real" src="../IMAGENES/Vestido Hacienda Real.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Hacienda Real
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 32.00
       </p>
@@ -1689,9 +1833,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Pink Blossom" src="../IMAGENES/Vestido Pink Blossom.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Pink Blossom
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 41.00
       </p>
@@ -1707,9 +1854,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Coquette Blossom" src="../IMAGENES/Vestido Coquette Blossom.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Coquette Blossom
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 35.00
       </p>
@@ -1725,9 +1875,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Dulce Primavera" src="../IMAGENES/Vestido Dulce Primavera.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Dulce Primavera
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 41.00
       </p>
@@ -1743,9 +1896,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Novia Elegante" src="../IMAGENES/Vestido Novia Elegante.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Novia Elegante
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 39.00
       </p>
@@ -1761,9 +1917,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido de Boda" src="../IMAGENES/Vestido de Boda.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido de Boda
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 41.00
       </p>
@@ -1779,9 +1938,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Gala Floral Pink" src="../IMAGENES/Gala Floral Pink.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Gala Floral Pink
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 33.00
       </p>
@@ -1797,9 +1959,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Ruffle Dress" src="../IMAGENES/Ruffle Dress.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Ruffle Dress
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <p>
        Desde S/ 32.00
       </p>
@@ -1815,9 +1980,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Lazo de Cereza" src="../IMAGENES/Vestido Lazo de Cereza.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Lazo de Cereza
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 35.00
       </p>
@@ -1833,9 +2001,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Cortavientos Pink Pocket" src="../IMAGENES/Cortavientos Pink Pocket.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Cortavientos Pink Pocket
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 37.00
       </p>
@@ -1851,9 +2022,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Cortavientos Pink Purpple" src="../IMAGENES/Cortavientos Pink Purpple.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Cortavientos Pink Purpple
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 35.00
       </p>
@@ -1869,9 +2043,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido de Princesa" src="../IMAGENES/Vestido Princesa.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido de Princesa
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 52.00
       </p>
@@ -1887,9 +2064,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Princesa de Hielo" src="../IMAGENES/Vestido Princesa de Hielo.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Princesa de Hielo
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 50.00
       </p>
@@ -1905,9 +2085,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Suspiro de Corazones" src="../IMAGENES/Vestido Suspiro de Corazones.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Suspiro de Corazones
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <p>
        Desde S/ 48.00
       </p>
@@ -1923,9 +2106,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Princess Blue" src="../IMAGENES/Vestido Princess Blue.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Princess Blue
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 50.00
       </p>
@@ -1941,9 +2127,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Lazo Noir" src="../IMAGENES/Vestido Lazo Noir.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Lazo Noir
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 48.00
       </p>
@@ -1959,9 +2148,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Margarita" src="../IMAGENES/Vestido Margarita.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Margarita
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <p>
        Desde S/ 36.00
       </p>
@@ -1977,9 +2169,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Elegancia Real" src="../IMAGENES/Vestido Elegancia Real.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Elegancia Real
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 50.00
       </p>
@@ -1995,9 +2190,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Noche de Diamantes" src="../IMAGENES/Vestido Noche de Diamantes.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Noche de Diamantes
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">5</span><span class="talla-chip">6</span></div>
+</div>
       <p>
        Desde S/ 50.00
       </p>
@@ -2013,9 +2211,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Cafarena Encaje de Angel" src="../IMAGENES/Cafarena Encaje de Angel.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Cafarena Encaje de Angel
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 20.00
       </p>
@@ -2048,9 +2249,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido Rous" src="../IMAGENES/Vestido Rous.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido Rous
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 42.00
       </p>
@@ -2066,9 +2270,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
       <img alt="Vestido de Porrista Tejido" src="../IMAGENES/Vestido de Porrista Tejido.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Vestido de Porrista Tejido
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <p>
        Desde S/ 35.00
       </p>
@@ -2086,9 +2293,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Chaqueta Paris Premium
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 37.50
@@ -2115,9 +2325,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Puffer Dulce Conejito
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 39.00
@@ -2144,9 +2357,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Vestido Pastelito de Invierno
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 37.50
@@ -2173,9 +2389,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Sudadera Mantita Dulce Sue&ntilde;o
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 34.50
@@ -2202,9 +2421,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         D&uacute;o Invernal
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 37.50
@@ -2231,9 +2453,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Cafarena B&aacute;sica
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">4</span></div>
+</div>
        <p>
         <span class="precio-regular">
          Desde S/ 27.00
@@ -2260,9 +2485,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Vestido Bosque de Oto&ntilde;o
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 30.00
@@ -2289,9 +2517,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Polo Jard&iacute;n de Fresas
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 18.00
@@ -2318,9 +2549,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Vestido Lunares
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">0</span></div>
+</div>
        <p>
         <span class="precio-regular">
          S/ 22.50
@@ -2347,9 +2581,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Chaleco Lima Verde
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">4</span><span class="talla-chip">5</span></div>
+</div>
        <p>
         <span class="precio-regular">
          Desde S/ 21.00
@@ -2376,9 +2613,12 @@ body.pagina-hembras .sin-resultados-hembras[hidden] {display:none !important}
        </span>
       </div>
       <div class="catalogo-datos">
-       <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
         Bruma de Amor
        </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
        <p>
         <span class="precio-regular">
          Desde S/ 25.50
