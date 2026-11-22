@@ -144,44 +144,6 @@
             background: #47734b;
         }
 
-        /* OPCIONES DE COLOR: MISMO ESTILO VISUAL DE ESCOCESA */
-        .navidad-colores-opciones {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .navidad-color-opcion {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            padding: 6px 10px;
-            border: 1px solid transparent;
-            border-radius: 22px;
-            background: transparent;
-            color: #514b44;
-            font: inherit;
-            font-size: 13px;
-            cursor: pointer;
-            transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
-        }
-
-        .navidad-color-opcion:hover {
-            background: rgba(255,255,255,.45);
-        }
-
-        .navidad-color-opcion.kumino-color-seleccionado {
-            border-color: #71343a;
-            background: rgba(255,255,255,.55);
-            box-shadow: 0 0 0 1px #71343a;
-        }
-
-        .navidad-color-opcion:focus-visible {
-            outline: 2px solid #71343a;
-            outline-offset: 3px;
-        }
-
         /* TALLAS Y PRECIOS */
 
         .navidad-tallas-precios {
@@ -331,13 +293,13 @@
             }
 
             .navidad-producto-main {
-                padding: 30px 16px 45px;
+                padding: 30px 16px 45px !important;
             }
 
             .navidad-producto-container {
                 grid-template-columns: 1fr;
                 gap: 22px;
-                padding: 0;
+                padding: 0 !important;
                 background: transparent;
                 border: none;
                 border-radius: 0;
@@ -348,23 +310,21 @@
                 width: 100%;
                 height: auto;
                 max-height: none;
-                aspect-ratio: auto;
-                background: transparent;
-                border: none;
+                aspect-ratio: 4 / 5;
                 border-radius: 15px;
                 overflow: hidden;
+                background: transparent;
+                border: none;
                 box-shadow: 0 10px 28px rgba(73,43,28,.18);
             }
 
             .navidad-producto-imagen img {
                 display: block;
                 width: 100%;
-                height: auto;
-                max-height: none;
+                height: 100%;
                 object-fit: contain;
-                object-position: center;
-                mix-blend-mode: normal;
-                filter: none;
+                mix-blend-mode: multiply;
+                filter: drop-shadow(0 10px 16px rgba(65,43,28,.12));
             }
 
             .navidad-producto-categoria {
@@ -521,13 +481,29 @@
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
 
-
+.navidad-color { padding: 5px 8px; border: 1px solid transparent; border-radius: 22px; background: transparent; cursor: pointer; font: inherit; }
+.navidad-color.kumino-color-seleccionado { border-color: #71343a; background: rgba(255,255,255,.55); box-shadow: 0 0 0 1px #71343a; }
+.navidad-color:focus-visible { outline: 2px solid #71343a; outline-offset: 3px; }
+</style>
+<style id="kumino-drawer-global-style">
+#kumino-drawer-toggle{display:inline-flex!important;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid rgba(44,53,49,.18);border-radius:12px;background:#fff;color:#2C3531;font-size:25px;line-height:1;cursor:pointer;z-index:10002;flex:0 0 auto;box-shadow:0 2px 10px rgba(0,0,0,.06)}
+#kumino-drawer-backdrop{position:fixed;inset:0;background:rgba(25,30,27,.48);z-index:10010;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s ease}
+#kumino-drawer{position:fixed;inset:0 auto 0 0;width:min(340px,86vw);height:100dvh;background:#F9F9F8;z-index:10011;transform:translateX(-105%);transition:transform .28s ease;box-shadow:8px 0 32px rgba(0,0,0,.16);display:flex;flex-direction:column;overflow-y:auto;color:#2C3531}
+body.kumino-drawer-open #kumino-drawer{transform:translateX(0)}body.kumino-drawer-open #kumino-drawer-backdrop{opacity:1;visibility:visible}body.kumino-drawer-open{overflow:hidden}
+.kumino-drawer-head{display:flex;align-items:center;justify-content:space-between;padding:23px 22px 18px;border-bottom:1px solid #e8e5df}
+.kumino-drawer-brand{font-family:inherit;font-weight:700;letter-spacing:3px;font-size:22px;color:#2C3531;text-decoration:none}
+#kumino-drawer-close{width:36px;height:36px;border:0;border-radius:50%;background:#eee9e1;color:#2C3531;font-size:23px;cursor:pointer}
+.kumino-drawer-nav{display:flex;flex-direction:column;padding:13px 14px 24px;gap:3px}
+.kumino-drawer-nav a{display:block;padding:12px 14px;border-radius:10px;text-decoration:none!important;color:#2C3531!important;font-family:inherit;font-size:15px;font-weight:500;transition:background .18s ease,color .18s ease}
+.kumino-drawer-nav a:hover,.kumino-drawer-nav a:focus{background:#F5EADD;color:#8d4935!important;outline:none}
+.kumino-drawer-nav a.kumino-drawer-primary{font-weight:700}
+@media(max-width:760px){#kumino-drawer-toggle{width:40px;height:40px}.nav-container{gap:10px}}
 </style>
 </head>
 <body>
 <!-- HEADER -->
 <header class="header">
-<div class="nav-container">
+<div class="nav-container"><button id="kumino-drawer-toggle" class="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="kumino-drawer" aria-expanded="false">☰</button>
 <a class="logo" href="../index.html">KÚMINO</a>
 <nav class="navbar">
 <a href="../index.html">Inicio</a>
@@ -558,18 +534,7 @@
 </section>
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
-<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="1" data-promo-price="33.00" data-regular-price="46.20" type="button"><strong>Talla 1</strong><span class="navidad-precio-regular">S/ 46.20</span><span class="navidad-precio-promo">S/ 33.00</span><span class="navidad-ahorro">Ahorras S/ 13.20</span></button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-promo-price="38.00" data-regular-price="53.20" type="button">
-<strong>Talla 3</strong>
-<span class="navidad-precio-regular">
-                S/ 53.20
-            </span>
-<span class="navidad-precio-promo">
-                S/ 38.00
-            </span>
-<span class="navidad-ahorro">
-                Ahorras S/ 15.20
-            </span>
-</button></div>
+<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="1" data-promo-price="33.00" data-regular-price="46.20" type="button"><strong>Talla 1</strong><span class="navidad-precio-regular">S/ 46.20</span><span class="navidad-precio-promo">S/ 33.00</span><span class="navidad-ahorro">Ahorras S/ 13.20</span></button></div>
 </section>
 <section class="navidad-producto-seccion">
 <h2>Características</h2>
@@ -598,7 +563,7 @@
 </div>
 <div class="footer-contacto" id="contacto">
 <h3>Contáctanos</h3>
-<a href="https://wa.me/51919503045" rel="noopener noreferrer" target="_blank">
+<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">
                     WhatsApp
                 </a>
 <span>Envíos a todo el Perú</span>
@@ -654,7 +619,7 @@
   refresh();
 })();
 </script>
-<script src="../kumino-cart.js"></script>
-<script src="../kumino-mobile-menu.js"></script>
+<script src="../kumino-cart.js"></script><div id="kumino-drawer-backdrop" aria-hidden="true"></div><aside id="kumino-drawer" aria-label="Menú principal KÚMINO" aria-hidden="true"><div class="kumino-drawer-head"><a class="kumino-drawer-brand" href="../index.html">KÚMINO</a><button id="kumino-drawer-close" type="button" aria-label="Cerrar menú">×</button></div><nav class="kumino-drawer-nav"><a class="kumino-drawer-primary" href="../index.html#inicio">Inicio</a><a class="" href="../index.html#coleccion">Colecciones</a><a class="" href="../NAVIDAD/navidad.html">Navidad</a><a class="" href="../HEMBRAS/hembras.html">Hembras</a><a class="" href="../MACHOS/machos.html">Machos</a><a class="" href="../ACCESORIOS/accesorios.html">Accesorios</a><a class="" href="../HALLOWEN/hallowen.html">Disfraces</a><a class="" href="../CASITAS/casitas.html">Casitas</a><a class="" href="../guia-tallas.html">Guía de tallas</a><a class="" href="../index.html#nosotros">Nosotros</a><a class="" href="../index.html#contacto">Contacto</a></nav></aside>
+<script id="kumino-drawer-global-script">(function(){var body=document.body,btn=document.getElementById("kumino-drawer-toggle"),panel=document.getElementById("kumino-drawer"),back=document.getElementById("kumino-drawer-backdrop"),close=document.getElementById("kumino-drawer-close");if(!btn||!panel||!back)return;function open(){body.classList.add("kumino-drawer-open");panel.setAttribute("aria-hidden","false");btn.setAttribute("aria-expanded","true");if(close)close.focus()}function shut(){body.classList.remove("kumino-drawer-open");panel.setAttribute("aria-hidden","true");btn.setAttribute("aria-expanded","false");btn.focus()}btn.addEventListener("click",function(e){e.preventDefault();e.stopImmediatePropagation();open()},true);if(close)close.addEventListener("click",shut);back.addEventListener("click",shut);panel.querySelectorAll("a").forEach(function(a){a.addEventListener("click",shut)});document.addEventListener("keydown",function(e){if(e.key==="Escape"&&body.classList.contains("kumino-drawer-open"))shut()})})();</script>
 </body>
 </html>
