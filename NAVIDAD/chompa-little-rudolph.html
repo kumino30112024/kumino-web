@@ -1,9 +1,11 @@
+
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Chompa Little Rudolph para mascotas - KÚMINO"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Chompa Little Rudolph de la colección Navidad 2026 de KÚMINO. Moda con amor para tu mascota." name="description"/>
 <title>Chompa Little Rudolph | KÚMINO</title>
 <link href="../style.css" rel="stylesheet"/>
 <style>
@@ -518,76 +520,176 @@
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
 
-/* Presentación de talla única disponible */
-.navidad-talla-unica { max-width: 190px; }
-.navidad-talla-unica .navidad-precio-promo { font-size: 15px; }
-.navidad-consulta-precio { display:block; margin-top:5px; color:#62584e; font-size:11px; line-height:1.5; }
-.navidad-color-selector-wrap { margin-top: 13px; }
-.navidad-color-selector-wrap label { display:block; margin-bottom:8px; color:#71343a; font-size:13px; font-weight:600; }
-.navidad-color-selector { width:100%; max-width:320px; padding:11px 13px; border:1px solid rgba(157,122,76,.4); border-radius:9px; background:rgba(255,250,242,.9); color:#514b44; font:inherit; font-size:13px; }
-.navidad-btn-whatsapp { display:flex; justify-content:center; align-items:center; width:100%; margin-top:27px; padding:15px 20px; border-radius:30px; background:#81363d; color:#fff; font-size:13px; font-weight:700; letter-spacing:.3px; text-align:center; text-decoration:none; box-shadow:0 5px 14px rgba(91,35,40,.15); transition:background .2s ease,transform .2s ease; }
-.navidad-btn-whatsapp:hover { background:#672a31; transform:translateY(-2px); }
-@media(max-width:760px){ .navidad-talla-unica{max-width:100%;} .navidad-btn-whatsapp{margin-top:22px;padding:14px;font-size:13px;} }
+/* SELECTOR DE COLORES: MISMO LENGUAJE VISUAL DE LA FICHA ESCOCESA */
+.little-rudolph-colores {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+.little-rudolph-color {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 2px 0;
+    border: 0;
+    background: transparent;
+    color: #514b44;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+.little-rudolph-muestra {
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #b8a99a;
+}
+.little-rudolph-muestra.rojo { background: #a71925; }
+.little-rudolph-muestra.verde { background: #526b50; }
+.little-rudolph-color.seleccionado .little-rudolph-muestra {
+    outline: 2px solid #71343a;
+    outline-offset: 2px;
+}
+.little-rudolph-color:focus-visible {
+    outline: 2px solid rgba(129,54,61,.35);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+.little-rudolph-precio { grid-template-columns: minmax(130px, 150px); }
+.little-rudolph-talla { cursor: default; }
+.little-rudolph-consulta {
+    display: block;
+    color: #963b42;
+    font-size: 12px;
+    line-height: 1.5;
+}
+@media (max-width: 760px) {
+    .little-rudolph-precio { grid-template-columns: minmax(0, 150px); }
+}
+
 </style>
 </head>
 <body>
+<!-- HEADER -->
 <header class="header">
- <div class="nav-container">
-  <a class="logo" href="../index.html">KÚMINO</a>
-  <nav class="navbar"><a href="../index.html">Inicio</a><a class="activo" href="navidad.html">Navidad</a></nav>
-  <a class="btn-contacto" href="#contacto">Contacto</a>
- </div>
+<div class="nav-container">
+<a class="logo" href="../index.html">KÚMINO</a>
+<nav class="navbar">
+<a href="../index.html">Inicio</a>
+<a class="activo" href="navidad.html">Navidad</a>
+</nav>
+<a class="btn-contacto" href="#contacto">Contacto</a>
+</div>
 </header>
+<!-- PRODUCTO -->
 <main class="navidad-producto-main">
- <div class="navidad-producto-container">
-  <div class="navidad-producto-imagen"><img alt="Chompa Little Rudolph para mascotas" src="../IMAGENES/chompalittlerudolph.jpg"/></div>
-  <div class="navidad-producto-info">
-   <span class="navidad-producto-categoria">COLECCIÓN NAVIDEÑA</span>
-   <h1>Chompa Little Rudolph</h1>
-   <span class="navidad-promo-etiqueta">PRECIO PROMOCIONAL</span>
-   <p class="navidad-producto-descripcion">¡Rudolph llega a KÚMINO para llenar de encanto la Navidad! La Chompa Little Rudolph forma parte de nuestra colección especial de temporada, una propuesta de inspiración navideña para darle a tu engreído un look festivo y adorable.</p>
-   <section class="navidad-producto-seccion">
-    <h2>Color</h2>
-    <div class="navidad-color-selector-wrap">
-     <label for="color-little-rudolph">Selecciona el color</label>
-     <select class="navidad-color-selector" id="color-little-rudolph"><option value="Rojo">Rojo</option><option value="Verde">Verde</option></select>
-    </div>
-   </section>
-   <section class="navidad-producto-seccion">
-    <h2>Talla disponible</h2>
-    <div class="navidad-tallas-precios">
-     <div class="navidad-talla-card navidad-talla-unica"><strong>Talla 1</strong><span class="navidad-consulta-precio">Consulta el precio por WhatsApp.</span></div>
-    </div>
-   </section>
-   <section class="navidad-producto-seccion">
-    <h2>Características</h2>
-    <ul class="navidad-caracteristicas">
-     <li>Prenda tipo chompa.</li><li>Diseño de inspiración navideña.</li><li>Temática inspirada en Rudolph.</li><li>Parte de la colección especial de Navidad KÚMINO.</li>
-    </ul>
-   </section>
-   <a class="navidad-btn-whatsapp" id="consulta-little-rudolph" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20consultar%20por%20la%20Chompa%20Little%20Rudolph%20en%20talla%201%20-%20Rojo." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
-   <a class="navidad-volver" href="navidad.html">← Volver a colección</a>
+<div class="navidad-producto-container">
+<!-- IMAGEN -->
+<div class="navidad-producto-imagen">
+<img alt="Chompa Little Rudolph para mascotas" src="../IMAGENES/chompalittlerudolph.jpg"/>
+</div>
+<!-- INFORMACIÓN -->
+<div class="navidad-producto-info">
+<span class="navidad-producto-categoria">
+                    COLECCIÓN NAVIDEÑA
+                </span>
+<h1>Chompa Little Rudolph</h1>
+<span class="navidad-promo-etiqueta">
+                    PRECIO PROMOCIONAL
+                </span>
+<p class="navidad-producto-descripcion">
+                    ¡Rudolph llega a KÚMINO para llenar de encanto la Navidad! La Chompa Little Rudolph forma parte de nuestra colección especial de temporada, una propuesta de inspiración navideña para darle a tu engreído un look festivo y adorable.
+                </p>
+<!-- COLOR -->
+<section class="navidad-producto-seccion">
+<h2>Color</h2>
+<div class="little-rudolph-colores" role="group" aria-label="Selecciona el color">
+  <button class="little-rudolph-color seleccionado" type="button" data-color="Rojo" aria-pressed="true">
+    <span class="little-rudolph-muestra rojo"></span><span>Rojo</span>
+  </button>
+  <button class="little-rudolph-color" type="button" data-color="Verde" aria-pressed="false">
+    <span class="little-rudolph-muestra verde"></span><span>Verde</span>
+  </button>
+</div>
+</section>
+<!-- TALLAS Y PRECIOS -->
+<section class="navidad-producto-seccion">
+<h2>Tallas y precios</h2>
+<div class="navidad-tallas-precios little-rudolph-precio">
+  <div class="navidad-talla-card little-rudolph-talla">
+    <strong>Talla 1</strong>
+    <span class="little-rudolph-consulta">Consulta el precio por WhatsApp</span>
   </div>
- </div>
+</div>
+</section>
+<!-- CARACTERÍSTICAS -->
+<section class="navidad-producto-seccion">
+<h2>Características</h2>
+<ul class="navidad-caracteristicas">
+<li>Prenda tipo chompa.</li>
+<li>Diseño de inspiración navideña.</li>
+<li>Temática inspirada en Rudolph.</li>
+<li>Parte de la colección especial de Navidad KÚMINO.</li>
+</ul>
+</section>
+<!-- WHATSAPP -->
+<a class="navidad-btn-whatsapp" id="little-rudolph-whatsapp" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20consultar%20por%20la%20Chompa%20Little%20Rudolph%20en%20talla%201%20-%20Rojo." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+<!-- VOLVER -->
+<a class="navidad-volver" href="navidad.html">
+                    ← Volver a colección
+                </a>
+</div>
+</div>
 </main>
+<!-- FOOTER -->
 <footer class="footer-kumino">
- <div class="footer-container">
-  <div class="footer-marca"><h2>KÚMINO</h2><p>Moda con amor para tu mascota.</p></div>
-  <div class="footer-enlaces"><h3>Navegación</h3><a href="../index.html">Inicio</a><a href="navidad.html">Navidad</a></div>
-  <div class="footer-contacto" id="contacto"><h3>Contáctanos</h3><a href="https://wa.me/51940151463" target="_blank" rel="noopener noreferrer">WhatsApp</a><span>Envíos a todo el Perú</span></div>
- </div>
- <div class="footer-bottom"><p>© 2026 KÚMINO. Todos los derechos reservados.</p><span>Moda con amor para tu mascota</span></div>
+<div class="footer-container">
+<div class="footer-marca">
+<h2>KÚMINO</h2>
+<p>Moda con amor para tu mascota.</p>
+</div>
+<div class="footer-enlaces">
+<h3>Navegación</h3>
+<a href="../index.html">Inicio</a>
+<a href="navidad.html">Navidad</a>
+</div>
+<div class="footer-contacto" id="contacto">
+<h3>Contáctanos</h3>
+<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">
+                    WhatsApp
+                </a>
+<span>Envíos a todo el Perú</span>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 KÚMINO. Todos los derechos reservados.</p>
+<span>Moda con amor para tu mascota</span>
+</div>
 </footer>
+
 <script>
 (() => {
- const color = document.getElementById('color-little-rudolph');
- const link = document.getElementById('consulta-little-rudolph');
- function updateLink(){
-  const message = `Hola, quisiera consultar por la Chompa Little Rudolph en talla 1 - ${color.value}.`;
-  link.href = 'https://wa.me/51940151463?text=' + encodeURIComponent(message);
- }
- color.addEventListener('change', updateLink);
- updateLink();
+  'use strict';
+  const colorButtons = Array.from(document.querySelectorAll('.little-rudolph-color'));
+  const whatsappLink = document.getElementById('little-rudolph-whatsapp');
+
+  function updateColor(button) {
+    colorButtons.forEach(item => {
+      const active = item === button;
+      item.classList.toggle('seleccionado', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    const color = button.dataset.color;
+    const message = `Hola, quisiera consultar por la Chompa Little Rudolph en talla 1 - ${color}.`;
+    whatsappLink.href = `https://wa.me/51940151463?text=${encodeURIComponent(message)}`;
+  }
+
+  colorButtons.forEach(button => {
+    button.addEventListener('click', () => updateColor(button));
+  });
 })();
 </script>
 </body>
