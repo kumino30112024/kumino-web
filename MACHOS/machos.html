@@ -1488,6 +1488,68 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
 }
 </style>
 
+
+<style>
+/* AJUSTE DEFINITIVO: el precio sigue inmediatamente al nombre */
+@media (max-width: 600px) {
+    .productos-grid > .producto-catalogo .catalogo-datos {
+        gap: 4px !important;
+        justify-content: flex-start !important;
+    }
+
+    .productos-grid > .producto-catalogo .catalogo-titulo-tallas {
+        display: block !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .productos-grid > .producto-catalogo .catalogo-titulo-tallas h2,
+    .productos-grid > .producto-catalogo .catalogo-datos > h2 {
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.25 !important;
+    }
+
+    .productos-grid > .producto-catalogo .precio-simple-machos,
+    .productos-grid > .producto-catalogo .precio-destacado-machos,
+    .productos-grid > .producto-catalogo .precio-simple-accesorios,
+    .productos-grid > .producto-catalogo .precio-machos-fila,
+    .productos-grid > .producto-catalogo .precio-promocional,
+    .productos-grid > .producto-catalogo .precio-regular {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .productos-grid > .producto-catalogo .ahorro-machos,
+    .productos-grid > .producto-catalogo .promo-ahorro {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        line-height: 1.2 !important;
+    }
+
+    .productos-grid > .producto-catalogo .aviso-precio-talla,
+    .productos-grid > .producto-catalogo .aviso-precio-talla-machos {
+        margin: 0 !important;
+        margin-top: 0 !important;
+    }
+
+    /* Mantener alturas de tarjeta uniformes sin reservar espacio bajo títulos cortos */
+    .productos-grid {
+        grid-auto-rows: 1fr !important;
+        align-items: stretch !important;
+    }
+
+    .productos-grid > .producto-catalogo {
+        height: 100% !important;
+        min-height: 0 !important;
+    }
+}
+</style>
+
 </head>
  <body class="pagina-machos">
 <header class="header">
