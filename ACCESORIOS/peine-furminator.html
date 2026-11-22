@@ -1,260 +1,166 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Peine Furminator | KÚMINO</title>
+<link href="../style.css" rel="stylesheet"/>
 
-    <title>Peine Furminator | KÚMINO</title>
-
-    <link rel="stylesheet" href="../style.css">
-</head>
-
+<style id="kumino-accesorios-cart-style">
+.color-opcion[data-kumino-color], .tallas-precios [data-kumino-size] { cursor:pointer; }
+.color-opcion[data-kumino-color] { display:inline-flex; align-items:center; gap:9px; border:1px solid rgba(157,122,76,.28); border-radius:22px; padding:7px 12px; margin:3px 7px 7px 0; background:rgba(255,250,242,.72); font:inherit; color:inherit; }
+.color-opcion.kumino-color-seleccionado, .tallas-precios [data-kumino-size].kumino-talla-seleccionada { border:2px solid #81363d !important; background:rgba(255,245,238,.96) !important; box-shadow:0 3px 10px rgba(91,35,40,.12); }
+.tallas-precios [data-kumino-size] { width:100%; display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 12px; margin:6px 0; border:1px solid rgba(157,122,76,.28); border-radius:10px; background:rgba(255,250,242,.72); color:inherit; font:inherit; text-align:left; }
+.kumino-accesorio-add { display:flex; justify-content:center; align-items:center; width:100%; margin-top:22px; padding:15px 20px; border:0; border-radius:30px; background:#526B50; color:#fff; font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+.kumino-accesorio-add:disabled { opacity:.5; cursor:not-allowed; }
+.kumino-accesorio-notice { display:block; min-height:18px; margin-top:8px; color:#81363d; font-size:12px; }
+</style></head>
 <body>
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="nav-container">
-
-            <a href="../index.html" class="logo">
+<!-- HEADER -->
+<header class="header">
+<div class="nav-container">
+<a class="logo" href="../index.html">
                 KÚMINO
             </a>
-
-            <nav class="navbar">
-
-                <a href="../index.html">
+<nav class="navbar">
+<a href="../index.html">
                     Inicio
                 </a>
-
-                <a href="../MACHOS/machos.html">
+<a href="../MACHOS/machos.html">
                     Machos
                 </a>
-
-                <a href="accesorios.html" class="activo">
+<a class="activo" href="accesorios.html">
                     Accesorios
                 </a>
-
-            </nav>
-
-            <a href="https://wa.me/51940151463" class="btn-contacto" target="_blank">
+</nav>
+<a class="btn-contacto" href="https://wa.me/51940151463" target="_blank">
                 Contacto
             </a>
-
-        </div>
-    </header>
-
-
-    <!-- PRODUCTO -->
-    <main class="producto-detalle-pagina">
-
-        <div class="producto-detalle-container">
-
-            <!-- IMAGEN -->
-            <div class="producto-detalle-imagen">
-
-                <img
-                    src="../IMAGENES/Peine Fluminator.jpg"
-                    alt="Peine Furminator para mascotas"
-                >
-
-            </div>
-
-
-            <!-- INFORMACIÓN -->
-            <div class="producto-detalle-contenido">
-
-                <span class="producto-detalle-categoria">
+</div>
+</header>
+<!-- PRODUCTO -->
+<main class="producto-detalle-pagina">
+<div class="producto-detalle-container">
+<!-- IMAGEN -->
+<div class="producto-detalle-imagen">
+<img alt="Peine Furminator para mascotas" src="../IMAGENES/Peine Fluminator.jpg"/>
+</div>
+<!-- INFORMACIÓN -->
+<div class="producto-detalle-contenido">
+<span class="producto-detalle-categoria">
                     ACCESORIOS KÚMINO
                 </span>
-
-                <h1>
+<h1>
                     Peine Furminator
                 </h1>
-
-                <p class="producto-detalle-descripcion">
+<p class="producto-detalle-descripcion">
                     Un accesorio práctico para el cuidado diario
                     de tu mascota, diseñado para ayudar a retirar
                     el pelo suelto y mantener su pelaje limpio,
                     ordenado y con una apariencia saludable.
                 </p>
-
-
-                <!-- COLOR -->
-                <div class="producto-detalle-seccion">
-
-                    <h3>
+<!-- COLOR -->
+<div class="producto-detalle-seccion">
+<h3>
                         Color
                     </h3>
-
-                    <div class="colores-producto">
-
-                        <div class="color-opcion">
-
-                            <span>
-                                No aplica
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- PRECIO -->
-                <div class="producto-detalle-seccion">
-
-                    <h3>
+<div class="colores-producto"></div>
+</div>
+<!-- PRECIO -->
+<div class="producto-detalle-seccion">
+<h3>
                         Precio
                     </h3>
-
-                    <div class="tallas-precios">
-
-                        <div>
-
-                            <span>
-                                Peine Furminator
-                            </span>
-
-                            <strong>
-                                S/25
-                            </strong>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- CARACTERÍSTICAS -->
-                <div class="producto-detalle-seccion">
-
-                    <h3>
+<div class="tallas-precios"><button aria-pressed="false" data-kumino-size="Única" data-promo-price="25.00" data-regular-price="25.00" type="button"><span>Única</span><strong>S/ 25</strong></button></div>
+</div>
+<!-- CARACTERÍSTICAS -->
+<div class="producto-detalle-seccion">
+<h3>
                         Características
                     </h3>
-
-                    <ul class="producto-caracteristicas">
-
-                        <li>
+<ul class="producto-caracteristicas">
+<li>
                             Ideal para el cuidado del pelaje.
                         </li>
-
-                        <li>
+<li>
                             Ayuda a retirar el pelo suelto.
                         </li>
-
-                        <li>
+<li>
                             Práctico para el uso diario.
                         </li>
-
-                        <li>
+<li>
                             Accesorio ideal para mantener a tu mascota aseada.
                         </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- WHATSAPP -->
-                <a
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Peine%20Furminator."
-                    class="btn-comprar-producto"
-                    target="_blank"
-                >
-                    Consultar por WhatsApp →
-                </a>
-
-
-                <!-- VOLVER -->
-                <a
-                    href="accesorios.html"
-                    class="volver-coleccion"
-                >
+</ul>
+</div>
+<!-- WHATSAPP -->
+<button class="kumino-accesorio-add" data-category="accesorios" data-image="../IMAGENES/Peine Fluminator.jpg" data-kumino-add="" data-product-id="peine-furminator" data-product-name="Peine Furminator" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="kumino-accesorio-notice">Selecciona las opciones para continuar.</span>
+<!-- VOLVER -->
+<a class="volver-coleccion" href="accesorios.html">
                     ← Volver a accesorios
                 </a>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-    <!-- FOOTER -->
-    <footer class="footer-kumino">
-
-        <div class="footer-container">
-
-            <div class="footer-marca">
-
-                <h2>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="footer-kumino">
+<div class="footer-container">
+<div class="footer-marca">
+<h2>
                     KÚMINO
                 </h2>
-
-                <p>
+<p>
                     Moda con amor para tu mascota.
                 </p>
-
-            </div>
-
-
-            <div class="footer-enlaces">
-
-                <h3>
+</div>
+<div class="footer-enlaces">
+<h3>
                     Navegación
                 </h3>
-
-                <a href="../index.html">
+<a href="../index.html">
                     Inicio
                 </a>
-
-                <a href="../MACHOS/machos.html">
+<a href="../MACHOS/machos.html">
                     Machos
                 </a>
-
-                <a href="accesorios.html">
+<a href="accesorios.html">
                     Accesorios
                 </a>
-
-            </div>
-
-
-            <div class="footer-contacto">
-
-                <h3>
+</div>
+<div class="footer-contacto">
+<h3>
                     Contáctanos
                 </h3>
-
-                <a
-                    href="https://wa.me/51940151463"
-                    target="_blank"
-                >
+<a href="https://wa.me/51940151463" target="_blank">
                     WhatsApp
                 </a>
-
-                <span>
+<span>
                     Envíos a todo el Perú
                 </span>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>
                 © 2026 KÚMINO. Todos los derechos reservados.
             </p>
-
-            <span>
+<span>
                 Moda con amor para tu mascota
             </span>
-
-        </div>
-
-    </footer>
-
-</body>
+</div>
+</footer>
+<script id="kumino-accesorios-selection">
+(() => {
+ const add=document.querySelector('[data-kumino-add]'); if(!add)return;
+ const colorButtons=[...document.querySelectorAll('[data-kumino-color]')];
+ const sizeButtons=[...document.querySelectorAll('[data-kumino-size]')];
+ const notice=document.querySelector('.kumino-accesorio-notice');
+ let color=colorButtons.length===1?colorButtons[0].dataset.kuminoColor:(colorButtons.length?null:'No aplica');
+ let size=null;
+ function refresh(){ const ready=Boolean(color&&size); add.disabled=!ready; if(ready){add.dataset.color=color;add.dataset.size=size.size;add.dataset.regularPrice=size.regular;add.dataset.promoPrice=size.promo;notice.textContent=`Seleccionado: ${size.size} · ${color}`;} else {notice.textContent=!size?'Selecciona la medida o talla para continuar.':'Selecciona un color para continuar.';} }
+ colorButtons.forEach(b=>{if(colorButtons.length===1){b.classList.add('kumino-color-seleccionado');b.setAttribute('aria-pressed','true');} b.addEventListener('click',()=>{color=b.dataset.kuminoColor;colorButtons.forEach(x=>{x.classList.toggle('kumino-color-seleccionado',x===b);x.setAttribute('aria-pressed',x===b?'true':'false');});refresh();});});
+ sizeButtons.forEach(b=>b.addEventListener('click',()=>{size={size:b.dataset.kuminoSize,regular:b.dataset.regularPrice,promo:b.dataset.promoPrice};sizeButtons.forEach(x=>{x.classList.toggle('kumino-talla-seleccionada',x===b);x.setAttribute('aria-pressed',x===b?'true':'false');});refresh();}));
+ refresh();
+})();
+</script><script src="../kumino-cart.js"></script></body>
 </html>
