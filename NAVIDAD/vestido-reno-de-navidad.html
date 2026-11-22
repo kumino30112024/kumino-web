@@ -445,90 +445,61 @@
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
 </style>
-<link rel="stylesheet" href="../kumino-global-nav.css">
 </head>
 <body>
-<!-- ENCABEZADO GLOBAL KÚMINO: uniforme en todas las páginas -->
-<header class="kumino-site-header">
-  <div class="kumino-header-inner nav-container">
-    <button class="kumino-menu-toggle" type="button" aria-label="Abrir menú principal" aria-controls="kumino-drawer" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <a class="kumino-brand" href="../index.html" aria-label="KÚMINO - Inicio">
-      <img src="../isotipo-kumino.png" alt="" onerror="this.style.display='none'">
-      <span>KÚMINO</span>
-    </a>
-    <a class="btn-contacto" href="https://wa.me/51940151463" target="_blank" rel="noopener">Contacto</a>
-  </div>
+<header class="header">
+<div class="nav-container">
+<a class="logo" href="../index.html">KÚMINO</a>
+<nav class="navbar">
+<a href="../index.html">Inicio</a>
+<a class="activo" href="navidad.html">Navidad</a>
+</nav>
+<a class="btn-contacto" href="#contacto">Contacto</a>
+</div>
 </header>
-<div class="kumino-drawer-backdrop" data-kumino-close></div>
-<aside class="kumino-drawer" id="kumino-drawer" aria-hidden="true" aria-label="Menú principal">
-  <div class="kumino-drawer-head">
-    <a class="kumino-drawer-brand" href="../index.html">KÚMINO</a>
-    <button class="kumino-drawer-close" type="button" aria-label="Cerrar menú" data-kumino-close>×</button>
-  </div>
-  <div class="kumino-drawer-scroll">
-    <p class="kumino-drawer-label">MENÚ PRINCIPAL</p>
-    <nav class="kumino-drawer-nav">
-      <a href="../index.html"><span class="kumino-nav-icon">⌂</span><span>Inicio</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../index.html#coleccion"><span class="kumino-nav-icon">▦</span><span>Colecciones</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../NAVIDAD/navidad.html"><span class="kumino-nav-icon">❉</span><span>Navidad</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../HEMBRAS/hembras.html"><span class="kumino-nav-icon">♧</span><span>Hembras</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../MACHOS/machos.html"><span class="kumino-nav-icon">♧</span><span>Machos</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../ACCESORIOS/accesorios.html"><span class="kumino-nav-icon">▤</span><span>Accesorios</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../HALLOWEN/hallowen.html"><span class="kumino-nav-icon">♧</span><span>Disfraces</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../CASITAS/casitas.html"><span class="kumino-nav-icon">⌂</span><span>Casitas</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../guia-tallas.html"><span class="kumino-nav-icon">⌁</span><span>Guía de tallas</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="../index.html#nosotros"><span class="kumino-nav-icon">ⓘ</span><span>Nosotros</span><span class="kumino-nav-arrow">›</span></a>
-      <a href="https://wa.me/51940151463" target="_blank" rel="noopener"><span class="kumino-nav-icon">◉</span><span>Contacto</span><span class="kumino-nav-arrow">›</span></a>
-    </nav>
-  </div>
-  <div class="kumino-drawer-footer"><div class="kumino-paws">●　●　●</div><p>Moda con amor para tus mascotas</p></div>
-</aside>
-
-
 <main class="navidad-producto-main">
 <div class="navidad-producto-container">
 <div class="navidad-producto-imagen">
 <img alt="Vestido Reno de Navidad para mascotas" src="../IMAGENES/vestidorenodenavidad.jpg"/>
 </div>
 <div class="navidad-producto-info">
-<span class="navidad-producto-categoria">
-                    COLECCIÓN NAVIDEÑA
-                </span>
+<span class="navidad-producto-categoria">COLECCIÓN NAVIDEÑA</span>
 <h1>Vestido Reno de Navidad</h1>
-<span class="navidad-promo-etiqueta">
-                    PRECIO PROMOCIONAL
-                </span>
+<span class="navidad-promo-etiqueta">PRECIO PROMOCIONAL</span>
 <p class="navidad-producto-descripcion">
                     ¡La ternura de la Navidad en un solo vestido! Un diseño inspirado en los adorables renos navideños, con una falda amarilla de tul que aporta volumen y un encantador lazo brillante que hará lucir a tu engreída como toda una estrella festiva.
                 </p>
+
 <section class="navidad-producto-seccion">
 <h2>Color</h2>
-<div class="navidad-color">
-<span class="navidad-color-muestra"></span>
-<span>Marrón</span>
-</div>
+<span class="navidad-color">
+  <span aria-hidden="true" class="navidad-color-muestra"></span>
+  Marrón
+</span>
 </section>
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
-<div class="navidad-tallas-precios">
-<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="0" data-promo-price="28.00" data-regular-price="39.20" type="button">
+<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="0" data-color="Marrón" data-promo-price="28.00" data-regular-price="39.20" type="button">
 <strong>Talla 0</strong>
 <span class="navidad-precio-regular">S/ 39.20</span>
 <span class="navidad-precio-promo">S/ 28.00</span>
 <span class="navidad-ahorro">Ahorras desde S/ 11.20</span>
-</button>
-<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="4" data-promo-price="40.00" data-regular-price="56.00" type="button">
+</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="1" data-color="Marrón" data-promo-price="32.00" data-regular-price="44.80" type="button">
+<strong>Talla 1</strong>
+<span class="navidad-precio-regular">S/ 44.80</span>
+<span class="navidad-precio-promo">S/ 32.00</span>
+<span class="navidad-ahorro">Ahorras S/ 12.80</span>
+</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="2" data-color="Marrón" data-promo-price="34.00" data-regular-price="47.60" type="button">
+<strong>Talla 2</strong>
+<span class="navidad-precio-regular">S/ 47.60</span>
+<span class="navidad-precio-promo">S/ 34.00</span>
+<span class="navidad-ahorro">Ahorras S/ 13.60</span>
+</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="4" data-color="Marrón" data-promo-price="40.00" data-regular-price="56.00" type="button">
 <strong>Talla 4</strong>
 <span class="navidad-precio-regular">S/ 56.00</span>
 <span class="navidad-precio-promo">S/ 40.00</span>
 <span class="navidad-ahorro">Ahorras desde S/ 16.00</span>
-</button>
-</div>
-<span class="navidad-aviso-precio">
-                        Los precios varían según la talla
-                    </span>
+</button></div>
 </section>
 <section class="navidad-producto-seccion">
 <h2>Características</h2>
@@ -540,13 +511,10 @@
 <li>Falda amplia de tul en color amarillo dorado.</li>
 </ul>
 </section>
-<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="Marrón" data-image="../IMAGENES/vestidorenodenavidad.jpg" data-kumino-add="" data-product-id="vestido-reno-de-navidad" data-product-name="Vestido Reno de Navidad" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
-<a class="navidad-volver" href="navidad.html">
-                    ← Volver a colección
-                </a>
-</div>
-</div>
-</main>
+<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="Marrón" data-image="../IMAGENES/vestidorenodenavidad.jpg" data-kumino-add="" data-product-id="vestido-reno-de-navidad" data-product-name="Vestido Reno de Navidad" disabled="disabled" type="button">Agregar al carrito</button>
+<span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
+<a class="navidad-volver" href="navidad.html">← Volver a colección</a>
+</div></div></main>
 <footer class="footer-kumino">
 <div class="footer-container">
 <div class="footer-marca">
@@ -560,7 +528,7 @@
 </div>
 <div class="footer-contacto" id="contacto">
 <h3>Contáctanos</h3>
-<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">
+<a href="https://wa.me/51919503045" rel="noopener noreferrer" target="_blank">
                     WhatsApp
                 </a>
 <span>Envíos a todo el Perú</span>
@@ -577,17 +545,14 @@
   'use strict';
   const addButton = document.querySelector('[data-kumino-add]');
   if (!addButton) return;
-
   const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
-  const colorSelect = document.querySelector('.navidad-color-selector');
+  const colorOptions = Array.from(document.querySelectorAll('[data-color-choice]'));
   const notice = document.querySelector('.navidad-seleccion-aviso');
-  const productName = addButton.dataset.productName;
   let selected = null;
-
-  const currentColor = () => colorSelect ? colorSelect.value : addButton.dataset.defaultColor;
+  let selectedColor = addButton.dataset.defaultColor || '';
 
   function refresh() {
-    const color = currentColor();
+    const color = selected ? selected.color : selectedColor;
     const ready = Boolean(selected && color);
     addButton.disabled = !ready;
     if (ready) {
@@ -595,35 +560,29 @@
       addButton.dataset.regularPrice = selected.regular;
       addButton.dataset.promoPrice = selected.promo;
       addButton.dataset.color = color;
-      notice.textContent = `Seleccionado: ${selected.size} · ${color}`;
+      notice.textContent = `Seleccionado: Talla ${selected.size} · ${color}`;
     } else if (!selected) {
       notice.textContent = 'Selecciona una talla para continuar.';
     } else {
       notice.textContent = 'Selecciona un color para continuar.';
     }
   }
-
-  sizeCards.forEach(card => {
-    card.addEventListener('click', () => {
-      sizeCards.forEach(item => {
-        item.classList.remove('kumino-talla-seleccionada');
-        item.setAttribute('aria-pressed', 'false');
-      });
-      card.classList.add('kumino-talla-seleccionada');
-      card.setAttribute('aria-pressed', 'true');
-      selected = {
-        size: card.dataset.kuminoSize,
-        regular: card.dataset.regularPrice,
-        promo: card.dataset.promoPrice
-      };
-      refresh();
-    });
-  });
-
-  if (colorSelect) colorSelect.addEventListener('change', refresh);
+  colorOptions.forEach(option => option.addEventListener('click', () => {
+    colorOptions.forEach(item => { item.classList.remove('kumino-color-seleccionado'); item.setAttribute('aria-pressed','false'); });
+    option.classList.add('kumino-color-seleccionado');
+    option.setAttribute('aria-pressed','true');
+    selectedColor = option.dataset.colorChoice;
+    refresh();
+  }));
+  sizeCards.forEach(card => card.addEventListener('click', () => {
+    sizeCards.forEach(item => { item.classList.remove('kumino-talla-seleccionada'); item.setAttribute('aria-pressed','false'); });
+    card.classList.add('kumino-talla-seleccionada');
+    card.setAttribute('aria-pressed','true');
+    selected = { size: card.dataset.kuminoSize, color: card.dataset.color || selectedColor || addButton.dataset.defaultColor || '', regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
+    refresh();
+  }));
   refresh();
 })();
 </script>
-<script src="../kumino-cart.js"></script><script src="../kumino-global-nav.js" defer></script>
-</body>
+<script src="../kumino-cart.js"></script></body>
 </html>
