@@ -165,13 +165,7 @@
 
                 </div>
 
-                <a
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20El%20Peque%C3%B1o%20Cowboy."
-                    class="btn-comprar-producto"
-                    target="_blank"
-                >
-                    Consultar por WhatsApp →
-                </a>
+                
 
                 <a
                     href="hallowen.html"
@@ -254,5 +248,135 @@
 
     </footer>
 
+<script src="../kumino-cart.js" defer></script>
+<style>
+/* KÚMINO: selectores de compra, manteniendo la estética original */
+.kumino-opcion-compra{cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s}
+.tallas-precios .kumino-opcion-compra{border:1px solid rgba(43,43,43,.15);background:var(--beige);padding:14px 20px;min-width:110px;display:flex;flex-direction:column;gap:5px;text-align:left;font-family:inherit}
+.tallas-precios .kumino-opcion-compra.seleccionado{border:2px solid #7F9B7A;box-shadow:0 0 0 2px rgba(127,155,122,.12)}
+.color-opcion.kumino-opcion-compra{border:1px solid transparent;border-radius:12px;padding:4px 7px;background:transparent;font-family:inherit}
+.color-opcion.kumino-opcion-compra.seleccionado{border-color:#7F9B7A;background:rgba(127,155,122,.08)}
+.kumino-opcion-compra:disabled{opacity:.45;cursor:not-allowed}
+.kumino-seleccion-resumen{margin:18px 0 0;padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.48);color:#666;font:13px/1.6 Poppins,sans-serif}
+.kumino-seleccion-resumen strong{display:block;color:#333;margin-bottom:4px}
+</style>
+<script>
+(() => {
+  'use strict';
+  const productName = "El Pequeño Cowboy";
+  const productId = "el-pequeno-cowboy";
+  const content = document.querySelector('.producto-detalle-contenido');
+  if (!content) return;
+
+  let selectedColor = '';
+  let selectedSize = '';
+  let selectedPrice = 0;
+  const colorOptions = [...content.querySelectorAll('.colores-producto .color-opcion')];
+  const availableColors = [];
+  colorOptions.forEach(option => {
+    const label = option.textContent.replace(/\s+/g, ' ').trim();
+    const unavailable = /AGOTAD[OA]/i.test(label);
+    const name = label.replace(/AGOTAD[OA]/ig, '').trim();
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = option.className + ' kumino-opcion-compra';
+    button.innerHTML = option.innerHTML;
+    button.disabled = unavailable;
+    button.setAttribute('aria-pressed','false');
+    option.replaceWith(button);
+    if (!unavailable) {
+      availableColors.push({button,name});
+      button.addEventListener('click', () => {
+        selectedColor = name;
+        availableColors.forEach(x => {
+          x.button.classList.toggle('seleccionado', x.button === button);
+          x.button.setAttribute('aria-pressed', String(x.button === button));
+        });
+        updateSummary();
+      });
+    }
+  });
+  if (availableColors.length === 1) availableColors[0].button.click();
+
+  const sizeContainer = content.querySelector('.tallas-precios');
+  const availableSizes = [];
+  if (sizeContainer) {
+    [...sizeContainer.children].forEach(card => {
+      const text = card.textContent.replace(/\s+/g, ' ').trim();
+      const unavailable = /AGOTAD[OA]/i.test(text) || /opacity\s*:\s*0\.5/i.test(card.getAttribute('style') || '');
+      const sizeMatch = text.match(/Talla\s*([\wÁÉÍÓÚáéíóúñÑ-]+)/i);
+      const priceMatch = text.match(/S\s*\/\s*(\d+(?:\.\d{1,2})?)/i);
+      if (unavailable || !sizeMatch || !priceMatch) {
+        card.classList.add('talla-agotada');
+        card.setAttribute('aria-disabled','true');
+        return;
+      }
+      const size = sizeMatch[1];
+      let price = Number(priceMatch[1]);
+      if (productId === 'mini-capa-dulce-calabaza') price = 20;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'kumino-opcion-compra';
+      button.innerHTML = `<span>Talla ${size}</span><strong>S/${price}</strong>`;
+      button.dataset.size = size;
+      button.dataset.price = String(price);
+      button.setAttribute('aria-pressed','false');
+      card.replaceWith(button);
+      availableSizes.push(button);
+      button.addEventListener('click', () => {
+        selectedSize = size;
+        selectedPrice = price;
+        availableSizes.forEach(x => {
+          x.classList.toggle('seleccionado', x === button);
+          x.setAttribute('aria-pressed', String(x === button));
+        });
+        updateSummary();
+      });
+    });
+  }
+  const oldBuy = content.querySelector('.btn-comprar-producto');
+  const addButton = document.createElement('button');
+  addButton.type = 'button';
+  addButton.className = 'btn-comprar-producto';
+  addButton.textContent = 'Agregar al carrito →';
+  addButton.disabled = true;
+  addButton.style.border = '0';
+  addButton.style.width = '100%';
+  addButton.style.cursor = 'pointer';
+  addButton.style.fontFamily = 'inherit';
+  addButton.style.marginTop = '22px';
+  if (oldBuy) oldBuy.replaceWith(addButton);
+  else content.append(addButton);
+
+  const summary = document.createElement('div');
+  summary.className = 'kumino-seleccion-resumen';
+  summary.innerHTML = '<strong>Tu selección</strong><span>Selecciona color y talla para continuar.</span>';
+  addButton.insertAdjacentElement('beforebegin', summary);
+
+  function updateSummary(){
+    const ready = Boolean(selectedColor && selectedSize && selectedPrice > 0);
+    addButton.disabled = !ready;
+    summary.innerHTML = `<strong>Tu selección</strong><span>${ready ? `${selectedColor} · Talla ${selectedSize} · S/ ${selectedPrice.toFixed(2)}` : 'Selecciona color y talla para continuar.'}</span>`;
+  }
+
+  addButton.addEventListener('click', () => {
+    if (addButton.disabled) return;
+    const cartButton = document.createElement('button');
+    cartButton.type = 'button';
+    cartButton.dataset.kuminoAdd = '';
+    cartButton.dataset.productId = productId;
+    cartButton.dataset.productName = productName;
+    cartButton.dataset.category = 'disfraces';
+    cartButton.dataset.color = selectedColor;
+    cartButton.dataset.size = selectedSize;
+    cartButton.dataset.regularPrice = String(selectedPrice);
+    cartButton.dataset.promoPrice = String(selectedPrice);
+    cartButton.dataset.image = content.closest('.producto-detalle-container')?.querySelector('.producto-detalle-imagen img')?.getAttribute('src') || '';
+    document.body.append(cartButton);
+    cartButton.click();
+    cartButton.remove();
+  });
+})();
+</script>
 </body>
 </html>
