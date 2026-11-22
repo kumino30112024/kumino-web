@@ -476,11 +476,6 @@
         <a href="HALLOWEN/hallowen.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c0 4-2 5-5 7-2 1-3 3-3 6h16c0-3-1-5-3-6-3-2-5-3-5-7z"/><path d="M4 20h16"/></svg></span><span class="kumino-link-label">Disfraces</span></a>
         <a href="CASITAS/casitas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M12 17s-4-2.3-4-4.7A2.3 2.3 0 0 1 12 11a2.3 2.3 0 0 1 4 1.3C16 14.7 12 17 12 17z"/></svg></span><span class="kumino-link-label">Casitas</span></a>
         <a href="guia-tallas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 14-14 4 4L7 21z"/><path d="m14 6 4 4M11 9l2 2M8 12l2 2M5 15l2 2"/></svg></span><span class="kumino-link-label">Guía de tallas</span></a>
-        <button type="button" class="kumino-drawer-cart" data-menu-cart>
-            <span class="kumino-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
-            <span class="kumino-link-label">Mi carrito</span>
-            <span class="kumino-cart-count" aria-label="Cantidad de productos"> </span>
-        </button>
         <a href="#nosotros" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg></span><span class="kumino-link-label">Nosotros</span></a>
         <a href="#contacto" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4 9 9 0 0 1-3.7-.9L3 21l1.8-5.1a8.3 8.3 0 1 1 16.2-4.4z"/><path d="M9 8.5c.5 2.5 2 4 4.5 5l1.2-1.2 2 1c-.2 1.5-1.2 2.2-2.7 2.1-3.6-.5-6.8-3.7-7.3-7.3C6.6 6.6 7.3 5.6 8.8 5.4l1 2z"/></svg></span><span class="kumino-link-label">Contacto</span></a>
     </nav>
@@ -1137,76 +1132,7 @@
         }
     });
 
-    // El enlace del carrito se conectará al disparador real del carrito unificado
-    // al integrar el proyecto completo. Se evita inventar un selector o una API.
-    const cartLink = drawer.querySelector('[data-menu-cart]');
-    const cartBadge = drawer.querySelector('.kumino-cart-count');
 
-    // kumino-cart.js crea el botón real .kumino-cart-nav y su panel
-    // .kumino-cart-panel. No se crea un segundo carrito.
-    const syncCartCount = () => {
-        const sourceCount = document.querySelector('.kumino-cart-nav-count');
-        const count = sourceCount ? Number(sourceCount.textContent || 0) : 0;
-
-        if (cartBadge) {
-            const nextText = count > 0 ? String(count) : '';
-            const nextLabel = count === 1
-                ? '1 producto en el carrito'
-                : count + ' productos en el carrito';
-
-            // Evita que el MutationObserver se active a sí mismo:
-            // solo modifica el texto cuando el contador realmente cambia.
-            if (cartBadge.textContent !== nextText) {
-                cartBadge.textContent = nextText;
-            }
-
-            cartBadge.classList.toggle('has-items', count > 0);
-
-            if (cartBadge.getAttribute('aria-label') !== nextLabel) {
-                cartBadge.setAttribute('aria-label', nextLabel);
-            }
-        }
-    };
-
-    // El script del carrito inserta su botón dinámicamente al cargar.
-    // Observamos el documento para sincronizar el contador real.
-    if (window.MutationObserver) {
-        const cartObserver = new MutationObserver(() => {
-            const countNode = document.querySelector('.kumino-cart-nav-count');
-            if (countNode) syncCartCount();
-        });
-        cartObserver.observe(document.body, {
-            childList: true,
-            subtree: true,
-            characterData: true
-        });
-    }
-
-    if (cartLink) {
-        cartLink.addEventListener('click', event => {
-            event.preventDefault();
-            closeMenu();
-
-            // Este botón alterna el panel real que renderiza los productos
-            // guardados en localStorage por kumino-cart.js.
-            const realCartButton = document.querySelector('.kumino-cart-nav');
-            const realCartPanel = document.querySelector('.kumino-cart-panel');
-
-            if (realCartButton && realCartPanel) {
-                const isOpen = realCartPanel.classList.contains('is-open');
-                if (!isOpen) {
-                    realCartButton.click();
-                }
-                syncCartCount();
-            } else {
-                console.error(
-                    'No se encontró el carrito unificado. Verifica que kumino-cart.js esté cargado y sin errores.'
-                );
-            }
-        });
-    }
-
-    syncCartCount();
 })();
 </script>
 
