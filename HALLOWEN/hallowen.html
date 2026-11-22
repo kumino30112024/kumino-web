@@ -474,11 +474,6 @@
 }
 
 
-/* Aviso de precio: solo productos disponibles con varias tallas y precio "Desde" */
-.producto-catalogo .catalogo-datos p::after {
-    content: none !important;
-    display: none !important;
-}
 .producto-catalogo.precio-variable .catalogo-datos p::after {
     content: "ⓘ  Precio varía según la talla" !important;
     display: table !important;
@@ -499,7 +494,7 @@
 
 /* ===== HALLOWEEN: presentación visual alineada con HEMBRAS ===== */
 body.pagina-hembras .catalogo-hembras {
-  background-image: url("../Fondo-disfraces-boutique.png");
+  background-image: url("../Fondo-disfraces-boutique.jpeg");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -666,6 +661,50 @@ body.pagina-hembras .catalogo-header {
   }
 }
 
+
+/* PRECIOS Y AVISO: misma presentación que la colección HEMBRAS */
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p {
+  display: inline-flex !important;
+  align-items: center;
+  width: max-content !important;
+  max-width: 100%;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 6px 12px !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  background: #7A9B76 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  font: 600 13px/1.25 'Poppins', sans-serif !important;
+  white-space: nowrap;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
+  display: inline-flex !important;
+  align-items: center;
+  width: max-content !important;
+  max-width: 100%;
+  margin: 0 !important;
+  padding: 3px 8px !important;
+  border: 0 !important;
+  border-radius: 15px !important;
+  background: rgba(122,155,118,.17) !important;
+  color: #526B50 !important;
+  box-shadow: none !important;
+  font: 500 10px/1.35 'Poppins', sans-serif !important;
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p {
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+  }
+  body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+  }
+}
+
 </style>
 
 
@@ -808,6 +847,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Disfraz MasterChef Canino</h2>
 <p>Desde S/ 30.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="0,1,2" href="hechizo-de-calabaza.html">
@@ -818,6 +858,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Disfraz Hechizo de Calabaza</h2>
 <p>Desde S/ 22.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="1,2" href="pirata-de-los-siete-mares.html">
@@ -828,6 +869,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Pirata de los Siete Mares</h2>
 <p>Desde S/ 30.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="0,1,2,3" href="oficial-k9.html">
@@ -838,6 +880,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Disfraz Oficial K-9</h2>
 <p>Desde S/ 30.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="3,4" href="the-barking-boss.html">
@@ -848,6 +891,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>The Barking Boss</h2>
 <p>Desde S/ 29.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="2,3,4,5" href="jinete-de-rodeo.html">
@@ -858,6 +902,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Disfraz Jinete de Rodeo</h2>
 <p>Desde S/ 35.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="alas" data-tallas="0,2,3,4,6,7" href="mascotas-murcielago.html">
@@ -868,6 +913,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Alas "Bat-Mascota"</h2>
 <p>Desde S/ 20.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card" data-categoria="capas" data-tallas="1,2" href="mini-capa-dulce-calabaza.html">
@@ -928,6 +974,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Mr. Fantasma</h2>
 <p>Desde S/ 29.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card" data-categoria="otros" data-tallas="3" href="hoodie-pumpkin-boo.html">
@@ -948,6 +995,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Disfraz Jinete Brujita</h2>
 <p>Desde S/ 38.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3,4" href="vestido-romance-vintage.html">
@@ -968,6 +1016,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>Too Cute to Spook</h2>
 <p>Desde S/ 25.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="0,1,4,5" href="el-pequeno-cowboy.html">
@@ -978,6 +1027,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>El Pequeño Cowboy</h2>
 <p>Desde S/ 26.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="1,2" href="el-alguacil-peludo.html">
@@ -988,6 +1038,7 @@ body.pagina-hembras .catalogo-header {
 <div class="catalogo-datos">
 <h2>El Alguacil Peludo</h2>
 <p>Desde S/ 30.00</p>
+<span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <a class="producto-catalogo hembras-card" data-categoria="disfraces" data-tallas="2,3" href="poncho-mini-monstruos.html">
