@@ -1,652 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>KÚMINO | Casitas para mascotas</title>
-
-    <link rel="stylesheet" href="../style.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* =========================================
-           CASITAS - DISEÑO EXCLUSIVO
-        ========================================= */
-
-        #pagina-casitas {
-            --casita-crema: #F9F1E8;
-            --casita-card: #FFF9F2;
-            --casita-verde: #7F9878;
-            --casita-coral: #E63946;
-            --casita-texto: #2C3531;
-
-            background-color: var(--casita-crema);
-            background-image:
-                linear-gradient(
-                    rgba(249, 241, 232, 0.42),
-                    rgba(249, 241, 232, 0.42)
-                ),
-                url("../Fondo-casitas.png");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            color: var(--casita-texto);
-            font-family: 'Poppins', sans-serif;
-            padding: 65px 6% 85px;
-            min-height: 75vh;
-        }
-
-        /* Encabezado */
-
-        #pagina-casitas .casitas-intro {
-            text-align: center;
-            max-width: 760px;
-            margin: 0 auto 45px;
-        }
-
-        #pagina-casitas .casitas-intro span {
-            display: inline-block;
-            color: var(--casita-verde);
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            margin-bottom: 12px;
-        }
-
-        #pagina-casitas .casitas-intro h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(42px, 5vw, 62px);
-            line-height: 1.1;
-            margin: 0 0 15px;
-            color: var(--casita-texto);
-        }
-
-        #pagina-casitas .casitas-intro p {
-            font-size: 15px;
-            line-height: 1.8;
-            color: #66716A;
-            margin: 0;
-        }
-
-        /* Presentación del producto */
-
-        #pagina-casitas .producto-destacado {
-            max-width: 1250px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 65px;
-            align-items: center;
-        }
-
-        /* Fotografía */
-
-        #pagina-casitas .casita-imagen {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            border-radius: 24px;
-            background: #F2E7DD;
-            box-shadow: 0 15px 35px rgba(75, 59, 45, 0.12);
-        }
-
-        #pagina-casitas .casita-imagen img {
-            display: block;
-            width: 100%;
-            height: 590px;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s ease;
-        }
-
-        #pagina-casitas .casita-imagen:hover img {
-            transform: scale(1.025);
-        }
-
-        /* Información */
-
-        #pagina-casitas .casita-info {
-            padding: 10px 0;
-        }
-
-        #pagina-casitas .etiqueta-coleccion {
-            display: block;
-            font-size: 11px;
-            font-weight: 600;
-            letter-spacing: 3px;
-            color: var(--casita-verde);
-            margin-bottom: 13px;
-        }
-
-        #pagina-casitas .casita-info h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 3.5vw, 46px);
-            line-height: 1.15;
-            margin: 0 0 18px;
-            color: var(--casita-texto);
-        }
-
-        #pagina-casitas .casita-descripcion {
-            font-size: 14px;
-            line-height: 1.9;
-            color: #66716A;
-            margin-bottom: 25px;
-        }
-
-        /* Subtítulos */
-
-        #pagina-casitas .bloque-info {
-            margin-bottom: 25px;
-        }
-
-        #pagina-casitas .bloque-info h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            color: var(--casita-texto);
-            margin: 0 0 13px;
-        }
-
-        /* Colores */
-
-        #pagina-casitas .colores-lista {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-        }
-
-        #pagina-casitas .color-opcion {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: #59645E;
-        }
-
-        #pagina-casitas .muestra-color {
-            width: 23px;
-            height: 23px;
-            border-radius: 50%;
-            border: 1px solid rgba(0,0,0,0.12);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-        }
-
-        #pagina-casitas .rosa-pastel {
-            background: #E9A9B8;
-        }
-
-        #pagina-casitas .celeste-pastel {
-            background: #B6D8E8;
-        }
-
-        /* Medidas y precios */
-
-        #pagina-casitas .medidas-lista {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        #pagina-casitas .medida-card {
-            min-width: 125px;
-            padding: 15px 18px;
-            background: var(--casita-card);
-            border: 1px solid #E8DCD0;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-
-        #pagina-casitas .medida-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 18px rgba(75,59,45,0.08);
-        }
-
-        #pagina-casitas .medida-card span {
-            display: block;
-            font-size: 12px;
-            color: #66716A;
-            margin-bottom: 5px;
-        }
-
-        #pagina-casitas .medida-card strong {
-            font-size: 16px;
-            color: var(--casita-coral);
-            font-weight: 700;
-        }
-
-        /* Características */
-
-        #pagina-casitas .caracteristicas-lista {
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        #pagina-casitas .caracteristicas-lista li {
-            padding-left: 3px;
-            margin-bottom: 9px;
-            color: #66716A;
-            font-size: 13px;
-            line-height: 1.8;
-        }
-
-        #pagina-casitas .caracteristicas-lista li::marker {
-            color: var(--casita-verde);
-        }
-
-        /* Selector de color y medida */
-
-        #pagina-casitas .casita-compra label {
-            display: block;
-            margin: 12px 0 6px;
-            color: var(--casita-texto);
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        #pagina-casitas .casita-compra select {
-            display: block;
-            width: 100%;
-            min-height: 48px;
-            padding: 10px 14px;
-            border: 1px solid #E8DCD0;
-            border-radius: 12px;
-            background: var(--casita-card);
-            color: var(--casita-texto);
-            font: 13px 'Poppins', sans-serif;
-        }
-
-        #pagina-casitas .casita-compra .btn-consultar {
-            border: 0;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Botón */
-
-        #pagina-casitas .btn-consultar {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            min-height: 58px;
-            margin-top: 30px;
-            padding: 15px 22px;
-            border-radius: 40px;
-            background: var(--casita-coral);
-            color: #FFFFFF;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            text-align: center;
-            box-shadow: 0 8px 18px rgba(230,57,70,0.18);
-            transition: all 0.3s ease;
-        }
-
-        #pagina-casitas .btn-consultar:hover {
-            background: #CE2F3B;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 22px rgba(230,57,70,0.23);
-        }
-
-        /* =========================================
-           TABLETS
-        ========================================= */
-
-        @media (max-width: 900px) {
-            #pagina-casitas {
-                padding: 50px 5% 65px;
-            }
-
-            #pagina-casitas .producto-destacado {
-                gap: 35px;
-            }
-
-            #pagina-casitas .casita-imagen img {
-                height: 480px;
-            }
-
-            #pagina-casitas .casita-info h2 {
-                font-size: 34px;
-            }
-        }
-
-        /* =========================================
-           CELULARES
-        ========================================= */
-
-        @media (max-width: 650px) {
-            #pagina-casitas {
-                padding: 38px 5% 55px;
-                background-attachment: scroll;
-                background-position: center top;
-            }
-
-            #pagina-casitas .casitas-intro {
-                margin-bottom: 30px;
-            }
-
-            #pagina-casitas .casitas-intro h1 {
-                font-size: 43px;
-            }
-
-            #pagina-casitas .casitas-intro p {
-                font-size: 13px;
-                line-height: 1.8;
-            }
-
-            #pagina-casitas .producto-destacado {
-                grid-template-columns: 1fr;
-                gap: 28px;
-            }
-
-            #pagina-casitas .casita-imagen {
-                border-radius: 19px;
-            }
-
-            #pagina-casitas .casita-imagen img {
-                height: auto;
-                max-height: 490px;
-                aspect-ratio: 1 / 1;
-                object-fit: cover;
-            }
-
-            #pagina-casitas .casita-info {
-                padding: 0 3px;
-            }
-
-            #pagina-casitas .casita-info h2 {
-                font-size: 33px;
-            }
-
-            #pagina-casitas .casita-descripcion {
-                font-size: 13px;
-            }
-
-            #pagina-casitas .bloque-info {
-                margin-bottom: 22px;
-            }
-
-            #pagina-casitas .medida-card {
-                flex: 1;
-                min-width: 115px;
-            }
-
-            #pagina-casitas .btn-consultar {
-                min-height: 54px;
-                font-size: 13px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casita de Ensueño | KÚMINO</title>
+  <link rel="stylesheet" href="../style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .casita-detalle { max-width: 1180px; margin: 0 auto; padding: 58px 6% 75px; color: #2C3531; font-family: 'Poppins', sans-serif; }
+    .casita-detalle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: start; }
+    .casita-foto { width: 100%; border-radius: 22px; overflow: hidden; background: #F5EADD; }
+    .casita-foto img { display: block; width: 100%; height: auto; object-fit: cover; }
+    .casita-info .categoria { color: #7A9B76; font-size: 11px; font-weight: 700; letter-spacing: 2.5px; }
+    .casita-info h1 { margin: 12px 0 16px; font: 700 clamp(32px,4vw,46px)/1.15 'Playfair Display',serif; }
+    .casita-info p { color: #66716A; font-size: 14px; line-height: 1.85; }
+    .casita-bloque { margin: 25px 0; }
+    .casita-bloque h2 { font: 700 12px 'Poppins',sans-serif; letter-spacing: 1.4px; margin: 0 0 12px; }
+    .casita-colores, .casita-medidas { display: flex; flex-wrap: wrap; gap: 10px; }
+    .casita-opcion { border: 1px solid #E4D8CC; background: #FFF9F2; color: #2C3531; border-radius: 12px; padding: 11px 14px; font: 500 13px 'Poppins',sans-serif; cursor: pointer; }
+    .casita-opcion[aria-pressed="true"] { border: 2px solid #7A9B76; background: #F0F5EE; padding: 10px 13px; }
+    .casita-medida-btn strong { display: block; color: #E63946; margin-top: 4px; font-size: 15px; }
+    .casita-caracteristicas { padding-left: 20px; color: #66716A; font-size: 13px; line-height: 1.8; }
+    .casita-caracteristicas li { margin-bottom: 8px; }
+    .casita-seleccion { margin-top: 25px; padding: 20px; border-radius: 16px; background: #F9F1E8; }
+    .casita-seleccion p { margin: 0 0 12px; font-weight: 600; color: #2C3531; }
+    .casita-seleccion .resumen { font-size: 13px; color: #66716A; font-weight: 400; }
+    .casita-agregar { width: 100%; border: 0; border-radius: 28px; padding: 14px 20px; margin-top: 12px; background: #7A9B76; color: white; font: 700 13px 'Poppins',sans-serif; cursor: pointer; }
+    .casita-agregar:hover { filter: brightness(.95); }
+    .volver-coleccion { display: inline-block; margin-top: 25px; color: #526B50; text-decoration: none; font-size: 13px; }
+    @media(max-width:760px) { .casita-detalle { padding: 35px 5% 55px; } .casita-detalle-grid { grid-template-columns: 1fr; gap: 28px; } }
+  </style>
 </head>
-
 <body>
-
-<!-- HEADER -->
 <header class="header">
-    <div class="nav-container">
-
-        <a href="../index.html" class="logo">
-            KÚMINO
-        </a>
-
-        <nav class="navbar">
-            <a href="../index.html">Inicio</a>
-            <a href="../index.html#coleccion">Colección</a>
-
-            <a href="../NAVIDAD/navidad.html" class="btn-navidad">
-                Colección Navideña
-            </a>
-
-            <a href="../HALLOWEN/hallowen.html">Disfraces</a>
-            <a href="../HEMBRAS/hembras.html">Hembras</a>
-            <a href="../MACHOS/machos.html">Machos</a>
-            <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
-            <a href="casitas.html" class="activo">Casitas</a>
-        </nav>
-
-        <a href="https://wa.me/51940151463"
-           class="btn-contacto"
-           target="_blank"
-           rel="noopener noreferrer">
-            Contacto
-        </a>
-
-    </div>
+  <div class="nav-container">
+    <a href="../index.html" class="logo">KÚMINO</a>
+    <nav class="navbar"><a href="../index.html">Inicio</a><a href="casitas.html" class="activo">Casitas</a></nav>
+    <a href="#contacto" class="btn-contacto">Contacto</a>
+  </div>
 </header>
-
-<!-- CONTENIDO PRINCIPAL -->
-<main id="pagina-casitas">
-
-    <section class="casitas-intro">
-        <span>COLECCIÓN KÚMINO</span>
-
-        <h1>Casitas</h1>
-
-        <p>
-            Espacios acogedores pensados para que tu mascota
-            descanse cómoda, tranquila y protegida.
-        </p>
-    </section>
-
-    <!-- PRODUCTO DESTACADO -->
-    <section class="producto-destacado">
-
-        <div class="casita-imagen">
-            <img
-                src="../IMAGENES/Casita de Ensueño.jpg"
-                alt="Casita de Ensueño en colores rosa pastel y celeste pastel para mascotas"
-                loading="eager"
-            >
+<main class="casita-detalle">
+  <section class="casita-detalle-grid">
+    <div class="casita-foto"><img src="../IMAGENES/Casita de Ensueño.jpg" alt="Casita de Ensueño para mascotas KÚMINO"></div>
+    <div class="casita-info">
+      <span class="categoria">COLECCIÓN CASITAS</span>
+      <h1>Casita de Ensueño</h1>
+      <p>Un espacio acogedor y adorable pensado para que tu mascota pueda descansar cómoda, tranquila y protegida. Su diseño tipo cueva crea una sensación cálida y segura, ideal para sus momentos de descanso.</p>
+      <div class="casita-bloque">
+        <h2>COLORES</h2>
+        <div class="casita-colores" role="group" aria-label="Seleccionar color">
+          <button type="button" class="casita-opcion color-btn" data-color="Rosa Pastel" aria-pressed="true">Rosa Pastel</button>
+          <button type="button" class="casita-opcion color-btn" data-color="Celeste Pastel" aria-pressed="false">Celeste Pastel</button>
         </div>
-
-        <div class="casita-info">
-
-            <span class="etiqueta-coleccion">
-                COLECCIÓN CASITAS
-            </span>
-
-            <h2>Casita de Ensueño</h2>
-
-            <p class="casita-descripcion">
-                Un espacio acogedor y adorable pensado para que tu
-                mascota pueda descansar cómoda, tranquila y protegida.
-                Su diseño tipo cueva crea una sensación cálida y segura,
-                ideal para sus momentos de descanso.
-            </p>
-
-            <!-- COLORES -->
-            <div class="bloque-info">
-
-                <h3>COLORES</h3>
-
-                <div class="colores-lista">
-
-                    <div class="color-opcion">
-                        <span class="muestra-color rosa-pastel"></span>
-                        <span>Rosa Pastel</span>
-                    </div>
-
-                    <div class="color-opcion">
-                        <span class="muestra-color celeste-pastel"></span>
-                        <span>Celeste Pastel</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- MEDIDAS Y PRECIOS -->
-            <div class="bloque-info">
-
-                <h3>MEDIDAS Y PRECIOS</h3>
-
-                <div class="medidas-lista">
-
-                    <div class="medida-card">
-                        <span>40 × 40 cm</span>
-                        <strong>S/ 75</strong>
-                    </div>
-
-                    <div class="medida-card">
-                        <span>50 × 50 cm</span>
-                        <strong>S/ 85</strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- CARACTERÍSTICAS -->
-            <div class="bloque-info">
-
-                <h3>CARACTERÍSTICAS</h3>
-
-                <ul class="caracteristicas-lista">
-
-                    <li>
-                        Forma de cueva acolchada tipo iglú que envuelve
-                        a tu mascota y brinda una sensación de seguridad.
-                    </li>
-
-                    <li>
-                        Materiales suaves y cálidos de felpa y algodón
-                        para mantenerla cómoda durante el descanso.
-                    </li>
-
-                    <li>
-                        Cojín interior extraíble que facilita la limpieza
-                        y el lavado.
-                    </li>
-
-                    <li>
-                        Base antideslizante para mayor estabilidad
-                        al entrar, salir o jugar.
-                    </li>
-
-                </ul>
-
-            </div>
-
-            <!-- SELECCIÓN Y CARRITO -->
-            <div class="bloque-info casita-compra">
-
-                <h3>ELIGE TU CASITA</h3>
-
-                <label for="casita-color">Color</label>
-
-                <select id="casita-color">
-                    <option value="Rosa Pastel">Rosa Pastel</option>
-                    <option value="Celeste Pastel">Celeste Pastel</option>
-                </select>
-
-                <label for="casita-medida">Medida</label>
-
-                <select id="casita-medida">
-                    <option value="40 × 40 cm" data-price="75">
-                        40 × 40 cm — S/ 75.00
-                    </option>
-                    <option value="50 × 50 cm" data-price="85">
-                        50 × 50 cm — S/ 85.00
-                    </option>
-                </select>
-
-                <button
-                    type="button"
-                    class="btn-consultar"
-                    data-kumino-add
-                    data-product-id="casita-de-ensueno"
-                    data-product-name="Casita de Ensueño"
-                    data-category="casitas"
-                    data-color="Rosa Pastel"
-                    data-size="40 × 40 cm"
-                    data-regular-price="75"
-                    data-promo-price="75"
-                >
-                    Agregar al carrito →
-                </button>
-
-            </div>
-
-            <script>
-                (() => {
-                    const colorSelect = document.getElementById('casita-color');
-                    const measureSelect = document.getElementById('casita-medida');
-                    const addButton = document.querySelector(
-                        '[data-product-id="casita-de-ensueno"]'
-                    );
-
-                    function updateCasitaData() {
-                        const selectedMeasure =
-                            measureSelect.options[measureSelect.selectedIndex];
-
-                        const price = selectedMeasure.dataset.price;
-
-                        addButton.dataset.color = colorSelect.value;
-                        addButton.dataset.size = measureSelect.value;
-                        addButton.dataset.regularPrice = price;
-                        addButton.dataset.promoPrice = price;
-                    }
-
-                    colorSelect.addEventListener('change', updateCasitaData);
-                    measureSelect.addEventListener('change', updateCasitaData);
-
-                    updateCasitaData();
-                })();
-            </script>
-
+      </div>
+      <div class="casita-bloque">
+        <h2>MEDIDAS Y PRECIOS</h2>
+        <div class="casita-medidas" role="group" aria-label="Seleccionar medida">
+          <button type="button" class="casita-opcion casita-medida-btn medida-btn" data-size="40 × 40 cm" data-price="75" aria-pressed="true">40 × 40 cm<strong>S/ 75</strong></button>
+          <button type="button" class="casita-opcion casita-medida-btn medida-btn" data-size="50 × 50 cm" data-price="85" aria-pressed="false">50 × 50 cm<strong>S/ 85</strong></button>
         </div>
-
-    </section>
-
+      </div>
+      <div class="casita-bloque">
+        <h2>CARACTERÍSTICAS</h2>
+        <ul class="casita-caracteristicas">
+          <li>Forma de cueva acojinada tipo iglú que envuelve a tu mascota y brinda una sensación de seguridad.</li>
+          <li>Materiales suaves y cálidos de felpa y algodón para mantenerla cómoda durante el descanso.</li>
+          <li>Cojín interior extraíble que facilita la limpieza y el lavado.</li>
+          <li>Base antideslizante para mayor estabilidad al entrar, salir o jugar.</li>
+        </ul>
+      </div>
+      <div class="casita-seleccion">
+        <p>Tu selección</p>
+        <p class="resumen" id="casita-resumen">Rosa Pastel · 40 × 40 cm · S/ 75</p>
+        <button type="button" class="casita-agregar" data-kumino-add data-product-id="casita-de-ensueno" data-product-name="Casita de Ensueño" data-category="casitas" data-color="Rosa Pastel" data-size="40 × 40 cm" data-regular-price="75" data-promo-price="75">Agregar al carrito →</button>
+      </div>
+      <a href="casitas.html" class="volver-coleccion">← Volver a colección</a>
+    </div>
+  </section>
 </main>
-
-<!-- FOOTER -->
-<footer class="footer-kumino">
-
-    <div class="footer-container">
-
-        <div class="footer-marca">
-            <h2>KÚMINO</h2>
-            <p>Moda con amor para tu mascota.</p>
-        </div>
-
-        <div class="footer-enlaces">
-            <h3>Navegación</h3>
-            <a href="../index.html">Inicio</a>
-            <a href="../HEMBRAS/hembras.html">Hembras</a>
-            <a href="../MACHOS/machos.html">Machos</a>
-            <a href="../ACCESORIOS/accesorios.html">Accesorios</a>
-            <a href="casitas.html">Casitas</a>
-        </div>
-
-        <div class="footer-contacto">
-            <h3>Contáctanos</h3>
-
-            <a href="https://wa.me/51940151463"
-               target="_blank"
-               rel="noopener noreferrer">
-                WhatsApp
-            </a>
-
-            <span>Envíos a todo el Perú</span>
-        </div>
-
-    </div>
-
-    <div class="footer-bottom">
-        <p>© 2026 KÚMINO. Todos los derechos reservados.</p>
-        <span>Moda con amor para tu mascota</span>
-    </div>
-
+<footer class="footer-kumino" id="contacto">
+  <div class="footer-container">
+    <div class="footer-marca"><h2>KÚMINO</h2><p>Moda con amor para tu mascota.</p></div>
+    <div class="footer-enlaces"><h3>Navegación</h3><a href="../index.html">Inicio</a><a href="casitas.html">Casitas</a></div>
+    <div class="footer-contacto"><h3>Contáctanos</h3><a href="https://wa.me/51940151463" target="_blank" rel="noopener noreferrer">WhatsApp</a><span>Envíos a todo el Perú</span></div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 KÚMINO. Todos los derechos reservados.</p><span>Moda con amor para tu mascota</span></div>
 </footer>
-
+<script>
+(() => {
+  const addButton = document.querySelector('[data-kumino-add]');
+  const summary = document.getElementById('casita-resumen');
+  let selectedColor = 'Rosa Pastel';
+  let selectedSize = '40 × 40 cm';
+  let selectedPrice = 75;
+  function update() {
+    addButton.dataset.color = selectedColor;
+    addButton.dataset.size = selectedSize;
+    addButton.dataset.regularPrice = String(selectedPrice);
+    addButton.dataset.promoPrice = String(selectedPrice);
+    summary.textContent = `${selectedColor} · ${selectedSize} · S/ ${selectedPrice}`;
+  }
+  document.querySelectorAll('.color-btn').forEach(button => button.addEventListener('click', () => {
+    selectedColor = button.dataset.color;
+    document.querySelectorAll('.color-btn').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    update();
+  }));
+  document.querySelectorAll('.medida-btn').forEach(button => button.addEventListener('click', () => {
+    selectedSize = button.dataset.size;
+    selectedPrice = Number(button.dataset.price);
+    document.querySelectorAll('.medida-btn').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    update();
+  }));
+  update();
+})();
+</script>
 <script src="../kumino-cart.js"></script>
-
 </body>
 </html>
