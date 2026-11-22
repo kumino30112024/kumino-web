@@ -1,357 +1,262 @@
-
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Chompa Christmas Diamond para mascotas - KÚMINO" name="description"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Chompa Christmas Diamond para mascotas - KÚMINO">
 <title>Chompa Christmas Diamond | KÚMINO</title>
-<link href="../style.css" rel="stylesheet"/>
+<link rel="stylesheet" href="../style.css">
 <style>
-        body {
-            background-image:
-                linear-gradient(rgba(255,250,242,.08), rgba(255,250,242,.08)),
-                url("../fondo_productosnav.jpg");
-            background-position: center top;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-        }
-
-        .navidad-producto-main {
-            padding: 58px 20px 76px;
-        }
-
-        .navidad-producto-container {
-            width: min(1250px,100%);
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(0,1fr) minmax(0,.95fr);
-            gap: clamp(35px,5vw,65px);
-            align-items: center;
-            padding: 35px 25px;
-            background: transparent;
-            border: none;
-            border-radius: 0;
-            box-shadow: none;
-            backdrop-filter: none;
-        }
-
-        .navidad-producto-imagen {
-            min-width: 0;
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
-            background: transparent;
-        }
-
-        .navidad-producto-imagen img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            mix-blend-mode: normal;
-            opacity: 1;
-            filter: drop-shadow(0 12px 18px rgba(45,35,25,.13));
-        }
-
-        .navidad-producto-info {
-            color: #333333;
-        }
-
-        .navidad-producto-categoria {
-            display: inline-block;
-            margin-bottom: 12px;
-            color: #7A6A51;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 2px;
-        }
-
-        .navidad-producto-info h1 {
-            margin: 0 0 17px;
-            color: #71343a;
-            font-family: "Playfair Display",Georgia,serif;
-            font-size: clamp(30px,4vw,43px);
-            line-height: 1.12;
-        }
-
-        .navidad-promo-etiqueta {
-            display: inline-block;
-            margin-bottom: 17px;
-            padding: 7px 13px;
-            border-radius: 4px;
-            background: #8b343b;
-            color: #fff;
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 1.2px;
-        }
-
-        .navidad-producto-descripcion {
-            margin: 0 0 25px;
-            color: #5b554e;
-            font-size: 14px;
-            line-height: 1.85;
-        }
-
-        .navidad-producto-seccion {
-            margin-top: 23px;
-        }
-
-        .navidad-producto-seccion h2 {
-            margin: 0 0 13px;
-            color: #71343a;
-            font-family: "Playfair Display",Georgia,serif;
-            font-size: 21px;
-            font-weight: 600;
-        }
-
-        .navidad-estado {
-            padding: 18px;
-            border: 1px solid rgba(157,122,76,.28);
-            border-radius: 12px;
-            background: rgba(255,250,242,.65);
-        }
-
-        .navidad-estado strong {
-            display: block;
-            margin-bottom: 7px;
-            color: #963b42;
-            font-size: 15px;
-        }
-
-        .navidad-estado p {
-            margin: 0;
-            color: #81776c;
-            font-size: 13px;
-            line-height: 1.7;
-        }
-
-        .navidad-caracteristicas {
-            margin: 0;
-            padding-left: 19px;
-            color: #5b554e;
-            font-size: 13px;
-            line-height: 1.9;
-        }
-
-        .navidad-btn-whatsapp {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-top: 27px;
-            padding: 15px 20px;
-            border-radius: 30px;
-            background: #81363d;
-            color: #fff;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: .3px;
-            text-align: center;
-            text-decoration: none;
-            box-shadow: 0 7px 18px rgba(129,54,61,.18);
-            transition: background .2s ease,transform .2s ease;
-        }
-
-        .navidad-btn-whatsapp:hover {
-            background: #672a31;
-            transform: translateY(-2px);
-        }
-
-        .navidad-volver {
-            display: inline-block;
-            margin-top: 17px;
-            color: #65785e;
-            font-size: 13px;
-            text-decoration: none;
-        }
-
-        .navidad-volver:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width:760px) {
-            body {
-                background-attachment: scroll;
-            }
-
-            .navidad-producto-main {
-                padding: 30px 16px 45px !important;
-            }
-
-            .navidad-producto-container {
-                grid-template-columns: 1fr;
-                gap: 22px;
-                padding: 0;
-            }
-
-            .navidad-producto-imagen {
-                width: 100%;
-                max-height: none;
-                aspect-ratio: 4 / 5;
-            }
-
-            .navidad-producto-imagen img {
-                mix-blend-mode: multiply;
-                filter: drop-shadow(0 10px 14px rgba(45,35,25,.10));
-            }
-
-            .navidad-producto-info h1 {
-                font-size: 32px;
-            }
-        }
-
-        @media (max-width:380px) {
-            .navidad-producto-main {
-                padding: 25px 13px 40px !important;
-            }
-        }
-    
-
-/* INTEGRACIÓN CARRITO KÚMINO - NAVIDAD */
-.navidad-talla-card[data-kumino-size] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 100%;
-  margin: 0;
-  color: inherit;
-  font: inherit;
-  cursor: pointer;
-  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease, transform .2s ease;
+/* FONDO NAVIDEÑO */
+body {
+  background-image: linear-gradient(rgba(255,250,242,.08),rgba(255,250,242,.08)),url("../fondo_productosnav.jpg");
+  background-position:center top; background-size:cover; background-repeat:no-repeat; background-attachment:fixed;
 }
-.navidad-talla-card[data-kumino-size]:hover {
-  border-color: #81363d;
-  transform: translateY(-2px);
+.navidad-producto-main { padding:58px 20px 76px; }
+
+/* CONTENEDOR PRINCIPAL */
+.navidad-producto-container {
+  width:min(1250px,100%); margin:0 auto; display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
+  gap:clamp(35px,5vw,65px); align-items:center; padding:35px 25px;
+  background:transparent; border:none; border-radius:0; box-shadow:none; backdrop-filter:none;
 }
-.navidad-talla-card[data-kumino-size].kumino-talla-seleccionada {
-  border: 2px solid #81363d;
-  background: rgba(255,245,238,.96);
-  box-shadow: 0 4px 13px rgba(91,35,40,.12);
+
+/* IMAGEN */
+.navidad-producto-imagen {
+  min-width:0; background:transparent; border:none; border-radius:0;
+  overflow:visible; aspect-ratio:4/5; box-shadow:none;
 }
-.navidad-talla-card[data-kumino-size]:focus-visible {
-  outline: 3px solid rgba(129,54,61,.28);
-  outline-offset: 3px;
+.navidad-producto-imagen img {
+  display:block; width:100%; height:100%; object-fit:contain;
+  mix-blend-mode:normal; opacity:1;
+  filter:drop-shadow(0 10px 16px rgba(65,43,28,.18));
 }
-.navidad-color-selector-wrap { margin-top: 13px; }
-.navidad-color-selector-wrap label {
-  display: block; margin-bottom: 8px; color: #71343a;
-  font-size: 13px; font-weight: 600;
+
+/* INFORMACIÓN */
+.navidad-producto-info { min-width:0; color:#333333; }
+.navidad-producto-categoria {
+  display:inline-block; margin-bottom:12px; color:#7A6A51;
+  font-size:11px; font-weight:700; letter-spacing:2px;
 }
-.navidad-color-selector {
-  width: 100%; max-width: 320px; padding: 11px 13px;
-  border: 1px solid rgba(157,122,76,.4); border-radius: 9px;
-  background: rgba(255,250,242,.9); color: #514b44;
-  font: inherit; font-size: 13px;
+.navidad-producto-info h1 {
+  margin:0 0 17px; color:#71343a; font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(30px,4vw,43px); line-height:1.12;
 }
+.navidad-promo-etiqueta {
+  display:inline-block; margin-bottom:17px; padding:7px 13px; border-radius:4px;
+  background:#8b343b; color:#fff; font-size:11px; font-weight:700; letter-spacing:1.2px;
+}
+.navidad-producto-descripcion {
+  margin:0 0 25px; color:#4d443d; font-size:14px; line-height:1.85;
+}
+
+/* SECCIONES */
+.navidad-producto-seccion { margin-top:23px; }
+.navidad-producto-seccion h2 {
+  margin:0 0 13px; color:#71343a; font-family:"Playfair Display",Georgia,serif;
+  font-size:21px; font-weight:600;
+}
+
+/* COLOR */
+.navidad-color { display:inline-flex; align-items:center; gap:9px; color:#514b44; font-size:13px; }
+.navidad-color-muestra {
+  width:17px; height:17px; border:2px solid #fff; border-radius:50%;
+  background:#7a9b45; box-shadow:0 0 0 1px #b8a99a;
+}
+
+/* TALLAS Y PRECIOS */
+.navidad-tallas-precios { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+.navidad-talla-card {
+  min-width:0; padding:13px 9px; border:1px solid rgba(157,122,76,.28);
+  border-radius:12px; background:rgba(255,250,242,.65); text-align:center;
+  backdrop-filter:blur(3px); appearance:none; -webkit-appearance:none;
+  width:100%; margin:0; color:inherit; font:inherit; cursor:pointer;
+  transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.navidad-talla-card:hover { border-color:#81363d; transform:translateY(-2px); }
+.navidad-talla-card.kumino-talla-seleccionada {
+  border:2px solid #81363d; background:rgba(255,245,238,.96);
+  box-shadow:0 4px 13px rgba(91,35,40,.12);
+}
+.navidad-talla-card:focus-visible { outline:3px solid rgba(129,54,61,.28); outline-offset:3px; }
+.navidad-talla-card strong { display:block; margin-bottom:9px; color:#4c5145; font-size:13px; }
+.navidad-precio-regular { display:block; color:#81766d; font-size:12px; text-decoration:line-through; }
+.navidad-precio-promo { display:block; margin-top:3px; color:#963b42; font-size:19px; font-weight:700; }
+.navidad-ahorro { display:block; margin-top:5px; color:#526B50!important; font-size:11px; font-weight:600; }
+.navidad-aviso-precio { display:block; margin-top:9px; color:#62584e; font-size:11px; }
+
+/* CARACTERÍSTICAS */
+.navidad-caracteristicas { margin:0; padding-left:19px; color:#4d443d; font-size:13px; line-height:1.9; }
+.navidad-caracteristicas li { padding-left:2px; }
+
+/* BOTÓN CARRITO */
 .navidad-agregar-carrito {
-  display: flex; justify-content: center; align-items: center;
-  width: 100%; margin-top: 27px; padding: 15px 20px;
-  border: 0; border-radius: 30px; background: #526B50; color: #fff;
-  font: inherit; font-size: 13px; font-weight: 700; letter-spacing: .3px;
-  text-align: center; cursor: pointer;
-  box-shadow: 0 5px 14px rgba(91,35,40,.15);
-  transition: background .2s ease, transform .2s ease;
+  display:flex; justify-content:center; align-items:center; width:100%;
+  margin-top:27px; padding:15px 20px; border:0; border-radius:30px;
+  background:#526B50; color:#fff; font:inherit; font-size:13px;
+  font-weight:700; letter-spacing:.3px; text-align:center; cursor:pointer;
+  box-shadow:0 5px 14px rgba(91,35,40,.15);
+  transition:background .2s ease,transform .2s ease;
 }
-.navidad-agregar-carrito:hover:not(:disabled) { background: #40563f; transform: translateY(-2px); }
-.navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
-.navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
+.navidad-agregar-carrito:hover:not(:disabled) { background:#40563f; transform:translateY(-2px); }
+.navidad-agregar-carrito:disabled { opacity:.52; cursor:not-allowed; box-shadow:none; }
+.navidad-seleccion-aviso {
+  display:block; min-height:17px; margin-top:9px; color:#81363d; font-size:12px; line-height:1.5;
+}
+
+/* VOLVER */
+.navidad-volver { display:inline-block; margin-top:17px; color:#526b50; font-size:13px; font-weight:600; text-decoration:none; }
+.navidad-volver:hover { text-decoration:underline; }
+
+/* RESPONSIVE - TABLETS Y CELULARES */
+@media(max-width:760px) {
+  body { background-attachment:scroll; background-position:center top; background-size:cover; }
+  .header { width:100%; }
+  .header .nav-container { width:100%; box-sizing:border-box; padding-left:16px; padding-right:16px; }
+  .header .logo { font-size:clamp(23px,6vw,30px); white-space:nowrap; }
+  .header .btn-contacto { white-space:nowrap; }
+  .navidad-producto-main { padding:30px 16px 45px; }
+  .navidad-producto-container {
+    grid-template-columns:1fr; gap:22px; padding:0;
+    background:transparent; border:none; border-radius:0; box-shadow:none;
+  }
+  .navidad-producto-imagen {
+    width:100%; height:auto; max-height:none; aspect-ratio:auto;
+    background:transparent; border:none; border-radius:15px; overflow:hidden;
+    box-shadow:0 10px 28px rgba(73,43,28,.18);
+  }
+  .navidad-producto-imagen img {
+    display:block; width:100%; height:auto; max-height:none;
+    object-fit:contain; object-position:center; mix-blend-mode:normal;
+  }
+  .navidad-producto-categoria { margin-bottom:9px; font-size:10px; letter-spacing:1.5px; }
+  .navidad-producto-info h1 { font-size:clamp(27px,7vw,34px); line-height:1.15; margin-bottom:13px; }
+  .navidad-promo-etiqueta { margin-bottom:13px; font-size:10px; }
+  .navidad-producto-descripcion { font-size:14px; line-height:1.7; margin-bottom:18px; }
+  .navidad-producto-seccion { margin-top:19px; }
+  .navidad-producto-seccion h2 { font-size:20px; margin-bottom:11px; }
+  .navidad-tallas-precios { grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+  .navidad-talla-card { padding:11px 5px; border-radius:10px; }
+  .navidad-talla-card strong { font-size:12px; margin-bottom:7px; }
+  .navidad-precio-regular { font-size:10px; }
+  .navidad-precio-promo { font-size:17px; }
+  .navidad-ahorro { font-size:10px; }
+  .navidad-aviso-precio { font-size:10px; }
+  .navidad-caracteristicas { font-size:13px; line-height:1.8; }
+  .navidad-agregar-carrito { margin-top:22px; padding:14px; font-size:13px; }
+}
+@media(max-width:380px) {
+  .navidad-producto-main { padding:25px 13px 40px; }
+  .navidad-tallas-precios { gap:5px; }
+  .navidad-talla-card { padding:10px 3px; }
+  .navidad-precio-promo { font-size:15px; }
+  .navidad-ahorro { font-size:9px; }
+  .navidad-producto-info h1 { font-size:28px; }
+}
 </style>
 </head>
 <body>
 <header class="header">
-<div class="nav-container">
-<a class="logo" href="../index.html">KÚMINO</a>
-<nav class="navbar">
-<a href="../index.html">Inicio</a>
-<a class="activo" href="navidad.html">Navidad</a>
-</nav>
-<a class="btn-contacto" href="#contacto">Contacto</a>
-</div>
+  <div class="nav-container">
+    <a href="../index.html" class="logo">KÚMINO</a>
+    <nav class="navbar">
+      <a href="../index.html">Inicio</a>
+      <a href="navidad.html" class="activo">Navidad</a>
+    </nav>
+    <a href="#contacto" class="btn-contacto">Contacto</a>
+  </div>
 </header>
-<main class="navidad-producto-main">
-<div class="navidad-producto-container">
-<div class="navidad-producto-imagen">
-<img alt="Chompa Christmas Diamond para mascotas" src="../IMAGENES/chompachristmasdiamond.jpg"/>
-</div>
-<div class="navidad-producto-info">
-<span class="navidad-producto-categoria">COLECCIÓN NAVIDEÑA</span>
-<h1>Chompa Christmas Diamond</h1>
-<span class="navidad-promo-etiqueta">PRECIO PROMOCIONAL</span>
-<p class="navidad-producto-descripcion">
-                    ¡Un toque especial para celebrar la Navidad! La Chompa
-                    Christmas Diamond llega a nuestra colección navideña
-                    para que tu engreído luzca un estilo festivo y encantador
-                    durante esta temporada.
-                </p>
 
-<section class="navidad-producto-seccion">
-<h2>Tallas y precios</h2>
-<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="2" data-color="Verde" data-promo-price="33.00" data-regular-price="46.20" type="button">
-<strong>Talla 2</strong>
-<span class="navidad-precio-regular">S/ 46.20</span>
-<span class="navidad-precio-promo">S/ 33.00</span>
-<span class="navidad-ahorro">Ahorras S/ 13.20</span>
-</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-color="Verde" data-promo-price="35.00" data-regular-price="49.00" type="button">
-<strong>Talla 3</strong>
-<span class="navidad-precio-regular">S/ 49.00</span>
-<span class="navidad-precio-promo">S/ 35.00</span>
-<span class="navidad-ahorro">Ahorras S/ 14.00</span>
-</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="4" data-color="Verde" data-promo-price="36.00" data-regular-price="50.40" type="button">
-<strong>Talla 4</strong>
-<span class="navidad-precio-regular">S/ 50.40</span>
-<span class="navidad-precio-promo">S/ 36.00</span>
-<span class="navidad-ahorro">Ahorras S/ 14.40</span>
-</button></div>
-</section>
-<section class="navidad-producto-seccion">
-<h2>Características</h2>
-<ul class="navidad-caracteristicas">
-<li>Prenda tipo chompa.</li>
-<li>Diseño de inspiración navideña.</li>
-<li>Parte de la colección especial de Navidad KÚMINO.</li>
-</ul>
-</section>
-<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="Verde" data-image="../IMAGENES/chompachristmasdiamond.jpg" data-kumino-add="" data-product-id="chompa-christmas-diamond" data-product-name="Chompa Christmas Diamond" disabled="disabled" type="button">Agregar al carrito</button>
-<span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
-<a class="navidad-volver" href="navidad.html">← Volver a colección</a>
-</div></div></main>
+<main class="navidad-producto-main">
+  <div class="navidad-producto-container">
+    <div class="navidad-producto-imagen">
+      <img src="../IMAGENES/chompachristmasdiamond.jpg" alt="Chompa Christmas Diamond para mascotas">
+    </div>
+
+    <div class="navidad-producto-info">
+      <span class="navidad-producto-categoria">COLECCIÓN NAVIDEÑA</span>
+      <h1>Chompa Christmas Diamond</h1>
+      <span class="navidad-promo-etiqueta">PRECIO PROMOCIONAL</span>
+      <p class="navidad-producto-descripcion">
+        ¡Un toque especial para celebrar la Navidad! La Chompa Christmas Diamond llega a nuestra colección navideña para que tu engreído luzca un estilo festivo y encantador durante esta temporada.
+      </p>
+
+      <section class="navidad-producto-seccion">
+        <h2>Color</h2>
+        <div class="navidad-color">
+          <span class="navidad-color-muestra"></span>
+          <span>Verde</span>
+        </div>
+      </section>
+
+      <section class="navidad-producto-seccion">
+        <h2>Tallas y precios</h2>
+        <div class="navidad-tallas-precios">
+          <button type="button" class="navidad-talla-card" data-kumino-size="2" data-color="Verde" data-promo-price="33.00" data-regular-price="46.20" aria-pressed="false">
+            <strong>Talla 2</strong>
+            <span class="navidad-precio-regular">S/ 46.20</span>
+            <span class="navidad-precio-promo">S/ 33.00</span>
+            <span class="navidad-ahorro">Ahorras S/ 13.20</span>
+          </button>
+          <button type="button" class="navidad-talla-card" data-kumino-size="3" data-color="Verde" data-promo-price="35.00" data-regular-price="49.00" aria-pressed="false">
+            <strong>Talla 3</strong>
+            <span class="navidad-precio-regular">S/ 49.00</span>
+            <span class="navidad-precio-promo">S/ 35.00</span>
+            <span class="navidad-ahorro">Ahorras S/ 14.00</span>
+          </button>
+          <button type="button" class="navidad-talla-card" data-kumino-size="4" data-color="Verde" data-promo-price="36.00" data-regular-price="50.40" aria-pressed="false">
+            <strong>Talla 4</strong>
+            <span class="navidad-precio-regular">S/ 50.40</span>
+            <span class="navidad-precio-promo">S/ 36.00</span>
+            <span class="navidad-ahorro">Ahorras S/ 14.40</span>
+          </button>
+        </div>
+        <span class="navidad-aviso-precio">Los precios varían según la talla.</span>
+      </section>
+
+      <section class="navidad-producto-seccion">
+        <h2>Características</h2>
+        <ul class="navidad-caracteristicas">
+          <li>Prenda tipo chompa.</li>
+          <li>Diseño de inspiración navideña.</li>
+          <li>Parte de la colección especial de Navidad KÚMINO.</li>
+        </ul>
+      </section>
+
+      <button type="button" class="navidad-agregar-carrito" data-kumino-add data-product-id="chompa-christmas-diamond" data-product-name="Chompa Christmas Diamond" data-category="navidad" data-default-color="Verde" data-image="../IMAGENES/chompachristmasdiamond.jpg" disabled>
+        Agregar al carrito
+      </button>
+      <span class="navidad-seleccion-aviso" aria-live="polite">Selecciona una talla para continuar.</span>
+      <a href="navidad.html" class="navidad-volver">← Volver a colección</a>
+    </div>
+  </div>
+</main>
+
 <footer class="footer-kumino">
-<div class="footer-container">
-<div class="footer-marca">
-<h2>KÚMINO</h2>
-<p>Moda con amor para tu mascota.</p>
-</div>
-<div class="footer-enlaces">
-<h3>Navegación</h3>
-<a href="../index.html">Inicio</a>
-<a href="navidad.html">Navidad</a>
-</div>
-<div class="footer-contacto" id="contacto">
-<h3>Contáctanos</h3>
-<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">WhatsApp</a>
-<span>Envíos a todo el Perú</span>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 KÚMINO. Todos los derechos reservados.</p>
-<span>Moda con amor para tu mascota</span>
-</div>
+  <div class="footer-container">
+    <div class="footer-marca"><h2>KÚMINO</h2><p>Moda con amor para tu mascota.</p></div>
+    <div class="footer-enlaces"><h3>Navegación</h3><a href="../index.html">Inicio</a><a href="navidad.html">Navidad</a></div>
+    <div class="footer-contacto" id="contacto">
+      <h3>Contáctanos</h3>
+      <a href="https://wa.me/51940151463" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <span>Envíos a todo el Perú</span>
+    </div>
+  </div>
+  <div class="footer-bottom"><p>© 2026 KÚMINO. Todos los derechos reservados.</p><span>Moda con amor para tu mascota</span></div>
 </footer>
+
 <script>
 (() => {
   'use strict';
   const addButton = document.querySelector('[data-kumino-add]');
   if (!addButton) return;
   const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
-  const colorOptions = Array.from(document.querySelectorAll('[data-color-choice]'));
   const notice = document.querySelector('.navidad-seleccion-aviso');
   let selected = null;
-  let selectedColor = addButton.dataset.defaultColor || '';
 
   function refresh() {
-    const color = selected ? selected.color : selectedColor;
+    const color = selected ? (selected.color || addButton.dataset.defaultColor || '') : '';
     const ready = Boolean(selected && color);
     addButton.disabled = !ready;
     if (ready) {
@@ -360,28 +265,29 @@
       addButton.dataset.promoPrice = selected.promo;
       addButton.dataset.color = color;
       notice.textContent = `Seleccionado: Talla ${selected.size} · ${color}`;
-    } else if (!selected) {
-      notice.textContent = 'Selecciona una talla para continuar.';
     } else {
-      notice.textContent = 'Selecciona un color para continuar.';
+      notice.textContent = 'Selecciona una talla para continuar.';
     }
   }
-  colorOptions.forEach(option => option.addEventListener('click', () => {
-    colorOptions.forEach(item => { item.classList.remove('kumino-color-seleccionado'); item.setAttribute('aria-pressed','false'); });
-    option.classList.add('kumino-color-seleccionado');
-    option.setAttribute('aria-pressed','true');
-    selectedColor = option.dataset.colorChoice;
-    refresh();
-  }));
+
   sizeCards.forEach(card => card.addEventListener('click', () => {
-    sizeCards.forEach(item => { item.classList.remove('kumino-talla-seleccionada'); item.setAttribute('aria-pressed','false'); });
+    sizeCards.forEach(item => {
+      item.classList.remove('kumino-talla-seleccionada');
+      item.setAttribute('aria-pressed','false');
+    });
     card.classList.add('kumino-talla-seleccionada');
     card.setAttribute('aria-pressed','true');
-    selected = { size: card.dataset.kuminoSize, color: card.dataset.color, regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
+    selected = {
+      size: card.dataset.kuminoSize,
+      color: card.dataset.color || addButton.dataset.defaultColor || '',
+      regular: card.dataset.regularPrice,
+      promo: card.dataset.promoPrice
+    };
     refresh();
   }));
   refresh();
 })();
 </script>
-<script src="../kumino-cart.js"></script></body>
+<script src="../kumino-cart.js"></script>
+</body>
 </html>
