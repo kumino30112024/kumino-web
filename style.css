@@ -5760,3 +5760,63 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
     }
 }
 
+
+
+/* =====================================================
+   KÚMINO - CORRECCIÓN DE VISIBILIDAD MULTIMEDIA
+   Añadido al final para prevalecer sobre reglas anteriores.
+===================================================== */
+.hero.hero-navidad {
+    position: relative;
+    isolation: isolate;
+    background: #F5EADD;
+}
+.hero.hero-navidad > .hero-video {
+    z-index: 0 !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.hero.hero-navidad > .hero-navidad-overlay {
+    z-index: 1 !important;
+}
+.hero.hero-navidad > .hero-navidad-contenido {
+    z-index: 2 !important;
+}
+.hero.hero-navidad > .hero-coleccion {
+    position: absolute;
+    z-index: 3 !important;
+}
+.banner-navidad {
+    position: relative;
+    isolation: isolate;
+}
+.banner-navidad > .banner-navidad-video {
+    z-index: 0 !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.banner-navidad > .banner-navidad-contenido {
+    position: relative;
+    z-index: 1 !important;
+}
+.coleccion-grid > .producto-card {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+.coleccion-grid > .producto-card > img {
+    position: absolute;
+    inset: 0;
+    z-index: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+.coleccion-grid > .producto-card > .producto-overlay {
+    z-index: 1 !important;
+}
