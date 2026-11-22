@@ -1232,6 +1232,102 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
 }
 </style>
 
+
+<style>
+/* CORRECCIÓN DE ESPACIADO: contenido agrupado, sin empujar el aviso al fondo */
+@media (max-width: 600px) {
+    .productos-grid {
+        grid-auto-rows: auto !important;
+        align-items: stretch !important;
+        row-gap: 12px !important;
+    }
+
+    .productos-grid > .producto-catalogo {
+        height: auto !important;
+        min-height: 0 !important;
+        align-self: stretch !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-datos {
+        display: flex !important;
+        flex: 0 0 auto !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        gap: 5px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 8px 9px 8px !important;
+        box-sizing: border-box !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-datos > * {
+        flex: 0 0 auto !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-titulo-tallas {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-titulo-tallas h2,
+    .productos-grid .producto-catalogo .catalogo-datos > h2 {
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 11px !important;
+        line-height: 1.3 !important;
+    }
+
+    .productos-grid .producto-catalogo .tallas-disponibles {
+        display: none !important;
+    }
+
+    /* El precio y el texto de ahorro quedan inmediatamente debajo del nombre */
+    .productos-grid .producto-catalogo .precio-machos-fila,
+    .productos-grid .producto-catalogo .precio-fila,
+    .productos-grid .producto-catalogo .precio-container {
+        width: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        gap: 5px !important;
+    }
+
+    .productos-grid .producto-catalogo .ahorro-machos,
+    .productos-grid .producto-catalogo .promo-ahorro {
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
+    }
+
+    /* CLAVE: anular cualquier margin:auto que separaba el aviso del precio */
+    .productos-grid .producto-catalogo .aviso-precio-talla,
+    .productos-grid .producto-catalogo .aviso-precio-talla-machos {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        align-self: flex-start !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 3px 7px !important;
+        font-size: 8px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+    }
+}
+</style>
+
 </head>
  <body class="pagina-machos">
 <header class="header">
