@@ -1550,6 +1550,101 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
 }
 </style>
 
+
+<style>
+/* ALTURA EQUILIBRADA: cada fila adopta la altura de su tarjeta más alta */
+@media (max-width: 600px) {
+    .productos-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-auto-rows: auto !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+    }
+
+    .productos-grid > a.producto-catalogo,
+    .productos-grid > .producto-catalogo {
+        display: flex !important;
+        flex-direction: column !important;
+        align-self: stretch !important;
+        justify-self: stretch !important;
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-foto {
+        display: block !important;
+        flex: 0 0 auto !important;
+        width: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        overflow: hidden !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-foto img {
+        display: block !important;
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-datos {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+        align-content: flex-start !important;
+        gap: 5px !important;
+        height: auto !important;
+        min-height: 0 !important;
+        padding: 8px 9px !important;
+        box-sizing: border-box !important;
+    }
+
+    .productos-grid .producto-catalogo .catalogo-titulo-tallas,
+    .productos-grid .producto-catalogo .catalogo-titulo-tallas h2,
+    .productos-grid .producto-catalogo .catalogo-datos > h2 {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.25 !important;
+    }
+
+    /* No se reservan líneas: el precio queda inmediatamente bajo el nombre */
+    .productos-grid .producto-catalogo .tallas-disponibles {
+        display: none !important;
+    }
+
+    .productos-grid .producto-catalogo .aviso-precio-talla,
+    .productos-grid .producto-catalogo .aviso-precio-talla-machos {
+        display: inline-flex !important;
+        flex: 0 0 auto !important;
+        align-self: flex-start !important;
+        width: fit-content !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        margin-top: 0 !important;
+        padding: 3px 7px !important;
+        font-size: 8px !important;
+        line-height: 1.2 !important;
+        white-space: normal !important;
+    }
+
+    .productos-grid .producto-catalogo .precio-machos-fila,
+    .productos-grid .producto-catalogo .precio-fila,
+    .productos-grid .producto-catalogo .precio-container {
+        margin: 0 !important;
+        min-height: 0 !important;
+        gap: 5px !important;
+    }
+}
+</style>
+
 </head>
  <body class="pagina-machos">
 <header class="header">
