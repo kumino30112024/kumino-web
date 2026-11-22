@@ -9,6 +9,7 @@
     <title>KÚMINO | Moda con amor para tu mascota</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="kumino-media-fix.css">
 
    
 <!-- Tipografías -->
@@ -366,36 +367,6 @@
 }
 </style>
 
-
-
-<style id="kumino-hero-video-layer-fix">
-/* Corrección de capas del video principal: el video debe quedar
-   dentro del hero y por encima del fondo, sin tapar el contenido. */
-.hero.hero-navidad {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-}
-.hero.hero-navidad > .hero-video {
-    position: absolute;
-    inset: 0;
-    z-index: 0 !important;
-    display: block !important;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-.hero.hero-navidad > .hero-navidad-overlay {
-    z-index: 1 !important;
-}
-.hero.hero-navidad > .hero-navidad-contenido {
-    z-index: 2 !important;
-}
-.hero.hero-navidad > .hero-coleccion {
-    z-index: 4 !important;
-}
-</style>
-
 </head>
 
 
@@ -505,7 +476,7 @@
 <section id="inicio" class="hero hero-navidad">
 
     <video class="hero-video" autoplay muted loop playsinline>
-        <source src="video-navideño.mp4" type="video/mp4">
+        <source src="video-navide%C3%B1o.mp4" type="video/mp4">
         Tu navegador no puede reproducir este video.
     </video>
 

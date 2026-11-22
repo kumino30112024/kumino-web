@@ -1,0 +1,66 @@
+/* KÚMINO — corrección aislada de capas multimedia.
+   Cargar después de style.css. No sustituye ni rediseña los estilos originales. */
+
+/* Video principal del hero */
+.hero.hero-navidad {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero.hero-navidad .hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0 !important;
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.hero.hero-navidad .hero-navidad-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1 !important;
+  pointer-events: none;
+}
+.hero.hero-navidad .hero-navidad-contenido {
+  position: absolute;
+  z-index: 2 !important;
+}
+.hero.hero-navidad .hero-coleccion {
+  position: absolute;
+  z-index: 3 !important;
+}
+
+/* Video del banner navideño */
+.banner-navidad {
+  position: relative;
+  isolation: isolate;
+}
+.banner-navidad .banner-navidad-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0 !important;
+  display: block !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.banner-navidad::before {
+  z-index: 1 !important;
+  pointer-events: none;
+}
+.banner-navidad .banner-navidad-contenido {
+  position: relative;
+  z-index: 2 !important;
+}
+
+/* Asegurar que las imágenes de las tarjetas no queden ocultas. */
+.coleccion-grid .producto-card img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
