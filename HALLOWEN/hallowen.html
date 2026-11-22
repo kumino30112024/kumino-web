@@ -494,7 +494,7 @@
 
 /* ===== HALLOWEEN: presentación visual alineada con HEMBRAS ===== */
 body.pagina-hembras .catalogo-hembras {
-  background-image: url("../Fondo-disfraces-boutique.jpeg");
+  background-image: url("../Fondo-disfraces-boutique.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
@@ -827,7 +827,188 @@ body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
 
 
 
-<style>.opciones-filtro button.opcion-seleccionada{background:#F5EADD;font-weight:600}</style></head>
+<style>.opciones-filtro button.opcion-seleccionada{background:#F5EADD;font-weight:600}</style>
+
+/* CORRECCIÓN FUNCIONAL: filtros y fondo de la colección */
+body.pagina-hembras .catalogo-hembras {
+  background-image: url("../Fondo-disfraces-boutique.png") !important;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* El atributo hidden debe prevalecer sobre display:flex de las tarjetas. */
+body.pagina-hembras .productos-grid > .producto-catalogo[hidden] {
+  display: none !important;
+}
+
+/* Barra única de filtros, con categorías y talla alineadas. */
+body.pagina-hembras .halloween-controles {
+  width: min(1120px, calc(100% - 48px));
+  max-width: 1120px;
+  min-height: 0;
+  margin: 28px auto 0;
+  padding: 12px 18px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  box-sizing: border-box;
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(43,43,43,.08);
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(75,54,43,.08);
+}
+body.pagina-hembras .halloween-controles > .categorias-catalogo {
+  display: flex !important;
+  flex: 1 1 auto;
+  min-width: 0;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+body.pagina-hembras .halloween-controles > .categorias-catalogo button {
+  flex: 0 1 auto;
+  padding: 10px 13px;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  color: #333;
+  font: 500 13px 'Poppins',sans-serif;
+  white-space: nowrap;
+  cursor: pointer;
+}
+body.pagina-hembras .halloween-controles > .categorias-catalogo button.categoria-activa,
+body.pagina-hembras .halloween-controles > .categorias-catalogo button.categoria-activa:hover {
+  background: #536F55 !important;
+  color: #fff !important;
+}
+body.pagina-hembras .halloween-controles .filtro-talla-desktop {
+  display: flex !important;
+  flex: 0 0 200px;
+  align-items: center;
+  margin: 0;
+}
+body.pagina-hembras .halloween-controles .filtro-talla-personalizado {
+  width: 100%;
+}
+body.pagina-hembras .halloween-controles .btn-talla-desktop {
+  min-height: 48px;
+  padding: 0 15px;
+  border: 1px solid #D9E0D4;
+  border-radius: 28px;
+  background: #fff;
+  color: #333;
+  font: 400 13px 'Poppins',sans-serif;
+}
+body.pagina-hembras .halloween-controles .opciones-talla-desktop {
+  background: #fff;
+  border: 1px solid rgba(43,43,43,.1);
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(43,43,43,.12);
+}
+body.pagina-hembras .halloween-controles .opciones-talla-desktop button {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #333;
+  text-align: left;
+  font: 400 12px 'Poppins',sans-serif;
+  cursor: pointer;
+}
+body.pagina-hembras .halloween-controles .opciones-talla-desktop button:hover,
+body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-seleccionada {
+  background: #F5EADD;
+}
+@media (max-width: 760px) {
+  body.pagina-hembras .halloween-controles {
+    width: calc(100% - 32px);
+    margin: 18px auto 0;
+    padding: 0;
+    display: block;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  body.pagina-hembras .halloween-controles > .categorias-catalogo,
+  body.pagina-hembras .halloween-controles .filtro-talla-desktop {
+    display: none !important;
+  }
+  body.pagina-hembras .halloween-controles > .filtros-movil {
+    display: flex !important;
+    flex-direction: row;
+    gap: 12px;
+    width: 100%;
+    margin: 0 auto 18px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+  body.pagina-hembras .halloween-controles .filtros-movil .filtro-desplegable {
+    position: relative;
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  body.pagina-hembras .halloween-controles .filtros-movil .btn-filtro {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 12px;
+    border: 1px solid #D9E0D4;
+    border-radius: 26px;
+    background: #fff;
+    color: #333;
+    font: 500 11px 'Poppins',sans-serif;
+  }
+  body.pagina-hembras .halloween-controles .filtros-movil .opciones-filtro {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    min-width: 145px;
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 7px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid rgba(43,43,43,.1);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(43,43,43,.12);
+  }
+  body.pagina-hembras .halloween-controles .filtros-movil .opciones-filtro[hidden] {
+    display: none !important;
+  }
+  body.pagina-hembras .halloween-controles .filtros-movil .opciones-filtro button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #333;
+    text-align: left;
+    font: 400 11px 'Poppins',sans-serif;
+  }
+  body.pagina-hembras .halloween-controles .filtros-movil .opciones-filtro button.opcion-seleccionada,
+  body.pagina-hembras .halloween-controles .filtros-movil .opciones-filtro button:hover {
+    background: #F5EADD;
+  }
+}
+
+</head>
 <body class="pagina-hembras">
 
 <header class="header">
