@@ -222,6 +222,130 @@
 }
 </style>
 
+
+<style id="kumino-menu-friendly-details">
+@media (max-width: 768px) {
+  .kumino-drawer-brand { position: relative; }
+  .kumino-drawer-brand::after {
+    content: "Moda con amor para tus mascotas";
+    position: absolute;
+    left: 44px;
+    top: 29px;
+    color: #71866B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+  .kumino-drawer-header { min-height: 88px; }
+  .kumino-drawer-eyebrow { margin-top: 20px; }
+  .kumino-drawer-links a {
+    display: grid !important;
+    grid-template-columns: 28px 1fr 14px;
+    align-items: center;
+    column-gap: 12px;
+  }
+  .kumino-drawer-links a::after {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .kumino-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    color: #718F6F;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .kumino-link-icon svg,
+  .kumino-drawer-cart .kumino-link-icon svg {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .kumino-link-label {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .kumino-drawer-links a[href="NAVIDAD/navidad.html"] {
+    margin: 3px 0;
+    padding-left: 9px;
+    padding-right: 9px;
+    border: 0;
+    border-radius: 12px;
+    background: #E9EFE4;
+    color: #405B42 !important;
+    font-weight: 600;
+  }
+  .kumino-drawer-cart {
+    display: grid !important;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    column-gap: 12px;
+    min-height: 62px;
+    margin: 10px 0 8px;
+    padding: 0 14px;
+  }
+  .kumino-drawer-cart .kumino-link-icon { color: #fff; }
+  .kumino-cart-count {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F5EADD;
+    opacity: .9;
+  }
+  .kumino-drawer-footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 100px;
+    margin: 20px -22px 0;
+    padding: 15px 22px 5px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #FFFDF9 0%, #F1EBDD 100%);
+  }
+  .kumino-footer-paws {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 190px;
+    color: #8BA17B;
+  }
+  .kumino-paw {
+    width: 21px;
+    height: 21px;
+    fill: currentColor;
+    opacity: .72;
+  }
+  .kumino-paw.paw-center {
+    width: 31px;
+    height: 31px;
+    opacity: .95;
+  }
+  .kumino-footer-slogan {
+    color: #596D50;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: .1px;
+    text-align: center;
+  }
+}
+</style>
+
 </head>
 
 
@@ -290,25 +414,31 @@
 
     <p class="kumino-drawer-eyebrow">MENÚ PRINCIPAL</p>
     <nav class="kumino-drawer-links" aria-label="Secciones de KÚMINO">
-        <a href="#inicio" data-menu-link><span>Inicio</span></a>
-        <a href="#coleccion" data-menu-link><span>Colecciones</span></a>
-        <a href="NAVIDAD/navidad.html" data-menu-link><span>Navidad</span></a>
-        <a href="HEMBRAS/hembras.html" data-menu-link><span>Hembras</span></a>
-        <a href="MACHOS/machos.html" data-menu-link><span>Machos</span></a>
-        <a href="ACCESORIOS/accesorios.html" data-menu-link><span>Accesorios</span></a>
-        <a href="HALLOWEN/hallowen.html" data-menu-link><span>Disfraces</span></a>
-        <a href="CASITAS/casitas.html" data-menu-link><span>Casitas</span></a>
-        <a href="guia-tallas.html" data-menu-link><span>Guía de tallas</span></a>
+        <a href="#inicio" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span><span class="kumino-link-label">Inicio</span></a>
+        <a href="#coleccion" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="kumino-link-label">Colecciones</span></a>
+        <a href="NAVIDAD/navidad.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.2 4.2 3.8-.2-2.2 4 4.2 2.2-4.2 2.1 2.2 4-3.8-.2L12 22l-2.2-3.9-3.8.2 2.2-4L4 12l4.2-2.1-2.2-4 3.8.2z"/><path d="M12 6v13M8 11h8"/></svg></span><span class="kumino-link-label">Navidad</span></a>
+        <a href="HEMBRAS/hembras.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l1 5 3 12H3L6 8z"/><path d="M8 3c0 3 2 5 4 5s4-2 4-5"/></svg></span><span class="kumino-link-label">Hembras</span></a>
+        <a href="MACHOS/machos.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 3-4 3 3 5 3-2v12h6V9l3 2 3-5-4-3-3 3h-4z"/></svg></span><span class="kumino-link-label">Machos</span></a>
+        <a href="ACCESORIOS/accesorios.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8c0-2 4-4 9-4s9 2 9 4-4 4-9 4-9-2-9-4z"/><path d="M3 8v8c0 2 4 4 9 4s9-2 9-4V8M8 12v4h8v-4"/></svg></span><span class="kumino-link-label">Accesorios</span></a>
+        <a href="HALLOWEN/hallowen.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c0 4-2 5-5 7-2 1-3 3-3 6h16c0-3-1-5-3-6-3-2-5-3-5-7z"/><path d="M4 20h16"/></svg></span><span class="kumino-link-label">Disfraces</span></a>
+        <a href="CASITAS/casitas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M12 17s-4-2.3-4-4.7A2.3 2.3 0 0 1 12 11a2.3 2.3 0 0 1 4 1.3C16 14.7 12 17 12 17z"/></svg></span><span class="kumino-link-label">Casitas</span></a>
+        <a href="guia-tallas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 14-14 4 4L7 21z"/><path d="m14 6 4 4M11 9l2 2M8 12l2 2M5 15l2 2"/></svg></span><span class="kumino-link-label">Guía de tallas</span></a>
         <button type="button" class="kumino-drawer-cart" data-menu-cart>
-            <span>Mi carrito</span>
-            <span class="kumino-drawer-cart-icon" aria-hidden="true">🛒</span>
+            <span class="kumino-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
+            <span class="kumino-link-label">Mi carrito</span>
+            <span class="kumino-cart-count" aria-label="Cantidad de productos"> </span>
         </button>
-        <a href="#nosotros" data-menu-link><span>Nosotros</span></a>
-        <a href="#contacto" data-menu-link><span>Contacto</span></a>
+        <a href="#nosotros" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg></span><span class="kumino-link-label">Nosotros</span></a>
+        <a href="#contacto" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4 9 9 0 0 1-3.7-.9L3 21l1.8-5.1a8.3 8.3 0 1 1 16.2-4.4z"/><path d="M9 8.5c.5 2.5 2 4 4.5 5l1.2-1.2 2 1c-.2 1.5-1.2 2.2-2.7 2.1-3.6-.5-6.8-3.7-7.3-7.3C6.6 6.6 7.3 5.6 8.8 5.4l1 2z"/></svg></span><span class="kumino-link-label">Contacto</span></a>
     </nav>
 
     <div class="kumino-drawer-footer">
-        <span>Moda con amor para tus mascotas</span>
+        <div class="kumino-footer-paws" aria-hidden="true">
+            <svg class="kumino-paw paw-left" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
+            <svg class="kumino-paw paw-center" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
+            <svg class="kumino-paw paw-right" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
+        </div>
+        <span class="kumino-footer-slogan">Moda con amor para tus mascotas</span>
     </div>
 </aside>
 
