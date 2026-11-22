@@ -1,18 +1,28 @@
 
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Chompa Teddy Christmas para mascotas - KÚMINO" name="description"/>
-<title>Chompa Teddy Christmas | KÚMINO</title>
-<link href="../style.css" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chompa Teddy Christmas de la colección Navidad 2026 de KÚMINO. Moda con amor para tu mascota.">
+
+    <title>Chompa Teddy Christmas | KÚMINO</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* =========================================
+           FONDO NAVIDEÑO
+        ========================================= */
+
         body {
             background-image:
-                linear-gradient(rgba(255,250,242,.08), rgba(255,250,242,.08)),
+                linear-gradient(
+                    rgba(255, 250, 242, .08),
+                    rgba(255, 250, 242, .08)
+                ),
                 url("../fondo_productosnav.jpg");
+
             background-position: center top;
             background-size: cover;
             background-repeat: no-repeat;
@@ -23,14 +33,19 @@
             padding: 58px 20px 76px;
         }
 
+        /* =========================================
+           CONTENEDOR PRINCIPAL
+        ========================================= */
+
         .navidad-producto-container {
-            width: min(1250px,100%);
+            width: min(1250px, 100%);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: minmax(0,1fr) minmax(0,.95fr);
-            gap: clamp(35px,5vw,65px);
+            grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
+            gap: clamp(35px, 5vw, 65px);
             align-items: center;
             padding: 35px 25px;
+
             background: transparent;
             border: none;
             border-radius: 0;
@@ -38,24 +53,41 @@
             backdrop-filter: none;
         }
 
-        .navidad-producto-imagen {
-            min-width: 0;
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
-            background: transparent;
-        }
 
-        .navidad-producto-imagen img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            mix-blend-mode: normal;
-            opacity: 1;
-            filter: drop-shadow(0 15px 22px rgba(65,43,28,.13));
-        }
+/* =========================================
+   IMAGEN DEL PRODUCTO
+========================================= */
+
+.navidad-producto-imagen {
+    min-width: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    aspect-ratio: 4 / 5;
+    box-shadow: none;
+}
+
+.navidad-producto-imagen img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    /* Conservar la fotografía original */
+    mix-blend-mode: normal;
+    opacity: 1;
+
+    /* Sombra exterior elegante */
+    filter: drop-shadow(0 10px 16px rgba(65, 43, 28, .18));
+}
+
+        /* =========================================
+           INFORMACIÓN DEL PRODUCTO
+        ========================================= */
 
         .navidad-producto-info {
+            min-width: 0;
             color: #333333;
         }
 
@@ -71,8 +103,8 @@
         .navidad-producto-info h1 {
             margin: 0 0 17px;
             color: #71343a;
-            font-family: "Playfair Display",Georgia,serif;
-            font-size: clamp(30px,4vw,43px);
+            font-family: "Playfair Display", Georgia, serif;
+            font-size: clamp(30px, 4vw, 43px);
             line-height: 1.12;
         }
 
@@ -82,7 +114,7 @@
             padding: 7px 13px;
             border-radius: 4px;
             background: #8b343b;
-            color: #fff;
+            color: #ffffff;
             font-size: 11px;
             font-weight: 700;
             letter-spacing: 1.2px;
@@ -90,10 +122,14 @@
 
         .navidad-producto-descripcion {
             margin: 0 0 25px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 14px;
             line-height: 1.85;
         }
+
+        /* =========================================
+           SECCIONES
+        ========================================= */
 
         .navidad-producto-seccion {
             margin-top: 23px;
@@ -102,39 +138,110 @@
         .navidad-producto-seccion h2 {
             margin: 0 0 13px;
             color: #71343a;
-            font-family: "Playfair Display",Georgia,serif;
+            font-family: "Playfair Display", Georgia, serif;
             font-size: 21px;
             font-weight: 600;
         }
 
-        .navidad-estado {
-            padding: 18px;
-            border: 1px solid rgba(157,122,76,.28);
-            border-radius: 12px;
-            background: rgba(255,250,242,.65);
-        }
+        /* =========================================
+           COLOR
+        ========================================= */
 
-        .navidad-estado strong {
-            display: block;
-            margin-bottom: 7px;
-            color: #963b42;
-            font-size: 15px;
-        }
-
-        .navidad-estado p {
-            margin: 0;
-            color: #81776c;
+        .navidad-color {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #514b44;
             font-size: 13px;
-            line-height: 1.7;
         }
+
+        .navidad-color-muestra {
+            width: 17px;
+            height: 17px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            background: #a71925;
+            box-shadow: 0 0 0 1px #b8a99a;
+        }
+
+        /* =========================================
+           TALLAS Y PRECIOS
+        ========================================= */
+
+        .navidad-tallas-precios {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .navidad-talla-card {
+            min-width: 0;
+            padding: 13px 9px;
+            border: 1px solid rgba(157, 122, 76, .28);
+            border-radius: 12px;
+            background: rgba(255, 250, 242, .65);
+            text-align: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .navidad-talla-card strong {
+            display: block;
+            margin-bottom: 9px;
+            color: #4c5145;
+            font-size: 13px;
+        }
+
+        .navidad-precio-regular {
+            display: block;
+            color: #81766d;
+            font-size: 12px;
+            text-decoration: line-through;
+        }
+
+        .navidad-precio-promo {
+            display: block;
+            margin-top: 3px;
+            color: #963b42;
+            font-size: 19px;
+            font-weight: 700;
+        }
+
+        /* AHORRO EN VERDE SALVIA */
+
+        .navidad-ahorro {
+            display: block;
+            margin-top: 5px;
+            color: #526B50 !important;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .navidad-aviso-precio {
+            display: block;
+            margin-top: 9px;
+            color: #62584e;
+            font-size: 11px;
+        }
+
+        /* =========================================
+           CARACTERÍSTICAS
+        ========================================= */
 
         .navidad-caracteristicas {
             margin: 0;
             padding-left: 19px;
-            color: #5b554e;
+            color: #4d443d;
             font-size: 13px;
             line-height: 1.9;
         }
+
+        .navidad-caracteristicas li {
+            padding-left: 2px;
+        }
+
+        /* =========================================
+           BOTÓN WHATSAPP
+        ========================================= */
 
         .navidad-btn-whatsapp {
             display: flex;
@@ -145,14 +252,14 @@
             padding: 15px 20px;
             border-radius: 30px;
             background: #81363d;
-            color: #fff;
+            color: #ffffff;
             font-size: 13px;
             font-weight: 700;
             letter-spacing: .3px;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 7px 17px rgba(129,54,61,.18);
-            transition: background .2s ease,transform .2s ease;
+            box-shadow: 0 5px 14px rgba(91, 35, 40, .15);
+            transition: background .2s ease, transform .2s ease;
         }
 
         .navidad-btn-whatsapp:hover {
@@ -160,11 +267,16 @@
             transform: translateY(-2px);
         }
 
+        /* =========================================
+           VOLVER A COLECCIÓN
+        ========================================= */
+
         .navidad-volver {
             display: inline-block;
             margin-top: 17px;
-            color: #65785e;
+            color: #526b50;
             font-size: 13px;
+            font-weight: 600;
             text-decoration: none;
         }
 
@@ -172,42 +284,247 @@
             text-decoration: underline;
         }
 
-        @media (max-width:760px) {
+        /* =========================================
+           RESPONSIVE - TABLETS Y CELULARES
+        ========================================= */
+
+        @media (max-width: 760px) {
+
             body {
                 background-attachment: scroll;
+                background-position: center top;
+                background-size: cover;
             }
 
+            /* ENCABEZADO MÓVIL */
+
+            .header {
+                width: 100%;
+            }
+
+            .header .nav-container {
+                width: 100%;
+                box-sizing: border-box;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .header .logo {
+                font-size: clamp(23px, 6vw, 30px);
+                white-space: nowrap;
+            }
+
+            .header .btn-contacto {
+                white-space: nowrap;
+            }
+
+            /* CONTENIDO */
+
             .navidad-producto-main {
-                padding: 30px 16px 45px !important;
+                padding: 20px 14px 42px;
             }
 
             .navidad-producto-container {
                 grid-template-columns: 1fr;
-                gap: 22px;
-                padding: 0;
+                gap: 19px;
+                padding: 8px 3px;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
             }
+
+            /* FOTOGRAFÍA MÁS COMPACTA */
 
             .navidad-producto-imagen {
                 width: 100%;
-                max-height: none;
-                aspect-ratio: 4 / 5;
+                height: 350px;
+                max-height: 350px;
+                aspect-ratio: auto;
+                border-radius: 17px;
             }
 
             .navidad-producto-imagen img {
-                mix-blend-mode: multiply;
-                filter: drop-shadow(0 10px 16px rgba(65,43,28,.12));
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            /* INFORMACIÓN */
+
+            .navidad-producto-categoria {
+                margin-bottom: 9px;
+                font-size: 10px;
+                letter-spacing: 1.5px;
             }
 
             .navidad-producto-info h1 {
-                font-size: 32px;
+                font-size: clamp(27px, 7vw, 34px);
+                line-height: 1.15;
+                margin-bottom: 13px;
+            }
+
+            .navidad-promo-etiqueta {
+                margin-bottom: 13px;
+                font-size: 10px;
+            }
+
+            .navidad-producto-descripcion {
+                font-size: 14px;
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
+
+            /* SECCIONES */
+
+            .navidad-producto-seccion {
+                margin-top: 19px;
+            }
+
+            .navidad-producto-seccion h2 {
+                font-size: 20px;
+                margin-bottom: 11px;
+            }
+
+            /* PRECIOS */
+
+            .navidad-tallas-precios {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 7px;
+            }
+
+            .navidad-talla-card {
+                padding: 11px 5px;
+                border-radius: 10px;
+            }
+
+            .navidad-talla-card strong {
+                font-size: 12px;
+                margin-bottom: 7px;
+            }
+
+            .navidad-precio-regular {
+                font-size: 10px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 17px;
+            }
+
+            .navidad-ahorro {
+                font-size: 10px;
+            }
+
+            .navidad-aviso-precio {
+                font-size: 10px;
+            }
+
+            /* CARACTERÍSTICAS */
+
+            .navidad-caracteristicas {
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            /* WHATSAPP */
+
+            .navidad-btn-whatsapp {
+                margin-top: 22px;
+                padding: 14px;
+                font-size: 13px;
             }
         }
 
-        @media (max-width:380px) {
+        /* =========================================
+           CELULARES PEQUEÑOS
+        ========================================= */
+
+        @media (max-width: 380px) {
+
             .navidad-producto-main {
-                padding: 25px 13px 40px !important;
+                padding-left: 11px;
+                padding-right: 11px;
+            }
+
+            .navidad-producto-imagen {
+                height: 310px;
+                max-height: 310px;
+            }
+
+            .navidad-tallas-precios {
+                gap: 5px;
+            }
+
+            .navidad-talla-card {
+                padding: 10px 3px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 15px;
+            }
+
+            .navidad-ahorro {
+                font-size: 9px;
+            }
+
+            .navidad-producto-info h1 {
+                font-size: 28px;
             }
         }
+        
+/* =========================================
+   AJUSTES FINALES PARA CELULARES
+========================================= */
+
+@media (max-width: 760px) {
+
+    /* Separación entre menú y fotografía */
+    .navidad-producto-main {
+        padding: 30px 16px 45px !important;
+    }
+
+    .navidad-producto-container {
+        padding: 0 !important;
+        gap: 22px;
+    }
+
+    /* Fotografía sin marco ni fondo blanco */
+    .navidad-producto-imagen {
+        width: 100%;
+        height: auto !important;
+        max-height: none !important;
+        aspect-ratio: auto !important;
+
+        background: transparent !important;
+        border: none !important;
+        border-radius: 15px;
+        overflow: hidden;
+
+        box-shadow: 0 10px 28px rgba(73, 43, 28, .18);
+    }
+
+    .navidad-producto-imagen img {
+        display: block;
+        width: 100%;
+        height: auto !important;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+
+}
+
+/* =========================================
+   CELULARES PEQUEÑOS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .navidad-producto-main {
+        padding: 25px 13px 40px !important;
+    }
+
+}
+
     
 
 /* INTEGRACIÓN CARRITO KÚMINO - NAVIDAD */
@@ -257,86 +574,222 @@
 .navidad-agregar-carrito:hover:not(:disabled) { background: #40563f; transform: translateY(-2px); }
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
+
 </style>
 </head>
+
 <body>
-<header class="header">
-<div class="nav-container">
-<a class="logo" href="../index.html">KÚMINO</a>
-<nav class="navbar">
-<a href="../index.html">Inicio</a>
-<a class="activo" href="navidad.html">Navidad</a>
-</nav>
-<a class="btn-contacto" href="#contacto">Contacto</a>
-</div>
-</header>
-<main class="navidad-producto-main">
-<div class="navidad-producto-container">
-<div class="navidad-producto-imagen">
-<img alt="Chompa Teddy Christmas para mascotas" src="../IMAGENES/chompateddychristmas.jpg"/>
-</div>
-<div class="navidad-producto-info">
-<span class="navidad-producto-categoria">
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="nav-container">
+
+            <a href="../index.html" class="logo">KÚMINO</a>
+
+            <nav class="navbar">
+                <a href="../index.html">Inicio</a>
+                <a href="navidad.html" class="activo">Navidad</a>
+            </nav>
+
+            <a href="#contacto" class="btn-contacto">Contacto</a>
+
+        </div>
+    </header>
+
+    <!-- PRODUCTO -->
+    <main class="navidad-producto-main">
+
+        <div class="navidad-producto-container">
+
+            <!-- IMAGEN -->
+            <div class="navidad-producto-imagen">
+
+                <img
+                    src="../IMAGENES/chompateddychristmas.jpg"
+                    alt="Chompa Teddy Christmas para mascotas"
+                >
+
+            </div>
+
+            <!-- INFORMACIÓN -->
+            <div class="navidad-producto-info">
+
+                <span class="navidad-producto-categoria">
                     COLECCIÓN NAVIDEÑA
                 </span>
-<h1>Chompa Teddy Christmas</h1>
-<span class="navidad-promo-etiqueta">
-                    PRÓXIMAMENTE
+
+                <h1>Chompa Teddy Christmas</h1>
+
+                <span class="navidad-promo-etiqueta">
+                    PRECIO PROMOCIONAL
                 </span>
-<p class="navidad-producto-descripcion">
-                    ¡La magia de la Navidad llega con Teddy Christmas!
-                    Una propuesta especial de KÚMINO para que tu engreído
-                    también forme parte de la temporada más encantadora del año.
+
+                <p class="navidad-producto-descripcion">
+                    ¡La magia de la Navidad llega con Teddy Christmas! Una propuesta especial de KÚMINO para que tu engreído también forme parte de la temporada más encantadora del año.
                 </p>
-<section class="navidad-producto-seccion">
-<h2>Disponibilidad</h2>
-<div class="navidad-estado">
-<strong>Muy pronto en KÚMINO</strong>
-<p>
-                            Las tallas y los precios estarán disponibles
-                            próximamente. Escríbenos para recibir información
-                            sobre su lanzamiento.
-                        </p>
-</div>
-</section>
-<section class="navidad-producto-seccion">
-<h2>Características</h2>
-<ul class="navidad-caracteristicas">
-<li>Prenda tipo chompa.</li>
-<li>Diseño de inspiración navideña.</li>
-<li>Parte de la colección especial de Navidad KÚMINO.</li>
-</ul>
-</section>
-<a class="navidad-btn-whatsapp" href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20Chompa%20Teddy%20Christmas." rel="noopener noreferrer" target="_blank">
-                    Consultar por WhatsApp →
-                </a>
-<a class="navidad-volver" href="navidad.html">
+
+                <!-- COLOR -->
+                <section class="navidad-producto-seccion">
+
+                    <h2>Color</h2>
+
+                    <div class="navidad-color">
+                        <span class="navidad-color-muestra" style="background:#526b50;"></span>
+                        <span>Verde</span>
+                    </div>
+
+                </section>
+
+                <!-- TALLAS Y PRECIOS -->
+                <section class="navidad-producto-seccion">
+
+                    <h2>Tallas y precios</h2>
+
+                    <div class="navidad-tallas-precios">
+                        <button class="navidad-talla-card" type="button" aria-pressed="false"
+                            data-kumino-size="3" data-color="Verde"
+                            data-promo-price="35.00" data-regular-price="49.00">
+                            <strong>Talla 3</strong>
+                            <span class="navidad-precio-regular">S/ 49.00</span>
+                            <span class="navidad-precio-promo">S/ 35.00</span>
+                            <span class="navidad-ahorro">Ahorras S/ 14.00</span>
+                        </button>
+                        <button class="navidad-talla-card" type="button" aria-pressed="false"
+                            data-kumino-size="4" data-color="Verde"
+                            data-promo-price="40.00" data-regular-price="56.00">
+                            <strong>Talla 4</strong>
+                            <span class="navidad-precio-regular">S/ 56.00</span>
+                            <span class="navidad-precio-promo">S/ 40.00</span>
+                            <span class="navidad-ahorro">Ahorras S/ 16.00</span>
+                        </button>
+                    </div>
+
+                    <span class="navidad-aviso-precio">
+                        Los precios varían según la talla.
+                    </span>
+
+                </section>
+
+                <!-- CARACTERÍSTICAS -->
+                <section class="navidad-producto-seccion">
+
+                    <h2>Características</h2>
+
+                    <ul class="navidad-caracteristicas">
+                        <li>Prenda tipo chompa.</li>
+                        <li>Diseño de inspiración navideña.</li>
+                        <li>Parte de la colección especial de Navidad KÚMINO.</li>
+                    </ul>
+
+                </section>
+
+                <!-- WHATSAPP -->
+                <button class="navidad-agregar-carrito navidad-btn-whatsapp"
+                    data-category="navidad"
+                    data-default-color="Verde"
+                    data-image="../IMAGENES/chompateddychristmas.jpg"
+                    data-kumino-add
+                    data-product-id="chompa-teddy-christmas"
+                    data-product-name="Chompa Teddy Christmas"
+                    disabled type="button">
+                    Agregar al carrito
+                </button>
+                <span class="navidad-seleccion-aviso" aria-live="polite">Selecciona una talla para continuar.</span>
+
+                <!-- VOLVER -->
+                <a href="navidad.html" class="navidad-volver">
                     ← Volver a colección
                 </a>
-</div>
-</div>
-</main>
-<footer class="footer-kumino">
-<div class="footer-container">
-<div class="footer-marca">
-<h2>KÚMINO</h2>
-<p>Moda con amor para tu mascota.</p>
-</div>
-<div class="footer-enlaces">
-<h3>Navegación</h3>
-<a href="../index.html">Inicio</a>
-<a href="navidad.html">Navidad</a>
-</div>
-<div class="footer-contacto" id="contacto">
-<h3>Contáctanos</h3>
-<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">WhatsApp</a>
-<span>Envíos a todo el Perú</span>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2026 KÚMINO. Todos los derechos reservados.</p>
-<span>Moda con amor para tu mascota</span>
-</div>
-</footer>
-<script src="../kumino-cart.js"></script></body>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer-kumino">
+
+        <div class="footer-container">
+
+            <div class="footer-marca">
+                <h2>KÚMINO</h2>
+                <p>Moda con amor para tu mascota.</p>
+            </div>
+
+            <div class="footer-enlaces">
+                <h3>Navegación</h3>
+                <a href="../index.html">Inicio</a>
+                <a href="navidad.html">Navidad</a>
+            </div>
+
+            <div class="footer-contacto" id="contacto">
+                <h3>Contáctanos</h3>
+
+                <a
+                    href="https://wa.me/51940151463"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    WhatsApp
+                </a>
+
+                <span>Envíos a todo el Perú</span>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 KÚMINO. Todos los derechos reservados.</p>
+            <span>Moda con amor para tu mascota</span>
+        </div>
+
+    </footer>
+
+<script>
+(() => {
+  'use strict';
+  const addButton = document.querySelector('[data-kumino-add]');
+  if (!addButton) return;
+  const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
+  const colorOptions = Array.from(document.querySelectorAll('[data-color-choice]'));
+  const notice = document.querySelector('.navidad-seleccion-aviso');
+  let selected = null;
+  let selectedColor = addButton.dataset.defaultColor || '';
+
+  function refresh() {
+    const color = selected ? selected.color : selectedColor;
+    const ready = Boolean(selected && color);
+    addButton.disabled = !ready;
+    if (ready) {
+      addButton.dataset.size = selected.size;
+      addButton.dataset.regularPrice = selected.regular;
+      addButton.dataset.promoPrice = selected.promo;
+      addButton.dataset.color = color;
+      notice.textContent = `Seleccionado: Talla ${selected.size} · ${color}`;
+    } else if (!selected) {
+      notice.textContent = 'Selecciona una talla para continuar.';
+    } else {
+      notice.textContent = 'Selecciona un color para continuar.';
+    }
+  }
+  colorOptions.forEach(option => option.addEventListener('click', () => {
+    colorOptions.forEach(item => { item.classList.remove('kumino-color-seleccionado'); item.setAttribute('aria-pressed','false'); });
+    option.classList.add('kumino-color-seleccionado');
+    option.setAttribute('aria-pressed','true');
+    selectedColor = option.dataset.colorChoice;
+    refresh();
+  }));
+  sizeCards.forEach(card => card.addEventListener('click', () => {
+    sizeCards.forEach(item => { item.classList.remove('kumino-talla-seleccionada'); item.setAttribute('aria-pressed','false'); });
+    card.classList.add('kumino-talla-seleccionada');
+    card.setAttribute('aria-pressed','true');
+    selected = { size: card.dataset.kuminoSize, color: card.dataset.color, regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
+    refresh();
+  }));
+  refresh();
+})();
+</script>
+<script src="../kumino-cart.js"></script>
+</body>
 </html>
