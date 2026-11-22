@@ -19,6 +19,15 @@
 
   const WA = '51919503045';
 
+  // La URL del inicio se obtiene desde la ubicación real de kumino-cart.js.
+  // Así funciona tanto desde index.html como desde páginas dentro de carpetas.
+  const cartScript = Array.from(document.scripts).find(script =>
+    script.src && /kumino-cart\.js(?:\?|$)/i.test(script.src)
+  );
+  const homeUrl = cartScript
+    ? new URL('index.html', cartScript.src).href
+    : new URL('/kumino-web/index.html', location.origin).href;
+
   const money = value =>
     'S/ ' + Number(value || 0).toFixed(2);
 
@@ -274,6 +283,37 @@
       cursor: pointer;
     }
 
+    .kumino-cart-navigation {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 12px;
+    }
+
+    .kumino-cart-continue,
+    .kumino-cart-home {
+      display: flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 10px;
+      border: 1px solid #71866B;
+      border-radius: 24px;
+      background: #fff;
+      color: #405B42;
+      font: 600 11px Poppins,Arial,sans-serif;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .kumino-cart-home {
+      background: #526B50;
+      border-color: #526B50;
+      color: #fff;
+    }
+
     .kumino-cart-clear {
       display: block;
       margin: 10px auto 0;
@@ -381,8 +421,14 @@
     </div>
 
     <div class="kumino-cart-content"></div>
+
+    <div class="kumino-cart-navigation">
+      <button type="button" class="kumino-cart-continue">Seguir viendo</button>
+      <a class="kumino-cart-home" href="#">Volver al inicio</a>
+    </div>
   `;
 
+  panel.querySelector('.kumino-cart-home').href = homeUrl;
   document.body.append(panel);
 
   /* =========================================
@@ -774,14 +820,23 @@
 
   });
 
+  const closeCart = () => {
+    panel.classList.remove('is-open');
+    fab.setAttribute('aria-expanded', 'false');
+  };
+
   panel.querySelector('.kumino-cart-close')
-    .addEventListener('click', () => {
+    .addEventListener('click', closeCart);
 
-      panel.classList.remove('is-open');
+  panel.querySelector('.kumino-cart-continue')
+    .addEventListener('click', closeCart);
 
-      fab.setAttribute('aria-expanded', 'false');
-
-    });
+  // Escape permite cerrar el carrito en PC y en teclados móviles compatibles.
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && panel.classList.contains('is-open')) {
+      closeCart();
+    }
+  });
 
   document.addEventListener('click', event => {
 
