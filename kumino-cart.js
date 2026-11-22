@@ -1,1152 +1,835 @@
-<!DOCTYPE html>
-<html lang="es">
+/* KÚMINO — carrito unificado v2
+   Prendas:
+   1.ª, 3.ª, 5.ª... unidad: precio promocional.
+   2.ª, 4.ª, 6.ª... unidad: 40 % de descuento sobre precio regular.
 
-<head>
-    <link rel="icon" type="image/jpeg" href="isotipo-kumino.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   Casitas:
+   Se agregan al mismo carrito global, pero no participan
+   en la promoción del 40 %.
+*/
 
-    <title>KÚMINO | Moda con amor para tu mascota</title>
+(() => {
+  'use strict';
 
-    <link rel="stylesheet" href="style.css">
+  if (window.__KUMINO_SHARED_CART_V2__) return;
+  window.__KUMINO_SHARED_CART_V2__ = true;
 
-   
-<!-- Tipografías -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  // Todas las colecciones, incluidas Casitas, comparten el mismo carrito.
+  const KEY = 'kumino_cart_global_v1';
 
-<link
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
->
+  const WA = '51919503045';
 
+  const money = value =>
+    'S/ ' + Number(value || 0).toFixed(2);
 
+  const esc = value =>
+    String(value ?? '').replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char]));
 
-<style id="kumino-mobile-drawer-styles">
-/* Menú lateral de navegación - página modelo KÚMINO */
-.kumino-menu-backdrop,
-.kumino-mobile-drawer {
-    display: none;
-}
+  let cart = [];
 
-@media (max-width: 768px) {
-    body.kumino-menu-lock {
-        overflow: hidden !important;
-        touch-action: none;
+  try {
+    const saved = JSON.parse(localStorage.getItem(KEY) || '[]');
+
+    if (Array.isArray(saved)) {
+      cart = saved.filter(item =>
+        item &&
+        item.key &&
+        Number(item.qty) > 0 &&
+        Number.isFinite(Number(item.regular)) &&
+        Number.isFinite(Number(item.promo))
+      );
+    }
+  } catch (_) {}
+
+  const save = () => {
+    try {
+      localStorage.setItem(KEY, JSON.stringify(cart));
+    } catch (error) {
+      console.error('No se pudo guardar el carrito.', error);
+    }
+  };
+
+  /* =========================================
+     ESTILOS DEL CARRITO
+  ========================================= */
+
+  const style = document.createElement('style');
+
+  style.textContent = `
+
+    .kumino-cart-nav {
+      position: relative;
+      display: inline-flex;
+      flex: 0 0 44px;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin-left: 12px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: #81363d;
+      cursor: pointer;
+      vertical-align: middle;
+      transition: background .2s ease;
     }
 
-    /* En móvil se utiliza el botón hamburguesa; la barra horizontal queda oculta. */
-    .header .navbar {
-        display: none !important;
+    .kumino-cart-nav:hover {
+      background: rgba(129,54,61,.08);
     }
 
-    .header .menu-toggle {
-        display: inline-flex !important;
-        align-items: center;
-        justify-content: center;
-        border: 0;
-        background: transparent;
-        color: #2C3531;
-        font-size: 27px;
-        line-height: 1;
-        padding: 7px;
-        cursor: pointer;
-        z-index: 2;
+    .kumino-cart-nav svg {
+      display: block;
+      width: 25px;
+      height: 25px;
+      stroke: currentColor;
     }
 
-    .kumino-menu-backdrop {
-        display: block;
-        position: fixed;
-        inset: 0;
-        z-index: 10090;
-        background: rgba(25, 29, 27, .58);
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity .28s ease, visibility .28s ease;
+    .kumino-cart-nav-count {
+      position: absolute;
+      top: 1px;
+      right: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 18px;
+      height: 18px;
+      padding: 0 4px;
+      border: 2px solid #fff;
+      border-radius: 999px;
+      background: #E63946;
+      color: #fff;
+      font: 700 10px Poppins,Arial,sans-serif;
+      line-height: 1;
     }
 
-    .kumino-menu-backdrop.is-visible {
-        opacity: 1;
-        visibility: visible;
+    .kumino-cart-nav-count.is-empty {
+      display: none;
     }
 
-    .kumino-mobile-drawer {
-        display: flex;
-        position: fixed;
-        z-index: 10100;
-        inset: 0 auto 0 0;
-        width: min(82vw, 370px);
-        max-width: 370px;
-        height: 100vh;
-        height: 100dvh;
-        box-sizing: border-box;
-        flex-direction: column;
-        overflow-y: auto;
-        overscroll-behavior: contain;
-        padding: 0 22px max(22px, env(safe-area-inset-bottom));
-        background: #FFFDF9;
-        box-shadow: 12px 0 35px rgba(34, 37, 33, .13);
-        transform: translateX(-105%);
-        visibility: hidden;
-        transition: transform .3s cubic-bezier(.22,.75,.25,1), visibility .3s ease;
+    .kumino-cart-panel {
+      display: none;
+      position: fixed;
+      top: 88px;
+      right: 20px;
+      bottom: auto;
+      z-index: 10001;
+      width: min(420px,calc(100vw - 28px));
+      max-height: min(72vh,620px);
+      overflow: auto;
+      box-sizing: border-box;
+      padding: 20px;
+      border: 1px solid rgba(129,54,61,.18);
+      border-radius: 17px;
+      background: #fffdf9;
+      color: #333;
+      box-shadow: 0 10px 35px #28141433;
+      font: 13px Poppins,Arial,sans-serif;
     }
 
-    .kumino-mobile-drawer.is-open {
-        transform: translateX(0);
-        visibility: visible;
+    .kumino-cart-panel.is-open {
+      display: block;
     }
 
-    .kumino-drawer-header {
-        min-height: 76px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid #EAE4DA;
+    .kumino-cart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
     }
 
-    .kumino-drawer-brand {
-        display: flex;
-        align-items: center;
-        gap: 9px;
-        color: #2C3531;
-        font-family: 'Manrope', sans-serif;
-        font-size: 22px;
-        font-weight: 800;
-        letter-spacing: .5px;
+    .kumino-cart-head strong {
+      color: #71343a;
+      font: 600 23px 'Playfair Display',Georgia,serif;
     }
 
-    .kumino-drawer-brand img {
-        width: 34px;
-        height: 34px;
-        object-fit: contain;
-        border-radius: 50%;
+    .kumino-cart-close {
+      border: 0;
+      background: transparent;
+      color: #71343a;
+      font-size: 25px;
+      cursor: pointer;
     }
 
-    .kumino-drawer-close {
-        width: 42px;
-        height: 42px;
-        border: 0;
-        border-radius: 50%;
-        background: #F5EADD;
-        color: #2C3531;
-        font-size: 30px;
-        line-height: 1;
-        cursor: pointer;
+    .kumino-cart-empty {
+      color: #756b62;
+      font-size: 13px;
+      line-height: 1.6;
     }
 
-    .kumino-drawer-eyebrow {
-        margin: 22px 0 9px;
-        color: #7A9B76;
-        font-family: 'Poppins', sans-serif;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 1.8px;
+    .kumino-cart-item {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) auto;
+      gap: 8px;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee5dc;
+      font-size: 12px;
     }
 
-    .kumino-drawer-links {
-        display: flex !important;
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+    .kumino-cart-item strong {
+      display: block;
+      color: #413a35;
+      font-size: 13px;
     }
 
-    .kumino-drawer-links a,
-    .kumino-drawer-cart {
-        display: flex !important;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        min-height: 49px;
-        box-sizing: border-box;
-        padding: 0 4px;
-        border: 0;
-        border-bottom: 1px solid #F0EBE3;
-        background: transparent;
-        color: #2C3531 !important;
-        text-decoration: none !important;
-        text-align: left;
-        font-family: 'Poppins', sans-serif;
-        font-size: 14px;
-        font-weight: 500;
-        cursor: pointer;
+    .kumino-cart-item small {
+      display: block;
+      margin-top: 4px;
+      color: #766c63;
+      line-height: 1.55;
     }
 
-    .kumino-drawer-links a::after {
-        content: "›";
-        color: #7A9B76;
-        font-family: Arial, sans-serif;
-        font-size: 23px;
-        font-weight: 400;
+    .kumino-cart-item-price {
+      text-align: right;
+      white-space: nowrap;
+      font-weight: 700;
+      color: #413a35;
     }
 
-    .kumino-drawer-links a:active,
-    .kumino-drawer-cart:active {
-        color: #7A9B76 !important;
+    .kumino-cart-old-price {
+      color: #929292;
+      font-size: 11px;
+      font-weight: 400;
+      text-decoration: line-through;
     }
 
-    .kumino-drawer-cart {
-        margin: 10px 0;
-        padding: 0 14px;
-        border: 0;
-        border-radius: 10px;
-        background: #7A9B76;
-        color: #FFFFFF !important;
-        font-weight: 600;
+    .kumino-cart-discount-badge {
+      display: inline-block;
+      margin: 3px 0;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #d8f3e3;
+      color: #167447;
+      font-size: 10px;
+      font-weight: 700;
     }
 
-    .kumino-drawer-cart::after {
-        content: none !important;
+    .kumino-cart-remove {
+      display: block;
+      margin: 6px 0 0 auto;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: #9b4148;
+      font: 11px Poppins,Arial,sans-serif;
+      text-decoration: underline;
+      cursor: pointer;
     }
 
-    .kumino-drawer-cart-icon {
-        font-size: 18px;
+    .kumino-cart-summary {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #e7dcd1;
+      font-size: 13px;
     }
 
-    .kumino-drawer-footer {
-        margin-top: auto;
-        padding-top: 24px;
-        color: #77766D;
-        font-family: 'Poppins', sans-serif;
-        font-size: 11px;
-        text-align: center;
+    .kumino-cart-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 7px 0;
+      color: #413a35;
     }
-}
 
-@media (min-width: 769px) {
-    .kumino-menu-backdrop,
-    .kumino-mobile-drawer {
-        display: none !important;
+    .kumino-cart-line strong {
+      font-weight: 700;
     }
-}
-</style>
 
+    .kumino-cart-total {
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid #e7dcd1;
+      color: #81363d;
+      font-size: 20px;
+      font-weight: 800;
+    }
 
-<style id="kumino-menu-friendly-details">
-@media (max-width: 768px) {
-  .kumino-drawer-brand { position: relative; }
-  .kumino-drawer-brand::after {
-    content: "Moda con amor para tus mascotas";
-    position: absolute;
-    left: 44px;
-    top: 29px;
-    color: #71866B;
-    font-family: 'Poppins', sans-serif;
-    font-size: 9px;
-    font-style: italic;
-    font-weight: 400;
-    letter-spacing: 0;
-    white-space: nowrap;
-  }
-  .kumino-drawer-header { min-height: 88px; }
-  .kumino-drawer-eyebrow { margin-top: 20px; }
-  .kumino-drawer-links a {
-    display: grid !important;
-    grid-template-columns: 28px 1fr 14px;
-    align-items: center;
-    column-gap: 12px;
-  }
-  .kumino-drawer-links a::after {
-    grid-column: 3;
-    grid-row: 1;
-    justify-self: end;
-  }
-  .kumino-link-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 26px;
-    height: 26px;
-    color: #718F6F;
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .kumino-link-icon svg,
-  .kumino-drawer-cart .kumino-link-icon svg {
-    width: 23px;
-    height: 23px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .kumino-link-label {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .kumino-drawer-links a[href="NAVIDAD/navidad.html"] {
-    margin: 3px 0;
-    padding-left: 9px;
-    padding-right: 9px;
-    border: 0;
-    border-radius: 12px;
-    background: #E9EFE4;
-    color: #405B42 !important;
-    font-weight: 600;
-  }
-  .kumino-drawer-cart {
-    display: grid !important;
-    grid-template-columns: 28px 1fr auto;
-    align-items: center;
-    column-gap: 12px;
-    min-height: 62px;
-    margin: 10px 0 8px;
-    padding: 0 14px;
-  }
-  .kumino-drawer-cart .kumino-link-icon { color: #fff; }
-  .kumino-cart-count {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #F5EADD;
-    opacity: .9;
-  }
-  .kumino-drawer-footer {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    min-height: 100px;
-    margin: 20px -22px 0;
-    padding: 15px 22px 5px;
-    overflow: hidden;
-    background: linear-gradient(180deg, #FFFDF9 0%, #F1EBDD 100%);
-  }
-  .kumino-footer-paws {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 190px;
-    color: #8BA17B;
-  }
-  .kumino-paw {
-    width: 21px;
-    height: 21px;
-    fill: currentColor;
-    opacity: .72;
-  }
-  .kumino-paw.paw-center {
-    width: 31px;
-    height: 31px;
-    opacity: .95;
-  }
-  .kumino-footer-slogan {
-    color: #596D50;
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    font-style: italic;
-    letter-spacing: .1px;
-    text-align: center;
-  }
-}
-</style>
+    .kumino-cart-note {
+      margin: 12px 0;
+      color: #766c63;
+      font-size: 10px;
+      line-height: 1.5;
+    }
 
+    .kumino-cart-checkout {
+      display: block;
+      width: 100%;
+      margin-top: 13px;
+      padding: 13px;
+      border: 0;
+      border-radius: 25px;
+      background: #526b50;
+      color: #fff;
+      font: 700 13px Poppins,Arial,sans-serif;
+      cursor: pointer;
+    }
 
-<style id="kumino-cart-menu-count-style">
-@media (max-width: 768px) {
-  .kumino-cart-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: #E63946;
-    color: #fff;
-    font: 700 11px Poppins, sans-serif;
-    opacity: 0;
-    transition: opacity .2s ease;
-  }
-  .kumino-cart-count.has-items { opacity: 1; }
-}
-</style>
+    .kumino-cart-clear {
+      display: block;
+      margin: 10px auto 0;
+      padding: 5px;
+      border: 0;
+      background: transparent;
+      color: #8a7770;
+      font: 11px Poppins,Arial,sans-serif;
+      text-decoration: underline;
+      cursor: pointer;
+    }
 
-</head>
+    .nav-container .kumino-cart-nav {
+      order: 4;
+    }
 
+    @media(max-width:600px) {
 
-<body class="pagina-inicio">
+      .kumino-cart-nav {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+        margin-left: 7px;
+      }
 
+      .kumino-cart-nav svg {
+        width: 23px;
+        height: 23px;
+      }
 
+      .kumino-cart-panel {
+        top: 76px;
+        right: 10px;
+        width: calc(100vw - 20px);
+        max-height: calc(100dvh - 92px);
+        padding: 16px;
+      }
+    }
+  `;
 
-<!-- ==============================
-     ENCABEZADO NAVIDEÑO KÚMINO
-=============================== -->
+  document.head.append(style);
 
-<header class="header header-navidad">
+  /* =========================================
+     ICONO DEL CARRITO
+  ========================================= */
 
-    <div class="nav-decor nav-decor-izq" aria-hidden="true">
-        <span>🌿</span>
-        <span>🎀</span>
-        <span>✨</span>
-    </div>
+  const fab = document.createElement('button');
 
-    <div class="nav-container">
+  fab.type = 'button';
+  fab.className = 'kumino-cart-nav';
+  fab.setAttribute('aria-label', 'Abrir carrito de compras');
+  fab.setAttribute('aria-expanded', 'false');
 
-        <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-controls="kumino-mobile-drawer" aria-expanded="false"><span aria-hidden="true">☰</span></button>
-
-        <a href="#inicio" class="logo">
-            <img src="isotipo-kumino.png" alt="KÚMINO">
-            <span>KÚMINO</span>
-        </a>
-
-        
-<nav class="navbar">
-    <a href="#inicio">Inicio</a>
-    <a href="#coleccion">Colección</a>
-    <a href="guia-tallas.html">Guía de Tallas</a>
-    <a href="#ofertas">Ofertas</a>
-    <a href="#nosotros">Nosotros</a>
-    <a href="#banner-navidad" class="btn-navidad-menu">Colección Navidadeña</a>
-</nav>
-
-
-        <a href="#contacto" class="btn-contacto">
-            Contacto
-        </a>
-
-    </div>
-
-    <div class="nav-decor nav-decor-der" aria-hidden="true">
-        <span>✨</span>
-        <span>🎁</span>
-        <span>🌿</span>
-    </div>
-
-</header>
-
-<!-- MENÚ LATERAL MÓVIL KÚMINO: página modelo -->
-<div class="kumino-menu-backdrop" id="kumino-menu-backdrop" aria-hidden="true"></div>
-<aside class="kumino-mobile-drawer" id="kumino-mobile-drawer"
-       role="dialog" aria-modal="true" aria-label="Menú de navegación KÚMINO"
-       aria-hidden="true">
-    <div class="kumino-drawer-header">
-        <div class="kumino-drawer-brand">
-            <img src="isotipo-kumino.png" alt="" aria-hidden="true">
-            <span>KÚMINO</span>
-        </div>
-        <button class="kumino-drawer-close" type="button" aria-label="Cerrar menú">×</button>
-    </div>
-
-    <p class="kumino-drawer-eyebrow">MENÚ PRINCIPAL</p>
-    <nav class="kumino-drawer-links" aria-label="Secciones de KÚMINO">
-        <a href="#inicio" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span><span class="kumino-link-label">Inicio</span></a>
-        <a href="#coleccion" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="kumino-link-label">Colecciones</span></a>
-        <a href="NAVIDAD/navidad.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.2 4.2 3.8-.2-2.2 4 4.2 2.2-4.2 2.1 2.2 4-3.8-.2L12 22l-2.2-3.9-3.8.2 2.2-4L4 12l4.2-2.1-2.2-4 3.8.2z"/><path d="M12 6v13M8 11h8"/></svg></span><span class="kumino-link-label">Navidad</span></a>
-        <a href="HEMBRAS/hembras.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l1 5 3 12H3L6 8z"/><path d="M8 3c0 3 2 5 4 5s4-2 4-5"/></svg></span><span class="kumino-link-label">Hembras</span></a>
-        <a href="MACHOS/machos.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 3-4 3 3 5 3-2v12h6V9l3 2 3-5-4-3-3 3h-4z"/></svg></span><span class="kumino-link-label">Machos</span></a>
-        <a href="ACCESORIOS/accesorios.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8c0-2 4-4 9-4s9 2 9 4-4 4-9 4-9-2-9-4z"/><path d="M3 8v8c0 2 4 4 9 4s9-2 9-4V8M8 12v4h8v-4"/></svg></span><span class="kumino-link-label">Accesorios</span></a>
-        <a href="HALLOWEN/hallowen.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c0 4-2 5-5 7-2 1-3 3-3 6h16c0-3-1-5-3-6-3-2-5-3-5-7z"/><path d="M4 20h16"/></svg></span><span class="kumino-link-label">Disfraces</span></a>
-        <a href="CASITAS/casitas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M12 17s-4-2.3-4-4.7A2.3 2.3 0 0 1 12 11a2.3 2.3 0 0 1 4 1.3C16 14.7 12 17 12 17z"/></svg></span><span class="kumino-link-label">Casitas</span></a>
-        <a href="guia-tallas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 14-14 4 4L7 21z"/><path d="m14 6 4 4M11 9l2 2M8 12l2 2M5 15l2 2"/></svg></span><span class="kumino-link-label">Guía de tallas</span></a>
-        <button type="button" class="kumino-drawer-cart" data-menu-cart>
-            <span class="kumino-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg></span>
-            <span class="kumino-link-label">Mi carrito</span>
-            <span class="kumino-cart-count" aria-label="Cantidad de productos"> </span>
-        </button>
-        <a href="#nosotros" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg></span><span class="kumino-link-label">Nosotros</span></a>
-        <a href="#contacto" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4 9 9 0 0 1-3.7-.9L3 21l1.8-5.1a8.3 8.3 0 1 1 16.2-4.4z"/><path d="M9 8.5c.5 2.5 2 4 4.5 5l1.2-1.2 2 1c-.2 1.5-1.2 2.2-2.7 2.1-3.6-.5-6.8-3.7-7.3-7.3C6.6 6.6 7.3 5.6 8.8 5.4l1 2z"/></svg></span><span class="kumino-link-label">Contacto</span></a>
-    </nav>
-
-    <div class="kumino-drawer-footer">
-        <div class="kumino-footer-paws" aria-hidden="true">
-            <svg class="kumino-paw paw-left" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
-            <svg class="kumino-paw paw-center" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
-            <svg class="kumino-paw paw-right" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
-        </div>
-        <span class="kumino-footer-slogan">Moda con amor para tus mascotas</span>
-    </div>
-</aside>
-
-
-    
-
-
-
-
-<!-- ==============================
-     HERO NAVIDEÑO KÚMINO
-=============================== -->
-
-<section id="inicio" class="hero hero-navidad">
-
-    <video class="hero-video" autoplay muted loop playsinline>
-        <source src="video-navideño.mp4" type="video/mp4">
-        Tu navegador no puede reproducir este video.
-    </video>
-
-    <div class="hero-navidad-overlay"></div>
-
-    <!-- MENSAJE -->
-    <div class="hero-navidad-contenido">
-
-        <span class="hero-navidad-etiqueta">
-            COLECCIÓN NAVIDEÑA
-        </span>
-
-        <h1>Esta Navidad,</h1>
-
-        <p>consiente a quien más te ama</p>
-
-    </div>
-
-    <!-- BOTÓN INDEPENDIENTE -->
-    <a href="#coleccion" class="hero-coleccion">
-        Ver colección
-        <span>→</span>
-    </a>
-
-</section>
-
- <!-- ==============================
-     FRANJA DE ENVÍOS KÚMINO
-=============================== -->
-
-<section class="franja-envios">
-
-    <!-- ICONO DE ENVÍO -->
-    <svg class="envios-icono"
-         xmlns="http://www.w3.org/2000/svg"
-         viewBox="0 0 24 24"
-         fill="none"
-         stroke="currentColor"
-         stroke-width="1.5"
-         stroke-linecap="round"
-         stroke-linejoin="round"
+  fab.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
          aria-hidden="true">
 
-        <path d="M3 6h11v11H3z"/>
-        <path d="M14 10h4l3 3v4h-7z"/>
-        <circle cx="7.5" cy="18" r="1.5"/>
-        <circle cx="17.5" cy="18" r="1.5"/>
+      <circle cx="9" cy="20" r="1"></circle>
+      <circle cx="19" cy="20" r="1"></circle>
+
+      <path d="M2 3h2l2.4 11.2a2 2 0 0 0 2 1.6h9.8a2 2 0 0 0 2-1.6L22 7H5"></path>
 
     </svg>
 
-    <p class="envios-titulo">Envíos a todo el Perú</p>
+    <span class="kumino-cart-nav-count is-empty">0</span>
+  `;
 
-    <span class="envios-separador"></span>
+  // Inserta el icono inmediatamente después de Contacto.
+  const contactLink = document.querySelector(
+    '.nav-container .btn-contacto'
+  );
 
-    <p class="envios-descripcion">
-        La magia de KÚMINO llega hasta tu hogar
-    </p>
+  const navContainer = document.querySelector('.nav-container');
 
-</section>
+  if (contactLink) {
+    contactLink.insertAdjacentElement('afterend', fab);
+  } else if (navContainer) {
+    navContainer.appendChild(fab);
+  } else {
+    document.body.appendChild(fab);
+  }
 
+  /* =========================================
+     PANEL DEL CARRITO
+  ========================================= */
 
+  const panel = document.createElement('aside');
 
-<!-- ==============================
-     BANNER COLECCIÓN NAVIDEÑA
-=============================== -->
+  panel.className = 'kumino-cart-panel';
+  panel.setAttribute('aria-label', 'Carrito de compras KÚMINO');
+  panel.setAttribute('aria-live', 'polite');
 
-<section id="banner-navidad" class="banner-navidad">
+  panel.innerHTML = `
+    <div class="kumino-cart-head">
 
-    <!-- VIDEO DE FONDO -->
-    <video class="banner-navidad-video"
-           autoplay
-           muted
-           loop
-           playsinline
-           preload="auto">
+      <strong>Mi carrito</strong>
 
-        <source src="./banner_navide%C3%B1o.mp4" type="video/mp4">
-
-    </video>
-
-    <!-- CONTENIDO -->
-    <div class="banner-navidad-contenido">
-
-        <h2>
-            Colección <span>Navideña</span>
-        </h2>
-
-        <p>
-            Moda especial para tu engreído
-        </p>
-
-        <a href="NAVIDAD/navidad.html" class="btn-navidad">
-            VER COLECCIÓN
-        </a>
+      <button type="button"
+              class="kumino-cart-close"
+              aria-label="Cerrar carrito">
+        ×
+      </button>
 
     </div>
 
-</section>
+    <div class="kumino-cart-content"></div>
+  `;
 
-    
-<!-- ==============================
-     COLECCIÓN KÚMINO
-=============================== -->
+  document.body.append(panel);
 
-<section id="coleccion" class="coleccion">
+  /* =========================================
+     CÁLCULO DE PRECIOS Y DESCUENTOS
+  ========================================= */
 
-    <!-- ENCABEZADO -->
+  function calculate() {
 
-    <div class="coleccion-header">
-        <span class="seccion-tag">
-            DESCUBRE KÚMINO
-        </span>
-    </div>
+    let unitIndex = 0;
+    let subtotalRegular = 0;
+    let total = 0;
 
+    const details = cart.map(item => {
 
-    <!-- TARJETAS DE COLECCIÓN -->
+      let itemTotal = 0;
+      let itemSaving = 0;
+      let discountedUnits = 0;
+      let promoUnits = 0;
+      let discountedUnitPrice = 0;
 
-    <div class="coleccion-grid">
+      for (let i = 0; i < Number(item.qty); i++) {
 
-        <!-- HEMBRAS -->
+        const isCasita = item.category === 'casitas';
 
-        <a
-            href="HEMBRAS/hembras.html"
-            class="producto-card"
-            aria-label="Ver colección de Hembras"
-        >
-            <img
-                src="Hembras.jpeg"
-                alt="Colección de ropa para mascotas hembras"
-            >
+        const isSecondInPair =
+          !isCasita && unitIndex % 2 === 1;
 
-          <div class="producto-overlay">
-    <h3>Hembras</h3>
+        const regular = Number(item.regular);
+        const promo = Number(item.promo);
 
-    <strong>VER COLECCIÓN</strong>
+        // Las casitas se cobran a su precio normal
+        // y no consumen turno promocional.
+        const finalPrice = isCasita
+          ? regular
+          : (isSecondInPair ? regular * 0.60 : promo);
 
-    <span class="coleccion-flecha" aria-hidden="true">
-        →
-    </span>
-</div>
+        itemTotal += finalPrice;
+        itemSaving += regular - finalPrice;
+        subtotalRegular += regular;
+        total += finalPrice;
 
-        <!-- MACHOS -->
+        if (isSecondInPair) {
 
-        <a
-            href="MACHOS/machos.html"
-            class="producto-card"
-            aria-label="Ver colección de Machos"
-        >
-            <img
-                src="Machos.jpeg"
-                alt="Colección de ropa para mascotas machos"
-            >
+          discountedUnits++;
+          discountedUnitPrice = finalPrice;
 
-            <div class="producto-overlay">
-    <h3>Machos</h3>
+        } else if (!isCasita) {
 
-    <strong>VER COLECCIÓN</strong>
+          promoUnits++;
 
-    <span class="coleccion-flecha" aria-hidden="true">
-        →
-    </span>
-</div>
+        }
 
+        if (!isCasita) {
+          unitIndex++;
+        }
+      }
 
-        <!-- ACCESORIOS -->
-
-        <a
-            href="ACCESORIOS/accesorios.html"
-            class="producto-card"
-            aria-label="Ver colección de Accesorios"
-        >
-            <img
-                src="Accesorios.jpeg"
-                alt="Accesorios para mascotas"
-            >
-
-         <div class="producto-overlay">
-    <h3>Accesorios</h3>
-
-    <strong>VER COLECCIÓN</strong>
-
-    <span class="coleccion-flecha" aria-hidden="true">
-        →
-    </span>
-</div>
-
-        <!-- CASITAS -->
-
-        <a
-            href="CASITAS/casitas.html"
-            class="producto-card"
-            aria-label="Ver colección de Casitas"
-        >
-            <img
-                src="Casitas.jpeg"
-                alt="Casitas para mascotas"
-            >
-
-          <div class="producto-overlay">
-    <h3>Casitas</h3>
-
-    <strong>VER COLECCIÓN</strong>
-
-    <span class="coleccion-flecha" aria-hidden="true">
-        →
-    </span>
-</div>
-        </a>
-
-    </div>
-
-</section>
-
-
-   
-<!-- ==============================
-     BANNER DE DISFRACES KÚMINO
-=============================== -->
-
-<div class="disfraces-banner">
-
-    <!-- IMAGEN DE FONDO -->
-    <div class="disfraces-overlay"></div>
-
-    <!-- CONTENIDO -->
-    <div class="disfraces-content">
-
-        <span class="disfraces-tag">
-            COLECCIÓN ESPECIAL
-        </span>
-
-        <h2>
-            Pequeñas estrellas,
-            <strong>grandes disfraces.</strong>
-        </h2>
-
-        <p>
-            Disfraces especiales para mascotas
-            con mucha personalidad.
-        </p>
-
-        <a href="HALLOWEN/hallowen.html">
-            Ver disfraces →
-        </a>
-
-    </div>
-
-</div>
-
-    <!-- ==============================
-         POR QUÉ KÚMINO
-    =============================== -->
-
-    <section class="porque-kumino">
-
-
-        <div class="porque-header">
-
-            <span>
-                LA ESENCIA DE KÚMINO
-            </span>
-
-
-            <h2>
-                Más que ropa,
-                <strong>momentos.</strong>
-            </h2>
-
-
-            <p>
-                Seleccionamos productos pensando
-                en el bienestar, estilo y felicidad
-                de cada mascota.
-            </p>
-
-        </div>
-
-
-
-        <div class="porque-grid">
-
-
-            <div class="porque-card">
-
-                <div class="porque-numero">
-                    01
-                </div>
-
-
-                <h3>
-                    Comodidad
-                </h3>
-
-
-                <p>
-                    Productos seleccionados para que tu
-                    mascota se sienta cómoda en cada momento.
-                </p>
-
-            </div>
-
-
-
-            <div class="porque-card">
-
-                <div class="porque-numero">
-                    02
-                </div>
-
-
-                <h3>
-                    Estilo
-                </h3>
-
-
-                <p>
-                    Estilos modernos y especiales para
-                    destacar su personalidad.
-                </p>
-
-            </div>
-
-
-
-            <div class="porque-card">
-
-                <div class="porque-numero">
-                    03
-                </div>
-
-
-                <h3>
-                    Amor
-                </h3>
-
-
-                <p>
-                    Cada elección está pensada con cariño
-                    para ellos y para quienes los aman.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==============================
-         SOBRE KÚMINO
-    =============================== -->
-
-    <section id="nosotros" class="sobre-kumino">
-
-
-        <div class="sobre-container">
-
-
-            <div class="sobre-imagen">
-
-                <img
-                    src="sobre kumino.jpeg"
-                    alt="Mascota usando una prenda de KÚMINO"
-                >
-
-            </div>
-
-
-
-            <div class="sobre-contenido">
-
-                <span class="sobre-tag">
-                    NUESTRA ESENCIA
-                </span>
-
-
-                <h2>
-                    Elegimos para
-                    <strong>ellos.</strong>
-                </h2>
-
-
-                <p>
-                    En KÚMINO seleccionamos prendas y accesorios
-                    pensando en el bienestar, comodidad y estilo
-                    de cada mascota.
-                </p>
-
-
-                <p>
-                    Buscamos productos que combinen diseño,
-                    funcionalidad y calidad, para que cada mascota
-                    pueda lucir increíble y sentirse cómoda.
-                </p>
-
-
-                <div class="sobre-firma">
-
-                    KÚMINO
-
-                    <span>
-                        Moda con amor para tu mascota
-                    </span>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==============================
-         CONTACTO
-    =============================== -->
-
-    <section id="contacto" class="contacto-kumino">
-
-
-        <div class="contacto-contenido">
-
-
-            <span class="contacto-tag">
-                ¿LISTO PARA CONSENTIRLO?
-            </span>
-
-
-            <h2>
-                Encuentra su próximo
-                <strong>look favorito.</strong>
-            </h2>
-
-
-            <p>
-                Conoce nuestra colección y encuentra
-                prendas y accesorios para tu mascota.
-            </p>
-
-
-            <a
-                href="https://wa.me/51919503045"
-                class="btn-contacto-final"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Comprar por WhatsApp →
-            </a>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- ==============================
-         PIE DE PÁGINA
-    =============================== -->
-
-    <footer class="footer-kumino">
-
-
-        <div class="footer-container">
-
-
-            <div class="footer-marca">
-
-                <h2>
-                    KÚMINO
-                </h2>
-
-
-                <p>
-                    Moda con amor para tu mascota.
-                </p>
-
-            </div>
-
-
-
-            <div class="footer-enlaces">
-
-                <h3>
-                    Navegación
-                </h3>
-
-
-                <a href="#inicio">
-                    Inicio
-                </a>
-
-
-                <a href="#coleccion">
-                    Colección
-                </a>
-
-
-                <a href="#ofertas">
-                    Ofertas
-                </a>
-
-
-                <a href="#nosotros">
-                    Nosotros
-                </a>
-
-
-                <a href="#contacto">
-                    Contacto
-                </a>
-
-            </div>
-
-
-
-            <div class="footer-contacto">
-
-                <h3>
-                    Contáctanos
-                </h3>
-
-
-                <a
-                    href="https://wa.me/51919503045"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    WhatsApp
-                </a>
-
-
-                <span>
-                    Envíos a todo el Perú
-                </span>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 KÚMINO. Todos los derechos reservados.
-            </p>
-
-
-            <span>
-                Moda con amor para tu mascota
-            </span>
-
-        </div>
-
-
-    </footer>
-<script>
-(() => {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const drawer = document.getElementById('kumino-mobile-drawer');
-    const backdrop = document.getElementById('kumino-menu-backdrop');
-    const closeButton = document.querySelector('.kumino-drawer-close');
-
-    if (!menuToggle || !drawer || !backdrop) return;
-
-    const openMenu = () => {
-        drawer.classList.add('is-open');
-        backdrop.classList.add('is-visible');
-        document.body.classList.add('kumino-menu-lock');
-        menuToggle.setAttribute('aria-expanded', 'true');
-        drawer.setAttribute('aria-hidden', 'false');
-        backdrop.setAttribute('aria-hidden', 'false');
-        if (closeButton) closeButton.focus();
-    };
-
-    const closeMenu = () => {
-        drawer.classList.remove('is-open');
-        backdrop.classList.remove('is-visible');
-        document.body.classList.remove('kumino-menu-lock');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        drawer.setAttribute('aria-hidden', 'true');
-        backdrop.setAttribute('aria-hidden', 'true');
-        menuToggle.focus();
-    };
-
-    menuToggle.setAttribute('aria-controls', 'kumino-mobile-drawer');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.addEventListener('click', openMenu);
-    if (closeButton) closeButton.addEventListener('click', closeMenu);
-    backdrop.addEventListener('click', closeMenu);
-
-    drawer.querySelectorAll('a[data-menu-link]').forEach(link => {
-        link.addEventListener('click', closeMenu);
+      return {
+        ...item,
+        itemTotal,
+        itemSaving,
+        discountedUnits,
+        promoUnits,
+        discountedUnitPrice
+      };
     });
 
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
-            closeMenu();
-        }
-    });
-
-    // El enlace del carrito se conectará al disparador real del carrito unificado
-    // al integrar el proyecto completo. Se evita inventar un selector o una API.
-    const cartLink = drawer.querySelector('[data-menu-cart]');
-    const cartBadge = drawer.querySelector('.kumino-cart-count');
-
-    // kumino-cart.js crea el botón real .kumino-cart-nav y su panel
-    // .kumino-cart-panel. No se crea un segundo carrito.
-    const syncCartCount = () => {
-        const sourceCount = document.querySelector('.kumino-cart-nav-count');
-        const count = sourceCount ? Number(sourceCount.textContent || 0) : 0;
-
-        if (cartBadge) {
-            cartBadge.textContent = count > 0 ? String(count) : '';
-            cartBadge.classList.toggle('has-items', count > 0);
-            cartBadge.setAttribute(
-                'aria-label',
-                count === 1 ? '1 producto en el carrito' : count + ' productos en el carrito'
-            );
-        }
+    return {
+      details,
+      subtotalRegular,
+      total,
+      discount: subtotalRegular - total
     };
+  }
 
-    // El script del carrito inserta su botón dinámicamente al cargar.
-    // Observamos el documento para sincronizar el contador real.
-    if (window.MutationObserver) {
-        const cartObserver = new MutationObserver(() => {
-            const countNode = document.querySelector('.kumino-cart-nav-count');
-            if (countNode) syncCartCount();
-        });
-        cartObserver.observe(document.body, {
-            childList: true,
-            subtree: true,
-            characterData: true
-        });
+  /* =========================================
+     MOSTRAR CARRITO
+  ========================================= */
+
+  function render() {
+
+    const count = cart.reduce(
+      (sum, item) => sum + Number(item.qty),
+      0
+    );
+
+    const countBadge = fab.querySelector(
+      '.kumino-cart-nav-count'
+    );
+
+    countBadge.textContent = count;
+    countBadge.classList.toggle('is-empty', count === 0);
+
+    fab.setAttribute(
+      'aria-label',
+      count
+        ? `Abrir carrito de compras, ${count} ${count === 1 ? 'producto' : 'productos'}`
+        : 'Abrir carrito de compras'
+    );
+
+    const area = panel.querySelector('.kumino-cart-content');
+
+    const {
+      details,
+      subtotalRegular,
+      total,
+      discount
+    } = calculate();
+
+    if (!details.length) {
+
+      area.innerHTML = `
+        <p class="kumino-cart-empty">
+          Tu carrito está vacío. Elige tus productos y agrégalos para continuar.
+        </p>
+      `;
+
+      return;
     }
 
-    if (cartLink) {
-        cartLink.addEventListener('click', event => {
-            event.preventDefault();
-            closeMenu();
+    const itemsHTML = details.map(item => `
 
-            // Este botón alterna el panel real que renderiza los productos
-            // guardados en localStorage por kumino-cart.js.
-            const realCartButton = document.querySelector('.kumino-cart-nav');
-            const realCartPanel = document.querySelector('.kumino-cart-panel');
+      <div class="kumino-cart-item">
 
-            if (realCartButton && realCartPanel) {
-                const isOpen = realCartPanel.classList.contains('is-open');
-                if (!isOpen) {
-                    realCartButton.click();
+        <div>
+
+          <strong>${esc(item.name)}</strong>
+
+          <small>
+            ${esc([
+              item.color,
+              item.size
+                ? (item.category === 'casitas' ? 'Medida ' : 'Talla ') + item.size
+                : ''
+            ].filter(Boolean).join(' · '))}<br>
+
+            Cantidad: ${Number(item.qty)}<br>
+
+            Ahorro en este producto: ${money(item.itemSaving)}
+          </small>
+
+        </div>
+
+        <div class="kumino-cart-item-price">
+
+          ${
+            item.discountedUnits > 0 && Number(item.qty) === 1
+
+              ? `
+                <div>
+                  <span class="kumino-cart-old-price">
+                    ${money(item.regular)}
+                  </span>
+                </div>
+
+                <span class="kumino-cart-discount-badge">
+                  40 % de descuento
+                </span>
+
+                <div>
+                  ${money(item.discountedUnitPrice)}
+                </div>
+              `
+
+              : `
+                ${money(item.itemTotal)}
+
+                ${
+                  item.discountedUnits > 0
+
+                    ? `
+                      <div>
+                        <span class="kumino-cart-discount-badge">
+                          ${item.discountedUnits}
+                          ${item.discountedUnits === 1 ? 'unidad con' : 'unidades con'}
+                          40 % de descuento
+                        </span>
+                      </div>
+                    `
+
+                    : ''
                 }
-                syncCartCount();
-            } else {
-                console.error(
-                    'No se encontró el carrito unificado. Verifica que kumino-cart.js esté cargado y sin errores.'
-                );
-            }
-        });
+              `
+          }
+
+          <button
+            type="button"
+            class="kumino-cart-remove"
+            data-kumino-remove="${esc(item.key)}">
+            Quitar
+          </button>
+
+        </div>
+
+      </div>
+
+    `).join('');
+
+    area.innerHTML = `
+
+      ${itemsHTML}
+
+      <div class="kumino-cart-summary">
+
+        <div class="kumino-cart-line">
+          <span>Subtotal (precios regulares)</span>
+          <strong>${money(subtotalRegular)}</strong>
+        </div>
+
+        <div class="kumino-cart-line">
+          <span>Descuentos aplicados</span>
+          <strong>− ${money(discount)}</strong>
+        </div>
+
+        <div class="kumino-cart-line kumino-cart-total">
+          <span>Total a pagar</span>
+          <strong>${money(total)}</strong>
+        </div>
+
+      </div>
+
+      <p class="kumino-cart-note">
+        La promoción se aplica por orden de agregado a las prendas:
+        la 2.ª, 4.ª, 6.ª prenda, etc., recibe 40 % de descuento
+        sobre su precio regular. Las demás se cobran al precio
+        promocional vigente. Las casitas no participan en esta promoción.
+      </p>
+
+      <button type="button" class="kumino-cart-checkout">
+        Finalizar pedido por WhatsApp
+      </button>
+
+      <button type="button" class="kumino-cart-clear">
+        Vaciar carrito
+      </button>
+
+    `;
+  }
+
+  /* =========================================
+     AGREGAR PRODUCTOS
+  ========================================= */
+
+  function add(button) {
+
+    const data = button.dataset;
+
+    const regular = Number(data.regularPrice);
+    const promo = Number(data.promoPrice);
+
+    if (
+      !data.productId ||
+      !data.productName ||
+      !data.size ||
+      !data.color ||
+      !Number.isFinite(regular) ||
+      !Number.isFinite(promo) ||
+      regular <= 0 ||
+      promo <= 0
+    ) {
+
+      console.error(
+        'Datos incompletos del producto para el carrito.',
+        data
+      );
+
+      return;
     }
 
-    syncCartCount();
+    const key = [
+      data.productId,
+      data.color,
+      data.size
+    ].join('|');
+
+    const existing = cart.find(
+      item => item.key === key
+    );
+
+    if (existing) {
+
+      existing.qty = Number(existing.qty) + 1;
+
+    } else {
+
+      cart.push({
+
+        key,
+
+        id: data.productId,
+
+        name: data.productName,
+
+        category: data.category || '',
+
+        color: data.color,
+
+        size: data.size,
+
+        regular,
+
+        promo,
+
+        qty: 1
+
+      });
+    }
+
+    save();
+    render();
+
+    panel.classList.add('is-open');
+
+    fab.setAttribute('aria-expanded', 'true');
+  }
+
+  /* =========================================
+     FINALIZAR PEDIDO POR WHATSAPP
+  ========================================= */
+
+  function checkout() {
+
+    if (!cart.length) return;
+
+    const {
+      details,
+      subtotalRegular,
+      total,
+      discount
+    } = calculate();
+
+    const lines = details.map(item =>
+
+      `• ${item.name} — ${item.color}, ${
+        item.category === 'casitas' ? 'medida' : 'talla'
+      } ${item.size}, cantidad ${item.qty}: ${
+        money(item.itemTotal)
+      }${
+        item.itemSaving > 0
+          ? ` (ahorro ${money(item.itemSaving)})`
+          : ''
+      }`
+
+    );
+
+    const message = [
+
+      '¡Hola KÚMINO! Quiero realizar este pedido:',
+
+      '',
+
+      ...lines,
+
+      '',
+
+      `Subtotal (precios regulares): ${money(subtotalRegular)}`,
+
+      `Descuentos aplicados: − ${money(discount)}`,
+
+      `TOTAL A PAGAR: ${money(total)}`,
+
+      '',
+
+      'Quedo atento/a a la confirmación de disponibilidad y envío. ¡Gracias!'
+
+    ].join('\n');
+
+    window.open(
+      `https://wa.me/${WA}?text=${encodeURIComponent(message)}`,
+      '_blank',
+      'noopener,noreferrer'
+    );
+  }
+
+  /* =========================================
+     EVENTOS DEL CARRITO
+  ========================================= */
+
+  fab.addEventListener('click', () => {
+
+    const open = !panel.classList.contains('is-open');
+
+    panel.classList.toggle('is-open', open);
+
+    fab.setAttribute(
+      'aria-expanded',
+      String(open)
+    );
+
+  });
+
+  panel.querySelector('.kumino-cart-close')
+    .addEventListener('click', () => {
+
+      panel.classList.remove('is-open');
+
+      fab.setAttribute('aria-expanded', 'false');
+
+    });
+
+  document.addEventListener('click', event => {
+
+    const addButton = event.target.closest(
+      '#kc-add, [data-kumino-add]'
+    );
+
+    if (addButton) {
+
+      if (!addButton.disabled) {
+        add(addButton);
+      }
+
+      return;
+    }
+
+    const removeButton = event.target.closest(
+      '[data-kumino-remove]'
+    );
+
+    if (removeButton) {
+
+      cart = cart.filter(
+        item => item.key !== removeButton.dataset.kuminoRemove
+      );
+
+      save();
+      render();
+
+      return;
+    }
+
+    if (event.target.closest('.kumino-cart-clear')) {
+
+      cart = [];
+
+      save();
+      render();
+
+      return;
+    }
+
+    if (event.target.closest('.kumino-cart-checkout')) {
+      checkout();
+    }
+
+  });
+
+  // Carga inicial del carrito guardado.
+  render();
+
 })();
-</script>
-
-<!-- Carrito global KÚMINO -->
-<script src="kumino-cart.js"></script>
-
-</body>
-
-</html>
