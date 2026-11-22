@@ -558,25 +558,538 @@
 
 
     </style>
+
+<style id="kumino-index-header-unificado">
+.header.header-navidad{position:fixed!important;top:0!important;left:0!important;width:100%!important;z-index:1000!important;background-color:rgba(250,243,236,.97)!important;background-image:radial-gradient(circle,#F6D88B 1.5px,transparent 2.5px),radial-gradient(circle,#FFF4D6 1px,transparent 2px),linear-gradient(to bottom,rgba(127,145,131,.15),transparent 18px)!important;background-size:85px 13px,125px 13px,100% 100%!important;background-position:15px 5px,55px 9px,center!important;background-repeat:repeat-x!important;border-bottom:1px solid rgba(198,161,91,.20)!important;backdrop-filter:blur(8px)!important;overflow:visible!important;box-sizing:border-box!important}
+.header.header-navidad::before{content:"";position:absolute;top:12px;left:0;width:100%;height:1px;background:rgba(198,161,91,.45);pointer-events:none}
+.header.header-navidad .nav-container{position:relative;z-index:1;max-width:1300px!important;height:82px!important;margin:0 auto!important;padding:0 35px!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;box-sizing:border-box!important}
+.header.header-navidad .logo{display:flex!important;align-items:center!important;gap:12px!important;margin-left:-20px!important;flex-shrink:0!important;font-family:'Manrope',sans-serif!important;font-size:30px!important;font-weight:800!important;letter-spacing:2px!important;line-height:1!important;color:#2C3531!important;text-decoration:none!important;white-space:nowrap!important}
+.header.header-navidad .logo img{width:36px!important;height:36px!important;object-fit:contain!important;display:block!important;flex-shrink:0!important;border-radius:50%!important}
+.header.header-navidad .logo span{display:inline-block!important;position:relative!important;color:#2C3531!important}
+.header.header-navidad .logo span::after{content:"";position:absolute;width:0;height:0;top:-11px;right:-8px;border-left:8px solid transparent;border-right:3px solid transparent;border-bottom:15px solid #D93642;transform:rotate(24deg)}
+.header.header-navidad .logo span::before{content:"";position:absolute;width:13px;height:4px;top:0;right:-12px;background:#FFFDF8;border-radius:5px;transform:rotate(24deg);z-index:2}
+.header.header-navidad .navbar{display:flex!important;align-items:center!important;gap:clamp(12px,2vw,38px)!important;margin:0!important;padding:0!important;background:transparent!important;position:static!important;box-shadow:none!important;border:0!important}
+.header.header-navidad .navbar a{position:relative!important;font-family:'Poppins',sans-serif!important;font-size:14px!important;font-weight:500!important;color:#2C3531!important;text-decoration:none!important;white-space:nowrap!important}
+.header.header-navidad .navbar a:hover{color:#7F9183!important}
+.header.header-navidad .btn-contacto{display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:11px 24px!important;background:#E63946!important;color:#fff!important;border:0!important;border-radius:30px!important;font-family:'Poppins',sans-serif!important;font-size:13px!important;font-weight:500!important;text-decoration:none!important;white-space:nowrap!important;box-shadow:0 5px 15px rgba(230,57,70,.20)!important}
+.header.header-navidad .menu-toggle{display:none!important;border:0!important;background:transparent!important;color:#2C3531!important;font-size:27px!important;line-height:1!important;padding:7px!important;cursor:pointer!important}
+.header.header-navidad .nav-decor{position:absolute;top:0;height:100%;display:flex;align-items:flex-start;gap:5px;z-index:2;pointer-events:none;font-size:23px}
+.header.header-navidad .nav-decor-izq{left:0;padding-left:12px}.header.header-navidad .nav-decor-der{right:0;padding-right:12px}
+.header.header-navidad .nav-decor span:nth-child(2){margin-top:9px}.header.header-navidad .nav-decor span:nth-child(3){margin-top:3px;font-size:17px}
+.header.header-navidad .kumino-cart-fab,.header.header-navidad .kumino-cart-nav{flex-shrink:0}
+@media(max-width:768px){
+ .header.header-navidad .nav-container{height:72px!important;padding:0 16px!important;display:grid!important;grid-template-columns:45px minmax(0,1fr) auto auto!important;align-items:center!important;gap:8px!important}
+ .header.header-navidad .menu-toggle{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:42px!important;height:42px!important;grid-column:1!important;grid-row:1!important}
+ .header.header-navidad .logo{justify-self:center!important;grid-column:2!important;grid-row:1!important;gap:7px!important;margin:0!important;font-size:25px!important;letter-spacing:3px!important;min-width:0!important}
+ .header.header-navidad .logo img{width:36px!important;height:36px!important}
+ .header.header-navidad .navbar{display:none!important}
+ .header.header-navidad .btn-contacto{grid-column:3!important;grid-row:1!important;padding:10px 17px!important;font-size:12px!important}
+ .header.header-navidad .nav-decor{display:none!important}
+ .header.header-navidad .nav-container .kumino-cart-fab{grid-column:4!important;grid-row:1!important}
+}
+@media(max-width:390px){.header.header-navidad .nav-container{padding:0 9px!important;grid-template-columns:38px minmax(0,1fr) auto auto!important;gap:5px!important}.header.header-navidad .logo{font-size:21px!important;letter-spacing:2px!important}.header.header-navidad .logo img{width:31px!important;height:31px!important}.header.header-navidad .btn-contacto{padding:9px 12px!important;font-size:11px!important}}
+</style>
+<style id="kumino-mobile-drawer-styles">
+/* Menú lateral de navegación - página modelo KÚMINO */
+.kumino-menu-backdrop,
+.kumino-mobile-drawer {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    body.kumino-menu-lock {
+        overflow: hidden !important;
+        touch-action: none;
+    }
+
+    /* En móvil se utiliza el botón hamburguesa; la barra horizontal queda oculta. */
+    .header .navbar {
+        display: none !important;
+    }
+
+    .header .menu-toggle {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        background: transparent;
+        color: #2C3531;
+        font-size: 27px;
+        line-height: 1;
+        padding: 7px;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    .kumino-menu-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 10090;
+        background: rgba(25, 29, 27, .58);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .28s ease, visibility .28s ease;
+    }
+
+    .kumino-menu-backdrop.is-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .kumino-mobile-drawer {
+        display: flex;
+        position: fixed;
+        z-index: 10100;
+        inset: 0 auto 0 0;
+        width: min(82vw, 370px);
+        max-width: 370px;
+        height: 100vh;
+        height: 100dvh;
+        box-sizing: border-box;
+        flex-direction: column;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        padding: 0 22px max(22px, env(safe-area-inset-bottom));
+        background: #FFFDF9;
+        box-shadow: 12px 0 35px rgba(34, 37, 33, .13);
+        transform: translateX(-105%);
+        visibility: hidden;
+        transition: transform .3s cubic-bezier(.22,.75,.25,1), visibility .3s ease;
+    }
+
+    .kumino-mobile-drawer.is-open {
+        transform: translateX(0);
+        visibility: visible;
+    }
+
+    .kumino-drawer-header {
+        min-height: 76px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #EAE4DA;
+    }
+
+    .kumino-drawer-brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #2C3531;
+        font-family: 'Manrope', sans-serif;
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: .5px;
+    }
+
+    .kumino-drawer-brand img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+
+    .kumino-drawer-close {
+        width: 42px;
+        height: 42px;
+        border: 0;
+        border-radius: 50%;
+        background: #F5EADD;
+        color: #2C3531;
+        font-size: 30px;
+        line-height: 1;
+        cursor: pointer;
+    }
+
+    .kumino-drawer-eyebrow {
+        margin: 22px 0 9px;
+        color: #7A9B76;
+        font-family: 'Poppins', sans-serif;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.8px;
+    }
+
+    .kumino-drawer-links {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .kumino-drawer-links a,
+    .kumino-drawer-cart {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 49px;
+        box-sizing: border-box;
+        padding: 0 4px;
+        border: 0;
+        border-bottom: 1px solid #F0EBE3;
+        background: transparent;
+        color: #2C3531 !important;
+        text-decoration: none !important;
+        text-align: left;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+
+    .kumino-drawer-links a::after {
+        content: "›";
+        color: #7A9B76;
+        font-family: Arial, sans-serif;
+        font-size: 23px;
+        font-weight: 400;
+    }
+
+    .kumino-drawer-links a:active,
+    .kumino-drawer-cart:active {
+        color: #7A9B76 !important;
+    }
+
+    .kumino-drawer-cart {
+        margin: 10px 0;
+        padding: 0 14px;
+        border: 0;
+        border-radius: 10px;
+        background: #7A9B76;
+        color: #FFFFFF !important;
+        font-weight: 600;
+    }
+
+    .kumino-drawer-cart::after {
+        content: none !important;
+    }
+
+    .kumino-drawer-cart-icon {
+        font-size: 18px;
+    }
+
+    .kumino-drawer-footer {
+        margin-top: auto;
+        padding-top: 24px;
+        color: #77766D;
+        font-family: 'Poppins', sans-serif;
+        font-size: 11px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) {
+    .kumino-menu-backdrop,
+    .kumino-mobile-drawer {
+        display: none !important;
+    }
+}
+</style>
+<style id="kumino-menu-friendly-details">
+@media (max-width: 768px) {
+  .kumino-drawer-brand { position: relative; }
+  .kumino-drawer-brand::after {
+    content: "Moda con amor para tus mascotas";
+    position: absolute;
+    left: 44px;
+    top: 29px;
+    color: #71866B;
+    font-family: 'Poppins', sans-serif;
+    font-size: 9px;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    white-space: nowrap;
+  }
+  .kumino-drawer-header { min-height: 88px; }
+  .kumino-drawer-eyebrow { margin-top: 20px; }
+  .kumino-drawer-links a {
+    display: grid !important;
+    grid-template-columns: 28px 1fr 14px;
+    align-items: center;
+    column-gap: 12px;
+  }
+  .kumino-drawer-links a::after {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .kumino-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    color: #718F6F;
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .kumino-link-icon svg,
+  .kumino-drawer-cart .kumino-link-icon svg {
+    width: 23px;
+    height: 23px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .kumino-link-label {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .kumino-drawer-links a[href="NAVIDAD/navidad.html"] {
+    margin: 3px 0;
+    padding-left: 9px;
+    padding-right: 9px;
+    border: 0;
+    border-radius: 12px;
+    background: #E9EFE4;
+    color: #405B42 !important;
+    font-weight: 600;
+  }
+  .kumino-drawer-cart {
+    display: grid !important;
+    grid-template-columns: 28px 1fr auto;
+    align-items: center;
+    column-gap: 12px;
+    min-height: 62px;
+    margin: 10px 0 8px;
+    padding: 0 14px;
+  }
+  .kumino-drawer-cart .kumino-link-icon { color: #fff; }
+  .kumino-cart-count {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #F5EADD;
+    opacity: .9;
+  }
+  .kumino-drawer-footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 100px;
+    margin: 20px -22px 0;
+    padding: 15px 22px 5px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #FFFDF9 0%, #F1EBDD 100%);
+  }
+  .kumino-footer-paws {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 190px;
+    color: #8BA17B;
+  }
+  .kumino-paw {
+    width: 21px;
+    height: 21px;
+    fill: currentColor;
+    opacity: .72;
+  }
+  .kumino-paw.paw-center {
+    width: 31px;
+    height: 31px;
+    opacity: .95;
+  }
+  .kumino-footer-slogan {
+    color: #596D50;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-style: italic;
+    letter-spacing: .1px;
+    text-align: center;
+  }
+}
+</style>
+<style id="kumino-cart-menu-count-style">
+@media (max-width: 768px) {
+  .kumino-cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #E63946;
+    color: #fff;
+    font: 700 11px Poppins, sans-serif;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .kumino-cart-count.has-items { opacity: 1; }
+}
+</style>
+
+<style id="kumino-header-mobile-final-fix">
+/* Corrección final del encabezado móvil: conserva el diseño del index */
+@media screen and (max-width: 768px) {
+  .header.header-navidad .nav-container {
+    display: grid !important;
+    grid-template-columns: 40px minmax(0, 1fr) 40px auto !important;
+    align-items: center !important;
+    justify-content: stretch !important;
+    gap: 6px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 10px 10px !important;
+    overflow: visible !important;
+  }
+  .header.header-navidad .menu-toggle {
+    display: inline-flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 42px !important;
+    margin: 0 !important;
+    padding: 4px !important;
+    color: #2C3531 !important;
+    background: transparent !important;
+    border: 0 !important;
+    font-size: 28px !important;
+    line-height: 1 !important;
+    z-index: 5 !important;
+  }
+  .header.header-navidad .logo {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+    align-items: center !important;
+    gap: 6px !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+  }
+  .header.header-navidad .logo img {
+    display: block !important;
+    visibility: visible !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    object-fit: contain !important;
+    opacity: 1 !important;
+  }
+  .header.header-navidad .logo span {
+    display: inline-block !important;
+    font-size: clamp(18px, 5.8vw, 24px) !important;
+    line-height: 1 !important;
+    letter-spacing: 1px !important;
+    white-space: nowrap !important;
+  }
+  .header.header-navidad .navbar {
+    display: none !important;
+  }
+  .header.header-navidad .kumino-cart-nav {
+    display: inline-flex !important;
+    grid-column: 3 !important;
+    grid-row: 1 !important;
+    justify-self: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 40px !important;
+    margin: 0 !important;
+    position: relative !important;
+    z-index: 4 !important;
+  }
+  .header.header-navidad .btn-contacto {
+    display: inline-flex !important;
+    grid-column: 4 !important;
+    grid-row: 1 !important;
+    justify-self: end !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 !important;
+    padding: 10px 13px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+    position: relative !important;
+    z-index: 4 !important;
+  }
+}
+@media screen and (max-width: 360px) {
+  .header.header-navidad .nav-container {
+    grid-template-columns: 34px minmax(0, 1fr) 34px auto !important;
+    gap: 4px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+  .header.header-navidad .menu-toggle { width: 34px !important; }
+  .header.header-navidad .logo img { width: 28px !important; height: 28px !important; min-width: 28px !important; }
+  .header.header-navidad .logo span { font-size: 18px !important; }
+  .header.header-navidad .kumino-cart-nav { width: 34px !important; }
+  .header.header-navidad .btn-contacto { padding: 9px 10px !important; font-size: 11px !important; }
+}
+</style>
+
 </head>
 
 <body>
 
     <!-- HEADER -->
-    <header class="header">
-        <div class="nav-container">
+    <header class="header header-navidad">
+    <div class="nav-decor nav-decor-izq" aria-hidden="true"><span>🌿</span><span>🎀</span><span>✨</span></div>
+    <div class="nav-container">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-controls="kumino-mobile-drawer" aria-expanded="false"><span aria-hidden="true">☰</span></button>
+      <a href="../index.html#inicio" class="logo"><img src="../isotipo-kumino.png" alt="KÚMINO"><span>KÚMINO</span></a>
+      <nav class="navbar"><a href="../index.html#inicio">Inicio</a>
+<a href="../index.html#coleccion">Colección</a>
+<a href="../guia-tallas.html">Guía de Tallas</a>
+<a href="../index.html#ofertas">Ofertas</a>
+<a href="../index.html#nosotros">Nosotros</a>
+<a href="../index.html#banner-navidad" class="btn-navidad-menu">Colección Navideña</a></nav>
+      <a href="../index.html#contacto" class="btn-contacto">Contacto</a>
+    </div>
+    <div class="nav-decor nav-decor-der" aria-hidden="true"><span>✨</span><span>🎁</span><span>🌿</span></div>
+</header>
+<div class="kumino-menu-backdrop" id="kumino-menu-backdrop" aria-hidden="true"></div>
+<aside class="kumino-mobile-drawer" id="kumino-mobile-drawer" role="dialog" aria-modal="true" aria-label="Menú de navegación KÚMINO" aria-hidden="true">
+  <div class="kumino-drawer-header"><div class="kumino-drawer-brand"><img src="../isotipo-kumino.png" alt="" aria-hidden="true"><span>KÚMINO</span></div><button class="kumino-drawer-close" type="button" aria-label="Cerrar menú">×</button></div>
+  <p class="kumino-drawer-eyebrow">MENÚ PRINCIPAL</p>
+  <nav class="kumino-drawer-links" aria-label="Secciones de KÚMINO"><a href="../index.html#inicio" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg></span><span class="kumino-link-label">Inicio</span></a>
+<a href="../index.html#coleccion" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><span class="kumino-link-label">Colecciones</span></a>
+<a href="../NAVIDAD/navidad.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.2 4.2 3.8-.2-2.2 4 4.2 2.2-4.2 2.1 2.2 4-3.8-.2L12 22l-2.2-3.9-3.8.2 2.2-4L4 12l4.2-2.1-2.2-4 3.8.2z"/><path d="M12 6v13M8 11h8"/></svg></span><span class="kumino-link-label">Navidad</span></a>
+<a href="../HEMBRAS/hembras.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l1 5 3 12H3L6 8z"/><path d="M8 3c0 3 2 5 4 5s4-2 4-5"/></svg></span><span class="kumino-link-label">Hembras</span></a>
+<a href="../MACHOS/machos.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 3-4 3 3 5 3-2v12h6V9l3 2 3-5-4-3-3 3h-4z"/></svg></span><span class="kumino-link-label">Machos</span></a>
+<a href="../ACCESORIOS/accesorios.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8c0-2 4-4 9-4s9 2 9 4-4 4-9 4-9-2-9-4z"/><path d="M3 8v8c0 2 4 4 9 4s9-2 9-4V8M8 12v4h8v-4"/></svg></span><span class="kumino-link-label">Accesorios</span></a>
+<a href="../HALLOWEN/hallowen.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c0 4-2 5-5 7-2 1-3 3-3 6h16c0-3-1-5-3-6-3-2-5-3-5-7z"/><path d="M4 20h16"/></svg></span><span class="kumino-link-label">Disfraces</span></a>
+<a href="../CASITAS/casitas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M12 17s-4-2.3-4-4.7A2.3 2.3 0 0 1 12 11a2.3 2.3 0 0 1 4 1.3C16 14.7 12 17 12 17z"/></svg></span><span class="kumino-link-label">Casitas</span></a>
+<a href="../guia-tallas.html" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 14-14 4 4L7 21z"/><path d="m14 6 4 4M11 9l2 2M8 12l2 2M5 15l2 2"/></svg></span><span class="kumino-link-label">Guía de tallas</span></a>
+<a href="../index.html#nosotros" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></svg></span><span class="kumino-link-label">Nosotros</span></a>
+<a href="../index.html#contacto" data-menu-link><span class="kumino-link-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-8.8 8.4 9 9 0 0 1-3.7-.9L3 21l1.8-5.1a8.3 8.3 0 1 1 16.2-4.4z"/><path d="M9 8.5c.5 2.5 2 4 4.5 5l1.2-1.2 2 1c-.2 1.5-1.2 2.2-2.7 2.1-3.6-.5-6.8-3.7-7.3-7.3C6.6 6.6 7.3 5.6 8.8 5.4l1 2z"/></svg></span><span class="kumino-link-label">Contacto</span></a></nav>
+  <div class="kumino-drawer-footer"><div class="kumino-footer-paws" aria-hidden="true">
+    <svg class="kumino-paw paw-left" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
+    <svg class="kumino-paw paw-center" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
+    <svg class="kumino-paw paw-right" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
+  </div><span class="kumino-footer-slogan">Moda con amor para tus mascotas</span></div>
+</aside>
 
-            <a href="../index.html" class="logo">KÚMINO</a>
-
-            <nav class="navbar">
-                <a href="../index.html">Inicio</a>
-                <a href="navidad.html" class="activo">Navidad</a>
-            </nav>
-
-            <a href="#contacto" class="btn-contacto">Contacto</a>
-
-        </div>
-    </header>
 
     <!-- PRODUCTO -->
     <main class="navidad-producto-main">
@@ -813,7 +1326,7 @@
                 <h3>Contáctanos</h3>
 
                 <a
-                    href="https://wa.me/51919503045"
+                    href="https://wa.me/51940151463"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -832,5 +1345,74 @@
 
     </footer>
 
+<script>
+(() => {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const drawer = document.getElementById('kumino-mobile-drawer');
+    const backdrop = document.getElementById('kumino-menu-backdrop');
+    const closeButton = document.querySelector('.kumino-drawer-close');
+
+    if (!menuToggle || !drawer || !backdrop) return;
+
+    const openMenu = () => {
+        // Mantener un solo panel flotante abierto a la vez.
+        document.dispatchEvent(new CustomEvent('kumino:close-cart'));
+        drawer.classList.add('is-open');
+        backdrop.classList.add('is-visible');
+        document.body.classList.add('kumino-menu-lock');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        drawer.setAttribute('aria-hidden', 'false');
+        backdrop.setAttribute('aria-hidden', 'false');
+        if (closeButton) closeButton.focus();
+    };
+
+    const resetMenuState = () => {
+        drawer.classList.remove('is-open');
+        backdrop.classList.remove('is-visible');
+        document.body.classList.remove('kumino-menu-lock');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        drawer.setAttribute('aria-hidden', 'true');
+        backdrop.setAttribute('aria-hidden', 'true');
+    };
+
+    const closeMenu = () => {
+        resetMenuState();
+        menuToggle.focus();
+    };
+
+    // Evita que el fondo invisible del menú quede interceptando clics
+    // cuando el navegador restaura el inicio desde la caché (bfcache).
+    resetMenuState();
+    window.addEventListener('pageshow', () => {
+        resetMenuState();
+        document.dispatchEvent(new CustomEvent('kumino:close-cart'));
+    });
+    window.addEventListener('pagehide', () => {
+        resetMenuState();
+        document.dispatchEvent(new CustomEvent('kumino:close-cart'));
+    });
+
+    menuToggle.setAttribute('aria-controls', 'kumino-mobile-drawer');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.addEventListener('click', openMenu);
+    if (closeButton) closeButton.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+
+    drawer.querySelectorAll('a[data-menu-link]').forEach(link => {
+        link.addEventListener('click', () => {
+            document.dispatchEvent(new CustomEvent('kumino:close-cart'));
+            closeMenu();
+        });
+    });
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && drawer.classList.contains('is-open')) {
+            closeMenu();
+        }
+    });
+
+
+})();
+</script>
 </body>
 </html>
