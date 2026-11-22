@@ -40,9 +40,12 @@
 
         .navidad-producto-imagen {
             min-width: 0;
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
             background: transparent;
+            border: none;
+            border-radius: 0;
+            overflow: visible;
+            aspect-ratio: 4 / 5;
+            box-shadow: none;
         }
 
         .navidad-producto-imagen img {
@@ -52,7 +55,7 @@
             object-fit: contain;
             mix-blend-mode: normal;
             opacity: 1;
-            filter: drop-shadow(0 15px 22px rgba(65,43,28,.13));
+            filter: drop-shadow(0 10px 16px rgba(65, 43, 28, .18));
         }
 
         .navidad-producto-info {
@@ -105,6 +108,23 @@
             font-family: "Playfair Display",Georgia,serif;
             font-size: 21px;
             font-weight: 600;
+        }
+
+        .navidad-color {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #514b44;
+            font-size: 13px;
+        }
+
+        .navidad-color-muestra {
+            width: 17px;
+            height: 17px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            background: #a71925;
+            box-shadow: 0 0 0 1px #b8a99a;
         }
 
         .navidad-estado {
@@ -175,31 +195,134 @@
         @media (max-width:760px) {
             body {
                 background-attachment: scroll;
+                background-position: center top;
+                background-size: cover;
+            }
+
+            .header {
+                width: 100%;
+            }
+
+            .header .nav-container {
+                width: 100%;
+                box-sizing: border-box;
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .header .logo {
+                font-size: clamp(23px, 6vw, 30px);
+                white-space: nowrap;
+            }
+
+            .header .btn-contacto {
+                white-space: nowrap;
             }
 
             .navidad-producto-main {
-                padding: 30px 16px 45px !important;
+                padding: 30px 16px 45px;
             }
 
             .navidad-producto-container {
                 grid-template-columns: 1fr;
                 gap: 22px;
                 padding: 0;
+                background: transparent;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
             }
 
             .navidad-producto-imagen {
                 width: 100%;
+                height: auto;
                 max-height: none;
-                aspect-ratio: 4 / 5;
+                aspect-ratio: auto;
+                background: transparent;
+                border: none;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 10px 28px rgba(73, 43, 28, .18);
             }
 
             .navidad-producto-imagen img {
-                mix-blend-mode: multiply;
-                filter: drop-shadow(0 10px 16px rgba(65,43,28,.12));
+                display: block;
+                width: 100%;
+                height: auto;
+                max-height: none;
+                object-fit: contain;
+                object-position: center;
+                mix-blend-mode: normal;
+            }
+
+            .navidad-producto-categoria {
+                margin-bottom: 9px;
+                font-size: 10px;
+                letter-spacing: 1.5px;
             }
 
             .navidad-producto-info h1 {
-                font-size: 32px;
+                font-size: clamp(27px, 7vw, 34px);
+                line-height: 1.15;
+                margin-bottom: 13px;
+            }
+
+            .navidad-promo-etiqueta {
+                margin-bottom: 13px;
+                font-size: 10px;
+            }
+
+            .navidad-producto-descripcion {
+                font-size: 14px;
+                line-height: 1.7;
+                margin-bottom: 18px;
+            }
+
+            .navidad-producto-seccion {
+                margin-top: 19px;
+            }
+
+            .navidad-producto-seccion h2 {
+                font-size: 20px;
+                margin-bottom: 11px;
+            }
+
+            .navidad-tallas-precios {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 7px;
+            }
+
+            .navidad-talla-card {
+                padding: 11px 5px;
+                border-radius: 10px;
+            }
+
+            .navidad-talla-card strong {
+                font-size: 12px;
+                margin-bottom: 7px;
+            }
+
+            .navidad-precio-regular {
+                font-size: 10px;
+            }
+
+            .navidad-precio-promo {
+                font-size: 17px;
+            }
+
+            .navidad-ahorro {
+                font-size: 10px;
+            }
+
+            .navidad-caracteristicas {
+                font-size: 13px;
+                line-height: 1.8;
+            }
+
+            .navidad-agregar-carrito {
+                margin-top: 22px;
+                padding: 14px;
+                font-size: 13px;
             }
         }
 
@@ -276,29 +399,36 @@
 <img alt="Chompa Little Rudolph para mascotas" src="../IMAGENES/chompalittlerudolph.jpg"/>
 </div>
 <div class="navidad-producto-info">
-<span class="navidad-producto-categoria">
-                    COLECCIÓN NAVIDEÑA
-                </span>
+<span class="navidad-producto-categoria">COLECCIÓN NAVIDEÑA</span>
 <h1>Chompa Little Rudolph</h1>
-<span class="navidad-promo-etiqueta">
-                    PRÓXIMAMENTE
-                </span>
+<span class="navidad-promo-etiqueta">PRECIO PROMOCIONAL</span>
 <p class="navidad-producto-descripcion">
                     ¡Rudolph llega a KÚMINO para llenar de encanto la Navidad!
                     La Chompa Little Rudolph forma parte de nuestra colección
                     especial de temporada, una propuesta de inspiración
                     navideña para darle a tu engreído un look festivo y adorable.
                 </p>
+
 <section class="navidad-producto-seccion">
-<h2>Disponibilidad</h2>
-<div class="navidad-estado">
-<strong>Muy pronto en KÚMINO</strong>
-<p>
-                            Las tallas y los precios estarán disponibles
-                            próximamente. Escríbenos para recibir información
-                            sobre su lanzamiento.
-                        </p>
+<h2>Color</h2>
+<div class="navidad-color">
+<span class="navidad-color-muestra"></span>
+<span>Rojo</span>
 </div>
+</section>
+<section class="navidad-producto-seccion">
+<h2>Tallas y precios</h2>
+<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="2" data-color="Rojo" data-promo-price="35.00" data-regular-price="49.00" type="button">
+<strong>Talla 2</strong>
+<span class="navidad-precio-regular">S/ 49.00</span>
+<span class="navidad-precio-promo">S/ 35.00</span>
+<span class="navidad-ahorro">Ahorras S/ 14.00</span>
+</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-color="Rojo" data-promo-price="40.00" data-regular-price="56.00" type="button">
+<strong>Talla 3</strong>
+<span class="navidad-precio-regular">S/ 56.00</span>
+<span class="navidad-precio-promo">S/ 40.00</span>
+<span class="navidad-ahorro">Ahorras S/ 16.00</span>
+</button></div>
 </section>
 <section class="navidad-producto-seccion">
 <h2>Características</h2>
@@ -309,15 +439,10 @@
 <li>Parte de la colección especial de Navidad KÚMINO.</li>
 </ul>
 </section>
-<a class="navidad-btn-whatsapp" href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20recibir%20informaci%C3%B3n%20sobre%20la%20Chompa%20Little%20Rudolph." rel="noopener noreferrer" target="_blank">
-                    Consultar por WhatsApp →
-                </a>
-<a class="navidad-volver" href="navidad.html">
-                    ← Volver a colección
-                </a>
-</div>
-</div>
-</main>
+<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="Rojo" data-image="../IMAGENES/chompalittlerudolph.jpg" data-kumino-add="" data-product-id="chompa-little-rudolph" data-product-name="Chompa Little Rudolph" disabled="disabled" type="button">Agregar al carrito</button>
+<span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
+<a class="navidad-volver" href="navidad.html">← Volver a colección</a>
+</div></div></main>
 <footer class="footer-kumino">
 <div class="footer-container">
 <div class="footer-marca">
@@ -340,5 +465,49 @@
 <span>Moda con amor para tu mascota</span>
 </div>
 </footer>
+<script>
+(() => {
+  'use strict';
+  const addButton = document.querySelector('[data-kumino-add]');
+  if (!addButton) return;
+  const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
+  const colorOptions = Array.from(document.querySelectorAll('[data-color-choice]'));
+  const notice = document.querySelector('.navidad-seleccion-aviso');
+  let selected = null;
+  let selectedColor = addButton.dataset.defaultColor || '';
+
+  function refresh() {
+    const color = selected ? selected.color : selectedColor;
+    const ready = Boolean(selected && color);
+    addButton.disabled = !ready;
+    if (ready) {
+      addButton.dataset.size = selected.size;
+      addButton.dataset.regularPrice = selected.regular;
+      addButton.dataset.promoPrice = selected.promo;
+      addButton.dataset.color = color;
+      notice.textContent = `Seleccionado: Talla ${selected.size} · ${color}`;
+    } else if (!selected) {
+      notice.textContent = 'Selecciona una talla para continuar.';
+    } else {
+      notice.textContent = 'Selecciona un color para continuar.';
+    }
+  }
+  colorOptions.forEach(option => option.addEventListener('click', () => {
+    colorOptions.forEach(item => { item.classList.remove('kumino-color-seleccionado'); item.setAttribute('aria-pressed','false'); });
+    option.classList.add('kumino-color-seleccionado');
+    option.setAttribute('aria-pressed','true');
+    selectedColor = option.dataset.colorChoice;
+    refresh();
+  }));
+  sizeCards.forEach(card => card.addEventListener('click', () => {
+    sizeCards.forEach(item => { item.classList.remove('kumino-talla-seleccionada'); item.setAttribute('aria-pressed','false'); });
+    card.classList.add('kumino-talla-seleccionada');
+    card.setAttribute('aria-pressed','true');
+    selected = { size: card.dataset.kuminoSize, color: card.dataset.color, regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
+    refresh();
+  }));
+  refresh();
+})();
+</script>
 <script src="../kumino-cart.js"></script></body>
 </html>
