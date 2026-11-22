@@ -2,345 +2,258 @@
 
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Casita de Ensueño | KÚMINO</title>
-
-<link rel="stylesheet" href="../style.css">
-```
-
-</head>
-
+<link href="../style.css" rel="stylesheet"/>
+<style>
+.producto-detalle-pagina {
+  background-color: #F9F1E8;
+  background-image:
+    linear-gradient(rgba(249, 241, 232, 0.42), rgba(249, 241, 232, 0.42)),
+    url("../Fondo-casitas.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+</style><style>
+.colores-producto .color-opcion, .tallas-precios > button {
+  cursor: pointer;
+  font: inherit;
+}
+.colores-producto .color-opcion {
+  border: 1px solid transparent;
+  background: transparent;
+}
+.colores-producto .color-opcion.seleccionado,
+.tallas-precios > button.seleccionado {
+  outline: 2px solid #7F9878;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+.tallas-precios > button {
+  padding: 14px 18px;
+  background: #FFF9F2;
+  border: 1px solid rgba(44,53,49,.16);
+}
+.kumino-product-selection {
+  margin: 28px 0 18px;
+  padding: 22px;
+  border-radius: 16px;
+  background: #FFF9F2;
+}
+.kumino-product-selection p { margin: 12px 0 20px; }
+#kumino-add-product {
+  width: 100%;
+  border: 0;
+  border-radius: 28px;
+  padding: 15px 20px;
+  background: #7F9878;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+</style></head>
 <body>
-
-```
 <!-- HEADER -->
 <header class="header">
-    <div class="nav-container">
-
-        <a href="../index.html" class="logo">
+<div class="nav-container">
+<a class="logo" href="../index.html">
             KÚMINO
         </a>
-
-        <nav class="navbar">
-            <a href="../index.html">
+<nav class="navbar">
+<a href="../index.html">
                 Inicio
             </a>
-
-            <a href="casitas.html" class="activo">
+<a class="activo" href="casitas.html">
                 Casitas
             </a>
-        </nav>
-
-        <a href="#contacto" class="btn-contacto">
+</nav>
+<a class="btn-contacto" href="#contacto">
             Contacto
         </a>
-
-    </div>
+</div>
 </header>
-
-
 <!-- PRODUCTO -->
 <main class="producto-detalle-pagina">
-
-    <div class="producto-detalle-container">
-
-        <!-- IMAGEN -->
-        <div class="producto-detalle-imagen">
-            <img
-                src="../IMAGENES/Casita de Ensueño.jpg"
-                alt="Casita de Ensueño para mascotas KÚMINO"
-            >
-        </div>
-
-
-        <!-- INFORMACIÓN -->
-        <div class="producto-detalle-contenido">
-
-            <span class="producto-detalle-categoria">
+<div class="producto-detalle-container">
+<!-- IMAGEN -->
+<div class="producto-detalle-imagen">
+<img alt="Casita de Ensueño para mascotas KÚMINO" src="../IMAGENES/Casita de Ensueño.jpg"/>
+</div>
+<!-- INFORMACIÓN -->
+<div class="producto-detalle-contenido">
+<span class="producto-detalle-categoria">
                 COLECCIÓN CASITAS
             </span>
-
-            <h1>
+<h1>
                 Casita de Ensueño
             </h1>
-
-            <p class="producto-detalle-descripcion">
+<p class="producto-detalle-descripcion">
                 Un espacio acogedor y adorable pensado para que
                 tu mascota pueda descansar cómoda, tranquila y
                 protegida. Su diseño tipo cueva crea una sensación
                 cálida y segura, ideal para sus momentos de descanso.
             </p>
-
-
-            <!-- COLORES -->
-            <div class="producto-detalle-seccion">
-
-                <h3>
+<!-- COLORES -->
+<div class="producto-detalle-seccion">
+<h3>
                     Colores
                 </h3>
-
-                <div class="colores-producto">
-
-                    <div class="color-opcion is-selected" data-kumino-color="Rosa Pastel" role="button" tabindex="0" aria-pressed="true">
-                        <span class="color-circulo color-rosado"></span>
-
-                        <span>
+<div class="colores-producto">
+<button aria-pressed="false" class="color-opcion" data-kumino-color="Rosa Pastel" type="button">
+<span class="color-circulo color-rosado"></span>
+<span>
                             Rosa Pastel
                         </span>
-                    </div>
-
-                    <div class="color-opcion" data-kumino-color="Celeste Pastel" role="button" tabindex="0" aria-pressed="false">
-                        <span class="color-circulo color-celeste"></span>
-
-                        <span>
+</button>
+<button aria-pressed="false" class="color-opcion" data-kumino-color="Celeste Pastel" type="button">
+<span class="color-circulo color-celeste"></span>
+<span>
                             Celeste Pastel
                         </span>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- TALLAS Y PRECIOS -->
-            <div class="producto-detalle-seccion">
-
-                <h3>
+</button>
+</div>
+</div>
+<!-- TALLAS Y PRECIOS -->
+<div class="producto-detalle-seccion">
+<h3>
                     Medidas y precios
                 </h3>
-
-                <div class="tallas-precios">
-
-                    <div class="is-selected" data-kumino-size="40 × 40 cm" data-kumino-price="75" role="button" tabindex="0" aria-pressed="true">
-                        <span>
+<div class="tallas-precios">
+<button aria-pressed="false" class="" data-kumino-price="75" data-kumino-size="40 x 40 cm" type="button">
+<span>
                             40 × 40 cm
                         </span>
-
-                        <strong>
+<strong>
                             S/75
                         </strong>
-                    </div>
-
-                    <div data-kumino-size="50 × 50 cm" data-kumino-price="85" role="button" tabindex="0" aria-pressed="false">
-                        <span>
+</button>
+<button aria-pressed="false" class="" data-kumino-price="85" data-kumino-size="50 x 50 cm" type="button">
+<span>
                             50 × 50 cm
                         </span>
-
-                        <strong>
+<strong>
                             S/85
                         </strong>
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- CARACTERÍSTICAS -->
-            <div class="producto-detalle-seccion">
-
-                <h3>
+</button>
+</div>
+</div>
+<!-- CARACTERÍSTICAS -->
+<div class="producto-detalle-seccion">
+<h3>
                     Características
                 </h3>
-
-                <ul class="producto-caracteristicas">
-
-                    <li>
+<ul class="producto-caracteristicas">
+<li>
                         Forma de cueva acojinada tipo iglú que envuelve
                         a tu mascota y brinda una sensación de seguridad.
                     </li>
-
-                    <li>
+<li>
                         Materiales suaves y cálidos de felpa y algodón
                         para mantenerla cómoda durante el descanso.
                     </li>
-
-                    <li>
+<li>
                         Cojín interior extraíble que facilita la limpieza
                         y el lavado.
                     </li>
-
-                    <li>
+<li>
                         Base antideslizante para mayor estabilidad
                         al entrar, salir o jugar.
                     </li>
-
-                </ul>
-
-            </div>
-
-
-            <!-- WHATSAPP -->
-            <div class="kumino-seleccion-resumen" aria-live="polite">
-                <strong>Tu selección</strong>
-                <p id="kumino-selection-text">Rosa Pastel · 40 × 40 cm · S/ 75</p>
-            </div>
-            <button
-                type="button"
-                class="btn-comprar-producto"
-                id="kc-add"
-                data-kumino-add
-                data-product-id="casita-de-ensueno"
-                data-product-name="Casita de Ensueño"
-                data-category="casitas"
-                data-color="Rosa Pastel"
-                data-size="40 × 40 cm"
-                data-regular-price="75"
-                data-promo-price="75"
-                data-image="../IMAGENES/Casita de Ensueño.jpg"
-            >
-                Agregar al carrito →
-            </button>
-
-
-            <!-- VOLVER -->
-            <a
-                href="casitas.html"
-                class="volver-coleccion"
-            >
+</ul>
+</div>
+<!-- WHATSAPP -->
+<div class="kumino-product-selection"><strong>Tu selección</strong><p id="kumino-selection-summary">Rosa Pastel · 40 × 40 cm · S/75</p><button data-category="casitas" data-color="Rosa Pastel" data-image="../IMAGENES/Casita de Ensueño.jpg" data-kumino-add="" data-product-id="casita-de-ensueno" data-product-name="Casita de Ensueño" data-promo-price="75" data-regular-price="75" data-size="40 x 40 cm" id="kumino-add-product" type="button">Agregar al carrito →</button></div>
+<!-- VOLVER -->
+<a class="volver-coleccion" href="casitas.html">
                 ← Volver a colección
             </a>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </main>
-
-
 <!-- FOOTER -->
 <footer class="footer-kumino">
-
-    <div class="footer-container">
-
-        <div class="footer-marca">
-
-            <h2>
+<div class="footer-container">
+<div class="footer-marca">
+<h2>
                 KÚMINO
             </h2>
-
-            <p>
+<p>
                 Moda con amor para tu mascota.
             </p>
-
-        </div>
-
-
-        <div class="footer-enlaces">
-
-            <h3>
+</div>
+<div class="footer-enlaces">
+<h3>
                 Navegación
             </h3>
-
-            <a href="../index.html">
+<a href="../index.html">
                 Inicio
             </a>
-
-            <a href="casitas.html">
+<a href="casitas.html">
                 Casitas
             </a>
-
-        </div>
-
-
-        <div class="footer-contacto">
-
-            <h3>
+</div>
+<div class="footer-contacto">
+<h3>
                 Contáctanos
             </h3>
-
-            <a
-                href="https://wa.me/51940151463"
-                target="_blank"
-            >
+<a href="https://wa.me/51940151463" target="_blank">
                 WhatsApp
             </a>
-
-            <span>
+<span>
                 Envíos a todo el Perú
             </span>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>
             © 2026 KÚMINO. Todos los derechos reservados.
         </p>
-
-        <span>
+<span>
             Moda con amor para tu mascota
         </span>
-
-    </div>
-
+</div>
 </footer>
-```
-
-
-<style>
-/* Ajustes mínimos de selección: no modifican el fondo ni el diseño original. */
-.color-opcion { cursor: pointer; }
-.color-opcion.is-selected { outline: 2px solid #7A9B76; outline-offset: 5px; border-radius: 4px; }
-.tallas-precios > div { cursor: pointer; }
-.tallas-precios > div.is-selected { outline: 2px solid #7A9B76; outline-offset: 2px; border-radius: 8px; }
-.kumino-seleccion-resumen { margin: 22px 0 12px; padding: 18px 20px; border-radius: 16px; background: var(--beige, #F5EADD); }
-.kumino-seleccion-resumen p { margin: 10px 0 0; }
-#kc-add { border: 0; cursor: pointer; }
-</style>
 <script>
-(() => {
-  const colorOptions = [...document.querySelectorAll('[data-kumino-color]')];
-  const sizeOptions = [...document.querySelectorAll('[data-kumino-size]')];
-  const add = document.querySelector('#kc-add');
-  const summary = document.querySelector('#kumino-selection-text');
-  let color = 'Rosa Pastel';
-  let size = '40 × 40 cm';
-  let price = 75;
-  function update() {
-    add.dataset.color = color;
-    add.dataset.size = size;
-    add.dataset.regularPrice = String(price);
-    add.dataset.promoPrice = String(price);
-    summary.textContent = `${color} · ${size} · S/ ${price}`;
-  }
-  function chooseColor(option) {
-    color = option.dataset.kuminoColor;
-    colorOptions.forEach(el => {
-      const selected = el === option;
-      el.classList.toggle('is-selected', selected);
-      el.setAttribute('aria-pressed', String(selected));
-    });
-    update();
-  }
-  function chooseSize(option) {
-    size = option.dataset.kuminoSize;
-    price = Number(option.dataset.kuminoPrice);
-    sizeOptions.forEach(el => {
-      const selected = el === option;
-      el.classList.toggle('is-selected', selected);
-      el.setAttribute('aria-pressed', String(selected));
-    });
-    update();
-  }
-  colorOptions.forEach(el => {
-    el.addEventListener('click', () => chooseColor(el));
-    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); chooseColor(el); } });
-  });
-  sizeOptions.forEach(el => {
-    el.addEventListener('click', () => chooseSize(el));
-    el.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); chooseSize(el); } });
-  });
-  update();
-})();
-</script>
-<script src="../kumino-cart.js"></script>
+document.addEventListener('DOMContentLoaded', () => {
+  let selectedColor = 'Rosa Pastel';
+  let selectedSize = '40 x 40 cm';
+  let selectedPrice = '75';
+  const colorButtons = [...document.querySelectorAll('[data-kumino-color]')];
+  const sizeButtons = [...document.querySelectorAll('[data-kumino-size]')];
+  const addButton = document.getElementById('kumino-add-product');
+  const summary = document.getElementById('kumino-selection-summary');
 
-</body>
+  function update() {
+    colorButtons.forEach(b => {
+      const active = b.dataset.kuminoColor === selectedColor;
+      b.classList.toggle('seleccionado', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
+    sizeButtons.forEach(b => {
+      const active = b.dataset.kuminoSize === selectedSize;
+      b.classList.toggle('seleccionado', active);
+      b.setAttribute('aria-pressed', String(active));
+    });
+    summary.textContent = `${selectedColor} · ${selectedSize} · S/${selectedPrice}`;
+    addButton.dataset.color = selectedColor;
+    addButton.dataset.size = selectedSize;
+    addButton.dataset.regularPrice = selectedPrice;
+    addButton.dataset.promoPrice = selectedPrice;
+  }
+  colorButtons.forEach(b => b.addEventListener('click', () => {
+    selectedColor = b.dataset.kuminoColor;
+    update();
+  }));
+  sizeButtons.forEach(b => b.addEventListener('click', () => {
+    selectedSize = b.dataset.kuminoSize;
+    selectedPrice = b.dataset.kuminoPrice;
+    update();
+  }));
+  update();
+});
+</script><script src="../kumino-cart.js"></script></body>
 </html>
