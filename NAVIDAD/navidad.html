@@ -530,12 +530,6 @@ body {
     box-shadow: 0 3px 10px rgba(90, 30, 25, .18);
 }
 
-/* ETIQUETA PREVENTA: NARANJA OFICIAL KÚMINO */
-.etiqueta-proximamente.etiqueta-preventa {
-    background: #FF6600 !important;
-    color: #FFFFFF !important;
-}
-
 .catalogo-datos {
     padding: 13px 16px 4px;
     text-align: left;
@@ -1000,7 +994,6 @@ body {
 <!-- 01 -->
 <a class="producto-catalogo enlace-producto-navidad" data-categoria="vestidos" data-tallas="1 2 3" href="vestido-rubi-de-gala.html">
 <div class="catalogo-foto">
-<span class="etiqueta-proximamente">PREVENTA</span>
 <img alt="Vestido Rubí de Gala" src="../IMAGENES/vestidorubidegala.jpg"/>
 </div>
 <div class="catalogo-datos">
@@ -1487,7 +1480,7 @@ body {
     );
 
     /* =========================================
-       CLASIFICAR PREVENTA Y PRÓXIMAMENTE
+       MOSTRAR PRÓXIMAMENTE SOLO EN PRODUCTOS SIN TALLAS
     ========================================= */
 
     productos.forEach(producto => {
@@ -1500,31 +1493,21 @@ body {
             ".etiqueta-proximamente"
         );
 
-        if (!etiqueta) return;
-
         if (tieneTallas) {
-
-            // PRODUCTOS EN PREVENTA
-            etiqueta.textContent = "PREVENTA";
-            etiqueta.classList.add("etiqueta-preventa");
-
-            // Eliminar estado de próximamente
+            // Producto disponible: no mostrar etiqueta.
+            if (etiqueta) etiqueta.remove();
             producto.classList.remove("producto-proximamente");
-
         } else {
-
-            // PRODUCTOS PRÓXIMAMENTE
-            etiqueta.textContent = "PRÓXIMAMENTE";
-            etiqueta.classList.remove("etiqueta-preventa");
-
-            // Mantener estado de próximamente
+            // Producto aún no disponible.
+            if (etiqueta) {
+                etiqueta.textContent = "PRÓXIMAMENTE";
+            }
             producto.classList.add("producto-proximamente");
-
         }
 
     });
 
-    /* =========================================
+/* =========================================
        ELEMENTOS DE LOS FILTROS
     ========================================= */
 
