@@ -17,7 +17,7 @@
   // Todas las colecciones, incluidas Casitas, comparten el mismo carrito.
   const KEY = 'kumino_cart_global_v1';
 
-  const WA = '51940151463';
+  const WA = '51919503045';
 
   const money = value =>
     'S/ ' + Number(value || 0).toFixed(2);
