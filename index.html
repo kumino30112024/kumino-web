@@ -10,6 +10,37 @@
 
     <link rel="stylesheet" href="style.css">
 
+<!-- Corrección de capas multimedia: los videos no deben quedar detrás del fondo -->
+<style id="kumino-fix-videos">
+.hero.hero-navidad {
+    isolation: isolate;
+}
+.hero-navidad .hero-video {
+    z-index: 0 !important;
+}
+.hero-navidad .hero-navidad-overlay {
+    z-index: 1 !important;
+}
+.hero-navidad .hero-navidad-contenido,
+.hero-navidad .hero-coleccion {
+    position: absolute;
+    z-index: 2 !important;
+}
+.banner-navidad {
+    isolation: isolate;
+}
+.banner-navidad-video {
+    z-index: 0 !important;
+}
+.banner-navidad::before {
+    z-index: 1 !important;
+}
+.banner-navidad-contenido {
+    position: relative;
+    z-index: 2 !important;
+}
+</style>
+
    
 <!-- Tipografías -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
