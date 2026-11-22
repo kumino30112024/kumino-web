@@ -1149,12 +1149,22 @@
         const count = sourceCount ? Number(sourceCount.textContent || 0) : 0;
 
         if (cartBadge) {
-            cartBadge.textContent = count > 0 ? String(count) : '';
+            const nextText = count > 0 ? String(count) : '';
+            const nextLabel = count === 1
+                ? '1 producto en el carrito'
+                : count + ' productos en el carrito';
+
+            // Evita que el MutationObserver se active a sí mismo:
+            // solo modifica el texto cuando el contador realmente cambia.
+            if (cartBadge.textContent !== nextText) {
+                cartBadge.textContent = nextText;
+            }
+
             cartBadge.classList.toggle('has-items', count > 0);
-            cartBadge.setAttribute(
-                'aria-label',
-                count === 1 ? '1 producto en el carrito' : count + ' productos en el carrito'
-            );
+
+            if (cartBadge.getAttribute('aria-label') !== nextLabel) {
+                cartBadge.setAttribute('aria-label', nextLabel);
+            }
         }
     };
 
