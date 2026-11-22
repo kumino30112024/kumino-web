@@ -1328,6 +1328,69 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
 }
 </style>
 
+
+<style>
+/* ÚLTIMO AJUSTE: quitar la altura reservada entre el título y el precio */
+@media (max-width: 600px) {
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos,
+    body.pagina-hembras .producto-catalogo .catalogo-datos {
+        justify-content: flex-start !important;
+        gap: 4px !important;
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos .catalogo-titulo-tallas h2,
+    body.pagina-machos .producto-catalogo.machos-card .catalogo-datos > h2,
+    body.pagina-hembras .producto-catalogo .catalogo-datos .catalogo-titulo-tallas h2,
+    body.pagina-hembras .producto-catalogo .catalogo-datos > h2 {
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.3 !important;
+    }
+
+    body.pagina-machos .producto-catalogo.machos-card .precio-machos-fila {
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos,
+    body.pagina-hembras .producto-catalogo .aviso-precio-talla {
+        margin: 0 !important;
+        margin-top: 0 !important;
+        align-self: flex-start !important;
+    }
+
+    body.pagina-hembras .producto-catalogo .catalogo-datos > p,
+    body.pagina-hembras .producto-catalogo .catalogo-datos > .precio-promocional,
+    body.pagina-hembras .producto-catalogo .catalogo-datos > .promo-ahorro {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Disfraces comparte la estructura de tarjetas de la colección Hembras. */
+    body.pagina-hembras .productos-grid .producto-catalogo .catalogo-datos {
+        gap: 4px !important;
+        justify-content: flex-start !important;
+    }
+
+    body.pagina-hembras .productos-grid .producto-catalogo .catalogo-datos .catalogo-titulo-tallas h2 {
+        min-height: 0 !important;
+        height: auto !important;
+        margin: 0 !important;
+    }
+
+    body.pagina-hembras .productos-grid .producto-catalogo .catalogo-datos .aviso-precio-talla {
+        margin: 0 !important;
+        margin-top: 0 !important;
+    }
+}
+</style>
+
 </head>
  <body class="pagina-machos">
 <header class="header">
