@@ -121,7 +121,7 @@
       top: 88px;
       right: 20px;
       bottom: auto;
-      z-index: 10001;
+      z-index: 10200;
       width: min(420px,calc(100vw - 28px));
       max-height: min(72vh,620px);
       overflow: auto;
@@ -693,10 +693,10 @@
     save();
     render();
 
-    // No abrir el panel automáticamente: permite seguir navegando
-    // después de agregar un producto. El carrito se abre desde su icono.
-    panel.classList.remove('is-open');
-    fab.setAttribute('aria-expanded', 'false');
+    // Abrir automáticamente para confirmar el producto agregado.
+    // El usuario puede cerrar el panel y continuar navegando normalmente.
+    panel.classList.add('is-open');
+    fab.setAttribute('aria-expanded', 'true');
   }
 
   /* =========================================

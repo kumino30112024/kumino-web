@@ -93,12 +93,14 @@
         background: rgba(25, 29, 27, .58);
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
         transition: opacity .28s ease, visibility .28s ease;
     }
 
     .kumino-menu-backdrop.is-visible {
         opacity: 1;
         visibility: visible;
+        pointer-events: auto;
     }
 
     .kumino-mobile-drawer {
@@ -1088,15 +1090,25 @@
         if (closeButton) closeButton.focus();
     };
 
-    const closeMenu = () => {
+    const resetMenuState = () => {
         drawer.classList.remove('is-open');
         backdrop.classList.remove('is-visible');
         document.body.classList.remove('kumino-menu-lock');
         menuToggle.setAttribute('aria-expanded', 'false');
         drawer.setAttribute('aria-hidden', 'true');
         backdrop.setAttribute('aria-hidden', 'true');
+    };
+
+    const closeMenu = () => {
+        resetMenuState();
         menuToggle.focus();
     };
+
+    // Evita que el fondo invisible del menú quede interceptando clics
+    // cuando el navegador restaura el inicio desde la caché (bfcache).
+    resetMenuState();
+    window.addEventListener('pageshow', resetMenuState);
+    window.addEventListener('pagehide', resetMenuState);
 
     menuToggle.setAttribute('aria-controls', 'kumino-mobile-drawer');
     menuToggle.setAttribute('aria-expanded', 'false');
