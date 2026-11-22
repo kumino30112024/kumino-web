@@ -855,7 +855,118 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
   }
 }
   </style>
- </head>
+ <style>
+
+/* KÚMINO — TALLAS VISIBLES Y TARJETAS UNIFORMES EN MÓVIL */
+.productos-grid .catalogo-titulo-tallas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+}
+.productos-grid .catalogo-titulo-tallas h2 {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0 !important;
+}
+.productos-grid .tallas-disponibles {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.productos-grid .talla-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background: #7A9B76;
+    color: #fff;
+    font: 600 10px/1 'Poppins', sans-serif;
+}
+@media (max-width: 600px) {
+    .productos-grid {
+        grid-auto-rows: 1fr !important;
+        align-items: stretch !important;
+    }
+    .productos-grid > .producto-catalogo,
+    .productos-grid > .producto-enlace {
+        display: flex !important;
+        height: 100% !important;
+        min-width: 0;
+        align-self: stretch !important;
+    }
+    .productos-grid .producto-catalogo {
+        display: flex !important;
+        flex: 1 1 auto;
+        flex-direction: column !important;
+        height: 100% !important;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .productos-grid .catalogo-foto,
+    .productos-grid .catalogo-foto img {
+        width: 100%;
+        aspect-ratio: 1 / 1 !important;
+    }
+    .productos-grid .catalogo-foto img {
+        display: block;
+        height: auto;
+        object-fit: cover;
+    }
+    .productos-grid .catalogo-datos {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        min-width: 0;
+        gap: 6px !important;
+        box-sizing: border-box;
+    }
+    .productos-grid .catalogo-titulo-tallas {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 5px !important;
+        width: 100%;
+        min-height: 0 !important;
+        margin: 0 0 2px !important;
+    }
+    .productos-grid .catalogo-titulo-tallas h2 {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0;
+        min-height: 0 !important;
+        margin: 0 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        overflow-wrap: break-word;
+    }
+    .productos-grid .tallas-disponibles {
+        align-self: flex-start;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .productos-grid .talla-chip {
+        min-width: 21px;
+        width: 21px;
+        height: 21px;
+        padding: 0;
+        font-size: 9px;
+    }
+}
+
+</style>
+</head>
  <body class="pagina-machos">
 <header class="header">
     <div class="nav-container">
@@ -1047,9 +1158,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Puffer Nube de Invierno" src="../IMAGENES/Puffer Nube de Invierno.jpeg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Puffer Nube de Invierno
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 32.00
       </span>
@@ -1063,9 +1177,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Casaca Alpinista" src="../IMAGENES/Casaca Alpinista.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Casaca Alpinista
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 40.00
       </span>
@@ -1079,9 +1196,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Duo Oto&ntilde;o Urbano" src="../IMAGENES/Duo Oto&ntilde;o Urbano.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Duo Oto&ntilde;o Urbano
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 30.00
       </span>
@@ -1095,9 +1215,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Hoodie Huellita Urbana" src="../IMAGENES/Hoodie Huellita Urbana.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Hoodie Huellita Urbana
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 30.00
       </span>
@@ -1111,9 +1234,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Puffer Refugio Alpino" src="../IMAGENES/Puffer Refugio Alpino.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Puffer Refugio Alpino
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 34.00
       </span>
@@ -1127,9 +1253,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Cacao Universitario" src="../IMAGENES/Cacao Universitario.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Cacao Universitario
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 32.00
       </span>
@@ -1143,9 +1272,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera Marfil Urbano" src="../IMAGENES/Sudadera Marfil Urbano.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera Marfil Urbano
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 28.00
       </span>
@@ -1159,9 +1291,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Parka Amanecer Andino" src="../IMAGENES/Parka Amanecer Andino.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Parka Amanecer Andino
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 32.00
       </span>
@@ -1175,9 +1310,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Casaca Brisa de Mar" src="../IMAGENES/Casaca Brisa de Mar.jpeg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Casaca Brisa de Mar
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 36.00
       </span>
@@ -1191,9 +1329,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Disfraz de Baloncesto" src="../IMAGENES/Disfraz Baloncesto.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Disfraz de Baloncesto
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -1207,9 +1348,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Polo Vintage Fantasy" src="../IMAGENES/Polo Vintage Fantasy.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Polo Vintage Fantasy
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -1223,9 +1367,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Impermeable Osito" src="../IMAGENES/Impermeable Osito.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Impermeable Osito
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 30.00
       </span>
@@ -1239,9 +1386,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Overol Mini Saurio" src="../IMAGENES/Oberol Mini Saurio.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Overol Mini Saurio
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -1255,9 +1405,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Enterizo Soft Quilt" src="../IMAGENES/Enterizo Soft Quilt.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Enterizo Soft Quilt
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 40.00
       </span>
@@ -1271,9 +1424,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Su&eacute;ter DoggieMatch" src="../IMAGENES/Sueter Doggie Match.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Su&eacute;ter DoggieMatch
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 33.00
       </span>
@@ -1287,9 +1443,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Polos Rayas de Verano" src="../IMAGENES/Polo Rayas de Verano.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Polos Rayas de Verano
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 36.00
       </span>
@@ -1303,9 +1462,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Gabardina Real" src="../IMAGENES/Gabardina Real.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Gabardina Real
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 48.00
       </span>
@@ -1319,9 +1481,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Polo Gal&aacute;n de Verano" src="../IMAGENES/Polo Galan de Verano.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Polo Gal&aacute;n de Verano
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 34.00
       </span>
@@ -1335,9 +1500,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera de Mimos" src="../IMAGENES/Sudadera de Mimos.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera de Mimos
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 35.00
       </span>
@@ -1351,9 +1519,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera Urbana" src="../IMAGENES/Sudadera Urbana.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera Urbana
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <span class="precio-simple-machos">
        S/ 36.00
       </span>
@@ -1367,9 +1538,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera Deportiva" src="../IMAGENES/Sudadera Deportiva.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera Deportiva
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <span class="precio-simple-machos">
        Desde S/ 36.00
       </span>
@@ -1386,9 +1560,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Chompa The Cat Face" src="../IMAGENES/chompa-the-cat-face.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Chompa The Cat Face
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 28.50
@@ -1413,9 +1590,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Tejido Toffee" src="../IMAGENES/tejido-toffee.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Tejido Toffee
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 28.50
@@ -1440,9 +1620,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Abrigo Orejas de Algod&oacute;n" src="../IMAGENES/abrigo-orejas-de-algodon.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Abrigo Orejas de Algod&oacute;n
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 42.00
@@ -1467,9 +1650,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Cafarena Avellana Tostada" src="../IMAGENES/cafarena-avellana-tostada.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Cafarena Avellana Tostada
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 33.00
@@ -1494,9 +1680,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Peque&ntilde;o Ejecutivo" src="../IMAGENES/pequeno-ejecutivo.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Peque&ntilde;o Ejecutivo
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 27.00
@@ -1521,9 +1710,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Chompa Snoopy" src="../IMAGENES/chompa-snoopy.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Chompa Snoopy
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 30.00
@@ -1548,9 +1740,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Abrigo Faro del Norte" src="../IMAGENES/abrigo-faro-del-norte.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Abrigo Faro del Norte
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 34.50
@@ -1575,9 +1770,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Chaleco Texturizado" src="../IMAGENES/chaleco-texturizado.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Chaleco Texturizado
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 30.00
@@ -1602,9 +1800,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sweater Sr Teddy" src="../IMAGENES/sweater-sr-teddy.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sweater Sr Teddy
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 34.50
@@ -1629,9 +1830,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Cafarena B&aacute;sica" src="../IMAGENES/cafarena-basica.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Cafarena B&aacute;sica
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">4</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 27.00
@@ -1656,9 +1860,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera Dino-Pocket" src="../IMAGENES/sudadera-dino-pocket.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera Dino-Pocket
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 33.00
@@ -1683,9 +1890,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Su&eacute;ter Oxford de Punto" src="../IMAGENES/sueter-oxford-de-punto.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Su&eacute;ter Oxford de Punto
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">4</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 39.00
@@ -1710,9 +1920,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Chaleco Linear Confort" src="../IMAGENES/chaleco-linear-confort.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Chaleco Linear Confort
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 30.00
@@ -1737,9 +1950,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera Consentido de Mam&aacute;" src="../IMAGENES/sudadera-consentido-de-mama.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera Consentido de Mam&aacute;
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">7</span><span class="talla-chip">8</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 45.75
@@ -1764,9 +1980,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera Huellita" src="../IMAGENES/sudadera-huellita.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera Huellita
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">6</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 42.00
@@ -1791,9 +2010,12 @@ body.pagina-machos .producto-catalogo.machos-card .aviso-precio-talla-machos {
       <img alt="Sudadera I Love My Mom" src="../IMAGENES/sudadera-i-love-my-mom.jpg"/>
      </div>
      <div class="catalogo-datos">
-      <h2>
+<div class="catalogo-titulo-tallas">
+<h2>
        Sudadera I Love My Mom
       </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">7</span><span class="talla-chip">8</span></div>
+</div>
       <div class="precio-machos-fila">
        <span class="precio-regular-machos">
         S/ 42.00
