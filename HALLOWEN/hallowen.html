@@ -1010,6 +1010,117 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 }
 </style>
 
+<style>
+
+/* KÚMINO — TALLAS VISIBLES Y TARJETAS UNIFORMES EN MÓVIL */
+.productos-grid .catalogo-titulo-tallas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+}
+.productos-grid .catalogo-titulo-tallas h2 {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0 !important;
+}
+.productos-grid .tallas-disponibles {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+.productos-grid .talla-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    background: #7A9B76;
+    color: #fff;
+    font: 600 10px/1 'Poppins', sans-serif;
+}
+@media (max-width: 600px) {
+    .productos-grid {
+        grid-auto-rows: 1fr !important;
+        align-items: stretch !important;
+    }
+    .productos-grid > .producto-catalogo,
+    .productos-grid > .producto-enlace {
+        display: flex !important;
+        height: 100% !important;
+        min-width: 0;
+        align-self: stretch !important;
+    }
+    .productos-grid .producto-catalogo {
+        display: flex !important;
+        flex: 1 1 auto;
+        flex-direction: column !important;
+        height: 100% !important;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+    .productos-grid .catalogo-foto,
+    .productos-grid .catalogo-foto img {
+        width: 100%;
+        aspect-ratio: 1 / 1 !important;
+    }
+    .productos-grid .catalogo-foto img {
+        display: block;
+        height: auto;
+        object-fit: cover;
+    }
+    .productos-grid .catalogo-datos {
+        display: flex !important;
+        flex: 1 1 auto !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        min-width: 0;
+        gap: 6px !important;
+        box-sizing: border-box;
+    }
+    .productos-grid .catalogo-titulo-tallas {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        gap: 5px !important;
+        width: 100%;
+        min-height: 0 !important;
+        margin: 0 0 2px !important;
+    }
+    .productos-grid .catalogo-titulo-tallas h2 {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0;
+        min-height: 0 !important;
+        margin: 0 !important;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+        overflow-wrap: break-word;
+    }
+    .productos-grid .tallas-disponibles {
+        align-self: flex-start;
+        flex-wrap: wrap;
+        gap: 4px;
+    }
+    .productos-grid .talla-chip {
+        min-width: 21px;
+        width: 21px;
+        height: 21px;
+        padding: 0;
+        font-size: 9px;
+    }
+}
+
+</style>
 </head>
 <body class="pagina-hembras">
 
@@ -1146,7 +1257,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Disfraz MasterChef Canino" src="../IMAGENES/masterchef-canino.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Disfraz MasterChef Canino</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
 <p>Desde S/ 30.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1157,7 +1271,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Disfraz Hechizo de Calabaza" src="../IMAGENES/hechizo-de-calabaza.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Disfraz Hechizo de Calabaza</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
+</div>
 <p>Desde S/ 22.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1168,7 +1285,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Pirata de los Siete Mares" src="../IMAGENES/pirata-de-los-siete-mares.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Pirata de los Siete Mares</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
+</div>
 <p>Desde S/ 30.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1179,7 +1299,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Disfraz Oficial K-9" src="../IMAGENES/oficial-k9.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Disfraz Oficial K-9</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
 <p>Desde S/ 30.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1190,7 +1313,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="The Barking Boss" src="../IMAGENES/the-barking-boss.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>The Barking Boss</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
 <p>Desde S/ 29.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1201,7 +1327,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Disfraz Jinete de Rodeo" src="../IMAGENES/jinete-de-rodeo.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Disfraz Jinete de Rodeo</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span><span class="talla-chip">5</span></div>
+</div>
 <p>Desde S/ 35.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1212,7 +1341,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Alas Bat-Mascota" src="../IMAGENES/alas-bat-mascota.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Alas "Bat-Mascota"</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">0</span><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span><span class="talla-chip">6</span><span class="talla-chip">7</span></div>
+</div>
 <p>Desde S/ 20.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1223,7 +1355,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Mini Capa Dulce Calabaza" src="../IMAGENES/mini-capa-dulce-calabaza.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Mini Capa "Dulce Calabaza"</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
+</div>
 <p>S/ 20.00</p>
 </div>
 </a>
@@ -1233,7 +1368,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Diadema Triceratops Peludo" src="../IMAGENES/diadema-triceratops-peludo.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Diadema Triceratops Peludo</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
 <p>S/ 16.00</p>
 </div>
 </a>
@@ -1243,7 +1381,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Disfraz Dr. Patitas" src="../IMAGENES/dr-patitas.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Disfraz "Dr. Patitas"</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
 <p>S/ 30.00</p>
 </div>
 </a>
@@ -1253,7 +1394,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Vestido Fantasmita Denim Pet" src="../IMAGENES/vestido-fantasmita-denim.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Vestido Fantasmita Denim Pet</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
 <p>S/ 35.00</p>
 </div>
 </a>
@@ -1263,7 +1407,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Disfraz Ilusión Payaso Terrorífico" src="../IMAGENES/ilusion-payaso-terrorifico.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Disfraz Ilusión "Payaso Terrorífico"</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
 <p>S/ 38.00</p>
 </div>
 </a>
@@ -1273,7 +1420,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Mr. Fantasma" src="../IMAGENES/mr-fantasma.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Mr. Fantasma</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">4</span><span class="talla-chip">5</span></div>
+</div>
 <p>Desde S/ 29.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1284,7 +1434,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Hoodie Pumpkin Boo" src="../IMAGENES/hoodie-pumpkin-boo.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Hoodie Pumpkin Boo</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span></div>
+</div>
 <p>S/ 29.00</p>
 </div>
 </a>
@@ -1294,7 +1447,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Disfraz Jinete Brujita" src="../IMAGENES/jinete-brujita.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Disfraz Jinete Brujita</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span><span class="talla-chip">5</span></div>
+</div>
 <p>Desde S/ 38.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1305,7 +1461,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Vestido Romance Vintage" src="../IMAGENES/vestido-romance-vintage.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Vestido Romance Vintage</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></div>
+</div>
 <p>S/ 38.00</p>
 </div>
 </a>
@@ -1315,7 +1474,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Vestido Too Cute to Spook" src="../IMAGENES/too-cute-to-spook.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>Too Cute to Spook</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
 <p>Desde S/ 25.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1326,7 +1488,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="El Pequeño Cowboy" src="../IMAGENES/el-pequeno-cowboy.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>El Pequeño Cowboy</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">4</span><span class="talla-chip">5</span></div>
+</div>
 <p>Desde S/ 26.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1337,7 +1502,10 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="El Alguacil Peludo" src="../IMAGENES/el-alguacil-peludo.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>El Alguacil Peludo</h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></div>
+</div>
 <p>Desde S/ 30.00</p>
 <span class="aviso-precio-talla">ⓘ Precio varía según la talla</span>
 </div>
@@ -1348,9 +1516,12 @@ body.pagina-hembras .halloween-controles .opciones-talla-desktop button.opcion-s
 <img alt="Poncho Mini Monstruos para mascotas" src="../IMAGENES/poncho-mini-monstruos.jpg"/>
 </div>
 <div class="catalogo-datos">
+<div class="catalogo-titulo-tallas">
 <h2>
                 Poncho Mini Monstruos
             </h2>
+<div class="tallas-disponibles" aria-label="Tallas disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></div>
+</div>
 <p>
                 S/ 26.00
             </p>
