@@ -729,6 +729,73 @@ body {
     outline-offset: 4px;
     border-radius: 15px;
 }
+
+/* TALLAS DISPONIBLES JUNTO AL NOMBRE DEL PRODUCTO */
+.catalogo-titulo-tallas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin: 0 0 9px;
+}
+
+.catalogo-titulo-tallas h2 {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin: 0 !important;
+}
+
+.tallas-disponibles {
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.talla-chip {
+    display: inline-flex;
+    min-width: 25px;
+    height: 25px;
+    padding: 0 6px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    background: #7A9B76;
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+@media (max-width: 600px) {
+    .catalogo-titulo-tallas {
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .catalogo-titulo-tallas h2 {
+        flex: 1 1 100%;
+        font-size: 11px;
+        line-height: 1.4;
+    }
+
+    .tallas-disponibles {
+        justify-content: flex-start;
+        gap: 3px;
+    }
+
+    .talla-chip {
+        min-width: 21px;
+        height: 21px;
+        padding: 0 5px;
+        border-radius: 6px;
+        font-size: 9px;
+    }
+}
 </style>
 </head>
 <body>
@@ -858,32 +925,21 @@ body {
     ====================================== -->
 <div class="productos-grid">
 <!-- 01 -->
-<a class="producto-catalogo enlace-producto-navidad"
-   data-categoria="vestidos"
-   data-tallas="1 2 3"
-   href="vestido-rubi-de-gala.html">
-
-    <div class="catalogo-foto">
-        <span class="etiqueta-proximamente">PREVENTA</span>
-
-        <img
-            alt="Vestido Rubí de Gala"
-            src="../IMAGENES/vestidorubidegala.jpg"
-        />
-    </div>
-
-    <div class="catalogo-datos">
-        <h2>Vestido Rubí de Gala</h2>
-
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 50.40</span>
-            <span class="precio-descuento-navidad">Desde S/ 36.00</span>
-        </div>
-
-        <span class="aviso-precio-talla-navidad">
+<a class="producto-catalogo enlace-producto-navidad" data-categoria="vestidos" data-tallas="1 2 3" href="vestido-rubi-de-gala.html">
+<div class="catalogo-foto">
+<span class="etiqueta-proximamente">PREVENTA</span>
+<img alt="Vestido Rubí de Gala" src="../IMAGENES/vestidorubidegala.jpg"/>
+</div>
+<div class="catalogo-datos">
+<div class="catalogo-titulo-tallas"><h2>Vestido Rubí de Gala</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 50.40</span>
+<span class="precio-descuento-navidad">Desde S/ 36.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">
             ⓘ Precio varía según la talla
         </span>
-    </div>
+</div>
 </a>
 <!-- 02 -->
 <a class="producto-catalogo producto-proximamente enlace-producto-navidad" data-categoria="abrigos" data-tallas="1 2" href="abrigo-festividad-imperial.html">
@@ -892,7 +948,7 @@ body {
 <img alt="Abrigo Festividad Imperial" src="../IMAGENES/abrigofestividadimpe.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Abrigo Festividad Imperial</h2>
+<div class="catalogo-titulo-tallas"><h2>Abrigo Festividad Imperial</h2><span aria-label="Tallas disponibles: 1, 2" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></span></div>
 <div class="precio-navidad-fila">
 <span class="precio-regular-navidad">S/ 63.00</span>
 <span class="precio-descuento-navidad">Desde S/ 45.00</span>
@@ -907,7 +963,7 @@ body {
 <img alt="Vestido Navidad Escocesa" src="../IMAGENES/vestidonavidadescocesa.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Navidad Escocesa</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Navidad Escocesa</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
 <span class="precio-regular-navidad">S/ 49.00</span>
 <span class="precio-descuento-navidad">Desde S/ 35.00</span>
@@ -922,7 +978,7 @@ body {
 <img alt="Vestido Dulce Navidad" src="../IMAGENES/vestidodulcenav.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Dulce Navidad</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Dulce Navidad</h2><span aria-label="Tallas disponibles: 0, 2, 3" class="tallas-disponibles"><span class="talla-chip">0</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
 <span class="precio-regular-navidad">S/ 42.00</span>
 <span class="precio-descuento-navidad">Desde S/ 30.00</span>
@@ -938,12 +994,12 @@ body {
 <img alt="Vestido Reno de Navidad" src="../IMAGENES/vestidorenodenavidad.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Reno de Navidad</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Reno de Navidad</h2><span aria-label="Tallas disponibles: 1, 2" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 44.80</span>
-            <span class="precio-descuento-navidad">Desde S/ 32.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 44.80</span>
+<span class="precio-descuento-navidad">Desde S/ 32.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 06 -->
@@ -953,28 +1009,28 @@ body {
 <img alt="Vestido Nochebuena Encantada" src="../IMAGENES/vestidonochebuenaencantada.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Nochebuena Encantada</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Nochebuena Encantada</h2><span aria-label="Tallas disponibles: 0, 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 49.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 35.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 49.00</span>
+<span class="precio-descuento-navidad">Desde S/ 35.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 07 -->
 <a class="producto-catalogo producto-proximamente enlace-producto-navidad" data-categoria="vestidos" data-tallas="1 2 3 4" href="vestido-santas-princess.html">
-    <div class="catalogo-foto">
-        <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
-        <img alt="Vestido Santa's Princess" src="../IMAGENES/vestidosantasprincess.jpg"/>
-    </div>
-    <div class="catalogo-datos">
-        <h2>Vestido Santa's Princess</h2>
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 36.40</span>
-            <span class="precio-descuento-navidad">Desde S/ 26.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
-    </div>
+<div class="catalogo-foto">
+<span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+<img alt="Vestido Santa's Princess" src="../IMAGENES/vestidosantasprincess.jpg"/>
+</div>
+<div class="catalogo-datos">
+<div class="catalogo-titulo-tallas"><h2>Vestido Santa's Princess</h2><span aria-label="Tallas disponibles: 1, 2, 3, 4" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 36.40</span>
+<span class="precio-descuento-navidad">Desde S/ 26.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+</div>
 </a>
 <!-- 08 -->
 <a class="producto-catalogo producto-proximamente enlace-producto-navidad" data-categoria="vestidos" data-tallas="0 1 2 3" href="vestido-encanto-de-santa.html">
@@ -983,12 +1039,12 @@ body {
 <img alt="Vestido Encanto de Santa" src="../IMAGENES/vestidoencantodesanta.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Encanto de Santa</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Encanto de Santa</h2><span aria-label="Tallas disponibles: 0, 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 36.40</span>
-            <span class="precio-descuento-navidad">Desde S/ 26.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 36.40</span>
+<span class="precio-descuento-navidad">Desde S/ 26.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 09 -->
@@ -998,12 +1054,12 @@ body {
 <img alt="Vestido Galletita de Navidad" src="../IMAGENES/vestidogalletitadenavidad.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Galletita de Navidad</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Galletita de Navidad</h2><span aria-label="Tallas disponibles: 0, 1, 2, 3, 4" class="tallas-disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 40.60</span>
-            <span class="precio-descuento-navidad">Desde S/ 29.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 40.60</span>
+<span class="precio-descuento-navidad">Desde S/ 29.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 10 -->
@@ -1013,12 +1069,12 @@ body {
 <img alt="Vestido Reina del Bosque Navideño" src="../IMAGENES/vestidoreinadelbosquenavideno.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Reina del Bosque Navideño</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Reina del Bosque Navideño</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 56.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 40.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 56.00</span>
+<span class="precio-descuento-navidad">Desde S/ 40.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 11 -->
@@ -1028,12 +1084,12 @@ body {
 <img alt="Vestido Princesa Carmesí" src="../IMAGENES/vestidoprincesacarmesi.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Princesa Carmesí</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Princesa Carmesí</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 44.80</span>
-            <span class="precio-descuento-navidad">Desde S/ 32.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 44.80</span>
+<span class="precio-descuento-navidad">Desde S/ 32.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 12 -->
@@ -1043,12 +1099,12 @@ body {
 <img alt="Vestido Encanto de Nochebuena" src="../IMAGENES/vestidoencantodenochebuena.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Encanto de Nochebuena</h2>
+<div class="catalogo-titulo-tallas"><h2>Vestido Encanto de Nochebuena</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 56.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 40.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 56.00</span>
+<span class="precio-descuento-navidad">Desde S/ 40.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 13 -->
@@ -1058,12 +1114,12 @@ body {
 <img alt="Chompa Árbol de Navidad" src="../IMAGENES/chompaarboldenavidad.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Árbol de Navidad</h2>
+<div class="catalogo-titulo-tallas"><h2>Chompa Árbol de Navidad</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 49.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 35.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 49.00</span>
+<span class="precio-descuento-navidad">Desde S/ 35.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 14 -->
@@ -1073,12 +1129,12 @@ body {
 <img alt="Chompa Renos de Nochebuena" src="../IMAGENES/chomparenosdenochebuena.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Renos de Nochebuena</h2>
+<div class="catalogo-titulo-tallas"><h2>Chompa Renos de Nochebuena</h2><span aria-label="Tallas disponibles: 1, 3, 4" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 36.40</span>
-            <span class="precio-descuento-navidad">Desde S/ 26.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 36.40</span>
+<span class="precio-descuento-navidad">Desde S/ 26.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 15 -->
@@ -1088,12 +1144,12 @@ body {
 <img alt="Chompa Reno Nevado" src="../IMAGENES/chomparenonevado.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Reno Nevado</h2>
+<div class="catalogo-titulo-tallas"><h2>Chompa Reno Nevado</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 44.80</span>
-            <span class="precio-descuento-navidad">Desde S/ 32.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 44.80</span>
+<span class="precio-descuento-navidad">Desde S/ 32.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 16 -->
@@ -1103,12 +1159,12 @@ body {
 <img alt="Conjunto Copitos de Navidad" src="../IMAGENES/conjuntocopitosdenavidad.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Conjunto Copitos de Navidad</h2>
+<div class="catalogo-titulo-tallas"><h2>Conjunto Copitos de Navidad</h2><span aria-label="Tallas disponibles: 0" class="tallas-disponibles"><span class="talla-chip">0</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 39.20</span>
-            <span class="precio-descuento-navidad">Desde S/ 28.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 39.20</span>
+<span class="precio-descuento-navidad">Desde S/ 28.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 17 -->
@@ -1118,12 +1174,12 @@ body {
 <img alt="Chompa Espíritu Navideño" src="../IMAGENES/chompaespiritunavideno.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Espíritu Navideño</h2>
+<div class="catalogo-titulo-tallas"><h2>Chompa Espíritu Navideño</h2><span aria-label="Tallas disponibles: 3, 4" class="tallas-disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 50.40</span>
-            <span class="precio-descuento-navidad">Desde S/ 36.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 50.40</span>
+<span class="precio-descuento-navidad">Desde S/ 36.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 18 -->
@@ -1133,12 +1189,12 @@ body {
 <img alt="Abrigo Magia de Navidad" src="../IMAGENES/abrigomagiadenavidad.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Abrigo Magia de Navidad</h2>
+<div class="catalogo-titulo-tallas"><h2>Abrigo Magia de Navidad</h2><span aria-label="Tallas disponibles: 2, 3, 4" class="tallas-disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 53.20</span>
-            <span class="precio-descuento-navidad">Desde S/ 38.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 53.20</span>
+<span class="precio-descuento-navidad">Desde S/ 38.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 19 -->
@@ -1148,12 +1204,12 @@ body {
 <img alt="Chompa Renos de Invierno" src="../IMAGENES/chomparenosdeinvierno.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Renos de Invierno</h2>
+<div class="catalogo-titulo-tallas"><h2>Chompa Renos de Invierno</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 44.80</span>
-            <span class="precio-descuento-navidad">Desde S/ 32.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 44.80</span>
+<span class="precio-descuento-navidad">Desde S/ 32.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 20 -->
@@ -1163,12 +1219,12 @@ body {
 <img alt="Chompa Copos de Nieve" src="../IMAGENES/chompacoposdenieve.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Copos de Nieve</h2>
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 49.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 35.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<div class="catalogo-titulo-tallas"><h2>Chompa Copos de Nieve</h2><span aria-label="Tallas disponibles: 2, 3, 4" class="tallas-disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 49.00</span>
+<span class="precio-descuento-navidad">Desde S/ 35.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 21 -->
@@ -1178,12 +1234,12 @@ body {
 <img alt="Chompa Christmas Diamond" src="../IMAGENES/chompachristmasdiamond.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Christmas Diamond</h2>
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 46.20</span>
-            <span class="precio-descuento-navidad">Desde S/ 33.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<div class="catalogo-titulo-tallas"><h2>Chompa Christmas Diamond</h2><span aria-label="Tallas disponibles: 2, 3, 4" class="tallas-disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 46.20</span>
+<span class="precio-descuento-navidad">Desde S/ 33.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 22 -->
@@ -1193,12 +1249,12 @@ body {
 <img alt="Vestido Lazos de Navidad" src="../IMAGENES/vestidolazosdenavidad.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Lazos de Navidad</h2>
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 33.60</span>
-            <span class="precio-descuento-navidad">Desde S/ 24.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<div class="catalogo-titulo-tallas"><h2>Vestido Lazos de Navidad</h2><span aria-label="Tallas disponibles: 1, 2" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 33.60</span>
+<span class="precio-descuento-navidad">Desde S/ 24.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 23 -->
@@ -1208,34 +1264,28 @@ body {
 <img alt="Vestido Pino Encantado" src="../IMAGENES/vestidopinoencantado.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Vestido Pino Encantado</h2>
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 46.20</span>
-            <span class="precio-descuento-navidad">Desde S/ 33.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<div class="catalogo-titulo-tallas"><h2>Vestido Pino Encantado</h2><span aria-label="Tallas disponibles: 1, 2, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 46.20</span>
+<span class="precio-descuento-navidad">Desde S/ 33.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 24 -->
-<a class="producto-catalogo producto-proximamente enlace-producto-navidad"
-   data-categoria="abrigos"
-   data-tallas="2 3 4"
-   href="abrigo-rudolph-encantado.html">
-
-    <div class="catalogo-foto">
-        <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
-        <img alt="Abrigo Rudolph Encantado" src="../IMAGENES/abrigorudolphencantado.jpg"/>
-    </div>
-
-    <div class="catalogo-datos">
-        <h2>Abrigo Rudolph Encantado</h2>
-
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 46.20</span>
-            <span class="precio-descuento-navidad">Desde S/ 33.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
-    </div>
+<a class="producto-catalogo producto-proximamente enlace-producto-navidad" data-categoria="abrigos" data-tallas="2 3 4" href="abrigo-rudolph-encantado.html">
+<div class="catalogo-foto">
+<span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+<img alt="Abrigo Rudolph Encantado" src="../IMAGENES/abrigorudolphencantado.jpg"/>
+</div>
+<div class="catalogo-datos">
+<div class="catalogo-titulo-tallas"><h2>Abrigo Rudolph Encantado</h2><span aria-label="Tallas disponibles: 2, 3, 4" class="tallas-disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 46.20</span>
+<span class="precio-descuento-navidad">Desde S/ 33.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+</div>
 </a>
 <!-- 25 -->
 <a class="producto-catalogo producto-proximamente enlace-producto-navidad" data-categoria="abrigos" data-tallas="1 3" href="abrigo-fantasia-navidena.html">
@@ -1244,12 +1294,12 @@ body {
 <img alt="Abrigo Fantasía Navideña" src="../IMAGENES/abrigofantasianavidena.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Abrigo Fantasía Navideña</h2>
+<div class="catalogo-titulo-tallas"><h2>Abrigo Fantasía Navideña</h2><span aria-label="Tallas disponibles: 1, 3" class="tallas-disponibles"><span class="talla-chip">1</span><span class="talla-chip">3</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 46.20</span>
-            <span class="precio-descuento-navidad">Desde S/ 33.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 46.20</span>
+<span class="precio-descuento-navidad">Desde S/ 33.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 26 -->
@@ -1259,34 +1309,28 @@ body {
 <img alt="Abrigo Dulce Espíritu Navideño" src="../IMAGENES/abrigodulceespiritunavideno.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Abrigo Dulce Espíritu Navideño</h2>
+<div class="catalogo-titulo-tallas"><h2>Abrigo Dulce Espíritu Navideño</h2><span aria-label="Tallas disponibles: 4" class="tallas-disponibles"><span class="talla-chip">4</span></span></div>
 <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 56.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 40.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<span class="precio-regular-navidad">S/ 56.00</span>
+<span class="precio-descuento-navidad">Desde S/ 40.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 27 -->
-<a class="producto-catalogo producto-proximamente enlace-producto-navidad"
-   data-categoria="capas"
-   data-tallas="0 1 3"
-   href="capa-magica-de-noel.html">
-
-    <div class="catalogo-foto">
-        <span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
-        <img alt="Capa Mágica de Noel" src="../IMAGENES/capamagicadenoel.jpg"/>
-    </div>
-
-    <div class="catalogo-datos">
-        <h2>Capa Mágica de Noel</h2>
-
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 35.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 25.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
-    </div>
+<a class="producto-catalogo producto-proximamente enlace-producto-navidad" data-categoria="capas" data-tallas="0 1 3" href="capa-magica-de-noel.html">
+<div class="catalogo-foto">
+<span class="etiqueta-proximamente">PRÓXIMAMENTE</span>
+<img alt="Capa Mágica de Noel" src="../IMAGENES/capamagicadenoel.jpg"/>
+</div>
+<div class="catalogo-datos">
+<div class="catalogo-titulo-tallas"><h2>Capa Mágica de Noel</h2><span aria-label="Tallas disponibles: 0, 1, 3" class="tallas-disponibles"><span class="talla-chip">0</span><span class="talla-chip">1</span><span class="talla-chip">3</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 35.00</span>
+<span class="precio-descuento-navidad">Desde S/ 25.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+</div>
 </a>
 <!-- 28 -->
 <a class="producto-catalogo producto-proximamente enlace-producto-navidad" data-categoria="chompas" data-tallas="2 3" href="chompa-little-rudolph.html">
@@ -1295,12 +1339,12 @@ body {
 <img alt="Chompa Little Rudolph" src="../IMAGENES/chompalittlerudolph.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Little Rudolph</h2>
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 49.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 35.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<div class="catalogo-titulo-tallas"><h2>Chompa Little Rudolph</h2><span aria-label="Tallas disponibles: 2, 3" class="tallas-disponibles"><span class="talla-chip">2</span><span class="talla-chip">3</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 49.00</span>
+<span class="precio-descuento-navidad">Desde S/ 35.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 <!-- 29 -->
@@ -1310,12 +1354,12 @@ body {
 <img alt="Chompa Teddy Christmas" src="../IMAGENES/chompateddychristmas.jpg"/>
 </div>
 <div class="catalogo-datos">
-<h2>Chompa Teddy Christmas</h2>
-        <div class="precio-navidad-fila">
-            <span class="precio-regular-navidad">S/ 49.00</span>
-            <span class="precio-descuento-navidad">Desde S/ 35.00</span>
-        </div>
-        <span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
+<div class="catalogo-titulo-tallas"><h2>Chompa Teddy Christmas</h2><span aria-label="Tallas disponibles: 3, 4" class="tallas-disponibles"><span class="talla-chip">3</span><span class="talla-chip">4</span></span></div>
+<div class="precio-navidad-fila">
+<span class="precio-regular-navidad">S/ 49.00</span>
+<span class="precio-descuento-navidad">Desde S/ 35.00</span>
+</div>
+<span class="aviso-precio-talla-navidad">ⓘ Precio varía según la talla</span>
 </div>
 </a>
 </div>
@@ -1356,7 +1400,6 @@ body {
 <span>Moda con amor para tu mascota</span>
 </div>
 </footer>
-
 <!-- =========================================
      JAVASCRIPT: FILTROS COMBINADOS
 ========================================= -->
