@@ -121,7 +121,8 @@
       top: 88px;
       right: 20px;
       bottom: auto;
-      z-index: 10001;
+      /* Debe quedar por encima del fondo y del menú lateral móvil. */
+      z-index: 10200;
       width: min(420px,calc(100vw - 28px));
       max-height: min(72vh,620px);
       overflow: auto;
