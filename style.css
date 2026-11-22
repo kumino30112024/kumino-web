@@ -400,7 +400,6 @@ a {
     }
 }
 
-```css
 /* =========================================================
    COLECCIÓN KÚMINO — DISEÑO BOUTIQUE
 ========================================================= */
@@ -5819,4 +5818,25 @@ body.pagina-machos .catalogo-datos .aviso-precio-talla {
 }
 .coleccion-grid > .producto-card > .producto-overlay {
     z-index: 1 !important;
+}
+
+/* KÚMINO — integración segura entre menú y carrito */
+.kumino-cart-panel {
+    z-index: 10200 !important;
+    pointer-events: auto;
+}
+.kumino-menu-backdrop {
+    pointer-events: none;
+}
+.kumino-menu-backdrop.is-visible {
+    pointer-events: auto;
+}
+.kumino-mobile-drawer {
+    pointer-events: none;
+}
+.kumino-mobile-drawer.is-open {
+    pointer-events: auto;
+}
+body.kumino-menu-lock {
+    overflow: hidden !important;
 }

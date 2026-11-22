@@ -766,6 +766,19 @@
     fab.setAttribute('aria-expanded', 'false');
   }
 
+  // Coordinación con el menú móvil y con la navegación del navegador.
+  document.addEventListener('kumino:close-cart', closeCartPanel);
+  window.addEventListener('pagehide', closeCartPanel);
+  window.addEventListener('pageshow', closeCartPanel);
+
+  // Al navegar desde un enlace, el panel se cierra sin bloquear el enlace.
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (link && !link.matches('.kumino-cart-nav')) {
+      closeCartPanel();
+    }
+  }, true);
+
   fab.addEventListener('click', event => {
     event.preventDefault();
     event.stopPropagation();

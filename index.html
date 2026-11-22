@@ -1081,6 +1081,8 @@
     if (!menuToggle || !drawer || !backdrop) return;
 
     const openMenu = () => {
+        // Mantener un solo panel flotante abierto a la vez.
+        document.dispatchEvent(new CustomEvent('kumino:close-cart'));
         drawer.classList.add('is-open');
         backdrop.classList.add('is-visible');
         document.body.classList.add('kumino-menu-lock');
@@ -1107,8 +1109,14 @@
     // Evita que el fondo invisible del menú quede interceptando clics
     // cuando el navegador restaura el inicio desde la caché (bfcache).
     resetMenuState();
-    window.addEventListener('pageshow', resetMenuState);
-    window.addEventListener('pagehide', resetMenuState);
+    window.addEventListener('pageshow', () => {
+        resetMenuState();
+        document.dispatchEvent(new CustomEvent('kumino:close-cart'));
+    });
+    window.addEventListener('pagehide', () => {
+        resetMenuState();
+        document.dispatchEvent(new CustomEvent('kumino:close-cart'));
+    });
 
     menuToggle.setAttribute('aria-controls', 'kumino-mobile-drawer');
     menuToggle.setAttribute('aria-expanded', 'false');
@@ -1117,7 +1125,10 @@
     backdrop.addEventListener('click', closeMenu);
 
     drawer.querySelectorAll('a[data-menu-link]').forEach(link => {
-        link.addEventListener('click', closeMenu);
+        link.addEventListener('click', () => {
+            document.dispatchEvent(new CustomEvent('kumino:close-cart'));
+            closeMenu();
+        });
     });
 
     document.addEventListener('keydown', event => {
