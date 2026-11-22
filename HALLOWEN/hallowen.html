@@ -496,12 +496,182 @@
     line-height: 1.4;
     white-space: normal;
 }
+
+/* ===== HALLOWEEN: presentación visual alineada con HEMBRAS ===== */
+body.pagina-hembras .catalogo-hembras {
+  background-image: url("../Fondo-disfraces-boutique.jpeg");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-bottom: 64px;
+}
+body.pagina-hembras .productos-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+  gap: 28px;
+  width: min(1120px, calc(100% - 48px));
+  margin: 34px auto 0;
+}
+body.pagina-hembras .productos-grid > .producto-catalogo.hembras-card {
+  display: flex !important;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 17px;
+  background: rgba(255,248,240,.92);
+  box-shadow: 0 9px 22px rgba(75,54,43,.12);
+  box-sizing: border-box;
+  color: inherit;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+body.pagina-hembras .productos-grid > .producto-catalogo.hembras-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 13px 26px rgba(75,54,43,.16);
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-foto {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #F5EADD;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos {
+  display: flex !important;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+  min-width: 0;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  background: transparent;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos h2 {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 38px;
+  margin: 0 !important;
+  color: #292D29;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p {
+  display: inline-flex !important;
+  align-items: center;
+  width: max-content !important;
+  max-width: 100%;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 6px 12px !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  background: #7A9B76 !important;
+  color: #fff !important;
+  box-shadow: none !important;
+  font: 600 13px/1.25 'Poppins', sans-serif !important;
+  white-space: nowrap;
+}
+body.pagina-hembras .producto-catalogo.hembras-card.precio-variable .catalogo-datos p::after {
+  display: inline-flex !important;
+  width: max-content;
+  max-width: 100%;
+  margin-top: 2px;
+  padding: 3px 8px;
+  border: 0;
+  border-radius: 15px;
+  background: rgba(122,155,118,.17);
+  color: #526B50;
+  font: 500 10px/1.35 'Poppins', sans-serif;
+  white-space: normal;
+}
+body.pagina-hembras .halloween-controles {
+  position: relative;
+  z-index: 5;
+}
+body.pagina-hembras .catalogo-header {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 0 auto 18px;
+  text-align: center;
+}
+@media (max-width: 900px) {
+  body.pagina-hembras .productos-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 18px;
+    width: calc(100% - 36px);
+  }
+}
+@media (max-width: 600px) {
+  body.pagina-hembras .catalogo-hembras {
+    background-attachment: scroll;
+    background-position: center top;
+    padding-bottom: 42px;
+  }
+  body.pagina-hembras .catalogo-header {
+    width: calc(100% - 32px);
+    margin: 0 auto 18px;
+    text-align: center;
+  }
+  body.pagina-hembras .catalogo-header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(34px, 9vw, 42px);
+    line-height: 1.08;
+  }
+  body.pagina-hembras .catalogo-header p {
+    max-width: 360px;
+    margin: 0 auto;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+  body.pagina-hembras .productos-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 14px;
+    width: calc(100% - 32px);
+    margin: 18px auto 0;
+  }
+  body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos {
+    gap: 6px;
+    padding: 10px 9px 11px;
+  }
+  body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos h2 {
+    min-height: 36px;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p {
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+  }
+  body.pagina-hembras .producto-catalogo.hembras-card.precio-variable .catalogo-datos p::after {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
+}
+
 </style>
 
 
 
 <style>.opciones-filtro button.opcion-seleccionada{background:#F5EADD;font-weight:600}</style></head>
-<body>
+<body class="pagina-hembras">
 
 <header class="header">
     <div class="nav-container">
@@ -630,7 +800,7 @@
 </div> <!-- Cierre de .halloween-controles -->
 
 <div class="productos-grid">
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="1,2,3,4" href="masterchef-canino.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="1,2,3,4" href="masterchef-canino.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz MasterChef Canino" src="../IMAGENES/masterchef-canino.jpg"/>
@@ -640,7 +810,7 @@
 <p>Desde S/ 30.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="0,1,2" href="hechizo-de-calabaza.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="0,1,2" href="hechizo-de-calabaza.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Hechizo de Calabaza" src="../IMAGENES/hechizo-de-calabaza.jpg"/>
@@ -650,7 +820,7 @@
 <p>Desde S/ 22.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="1,2" href="pirata-de-los-siete-mares.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="1,2" href="pirata-de-los-siete-mares.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Pirata de los Siete Mares" src="../IMAGENES/pirata-de-los-siete-mares.jpg"/>
@@ -660,7 +830,7 @@
 <p>Desde S/ 30.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="0,1,2,3" href="oficial-k9.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="0,1,2,3" href="oficial-k9.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Oficial K-9" src="../IMAGENES/oficial-k9.jpg"/>
@@ -670,7 +840,7 @@
 <p>Desde S/ 30.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="3,4" href="the-barking-boss.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="3,4" href="the-barking-boss.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="The Barking Boss" src="../IMAGENES/the-barking-boss.jpg"/>
@@ -680,7 +850,7 @@
 <p>Desde S/ 29.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="2,3,4,5" href="jinete-de-rodeo.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="2,3,4,5" href="jinete-de-rodeo.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Jinete de Rodeo" src="../IMAGENES/jinete-de-rodeo.jpg"/>
@@ -690,7 +860,7 @@
 <p>Desde S/ 35.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="alas" data-tallas="0,2,3,4,6,7" href="mascotas-murcielago.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="alas" data-tallas="0,2,3,4,6,7" href="mascotas-murcielago.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Alas Bat-Mascota" src="../IMAGENES/alas-bat-mascota.jpg"/>
@@ -700,7 +870,7 @@
 <p>Desde S/ 20.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="capas" data-tallas="1,2" href="mini-capa-dulce-calabaza.html">
+<a class="producto-catalogo hembras-card" data-categoria="capas" data-tallas="1,2" href="mini-capa-dulce-calabaza.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Mini Capa Dulce Calabaza" src="../IMAGENES/mini-capa-dulce-calabaza.jpg"/>
@@ -710,7 +880,7 @@
 <p>S/ 20.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="accesorios" data-tallas="3" href="diadema-triceratops-peludo.html">
+<a class="producto-catalogo hembras-card" data-categoria="accesorios" data-tallas="3" href="diadema-triceratops-peludo.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Diadema Triceratops Peludo" src="../IMAGENES/diadema-triceratops-peludo.jpg"/>
@@ -720,7 +890,7 @@
 <p>S/ 16.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3" href="doctora-patitas.html">
+<a class="producto-catalogo hembras-card" data-categoria="disfraces" data-tallas="3" href="doctora-patitas.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Dr. Patitas" src="../IMAGENES/dr-patitas.jpg"/>
@@ -730,7 +900,7 @@
 <p>S/ 30.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="vestidos" data-tallas="3" href="vestido-fantasmita-denim.html">
+<a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3" href="vestido-fantasmita-denim.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Vestido Fantasmita Denim Pet" src="../IMAGENES/vestido-fantasmita-denim.jpg"/>
@@ -740,7 +910,7 @@
 <p>S/ 35.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="3" href="ilusion-payaso-terrorifico.html">
+<a class="producto-catalogo hembras-card" data-categoria="disfraces" data-tallas="3" href="ilusion-payaso-terrorifico.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Ilusión Payaso Terrorífico" src="../IMAGENES/ilusion-payaso-terrorifico.jpg"/>
@@ -750,7 +920,7 @@
 <p>S/ 38.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="4,5" href="mr-fantasma.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="4,5" href="mr-fantasma.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Mr. Fantasma" src="../IMAGENES/mr-fantasma.jpg"/>
@@ -760,7 +930,7 @@
 <p>Desde S/ 29.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="otros" data-tallas="3" href="hoodie-pumpkin-boo.html">
+<a class="producto-catalogo hembras-card" data-categoria="otros" data-tallas="3" href="hoodie-pumpkin-boo.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Hoodie Pumpkin Boo" src="../IMAGENES/hoodie-pumpkin-boo.jpg"/>
@@ -770,7 +940,7 @@
 <p>S/ 29.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="3,4,5" href="jinete-brujita.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="3,4,5" href="jinete-brujita.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Disfraz Jinete Brujita" src="../IMAGENES/jinete-brujita.jpg"/>
@@ -780,7 +950,7 @@
 <p>Desde S/ 38.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="vestidos" data-tallas="3,4" href="vestido-romance-vintage.html">
+<a class="producto-catalogo hembras-card" data-categoria="vestidos" data-tallas="3,4" href="vestido-romance-vintage.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Vestido Romance Vintage" src="../IMAGENES/vestido-romance-vintage.jpg"/>
@@ -790,7 +960,7 @@
 <p>S/ 38.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="vestidos" data-tallas="2,3" href="too-cute-to-spook.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="vestidos" data-tallas="2,3" href="too-cute-to-spook.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Vestido Too Cute to Spook" src="../IMAGENES/too-cute-to-spook.jpg"/>
@@ -800,7 +970,7 @@
 <p>Desde S/ 25.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="0,1,4,5" href="el-pequeno-cowboy.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="0,1,4,5" href="el-pequeno-cowboy.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="El Pequeño Cowboy" src="../IMAGENES/el-pequeno-cowboy.jpg"/>
@@ -810,7 +980,7 @@
 <p>Desde S/ 26.00</p>
 </div>
 </a>
-<a class="producto-catalogo precio-variable" data-categoria="disfraces" data-tallas="1,2" href="el-alguacil-peludo.html">
+<a class="producto-catalogo hembras-card precio-variable" data-categoria="disfraces" data-tallas="1,2" href="el-alguacil-peludo.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="El Alguacil Peludo" src="../IMAGENES/el-alguacil-peludo.jpg"/>
@@ -820,7 +990,7 @@
 <p>Desde S/ 30.00</p>
 </div>
 </a>
-<a class="producto-catalogo" data-categoria="disfraces" data-tallas="2,3" href="poncho-mini-monstruos.html">
+<a class="producto-catalogo hembras-card" data-categoria="disfraces" data-tallas="2,3" href="poncho-mini-monstruos.html">
 <div class="catalogo-foto">
 <span></span>
 <img alt="Poncho Mini Monstruos para mascotas" src="../IMAGENES/poncho-mini-monstruos.jpg"/>
