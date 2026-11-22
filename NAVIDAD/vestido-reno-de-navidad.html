@@ -471,8 +471,15 @@
                 </p>
 
 <section class="navidad-producto-seccion">
+<h2>Color</h2>
+<span class="navidad-color">
+  <span aria-hidden="true" class="navidad-color-muestra"></span>
+  Marrón
+</span>
+</section>
+<section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
-<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="0" data-promo-price="28.00" data-regular-price="39.20" type="button">
+<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="0" data-color="Marrón" data-promo-price="28.00" data-regular-price="39.20" type="button">
 <strong>Talla 0</strong>
 <span class="navidad-precio-regular">S/ 39.20</span>
 <span class="navidad-precio-promo">S/ 28.00</span>
@@ -487,7 +494,7 @@
 <span class="navidad-precio-regular">S/ 47.60</span>
 <span class="navidad-precio-promo">S/ 34.00</span>
 <span class="navidad-ahorro">Ahorras S/ 13.60</span>
-</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="4" data-promo-price="40.00" data-regular-price="56.00" type="button">
+</button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="4" data-color="Marrón" data-promo-price="40.00" data-regular-price="56.00" type="button">
 <strong>Talla 4</strong>
 <span class="navidad-precio-regular">S/ 56.00</span>
 <span class="navidad-precio-promo">S/ 40.00</span>
@@ -571,7 +578,7 @@
     sizeCards.forEach(item => { item.classList.remove('kumino-talla-seleccionada'); item.setAttribute('aria-pressed','false'); });
     card.classList.add('kumino-talla-seleccionada');
     card.setAttribute('aria-pressed','true');
-    selected = { size: card.dataset.kuminoSize, color: card.dataset.color, regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
+    selected = { size: card.dataset.kuminoSize, color: card.dataset.color || selectedColor || addButton.dataset.defaultColor || '', regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
     refresh();
   }));
   refresh();
