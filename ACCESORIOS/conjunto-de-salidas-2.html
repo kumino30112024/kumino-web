@@ -162,5 +162,7 @@
  sizeButtons.forEach(b=>b.addEventListener('click',()=>{size={size:b.dataset.kuminoSize,regular:b.dataset.regularPrice,promo:b.dataset.promoPrice};sizeButtons.forEach(x=>{x.classList.toggle('kumino-talla-seleccionada',x===b);x.setAttribute('aria-pressed',x===b?'true':'false');});refresh();}));
  refresh();
 })();
-</script><script src="../kumino-cart.js"></script></body>
+</script><script src="../kumino-cart.js"></script>
+<script src="../kumino-mobile-menu.js"></script>
+</body>
 </html>

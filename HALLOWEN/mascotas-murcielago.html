@@ -191,5 +191,7 @@
   addButton.addEventListener('click',()=>{if(addButton.disabled)return;const cartButton=document.createElement('button');cartButton.type='button';cartButton.dataset.kuminoAdd='';cartButton.dataset.productId=productId;cartButton.dataset.productName=productName;cartButton.dataset.category='disfraces';cartButton.dataset.color=selectedColor;cartButton.dataset.size=selectedSize;cartButton.dataset.regularPrice=String(selectedPrice);cartButton.dataset.promoPrice=String(selectedPrice);cartButton.dataset.image=content.closest('.producto-detalle-container')?.querySelector('.producto-detalle-imagen img')?.getAttribute('src')||'';document.body.append(cartButton);cartButton.click();cartButton.remove();});
 })();
 </script>
+
+<script src="../kumino-mobile-menu.js"></script>
 </body>
 </html>
