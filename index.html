@@ -227,7 +227,7 @@
 @media (max-width: 768px) {
   .kumino-drawer-brand { position: relative; }
   .kumino-drawer-brand::after {
-    content: "Moda con amor para tu mascota";
+    content: "Moda con amor para tus mascotas";
     position: absolute;
     left: 44px;
     top: 29px;
@@ -346,6 +346,26 @@
 }
 </style>
 
+
+<style id="kumino-cart-menu-count-style">
+@media (max-width: 768px) {
+  .kumino-cart-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #E63946;
+    color: #fff;
+    font: 700 11px Poppins, sans-serif;
+    opacity: 0;
+    transition: opacity .2s ease;
+  }
+  .kumino-cart-count.has-items { opacity: 1; }
+}
+</style>
+
 </head>
 
 
@@ -438,7 +458,7 @@
             <svg class="kumino-paw paw-center" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
             <svg class="kumino-paw paw-right" viewBox="0 0 48 48"><ellipse cx="24" cy="29" rx="10" ry="8"/><ellipse cx="10" cy="17" rx="4.5" ry="6"/><ellipse cx="20" cy="10" rx="4.5" ry="6"/><ellipse cx="30" cy="10" rx="4.5" ry="6"/><ellipse cx="39" cy="18" rx="4.5" ry="6"/></svg>
         </div>
-        <span class="kumino-footer-slogan">Moda con amor para tu mascota</span>
+        <span class="kumino-footer-slogan">Moda con amor para tus mascotas</span>
     </div>
 </aside>
 
@@ -1064,14 +1084,45 @@
     // El enlace del carrito se conectará al disparador real del carrito unificado
     // al integrar el proyecto completo. Se evita inventar un selector o una API.
     const cartLink = drawer.querySelector('[data-menu-cart]');
+    const cartBadge = drawer.querySelector('.kumino-cart-count');
+
+    // El carrito unificado crea este botón y este panel al cargar kumino-cart.js.
+    const syncCartCount = () => {
+        const sourceCount = document.querySelector('.kumino-cart-fab-count');
+        const count = sourceCount ? Number(sourceCount.textContent || 0) : 0;
+        if (cartBadge) {
+            cartBadge.textContent = count > 0 ? String(count) : '';
+            cartBadge.classList.toggle('has-items', count > 0);
+            cartBadge.setAttribute('aria-label',
+                count === 1 ? '1 producto en el carrito' : count + ' productos en el carrito');
+        }
+    };
+
+    const cartFab = document.querySelector('.kumino-cart-fab');
+    if (cartFab && cartBadge) {
+        syncCartCount();
+        const countNode = cartFab.querySelector('.kumino-cart-fab-count');
+        if (countNode && window.MutationObserver) {
+            new MutationObserver(syncCartCount).observe(countNode, {
+                childList: true, characterData: true, subtree: true
+            });
+        }
+    }
+
     if (cartLink) {
         cartLink.addEventListener('click', event => {
             event.preventDefault();
             closeMenu();
-            const cartTrigger = document.querySelector(
-                '[data-cart-open], [data-open-cart], #cart-toggle, .cart-toggle, .btn-carrito'
-            );
-            if (cartTrigger) cartTrigger.click();
+
+            // El botón real del carrito unificado abre el panel con los productos,
+            // cantidades, tallas, descuentos y total guardados en el navegador.
+            const realCartButton = document.querySelector('.kumino-cart-fab');
+            if (realCartButton) {
+                realCartButton.click();
+                syncCartCount();
+            } else {
+                console.error('No se encontró el carrito unificado. Comprueba que kumino-cart.js haya cargado.');
+            }
         });
     }
 })();
