@@ -1,15 +1,13 @@
 ```html
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Sweater Sr Teddy | KÚMINO</title>
-
-    <link rel="stylesheet" href="../style.css">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sweater Sr Teddy | KÚMINO</title>
+<link href="../style.css" rel="stylesheet"/>
+<style>
         .promo-etiqueta {
             display: inline-block;
             background: #E06D3E;
@@ -41,162 +39,175 @@
             margin-top: 5px;
             display: block;
         }
-    </style>
+    
+
+/* Selección de variantes para carrito KÚMINO */
+.tallas-precios > div[data-kumino-size] { cursor:pointer; border:1px solid rgba(127,145,131,.35); border-radius:12px; transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease; }
+.tallas-precios > div[data-kumino-size]:hover { border-color:#526B50; transform:translateY(-2px); }
+.tallas-precios > div.kumino-selected { border:2px solid #526B50; background:rgba(255,245,238,.96); box-shadow:0 4px 13px rgba(50,70,48,.12); }
+.tallas-precios > div[data-kumino-soldout="true"] { opacity:.48; cursor:not-allowed; }
+.color-opcion[data-kumino-color] { cursor:pointer; border-radius:18px; padding:4px 7px; transition:background .2s ease,outline .2s ease; }
+.color-opcion.kumino-color-selected { outline:2px solid #526B50; outline-offset:2px; background:rgba(255,255,255,.45); }
+.btn-comprar-producto[data-kumino-add] { border:0; cursor:pointer; }
+.btn-comprar-producto[data-kumino-add]:disabled { opacity:.52; cursor:not-allowed; }
+.kumino-selection-status { display:block; min-height:18px; margin-top:9px; color:#81363d; font-size:12px; line-height:1.5; }
+</style>
 </head>
-
 <body>
-
-    <!-- HEADER -->
-    <header class="header">
-        <div class="nav-container">
-            <a href="../index.html" class="logo">KÚMINO</a>
-
-            <nav class="navbar">
-                <a href="../index.html">Inicio</a>
-                <a href="machos.html" class="activo">Machos</a>
-            </nav>
-
-            <a href="#contacto" class="btn-contacto">Contacto</a>
-        </div>
-    </header>
-
-    <!-- PRODUCTO -->
-    <main class="producto-detalle-pagina">
-        <div class="producto-detalle-container">
-
-            <!-- IMAGEN -->
-            <div class="producto-detalle-imagen">
-                <img
-                    src="../IMAGENES/sweater-sr-teddy.jpg"
-                    alt="Sweater Sr Teddy para mascotas"
-                >
-            </div>
-
-            <!-- INFORMACIÓN -->
-            <div class="producto-detalle-contenido">
-
-                <span class="producto-detalle-categoria">
+<!-- HEADER -->
+<header class="header">
+<div class="nav-container">
+<a class="logo" href="../index.html">KÚMINO</a>
+<nav class="navbar">
+<a href="../index.html">Inicio</a>
+<a class="activo" href="machos.html">Machos</a>
+</nav>
+<a class="btn-contacto" href="#contacto">Contacto</a>
+</div>
+</header>
+<!-- PRODUCTO -->
+<main class="producto-detalle-pagina">
+<div class="producto-detalle-container">
+<!-- IMAGEN -->
+<div class="producto-detalle-imagen">
+<img alt="Sweater Sr Teddy para mascotas" src="../IMAGENES/sweater-sr-teddy.jpg"/>
+</div>
+<!-- INFORMACIÓN -->
+<div class="producto-detalle-contenido">
+<span class="producto-detalle-categoria">
                     COLECCIÓN MACHOS
                 </span>
-
-                <h1>Sweater Sr Teddy</h1>
-
-                <span class="promo-etiqueta">PROMOCIÓN</span>
-
-                <p class="producto-detalle-descripcion">
+<h1>Sweater Sr Teddy</h1>
+<span class="promo-etiqueta">PROMOCIÓN</span>
+<p class="producto-detalle-descripcion">
                     Un sweater de estilo adorable y acogedor,
                     ideal para darle a tu mascota un look tierno
                     y moderno. Su tono marrón aporta una apariencia
                     cálida y fácil de combinar.
                 </p>
-
-                <!-- COLORES -->
-                <div class="producto-detalle-seccion">
-                    <h3>Colores</h3>
-
-                    <div class="colores-producto">
-                        <div class="color-opcion">
-                            <span class="color-circulo color-marron"></span>
-                            <span>Marrón</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TALLAS Y PRECIOS -->
-                <div class="producto-detalle-seccion">
-                    <h3>Tallas y precios</h3>
-
-                    <div class="tallas-precios">
-
-                        <div>
-                            <span>Talla 3</span>
-                            <p>
-                                <span class="promo-regular">S/ 34.50</span>
-                                <strong class="promo-precio">S/ 23.00</strong>
-                            </p>
-                            <span class="promo-ahorro">
+<!-- COLORES -->
+<div class="producto-detalle-seccion">
+<h3>Colores</h3>
+<div class="colores-producto">
+<div aria-pressed="false" class="color-opcion" data-kumino-color="Marrón" role="button" tabindex="0">
+<span class="color-circulo color-marron"></span>
+<span>Marrón</span>
+</div>
+</div>
+</div>
+<!-- TALLAS Y PRECIOS -->
+<div class="producto-detalle-seccion">
+<h3>Tallas y precios</h3>
+<div class="tallas-precios">
+<div aria-pressed="false" data-kumino-size="3" data-kumino-soldout="false" data-promo-price="23.00" data-regular-price="34.50" role="button" tabindex="0">
+<span>Talla 3</span>
+<p>
+<span class="promo-regular">S/ 34.50</span>
+<strong class="promo-precio">S/ 23.00</strong>
+</p>
+<span class="promo-ahorro">
                                 Ahorras S/ 11.50
                             </span>
-                        </div>
-
-                        <div>
-                            <span>Talla 4</span>
-                            <p>
-                                <span class="promo-regular">S/ 37.50</span>
-                                <strong class="promo-precio">S/ 25.00</strong>
-                            </p>
-                            <span class="promo-ahorro">
+</div>
+<div aria-pressed="false" data-kumino-size="4" data-kumino-soldout="false" data-promo-price="25.00" data-regular-price="37.50" role="button" tabindex="0">
+<span>Talla 4</span>
+<p>
+<span class="promo-regular">S/ 37.50</span>
+<strong class="promo-precio">S/ 25.00</strong>
+</p>
+<span class="promo-ahorro">
                                 Ahorras S/ 12.50
                             </span>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- CARACTERÍSTICAS -->
-                <div class="producto-detalle-seccion">
-                    <h3>Características</h3>
-
-                    <ul class="producto-caracteristicas">
-                        <li>Diseño de estilo tierno y moderno.</li>
-                        <li>Color marrón.</li>
-                        <li>Disponible en tallas 3 y 4.</li>
-                        <li>Precios promocionales según la talla.</li>
-                    </ul>
-                </div>
-
-                <!-- WHATSAPP -->
-                <a
-                    href="https://wa.me/51940151463?text=Hola%20K%C3%9AMINO%2C%20quiero%20consultar%20por%20el%20Sweater%20Sr%20Teddy%20en%20promoci%C3%B3n."
-                    class="btn-comprar-producto"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Consultar por WhatsApp →
-                </a>
-
-                <!-- VOLVER -->
-                <a href="machos.html" class="volver-coleccion">
+</div>
+</div>
+</div>
+<!-- CARACTERÍSTICAS -->
+<div class="producto-detalle-seccion">
+<h3>Características</h3>
+<ul class="producto-caracteristicas">
+<li>Diseño de estilo tierno y moderno.</li>
+<li>Color marrón.</li>
+<li>Disponible en tallas 3 y 4.</li>
+<li>Precios promocionales según la talla.</li>
+</ul>
+</div>
+<!-- WHATSAPP -->
+<button class="btn-comprar-producto" data-category="Machos" data-image="../IMAGENES/sweater-sr-teddy.jpg" data-kumino-add="" data-product-id="sweater-sr-teddy" data-product-name="Sweater Sr Teddy" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="kumino-selection-status">Selecciona una talla y un color para continuar.</span>
+<!-- VOLVER -->
+<a class="volver-coleccion" href="machos.html">
                     ← Volver a colección
                 </a>
-
-            </div>
-        </div>
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="footer-kumino">
-        <div class="footer-container">
-
-            <div class="footer-marca">
-                <h2>KÚMINO</h2>
-                <p>Moda con amor para tu mascota.</p>
-            </div>
-
-            <div class="footer-enlaces">
-                <h3>Navegación</h3>
-                <a href="../index.html">Inicio</a>
-                <a href="machos.html">Machos</a>
-            </div>
-
-            <div class="footer-contacto" id="contacto">
-                <h3>Contáctanos</h3>
-                <a
-                    href="https://wa.me/51940151463"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >WhatsApp</a>
-                <span>Envíos a todo el Perú</span>
-            </div>
-
-        </div>
-
-        <div class="footer-bottom">
-            <p>© 2026 KÚMINO. Todos los derechos reservados.</p>
-            <span>Moda con amor para tu mascota</span>
-        </div>
-    </footer>
-
-</body>
+</div>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="footer-kumino">
+<div class="footer-container">
+<div class="footer-marca">
+<h2>KÚMINO</h2>
+<p>Moda con amor para tu mascota.</p>
+</div>
+<div class="footer-enlaces">
+<h3>Navegación</h3>
+<a href="../index.html">Inicio</a>
+<a href="machos.html">Machos</a>
+</div>
+<div class="footer-contacto" id="contacto">
+<h3>Contáctanos</h3>
+<a href="https://wa.me/51940151463" rel="noopener noreferrer" target="_blank">WhatsApp</a>
+<span>Envíos a todo el Perú</span>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2026 KÚMINO. Todos los derechos reservados.</p>
+<span>Moda con amor para tu mascota</span>
+</div>
+</footer>
+<script>
+(() => {
+  'use strict';
+  const add = document.querySelector('[data-kumino-add]');
+  if (!add) return;
+  const sizeCards = Array.from(document.querySelectorAll('.tallas-precios > div[data-kumino-size]'));
+  const colorOptions = Array.from(document.querySelectorAll('.color-opcion[data-kumino-color]'));
+  const status = document.querySelector('.kumino-selection-status');
+  let selectedSize = null;
+  let selectedColor = colorOptions.length === 1 ? colorOptions[0].dataset.kuminoColor : null;
+  function update() {
+    const ready = Boolean(selectedSize && selectedColor);
+    add.disabled = !ready;
+    if (ready) {
+      add.dataset.size = selectedSize.size;
+      add.dataset.regularPrice = selectedSize.regular;
+      add.dataset.promoPrice = selectedSize.promo;
+      add.dataset.color = selectedColor;
+      status.textContent = `Seleccionado: Talla ${selectedSize.size} · ${selectedColor} · S/ ${Number(selectedSize.promo).toFixed(2)}`;
+    } else if (!selectedSize && !selectedColor) status.textContent = 'Selecciona un color y una talla para continuar.';
+    else if (!selectedColor) status.textContent = 'Selecciona un color para continuar.';
+    else status.textContent = 'Selecciona una talla para continuar.';
+  }
+  sizeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      if (card.dataset.kuminoSoldout === 'true') return;
+      sizeCards.forEach(item => { item.classList.remove('kumino-selected'); item.setAttribute('aria-pressed','false'); });
+      card.classList.add('kumino-selected'); card.setAttribute('aria-pressed','true');
+      selectedSize = { size: card.dataset.kuminoSize, regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
+      update();
+    });
+    card.addEventListener('keydown', event => { if ((event.key==='Enter'||event.key===' ') && card.tagName!=='BUTTON') { event.preventDefault(); card.click(); } });
+  });
+  colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      selectedColor = option.dataset.kuminoColor;
+      colorOptions.forEach(item => { item.classList.toggle('kumino-color-selected',item===option); item.setAttribute('aria-pressed',String(item===option)); });
+      update();
+    });
+    option.addEventListener('keydown', event => { if ((event.key==='Enter'||event.key===' ') && option.tagName!=='BUTTON') { event.preventDefault(); option.click(); } });
+  });
+  if (colorOptions.length === 1) { colorOptions[0].classList.add('kumino-color-selected'); colorOptions[0].setAttribute('aria-pressed','true'); }
+  update();
+})();
+</script>
+<script src="../kumino-cart.js"></script></body>
 </html>
 ```
