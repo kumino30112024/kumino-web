@@ -144,6 +144,44 @@
             background: #47734b;
         }
 
+        /* OPCIONES DE COLOR: MISMO ESTILO VISUAL DE ESCOCESA */
+        .navidad-colores-opciones {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navidad-color-opcion {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            padding: 6px 10px;
+            border: 1px solid transparent;
+            border-radius: 22px;
+            background: transparent;
+            color: #514b44;
+            font: inherit;
+            font-size: 13px;
+            cursor: pointer;
+            transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+        }
+
+        .navidad-color-opcion:hover {
+            background: rgba(255,255,255,.45);
+        }
+
+        .navidad-color-opcion.kumino-color-seleccionado {
+            border-color: #71343a;
+            background: rgba(255,255,255,.55);
+            box-shadow: 0 0 0 1px #71343a;
+        }
+
+        .navidad-color-opcion:focus-visible {
+            outline: 2px solid #71343a;
+            outline-offset: 3px;
+        }
+
         /* TALLAS Y PRECIOS */
 
         .navidad-tallas-precios {
@@ -293,13 +331,13 @@
             }
 
             .navidad-producto-main {
-                padding: 30px 16px 45px !important;
+                padding: 30px 16px 45px;
             }
 
             .navidad-producto-container {
                 grid-template-columns: 1fr;
                 gap: 22px;
-                padding: 0 !important;
+                padding: 0;
                 background: transparent;
                 border: none;
                 border-radius: 0;
@@ -310,21 +348,23 @@
                 width: 100%;
                 height: auto;
                 max-height: none;
-                aspect-ratio: 4 / 5;
-                border-radius: 15px;
-                overflow: hidden;
+                aspect-ratio: auto;
                 background: transparent;
                 border: none;
+                border-radius: 15px;
+                overflow: hidden;
                 box-shadow: 0 10px 28px rgba(73,43,28,.18);
             }
 
             .navidad-producto-imagen img {
                 display: block;
                 width: 100%;
-                height: 100%;
+                height: auto;
+                max-height: none;
                 object-fit: contain;
-                mix-blend-mode: multiply;
-                filter: drop-shadow(0 10px 16px rgba(65,43,28,.12));
+                object-position: center;
+                mix-blend-mode: normal;
+                filter: none;
             }
 
             .navidad-producto-categoria {
@@ -481,9 +521,7 @@
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
 
-.navidad-color { padding: 5px 8px; border: 1px solid transparent; border-radius: 22px; background: transparent; cursor: pointer; font: inherit; }
-.navidad-color.kumino-color-seleccionado { border-color: #71343a; background: rgba(255,255,255,.55); box-shadow: 0 0 0 1px #71343a; }
-.navidad-color:focus-visible { outline: 2px solid #71343a; outline-offset: 3px; }
+
 </style>
 </head>
 <body>
@@ -501,45 +539,26 @@
 <!-- PRODUCTO -->
 <main class="navidad-producto-main">
 <div class="navidad-producto-container">
-<!-- IMAGEN -->
 <div class="navidad-producto-imagen">
-<img alt="Abrigo Fantasía Navideña en diseños de Papá Noel y Árbol de Navidad" src="../IMAGENES/abrigofantasianavidena.jpg"/>
+<img alt="Abrigo Fantasía Navideña para mascotas" src="../IMAGENES/abrigofantasianavidena.jpg"/>
 </div>
-<!-- INFORMACIÓN -->
 <div class="navidad-producto-info">
-<span class="navidad-producto-categoria">
-                    COLECCIÓN NAVIDEÑA
-                </span>
+<span class="navidad-producto-categoria">COLECCIÓN NAVIDEÑA</span>
 <h1>Abrigo Fantasía Navideña</h1>
-<span class="navidad-promo-etiqueta">
-                    PRECIO PROMOCIONAL
-                </span>
+<span class="navidad-promo-etiqueta">PRECIO PROMOCIONAL</span>
 <p class="navidad-producto-descripcion">
                     ¡Un encantador abrigo afelpado que combina comodidad
                     y espíritu festivo, disponible en dos diseños llenos
                     de color para que tu engreído luzca adorable durante
                     las fiestas!
                 </p>
-<!-- COLOR -->
 <section class="navidad-producto-seccion">
-<h2>Color</h2>
-<div class="navidad-colores-lista">
-<button aria-pressed="false" class="navidad-color" data-kumino-color="Rojo" type="button">
-<span class="navidad-color-muestra navidad-color-rojo"></span>
-<span>Rojo</span>
-</button>
-<button aria-pressed="false" class="navidad-color" data-kumino-color="Verde" type="button">
-<span class="navidad-color-muestra navidad-color-verde"></span>
-<span>Verde</span>
-</button>
-</div>
+<h2>Colores disponibles</h2>
+<div class="navidad-colores-opciones" role="group" aria-label="Selecciona el color"><button class="navidad-color-opcion" type="button" data-color-choice="Rojo" aria-pressed="false"><span class="navidad-color-muestra" aria-hidden="true" style="background:#c62828"></span><span>Rojo</span></button><button class="navidad-color-opcion" type="button" data-color-choice="Verde" aria-pressed="false"><span class="navidad-color-muestra" aria-hidden="true" style="background:#7A9B76"></span><span>Verde</span></button></div>
 </section>
-<!-- TALLAS Y PRECIOS -->
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
-<div class="navidad-tallas-precios">
-<!-- TALLA 3 -->
-<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-promo-price="38.00" data-regular-price="53.20" type="button">
+<div class="navidad-tallas-precios"><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="1" data-promo-price="33.00" data-regular-price="46.20" type="button"><strong>Talla 1</strong><span class="navidad-precio-regular">S/ 46.20</span><span class="navidad-precio-promo">S/ 33.00</span><span class="navidad-ahorro">Ahorras S/ 13.20</span></button><button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-promo-price="38.00" data-regular-price="53.20" type="button">
 <strong>Talla 3</strong>
 <span class="navidad-precio-regular">
                 S/ 53.20
@@ -550,12 +569,8 @@
 <span class="navidad-ahorro">
                 Ahorras S/ 15.20
             </span>
-</button>
-<!-- TALLA 3 -->
-
-</div>
+</button></div>
 </section>
-<!-- CARACTERÍSTICAS -->
 <section class="navidad-producto-seccion">
 <h2>Características</h2>
 <ul class="navidad-caracteristicas">
@@ -565,15 +580,10 @@
 <li>Lazo satinado verde en el diseño de Papá Noel.</li>
 </ul>
 </section>
-<!-- WHATSAPP -->
-<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="" data-image="../IMAGENES/abrigofantasianavidena.jpg" data-kumino-add="" data-product-id="abrigo-fantasia-navidena" data-product-name="Abrigo Fantasía Navideña" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
-<!-- VOLVER -->
-<a class="navidad-volver" href="navidad.html">
-                    ← Volver a colección
-                </a>
-</div>
-</div>
-</main>
+<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="" data-image="../IMAGENES/abrigofantasianavidena.jpg" data-kumino-add="" data-product-id="abrigo-fantasia-navidena" data-product-name="Abrigo Fantasía Navideña" disabled="disabled" type="button">Agregar al carrito</button>
+<span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
+<a class="navidad-volver" href="navidad.html">← Volver a colección</a>
+</div></div></main>
 <!-- FOOTER -->
 <footer class="footer-kumino">
 <div class="footer-container">
@@ -605,18 +615,14 @@
   'use strict';
   const addButton = document.querySelector('[data-kumino-add]');
   if (!addButton) return;
-
   const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
-  const colorOptions = Array.from(document.querySelectorAll('[data-kumino-color]'));
-  let selectedColor = '';
+  const colorOptions = Array.from(document.querySelectorAll('[data-color-choice]'));
   const notice = document.querySelector('.navidad-seleccion-aviso');
-  const productName = addButton.dataset.productName;
   let selected = null;
-
-  const currentColor = () => selectedColor;
+  let selectedColor = addButton.dataset.defaultColor || '';
 
   function refresh() {
-    const color = currentColor();
+    const color = selectedColor;
     const ready = Boolean(selected && color);
     addButton.disabled = !ready;
     if (ready) {
@@ -624,37 +630,25 @@
       addButton.dataset.regularPrice = selected.regular;
       addButton.dataset.promoPrice = selected.promo;
       addButton.dataset.color = color;
-      notice.textContent = `Seleccionado: ${selected.size} · ${color}`;
+      notice.textContent = `Seleccionado: Talla ${selected.size} · ${color}`;
     } else if (!selected) {
       notice.textContent = 'Selecciona una talla para continuar.';
     } else {
       notice.textContent = 'Selecciona un color para continuar.';
     }
   }
-
-  sizeCards.forEach(card => {
-    card.addEventListener('click', () => {
-      sizeCards.forEach(item => {
-        item.classList.remove('kumino-talla-seleccionada');
-        item.setAttribute('aria-pressed', 'false');
-      });
-      card.classList.add('kumino-talla-seleccionada');
-      card.setAttribute('aria-pressed', 'true');
-      selected = {
-        size: card.dataset.kuminoSize,
-        regular: card.dataset.regularPrice,
-        promo: card.dataset.promoPrice
-      };
-      refresh();
-    });
-  });
-
   colorOptions.forEach(option => option.addEventListener('click', () => {
-    selectedColor = option.dataset.kuminoColor;
-    colorOptions.forEach(item => {
-      item.classList.toggle('kumino-color-seleccionado', item === option);
-      item.setAttribute('aria-pressed', item === option ? 'true' : 'false');
-    });
+    colorOptions.forEach(item => { item.classList.remove('kumino-color-seleccionado'); item.setAttribute('aria-pressed','false'); });
+    option.classList.add('kumino-color-seleccionado');
+    option.setAttribute('aria-pressed','true');
+    selectedColor = option.dataset.colorChoice;
+    refresh();
+  }));
+  sizeCards.forEach(card => card.addEventListener('click', () => {
+    sizeCards.forEach(item => { item.classList.remove('kumino-talla-seleccionada'); item.setAttribute('aria-pressed','false'); });
+    card.classList.add('kumino-talla-seleccionada');
+    card.setAttribute('aria-pressed','true');
+    selected = { size: card.dataset.kuminoSize, regular: card.dataset.regularPrice, promo: card.dataset.promoPrice };
     refresh();
   }));
   refresh();
