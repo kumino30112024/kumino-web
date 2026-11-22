@@ -705,6 +705,124 @@ body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
   }
 }
 
+
+/* AJUSTE FINAL: igualar filtros, precios y avisos al diseño de HEMBRAS */
+/* Evita que el aviso se duplique dentro de la cápsula del precio. */
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos p::after {
+  content: none !important;
+  display: none !important;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 6px 12px !important;
+  border: 0 !important;
+  border-radius: 24px !important;
+  background: #7A9B76 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+  font: 600 13px/1.25 'Poppins', sans-serif !important;
+  white-space: nowrap !important;
+}
+body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: max-content !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 3px 8px !important;
+  border: 0 !important;
+  border-radius: 15px !important;
+  background: rgba(122,155,118,.17) !important;
+  color: #526B50 !important;
+  box-shadow: none !important;
+  font: 500 10px/1.35 'Poppins', sans-serif !important;
+  white-space: nowrap !important;
+}
+
+/* Una sola barra horizontal de filtros en escritorio, como HEMBRAS. */
+@media (min-width: 601px) {
+  body.pagina-hembras .halloween-controles {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    width: min(1120px, calc(100% - 48px)) !important;
+    max-width: 1120px !important;
+    min-height: 80px !important;
+    margin: 28px auto 34px !important;
+    padding: 12px 18px !important;
+    box-sizing: border-box !important;
+    background: rgba(255,255,255,.96) !important;
+    border: 1px solid rgba(255,255,255,.75) !important;
+    border-radius: 40px !important;
+    box-shadow: 0 8px 22px rgba(75,54,43,.08) !important;
+  }
+  body.pagina-hembras .halloween-controles > .categorias-catalogo {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  body.pagina-hembras .halloween-controles > .categorias-catalogo button {
+    flex: 0 1 auto !important;
+    padding: 11px 13px !important;
+    border: 0 !important;
+    border-radius: 24px !important;
+    background: transparent !important;
+    color: #333333 !important;
+    font: 500 13px/1.2 'Poppins', sans-serif !important;
+    white-space: nowrap !important;
+  }
+  body.pagina-hembras .halloween-controles > .categorias-catalogo button.categoria-activa,
+  body.pagina-hembras .halloween-controles > .categorias-catalogo button.categoria-activa:hover {
+    background: #7A9B76 !important;
+    color: #FFFFFF !important;
+  }
+  body.pagina-hembras .halloween-controles .filtro-talla-desktop {
+    display: flex !important;
+    flex: 0 0 200px !important;
+    margin: 0 !important;
+  }
+  body.pagina-hembras .halloween-controles .filtro-talla-personalizado {
+    width: 100% !important;
+  }
+  body.pagina-hembras .halloween-controles .btn-talla-desktop {
+    min-height: 52px !important;
+    padding: 0 15px !important;
+    border: 1px solid #DCE2D7 !important;
+    border-radius: 28px !important;
+    background: #FFFFFF !important;
+    color: #333333 !important;
+    font: 400 13px 'Poppins', sans-serif !important;
+  }
+  body.pagina-hembras .halloween-controles .filtros-movil {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  body.pagina-hembras .producto-catalogo.hembras-card .catalogo-datos > p {
+    padding: 5px 9px !important;
+    font-size: 11px !important;
+  }
+  body.pagina-hembras .producto-catalogo.hembras-card .aviso-precio-talla {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+  }
+}
+
 </style>
 
 
