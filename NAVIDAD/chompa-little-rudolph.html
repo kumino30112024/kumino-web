@@ -519,57 +519,6 @@
 .navidad-agregar-carrito:hover:not(:disabled) { background: #40563f; transform: translateY(-2px); }
 .navidad-agregar-carrito:disabled { opacity: .52; cursor: not-allowed; box-shadow: none; }
 .navidad-seleccion-aviso { display: block; min-height: 17px; margin-top: 9px; color: #81363d; font-size: 12px; line-height: 1.5; }
-
-/* SELECTOR DE COLORES: MISMO LENGUAJE VISUAL DE LA FICHA ESCOCESA */
-.little-rudolph-colores {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 18px;
-}
-.little-rudolph-color {
-    display: inline-flex;
-    align-items: center;
-    gap: 9px;
-    padding: 2px 0;
-    border: 0;
-    background: transparent;
-    color: #514b44;
-    font: inherit;
-    font-size: 13px;
-    cursor: pointer;
-}
-.little-rudolph-muestra {
-    width: 17px;
-    height: 17px;
-    display: inline-block;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    box-shadow: 0 0 0 1px #b8a99a;
-}
-.little-rudolph-muestra.rojo { background: #a71925; }
-.little-rudolph-muestra.verde { background: #526b50; }
-.little-rudolph-color.seleccionado .little-rudolph-muestra {
-    outline: 2px solid #71343a;
-    outline-offset: 2px;
-}
-.little-rudolph-color:focus-visible {
-    outline: 2px solid rgba(129,54,61,.35);
-    outline-offset: 4px;
-    border-radius: 4px;
-}
-.little-rudolph-precio { grid-template-columns: minmax(130px, 150px); }
-.little-rudolph-talla { cursor: default; }
-.little-rudolph-consulta {
-    display: block;
-    color: #963b42;
-    font-size: 12px;
-    line-height: 1.5;
-}
-@media (max-width: 760px) {
-    .little-rudolph-precio { grid-template-columns: minmax(0, 150px); }
-}
-
 </style>
 </head>
 <body>
@@ -606,24 +555,43 @@
 <!-- COLOR -->
 <section class="navidad-producto-seccion">
 <h2>Color</h2>
-<div class="little-rudolph-colores" role="group" aria-label="Selecciona el color">
-  <button class="little-rudolph-color seleccionado" type="button" data-color="Rojo" aria-pressed="true">
-    <span class="little-rudolph-muestra rojo"></span><span>Rojo</span>
-  </button>
-  <button class="little-rudolph-color" type="button" data-color="Verde" aria-pressed="false">
-    <span class="little-rudolph-muestra verde"></span><span>Verde</span>
-  </button>
+<div class="navidad-color">
+<span class="navidad-color-muestra"></span>
+<span>Rojo</span>
 </div>
 </section>
 <!-- TALLAS Y PRECIOS -->
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
-<div class="navidad-tallas-precios little-rudolph-precio">
-  <div class="navidad-talla-card little-rudolph-talla">
-    <strong>Talla 1</strong>
-    <span class="little-rudolph-consulta">Consulta el precio por WhatsApp</span>
-  </div>
+<div class="navidad-tallas-precios">
+<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="2" data-promo-price="35.00" data-regular-price="49.00" type="button">
+<strong>Talla 2</strong>
+<span class="navidad-precio-regular">
+                                S/ 49.00
+                            </span>
+<span class="navidad-precio-promo">
+                                S/ 35.00
+                            </span>
+<span class="navidad-ahorro">
+                                Ahorras S/ 14.00
+                            </span>
+</button>
+<button aria-pressed="false" class="navidad-talla-card" data-kumino-size="3" data-promo-price="40.00" data-regular-price="56.00" type="button">
+<strong>Talla 3</strong>
+<span class="navidad-precio-regular">
+                                S/ 56.00
+                            </span>
+<span class="navidad-precio-promo">
+                                S/ 40.00
+                            </span>
+<span class="navidad-ahorro">
+                                Ahorras S/ 16.00
+                            </span>
+</button>
 </div>
+<span class="navidad-aviso-precio">
+                        Los precios varían según la talla.
+                    </span>
 </section>
 <!-- CARACTERÍSTICAS -->
 <section class="navidad-producto-seccion">
@@ -636,7 +604,7 @@
 </ul>
 </section>
 <!-- WHATSAPP -->
-<a class="navidad-btn-whatsapp" id="little-rudolph-whatsapp" href="https://wa.me/51940151463?text=Hola%2C%20quisiera%20consultar%20por%20la%20Chompa%20Little%20Rudolph%20en%20talla%201%20-%20Rojo." target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a>
+<button class="navidad-agregar-carrito" data-category="navidad" data-default-color="Rojo" data-image="../IMAGENES/chompalittlerudolph.jpg" data-kumino-add="" data-product-id="chompa-little-rudolph" data-product-name="Chompa Little Rudolph" disabled="disabled" type="button">Agregar al carrito</button><span aria-live="polite" class="navidad-seleccion-aviso">Selecciona una talla para continuar.</span>
 <!-- VOLVER -->
 <a class="navidad-volver" href="navidad.html">
                     ← Volver a colección
@@ -673,24 +641,54 @@
 <script>
 (() => {
   'use strict';
-  const colorButtons = Array.from(document.querySelectorAll('.little-rudolph-color'));
-  const whatsappLink = document.getElementById('little-rudolph-whatsapp');
+  const addButton = document.querySelector('[data-kumino-add]');
+  if (!addButton) return;
 
-  function updateColor(button) {
-    colorButtons.forEach(item => {
-      const active = item === button;
-      item.classList.toggle('seleccionado', active);
-      item.setAttribute('aria-pressed', String(active));
-    });
-    const color = button.dataset.color;
-    const message = `Hola, quisiera consultar por la Chompa Little Rudolph en talla 1 - ${color}.`;
-    whatsappLink.href = `https://wa.me/51940151463?text=${encodeURIComponent(message)}`;
+  const sizeCards = Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
+  const colorSelect = document.querySelector('.navidad-color-selector');
+  const notice = document.querySelector('.navidad-seleccion-aviso');
+  const productName = addButton.dataset.productName;
+  let selected = null;
+
+  const currentColor = () => colorSelect ? colorSelect.value : addButton.dataset.defaultColor;
+
+  function refresh() {
+    const color = currentColor();
+    const ready = Boolean(selected && color);
+    addButton.disabled = !ready;
+    if (ready) {
+      addButton.dataset.size = selected.size;
+      addButton.dataset.regularPrice = selected.regular;
+      addButton.dataset.promoPrice = selected.promo;
+      addButton.dataset.color = color;
+      notice.textContent = `Seleccionado: ${selected.size} · ${color}`;
+    } else if (!selected) {
+      notice.textContent = 'Selecciona una talla para continuar.';
+    } else {
+      notice.textContent = 'Selecciona un color para continuar.';
+    }
   }
 
-  colorButtons.forEach(button => {
-    button.addEventListener('click', () => updateColor(button));
+  sizeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      sizeCards.forEach(item => {
+        item.classList.remove('kumino-talla-seleccionada');
+        item.setAttribute('aria-pressed', 'false');
+      });
+      card.classList.add('kumino-talla-seleccionada');
+      card.setAttribute('aria-pressed', 'true');
+      selected = {
+        size: card.dataset.kuminoSize,
+        regular: card.dataset.regularPrice,
+        promo: card.dataset.promoPrice
+      };
+      refresh();
+    });
   });
+
+  if (colorSelect) colorSelect.addEventListener('change', refresh);
+  refresh();
 })();
 </script>
-</body>
+<script src="../kumino-cart.js"></script></body>
 </html>
