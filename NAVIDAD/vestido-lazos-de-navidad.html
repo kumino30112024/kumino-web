@@ -23,7 +23,9 @@ body{background-image:linear-gradient(rgba(255,250,242,.08),rgba(255,250,242,.08
 .navidad-color-muestra{width:17px;height:17px;border:2px solid #fff;border-radius:50%;background:#a71925;box-shadow:0 0 0 1px #b8a99a}
 .navidad-tallas-precios{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .navidad-talla-card{min-width:0;padding:13px 9px;border:1px solid rgba(157,122,76,.28);border-radius:12px;background:rgba(255,250,242,.65);text-align:center;backdrop-filter:blur(3px);appearance:none;-webkit-appearance:none;width:100%;margin:0;color:inherit;font:inherit;cursor:pointer;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease}
-.navidad-talla-card:hover{border-color:#81363d;transform:translateY(-2px)}
+.navidad-talla-card:hover:not(:disabled){border-color:#81363d;transform:translateY(-2px)}
+.navidad-talla-card:disabled{cursor:not-allowed;opacity:.72;background:rgba(235,229,220,.72);border-style:dashed}
+.navidad-talla-agotada{display:block;margin-top:7px;color:#963b42;font-size:11px;font-weight:800;letter-spacing:.7px}
 .navidad-talla-card.kumino-talla-seleccionada{border:2px solid #81363d;background:rgba(255,245,238,.96);box-shadow:0 4px 13px rgba(91,35,40,.12)}
 .navidad-talla-card:focus-visible{outline:3px solid rgba(129,54,61,.28);outline-offset:3px}
 .navidad-talla-card strong{display:block;margin-bottom:9px;color:#4c5145;font-size:13px}
@@ -600,8 +602,8 @@ body{background-attachment:scroll;background-position:center top;background-size
 <section class="navidad-producto-seccion">
 <h2>Tallas y precios</h2>
 <div class="navidad-tallas-precios">
-<button type="button" class="navidad-talla-card" data-kumino-size="1" data-color="Rojo" data-promo-price="24.00" data-regular-price="33.60" aria-pressed="false">
-<strong>Talla 1</strong><span class="navidad-precio-regular">S/ 33.60</span><span class="navidad-precio-promo">S/ 24.00</span><span class="navidad-ahorro">Ahorras S/ 9.60</span>
+<button type="button" class="navidad-talla-card" data-kumino-size="1" data-color="Rojo" data-promo-price="24.00" data-regular-price="33.60" aria-pressed="false" disabled aria-label="Talla 1 agotada">
+<strong>Talla 1</strong><span class="navidad-precio-regular">S/ 33.60</span><span class="navidad-precio-promo">S/ 24.00</span><span class="navidad-ahorro">Ahorras S/ 9.60</span><span class="navidad-talla-agotada">AGOTADO</span>
 </button>
 <button type="button" class="navidad-talla-card" data-kumino-size="2" data-color="Rojo" data-promo-price="26.00" data-regular-price="36.40" aria-pressed="false">
 <strong>Talla 2</strong><span class="navidad-precio-regular">S/ 36.40</span><span class="navidad-precio-promo">S/ 26.00</span><span class="navidad-ahorro">Ahorras S/ 10.40</span>
@@ -633,7 +635,7 @@ body{background-attachment:scroll;background-position:center top;background-size
 'use strict';
 const addButton=document.querySelector('[data-kumino-add]');
 if(!addButton)return;
-const sizeCards=Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]'));
+const sizeCards=Array.from(document.querySelectorAll('.navidad-talla-card[data-kumino-size]:not(:disabled)'));
 const notice=document.querySelector('.navidad-seleccion-aviso');
 let selected=null;
 function refresh(){
